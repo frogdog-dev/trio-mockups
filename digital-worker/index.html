@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Digital Workers | Trio Workforce Solutions — concept</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
+:root{
+  --navy:#14345E; --cyan:#00AAE4; --green:#78BA43; --orange:#F58220; --slate:#455560;
+  --ink:#25323d; --muted:#5c6b78; --line:#dbe6ef; --mist:#f1f7fb; --mist2:#e8f2f9; --white:#fff;
+  --shadow:0 22px 60px rgba(20,52,94,.14); --soft:0 12px 30px rgba(20,52,94,.09);
+  --maxw:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',system-ui,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.eyebrow:before{content:"";width:34px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--cyan),var(--green))}
+h1{font-size:58px;line-height:1.03;letter-spacing:-.02em;font-weight:800;color:var(--navy)}
+h2{font-size:40px;line-height:1.08;letter-spacing:-.018em;font-weight:800;color:var(--navy)}
+h3{font-size:21px;font-weight:800;color:var(--navy);letter-spacing:-.01em}
+.lead{font-size:20px;line-height:1.5;font-weight:500;color:#43566a}
+.sec{padding:86px 0}
+.sec-head{max-width:64ch}
+.sec-head h2{margin-top:14px}.sec-head p{margin-top:16px}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:8px;padding:15px 26px;font-weight:700;font-size:15px;cursor:pointer;border:0;transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--cyan);color:#fff;box-shadow:0 12px 24px rgba(0,170,228,.28)}
+.btn-primary:hover{background:#0098cc}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-ghost{background:transparent;color:var(--navy);border:2px solid var(--line)}
+/* hexagon badge */
+.hexbadge{width:52px;height:58px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:19px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+/* header */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.2s}
+header.nav.stuck{border-color:var(--line);box-shadow:0 6px 20px rgba(20,52,94,.06)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--navy);font-size:19px;letter-spacing:-.01em}
+.nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:600;color:var(--slate)}
+@media(max-width:860px){.nav-links{display:none}}
+/* concept banner */
+.cbar{background:var(--navy);color:#bcd6ea;font-size:12px;text-align:center;padding:7px 16px;letter-spacing:.02em}.cbar b{color:#fff}
+/* HERO */
+.hero{background:linear-gradient(125deg,var(--cyan) 0%,#0f6fb0 42%,var(--navy) 100%);color:#fff;overflow:hidden;position:relative}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 20%,rgba(120,186,67,.20),transparent 40%);pointer-events:none}
+.hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:96px 0 92px}
+.hero .eyebrow{color:#bfeaff}.hero .eyebrow:before{background:linear-gradient(90deg,#fff,var(--green))}
+.hero h1{color:#fff;margin-top:16px;max-width:15ch}
+.hero p{margin-top:20px;font-size:20px;line-height:1.5;color:#e4f4fd;max-width:46ch;font-weight:500}
+.hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.hexcluster{position:relative;height:340px}
+.hexnode{position:absolute;width:118px;height:132px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;gap:4px;box-shadow:0 18px 40px rgba(0,0,0,.22)}
+.hexnode small{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
+.hexnode b{font-size:12.5px;font-weight:800;line-height:1.15}
+.hn1{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);left:34%;top:24%}
+.hn2{background:var(--green);left:6%;top:52%}
+.hn3{background:rgba(255,255,255,.14);border:1px dashed rgba(255,255,255,.4);left:62%;top:56%;opacity:.85}
+.hn4{background:var(--cyan);border:1px solid rgba(255,255,255,.35);left:33%;top:2%;width:88px;height:98px}
+@media(max-width:860px){.hero-in{grid-template-columns:1fr}.hexcluster{display:none}}
+/* concept editorial split */
+.concept{background:var(--mist)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-top:8px}
+.split .big{font-size:32px;font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:-.015em}
+.split p{font-size:17px;color:#45586b;margin-top:14px}
+.tagline{margin-top:22px;font-weight:800;color:var(--cyan);font-size:18px}
+@media(max-width:820px){.split{grid-template-columns:1fr;gap:22px}}
+/* roles */
+.role{border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--soft);margin-top:22px;overflow:hidden}
+.role-head{display:flex;align-items:center;gap:20px;padding:24px 26px;cursor:pointer}
+.role-head .txt{flex:1}
+.role-head h3{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.livebadge{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#3f7d1e;background:rgba(120,186,67,.16);border:1px solid rgba(120,186,67,.4);border-radius:999px;padding:3px 10px}
+.role-head p{color:var(--muted);font-size:15px;margin-top:6px;max-width:70ch}
+.role-head .chev{flex:none;color:var(--cyan);font-size:22px;transition:transform .25s}
+.role.open .chev{transform:rotate(180deg)}
+.role-detail{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--mist)}
+.role-detail .inner{padding:8px 26px 26px;border-top:1px solid var(--line)}
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:18px}
+.role-grid .rl{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--cyan)}
+.role-grid p{font-size:14.5px;color:#43566a;margin-top:6px}
+.proof{display:inline-block;margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--ink)}
+.proof b{color:var(--navy)}
+.role-cta{margin-top:18px}
+@media(max-width:820px){.role-grid{grid-template-columns:1fr}}
+.more-tile{margin-top:22px;border:1.5px dashed var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:16px;color:var(--muted);background:linear-gradient(180deg,#fff,var(--mist))}
+.more-tile .hexbadge{background:var(--slate);opacity:.55}
+.rolesnote{margin-top:16px;color:var(--slate);font-style:italic;font-size:14.5px}
+/* three-up */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--soft)}
+.step h3{margin:16px 0 8px;font-size:18px}
+.step p{color:var(--muted);font-size:14.5px}
+.stepclose{text-align:center;margin-top:32px;font-size:20px;font-weight:800;color:var(--navy)}
+@media(max-width:820px){.grid3{grid-template-columns:1fr}}
+/* outcomes dark band */
+.outcomes{background:linear-gradient(140deg,#0f2947,var(--navy) 55%,#10365f);color:#dce9f5}
+.outcomes .eyebrow{color:#7fd4f5}.outcomes .eyebrow:before{background:linear-gradient(90deg,#38c0e0,var(--green))}
+.outcomes h2{color:#fff}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px}
+.ocard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:24px;backdrop-filter:blur(6px)}
+.ocard .dm{width:34px;height:38px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);margin-bottom:14px}
+.ocard h3{color:#fff;font-size:17px}
+.ocard p{color:#aecadf;font-size:14px;margin-top:8px}
+@media(max-width:900px){.grid4{grid-template-columns:1fr 1fr}}
+/* trust */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.pill{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--soft)}
+.pill h3{margin:16px 0 8px;font-size:18px}.pill p{color:var(--muted);font-size:14.5px}
+.ladder{margin-top:36px;background:var(--mist);border:1px solid var(--line);border-radius:16px;padding:26px}
+.ladder .rl{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+.steps{display:flex;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+.steps .s{background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-weight:800;color:var(--navy);font-size:15px}
+.steps .arw{color:var(--cyan);font-weight:800;font-size:20px}
+.ladder .note{margin-top:16px;color:var(--muted);font-size:14.5px;max-width:80ch}
+@media(max-width:820px){.pillars{grid-template-columns:1fr}}
+/* bridge */
+.bridge{background:linear-gradient(180deg,#fff,var(--mist2))}
+.quote{max-width:900px;margin:26px auto 0;text-align:center}
+.quote .q{font-size:27px;line-height:1.35;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.quote .cite{margin-top:18px;color:var(--slate);font-weight:700}
+.quote .cite span{color:var(--muted);font-weight:500}
+.bridge .lk{display:inline-block;margin-top:24px;color:var(--cyan);font-weight:800}
+/* vision */
+.vision3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.vitem{padding:24px;border-left:3px solid var(--cyan);background:#fff;border-radius:0 14px 14px 0;box-shadow:var(--soft)}
+.vitem h3{font-size:17px}.vitem p{color:var(--muted);font-size:14.5px;margin-top:8px}
+.catalog{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.chip{width:96px;height:108px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;font-weight:800;color:#fff;padding:8px}
+.chip.live{background:var(--cyan)}.chip.live2{background:var(--green)}
+.chip.ghost{background:transparent;border:2px dashed var(--line);color:var(--muted)}
+@media(max-width:820px){.vision3{grid-template-columns:1fr}}
+/* faq */
+.faq{max-width:840px;margin-top:34px}
+.q{border-bottom:1px solid var(--line)}
+.q button{width:100%;text-align:left;background:none;border:0;padding:22px 4px;font-size:18px;font-weight:700;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.q .pl{color:var(--cyan);font-size:24px;font-weight:400;transition:transform .2s}
+.q.open .pl{transform:rotate(45deg)}
+.q .a{max-height:0;overflow:hidden;transition:max-height .25s;color:var(--muted);font-size:15.5px;line-height:1.6}
+.q .a p{padding:0 4px 22px}
+/* cta band */
+.ctaband{background:linear-gradient(125deg,var(--cyan),#0f6fb0 55%,var(--navy));border-radius:26px;padding:56px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 30px 70px rgba(15,80,140,.3)}
+.ctaband h2{color:#fff}.ctaband p{color:#e4f4fd;font-size:18px;margin:14px auto 0;max-width:52ch}
+.ctahex{position:absolute;width:220px;height:246px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:rgba(255,255,255,.1);right:-50px;top:-50px}
+/* footer */
+footer{background:var(--navy);color:#a9c4dc;padding:52px 0 40px}
+footer .fcols{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer .brand{color:#fff}
+footer .fnote{font-size:13.5px;line-height:1.7;margin-top:12px}
+footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding-top:18px;font-size:12.5px;color:#82a3c0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* trio hex logo mark */
+.tmark{width:26px;height:26px;flex:none}
+.pending{display:inline-block;margin-left:10px;font-size:11px;font-weight:700;color:#a9761c;background:rgba(245,130,32,.12);border:1px dashed rgba(245,130,32,.4);border-radius:999px;padding:3px 10px;vertical-align:middle}
+/* ===== red-team pass (DW): chapters, climax, ladder, quote ===== */
+.eyebrow.ch:before{display:none}.eyebrow.ch{gap:0}
+.chno{color:var(--cyan);font-weight:800}
+.chno:after{content:"";display:inline-block;width:20px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--green));border-radius:2px;vertical-align:middle;margin:0 11px 3px 10px}
+.outcomes .chno{color:#7fd4f5}.outcomes .chno:after{background:linear-gradient(90deg,#38c0e0,var(--green))}
+.hero .chno{color:#bfeaff}.hero .chno:after{background:linear-gradient(90deg,#fff,var(--green))}
+.accent{color:var(--cyan)}
+/* second climax: outcomes stat band */
+.outcomes.sec{padding:100px 0}
+.outcomes .sec-head h2{font-size:54px;letter-spacing:-.03em;line-height:1.02}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+.stat{border-top:2px solid rgba(255,255,255,.18);padding-top:16px}
+.stat .fig{font-size:50px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff}
+.stat.c1 .fig{color:#7fe0ff}.stat.c2 .fig{color:#a6e06a}.stat.c3 .fig{color:#ffb27a}
+.stat .lb{margin-top:11px;font-size:13.5px;color:#aecadf;font-weight:600;line-height:1.4}
+.statnote{margin-top:20px;font-size:12.5px;color:#8fabc4;font-style:italic}
+.grid4{margin-top:30px}
+@media(max-width:900px){.statrow{grid-template-columns:1fr 1fr}.outcomes .sec-head h2{font-size:38px}}
+/* differentiate trust pillars from the how-it-works cards */
+.pill{border:0;border-top:4px solid var(--cyan);background:linear-gradient(180deg,#fff,var(--mist))}
+.pillars .pill:nth-child(1){border-top-color:var(--navy)}
+.pillars .pill:nth-child(3){border-top-color:var(--green)}
+.picon{width:46px;height:46px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:13px}
+.pillars .pill:nth-child(1) .picon{background:var(--navy)}
+.pillars .pill:nth-child(2) .picon{background:var(--cyan)}
+.pillars .pill:nth-child(3) .picon{background:var(--green)}
+/* autonomy ladder as an actual climb */
+.climbwrap{margin-top:38px;background:linear-gradient(180deg,var(--mist),#fff);border:1px solid var(--line);border-radius:18px;padding:30px 30px 26px}
+.climbwrap .rl{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+.climb{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;align-items:end}
+.rung{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--soft)}
+.rung .rn{font-size:22px;font-weight:800;color:#cfe0ee;letter-spacing:-.02em}
+.rung h4{font-size:16.5px;color:var(--navy);margin-top:2px;font-weight:800}
+.rung p{font-size:13px;color:var(--muted);margin-top:7px;line-height:1.45}
+.rung.r1{margin-bottom:0}.rung.r2{margin-bottom:26px}.rung.r3{margin-bottom:52px;border-color:rgba(120,186,67,.55)}
+.rung.r3 .rn{color:var(--green)}
+.climb-axis{display:flex;justify-content:space-between;margin-top:2px;font-size:11.5px;font-weight:800;letter-spacing:.05em;color:var(--slate);text-transform:uppercase}
+.climb-axis .up{color:var(--green)}
+.ladder .note{margin-top:18px;color:var(--muted);font-size:14.5px;max-width:80ch}
+/* editorial quote panel */
+.quote{max-width:840px;margin:34px 0 0;text-align:left;background:#fff;border:1px solid var(--line);border-left:5px solid var(--cyan);border-radius:0 16px 16px 0;padding:30px 36px 30px;box-shadow:var(--soft);position:relative}
+.quote:before{content:"\201C";position:absolute;top:2px;left:18px;font-size:74px;color:rgba(0,170,228,.20);font-family:Georgia,serif;line-height:1}
+.quote .q{font-size:25px;line-height:1.4;font-weight:700;color:var(--navy);letter-spacing:-.01em;padding-left:22px}
+.quote .cite{margin-top:18px;padding-left:22px;color:var(--navy);font-weight:800;font-size:16px}
+.quote .cite span{display:block;color:var(--muted);font-weight:500;font-size:14px;margin-top:3px}
+/* role affordance */
+.role-head:hover{background:var(--mist)}
+.viewrole{flex:none;display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-weight:800;font-size:13.5px;border:1.5px solid rgba(0,170,228,.35);border-radius:999px;padding:9px 15px;white-space:nowrap}
+.role-head:hover .viewrole{background:var(--cyan);color:#fff;border-color:var(--cyan)}
+.viewrole .chev{font-size:14px;transition:transform .25s}
+.role.open .viewrole .chev{transform:rotate(180deg)}
+.role.open .viewrole .lbl:after{content:" details"}
+@media(max-width:820px){.climb{grid-template-columns:1fr}.rung{margin-bottom:0!important}.viewrole .lbl{display:none}}
+
+/* ================= VISUAL PUNCH-UP SYSTEM ================= */
+:root{--hex:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+/* monumental ghost chapter numerals behind section heads */
+.sec{overflow:hidden}
+.sec-head{position:relative;z-index:2}
+.ghostnum{position:absolute;z-index:0;font-weight:800;font-size:280px;line-height:.7;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px rgba(20,52,94,.07);pointer-events:none;user-select:none;top:-70px;right:-10px}
+.outcomes .ghostnum{-webkit-text-stroke:2px rgba(0,170,228,.14)}
+@media(max-width:820px){.ghostnum{font-size:150px;top:-30px}}
+/* section depth: dot texture + corner glows */
+.sec.tex:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px,rgba(20,52,94,.055) 1px,transparent 1.6px);background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(120% 70% at 50% 0,#000,transparent 78%);mask-image:radial-gradient(120% 70% at 50% 0,#000,transparent 78%)}
+.sec.glowtl:after{content:"";position:absolute;z-index:0;width:640px;height:640px;border-radius:50%;pointer-events:none;left:-220px;top:-200px;background:radial-gradient(circle,rgba(0,170,228,.10),transparent 66%)}
+.sec.glowbr:after{content:"";position:absolute;z-index:0;width:640px;height:640px;border-radius:50%;pointer-events:none;right:-220px;bottom:-200px;background:radial-gradient(circle,rgba(120,186,67,.11),transparent 66%)}
+.sec.glowtr:after{content:"";position:absolute;z-index:0;width:600px;height:600px;border-radius:50%;pointer-events:none;right:-200px;top:-180px;background:radial-gradient(circle,rgba(245,130,32,.09),transparent 66%)}
+.sec .wrap{position:relative;z-index:2}
+/* upgraded cards: layered shadow + hex-notch top accent + hover lift */
+.step,.pill,.ocard,.vitem,.role,.rung{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.step:hover,.pill:hover,.vitem:hover,.rung:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(20,52,94,.16)}
+.step,.vitem{position:relative}
+.grid3 .step:before,.vision3 .vitem:before{content:"";position:absolute;top:0;left:24px;width:30px;height:5px;border-radius:0 0 4px 4px}
+.grid3 .step:nth-child(1):before{background:var(--cyan)}.grid3 .step:nth-child(2):before{background:var(--green)}.grid3 .step:nth-child(3):before{background:var(--orange)}
+/* clean diagonal section seams — color wedges that overlap the neighbor (no white gap) */
+.seam{position:relative;width:100%;z-index:6;pointer-events:none}
+.seam-hero{height:2.7vw;margin-bottom:-2.7vw;background:linear-gradient(95deg,#1a72b3 0%,#155a94 42%,var(--navy) 100%);clip-path:polygon(0 0,100% 0,0 100%)}
+.seam-otop{height:2.7vw;margin-top:-2.7vw;background:#0f2947;clip-path:polygon(0 100%,100% 0,100% 100%)}
+.seam-obot{height:2.7vw;margin-bottom:-2.7vw;background:#10365f;clip-path:polygon(0 0,100% 0,100% 100%)}
+/* HERO honeycomb field */
+.hero-in{position:relative;z-index:3}
+.hero .ghosthex{position:absolute;z-index:1;width:760px;height:840px;right:-180px;top:-120px;clip-path:var(--hex);border:2px solid rgba(255,255,255,.10);background:transparent;pointer-events:none}
+.hero:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(60% 80% at 18% 12%,rgba(0,170,228,.55),transparent 55%),
+            radial-gradient(52% 70% at 88% 26%,rgba(120,186,67,.34),transparent 52%),
+            radial-gradient(70% 90% at 62% 118%,rgba(13,37,71,.6),transparent 60%);
+  filter:blur(46px);transform:scale(1.25);animation:meshDrift 22s ease-in-out infinite}
+@keyframes meshDrift{50%{transform:scale(1.35) translate3d(3%,-2%,0)}}
+.hexfield{position:relative;height:400px}
+.hexlines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1}
+.hexlines line{stroke:rgba(255,255,255,.45);stroke-width:1.5;stroke-dasharray:5 6;animation:march 3.2s linear infinite}
+@keyframes march{to{stroke-dashoffset:-22}}
+.hx{position:absolute;clip-path:var(--hex);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;z-index:2}
+.hx small{font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.92}
+.hx b{font-size:12px;font-weight:800;line-height:1.15;margin-top:2px;padding:0 6px}
+.hx.solid{box-shadow:0 18px 44px rgba(0,0,0,.28)}
+.hx.glass{background:linear-gradient(135deg,rgba(255,255,255,.20),rgba(255,255,255,.05));border:0;backdrop-filter:blur(9px)}
+.hx.ghost{border:0;background:rgba(255,255,255,.07);outline:1px solid rgba(255,255,255,.16)}
+.hx.dash{background:rgba(255,255,255,.05);outline:1px dashed rgba(255,255,255,.42);color:#e4f4fd}
+.hx.cyan{background:linear-gradient(150deg,#22b8ee,#0088c4)}
+.hx.green{background:linear-gradient(150deg,#8fd05a,#5c9e2e)}
+.hx.float{animation:bob 7s ease-in-out infinite}
+.hx.f2{animation-duration:8.5s;animation-delay:-2s}
+.hx.f3{animation-duration:9.5s;animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.hx .glowdot{position:absolute;width:8px;height:8px;border-radius:50%;background:#eaffd6;bottom:20px;box-shadow:0 0 0 0 rgba(234,255,214,.7);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(234,255,214,.6)}100%{box-shadow:0 0 0 12px rgba(234,255,214,0)}}
+/* STAT BAND signature moment */
+.outcomes:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(50% 80% at 20% 10%,rgba(0,170,228,.28),transparent 55%),radial-gradient(50% 80% at 85% 30%,rgba(120,186,67,.18),transparent 52%);filter:blur(30px)}
+.statrow{position:relative;z-index:2;align-items:end}
+.stat{position:relative;border-top:0;padding:22px 10px 16px}
+.stat:before{content:"";position:absolute;z-index:-1;width:150px;height:166px;left:50%;top:-6px;transform:translateX(-50%);clip-path:var(--hex);background:rgba(255,255,255,.035);outline:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
+.stat .fig{font-size:clamp(58px,7vw,104px);line-height:.92;background:linear-gradient(160deg,#7fe0ff,#a6e06a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 6px 22px rgba(0,170,228,.25))}
+.stat.c3 .fig{background:linear-gradient(160deg,#ffce9e,#f58220);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat.big{transform:scale(1.06)}
+.stat.big .fig{font-size:clamp(66px,8.4vw,124px)}
+@media(max-width:900px){.stat.big{transform:none}}
+/* AUTONOMY LADDER as connected climb */
+.climb{position:relative;grid-template-columns:1fr 1fr 1fr;gap:0;padding:14px 4px 0}
+.climbline{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;z-index:3;pointer-events:none}
+.climbline path{fill:none;stroke:url(#lg);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:2 9;animation:march 4s linear infinite}
+.rung{position:relative;z-index:2;text-align:center;background:#fff;margin:0 8px}
+.rung .rnhex{position:relative;z-index:4;width:56px;height:62px;margin:0 auto 12px;clip-path:var(--hex);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:19px}
+.rung.r1{margin-top:96px}.rung.r2{margin-top:48px}.rung.r3{margin-top:0;border-color:rgba(120,186,67,.6);box-shadow:0 20px 50px rgba(120,186,67,.22)}
+.rung.r1 .rnhex{background:var(--slate)}.rung.r2 .rnhex{background:var(--cyan)}
+.rung.r3 .rnhex{background:var(--green);box-shadow:0 0 0 6px rgba(120,186,67,.18),0 10px 26px rgba(120,186,67,.4)}
+.rung .rn{display:none}
+@media(max-width:820px){.climb{grid-template-columns:1fr}.rung{margin:0 0 14px 0!important}.climbline{display:none}}
+/* role catalog: break the container */
+.role{position:relative;overflow:visible}
+.role:nth-of-type(odd){background:linear-gradient(180deg,#fff,rgba(0,170,228,.045))}
+.role:nth-of-type(even){background:linear-gradient(180deg,#fff,rgba(120,186,67,.05))}
+.role-head .hexbadge{width:82px;height:92px;font-size:26px;margin:-10px 6px -10px -4px;box-shadow:0 16px 34px rgba(20,52,94,.28);position:relative;z-index:2}
+.role-head{align-items:center}
+.role .livedot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:7px;box-shadow:0 0 0 0 rgba(120,186,67,.6);animation:pulse 2.4s ease-out infinite;vertical-align:middle}
+.more-tile{position:relative;overflow:hidden;border-style:solid;border-color:var(--line);background:linear-gradient(120deg,#fff,var(--mist))}
+.more-tile .combwall{position:absolute;right:-10px;top:-20px;bottom:-20px;width:260px;z-index:0;opacity:.5;
+  background-image:radial-gradient(circle at 1px 1px,rgba(20,52,94,.10) 1.4px,transparent 2px);background-size:22px 22px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000)}
+.more-tile>*{position:relative;z-index:2}
+/* quote watermark */
+.bridge .wrap{position:relative}
+.bridge .bighex{position:absolute;z-index:0;width:420px;height:462px;right:-120px;top:-40px;clip-path:var(--hex);background:radial-gradient(circle at 50% 40%,rgba(0,170,228,.10),transparent 62%);pointer-events:none}
+/* CTA warmth */
+.ctaband{background:linear-gradient(125deg,var(--cyan),#0f6fb0 48%,var(--navy)) !important}
+.ctaband:after{content:"";position:absolute;z-index:0;width:660px;height:726px;right:-150px;bottom:-200px;clip-path:var(--hex);background:radial-gradient(circle at 42% 42%,rgba(245,130,32,.6),rgba(245,130,32,.18) 42%,transparent 64%);pointer-events:none}
+.ctaband:before{content:"";position:absolute;z-index:0;width:300px;height:330px;left:-90px;top:-90px;clip-path:var(--hex);background:radial-gradient(circle,rgba(120,186,67,.34),transparent 62%);pointer-events:none}
+#how{background:linear-gradient(180deg,#e8eef7,#dae7f3)}
+#how .step{background:#fff}
+.ctaband>*{position:relative;z-index:2}
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1)}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(2){transition-delay:.08s}.stagger.in>*:nth-child(3){transition-delay:.16s}.stagger.in>*:nth-child(4){transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1;transform:none}.hero:before,.hx.float,.hexlines line,.climbline path,.hx .glowdot,.role .livedot{animation:none}}
+</style>
+<script type='text/javascript' src='https://api.netlify.com/ItOhhIiVgCIveXq44jjqYRLMV557lLVL5mQi0thSYuEuTSEQLrqpcJMCjk_fuO8ssfqEte2haUuwyA1SiVSvPR6OCWbKnlsEMuYf-QEUOGX-Dejd4OS47zx1ulDq5Lgt0JG9CUgWDCnrOx71xk0y7kWdeAaKXv5eiPMTKpPZJhZPE82ClJR-9ybCBOrSe9pCZmMBmcyrvE_oRZjr3gB9NI2CG_k_cj4sFMbshVAnH5KhPUXIXYmK0l6lwIKdurAYQj7cEB73CMu2lF0sUewkGpdVK-0PM3_nH0g4wSKW0clnK2NeyTJRn7GAM69-6G4RJwSETPZmK6XDaAJFvKdtn_W5QDQr55AJp44_OYb16wrvVmCfSaZriw3VUT3MiND5DE-QkfueuN-IVcxlmrLIsCQlclNz4j94YtkvvqUG4mMrdxIiIRPCVjByTWJMnMUbcmAIj5UkuU7k12afwODU29b18vTjcUqIn9p56mL5RlopQn2uebUjZtUUGygHiVlbIVG1FqJ9phI0TL3iVD1fI_k5hSBpAyqPt6SJT8JDqA'></script></head>
+<body>
+<div class="cbar">Frogdog concept, v1 for the Trio <b>Digital Workers</b> page &nbsp;•&nbsp; built from Courtney's approved copy + brief, in the Applied AI / Market Intelligence design family &nbsp;•&nbsp; proof-point numbers pending marketing sign-off</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><svg class="tmark" viewBox="0 0 100 105" fill="none"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/></svg> trio</a>
+    <nav class="nav-links"><a href="#roles">The roles</a><a href="#how">How it works</a><a href="#trust">Built on trust</a><a href="#faq">FAQ</a></nav>
+    <a class="btn btn-primary" href="#demo" style="padding:11px 20px">Request a Platform Demo</a>
+  </div>
+</header>
+
+<!-- 01 HERO -->
+<section class="hero" id="top">
+  <div class="ghosthex" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">Trio Digital Workers</span>
+      <h1>Meet your newest teammate.</h1>
+      <p>Specialized AI teammates that scale your team's expertise, handling repetitive, rules-based work while people stay in control of every decision.</p>
+      <div class="hero-cta">
+        <a class="btn btn-light" href="#demo">Request a Platform Demo</a>
+        <a class="btn btn-outline" href="#roles">Explore Digital Workers</a>
+      </div>
+    </div>
+    <div class="hexfield" aria-hidden="true">
+      <svg class="hexlines" viewBox="0 0 440 400" preserveAspectRatio="none">
+        <line x1="106" y1="133" x2="276" y2="193"/>
+        <line x1="276" y1="193" x2="120" y2="296"/>
+        <line x1="106" y1="133" x2="120" y2="296"/>
+      </svg>
+      <div class="hx ghost float" style="left:150px;top:0;width:96px;height:106px"></div>
+      <div class="hx ghost f3" style="left:300px;top:38px;width:86px;height:96px"></div>
+      <div class="hx ghost f2" style="left:186px;top:288px;width:74px;height:82px"></div>
+      <div class="hx solid cyan float" style="left:40px;top:60px;width:132px;height:146px"><small>Live</small><b>Timecard Auditor</b><span class="glowdot"></span></div>
+      <div class="hx solid green f2" style="left:210px;top:120px;width:132px;height:146px"><small>Live</small><b>Submission Evaluator</b><span class="glowdot"></span></div>
+      <div class="hx glass f3" style="left:58px;top:228px;width:120px;height:133px"><small>Human</small><b>In the loop</b></div>
+      <div class="hx dash float" style="left:318px;top:220px;width:104px;height:115px"><small>Next</small><b>Your catalog</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="seam seam-hero" aria-hidden="true"></div>
+
+<!-- 02 THE CONCEPT -->
+<section class="sec concept tex glowtl" id="concept">
+  <span class="ghostnum" style="left:-20px;right:auto">01</span>
+  <div class="wrap">
+    <span class="eyebrow ch"><span class="chno">01</span>The next workforce isn't just human</span>
+    <div class="split">
+      <div>
+        <div class="big">Build a digital workforce alongside your human one.</div>
+        <p class="tagline">Scale expertise, not headcount.</p>
+      </div>
+      <div>
+        <p>Healthcare organizations have spent decades building their human workforce. The next evolution is building a digital workforce alongside it.</p>
+        <p>Trio Digital Workers are specialized workers that take on high-volume, rules-based tasks, like timecard auditing and candidate submission evaluation, to extend your team's operational capacity. They don't replace your workforce; they multiply what it can accomplish, with your people in control of every final decision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 THE ROLES -->
+<section class="sec tex glowbr" id="roles">
+  <span class="ghostnum">02</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow ch"><span class="chno">02</span>Live in production today</span>
+      <h2>A role, not a feature.</h2>
+      <p class="lead">Each Digital Worker performs a defined job function across the workforce lifecycle. It is managed, monitored, measured, and updated over its lifecycle, the same way the people it works alongside are. Two are already at work in production today.</p>
+    </div>
+
+    <div class="role" id="role1">
+      <div class="role-head" onclick="toggleRole('role1')">
+        <div class="hexbadge" style="background:var(--cyan)">TA</div>
+        <div class="txt">
+          <h3>Timecard Auditor <span class="livebadge">Live in production</span></h3>
+          <p>Reviews every time and expense submission against contracted rates, shift differentials, and overtime rules across the full supplier panel, flagging out-of-policy charges before they clear.</p>
+        </div>
+        <div class="viewrole"><span class="lbl">View role</span><span class="chev">&#9662;</span></div>
+      </div>
+      <div class="role-detail">
+        <div class="inner">
+          <div class="role-grid">
+            <div><div class="rl">What it does</div><p>Out-of-policy charges and billing errors are flagged before they clear, not surfaced in a post-pay audit months later. Contract compliance becomes continuous operating control.</p></div>
+            <div><div class="rl">How it works</div><p>Validate &rarr; score &rarr; flag. Every submission is checked against your rules; only the exceptions that need judgment reach a person.</p></div>
+            <div><div class="rl">Who it's for</div><p>Finance, procurement, and compliance leaders accountable for contract-labor spend and audit defensibility.</p></div>
+          </div>
+          <div class="proof">Proof: <b>$2M+</b> in verified savings and <b>$291K</b> in unrecovered spend prevented at a large healthcare system. <span style="color:var(--muted)">Audit time: ~8 minutes vs. ~1.2 days for a human reviewer. <em>Figures pending final marketing sign-off.</em></span></div>
+          <div class="role-cta"><a class="btn btn-ghost" href="#demo">See the Timecard Auditor in a demo</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role" id="role2">
+      <div class="role-head" onclick="toggleRole('role2')">
+        <div class="hexbadge" style="background:var(--green)">SE</div>
+        <div class="txt">
+          <h3>Submission Evaluator <span class="livebadge">Live in production</span></h3>
+          <p>Assesses candidate-to-job fit in real time, scores every submission, and gives suppliers actionable feedback, so the best talent surfaces faster and quality rises across the panel.</p>
+        </div>
+        <div class="viewrole"><span class="lbl">View role</span><span class="chev">&#9662;</span></div>
+      </div>
+      <div class="role-detail">
+        <div class="inner">
+          <div class="role-grid">
+            <div><div class="rl">What it does</div><p>Applies consistent, expert-level review to every candidate submission, so nothing passes through on volume alone. Submission quality rises across the supplier panel.</p></div>
+            <div><div class="rl">How it works</div><p>Scores each submission against role requirements in real time and returns actionable feedback to suppliers.</p></div>
+            <div><div class="rl">Who it's for</div><p>VMS / MSP program directors and talent leaders focused on program integrity and submission quality.</p></div>
+          </div>
+          <div class="proof">Proof: <span style="color:var(--muted)">No product-specific financial figures cleared for external use yet, lead with the consistency and quality story until numbers are approved.</span></div>
+          <div class="role-cta"><a class="btn btn-ghost" href="#demo">See the Submission Evaluator in a demo</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="more-tile">
+      <div class="combwall" aria-hidden="true"></div>
+      <div class="hexbadge">+</div>
+      <div><b style="color:var(--navy)">A growing catalog.</b> More Digital Workers are on the way across high-volume, rules-based workflows. Each new role slots into this same pattern, with its own detail page as the catalog grows.</div>
+    </div>
+    <p class="rolesnote">The first Digital Workers, not the destination.</p>
+  </div>
+</section>
+
+<!-- 04 HOW IT WORKS -->
+<section class="sec concept tex glowtr" id="how">
+  <span class="ghostnum" style="left:-20px;right:auto">03</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow ch"><span class="chno">03</span>How a Digital Worker works</span>
+      <h2>Hired like an employee. Governed like one, too.</h2>
+      <p class="lead">A Digital Worker isn't a script or a one-off automation. It works the way a new team member does: given a role, handed the rules of the job, and kept accountable to a person. That's what makes it a teammate rather than a tool.</p>
+    </div>
+    <div class="grid3">
+      <div class="step"><div class="hexbadge" style="background:var(--cyan)">01</div><h3>Given a role and a job description</h3><p>Each Digital Worker is defined by a specific job function, what it's responsible for and what falls to a person, just like any role you'd hire for.</p></div>
+      <div class="step"><div class="hexbadge" style="background:var(--green)">02</div><h3>Operates against your policies and rules</h3><p>It works from your implementation guidelines, policies, and rules, its handbook, applying them consistently to every case, at enterprise scale.</p></div>
+      <div class="step"><div class="hexbadge" style="background:var(--orange)">03</div><h3>Works with a human in the loop</h3><p>It surfaces recommendations and the exceptions that need judgment. A person keeps the final word on every decision that matters.</p></div>
+    </div>
+    <div class="stepclose">A role you can define. Rules you set. Decisions that stay human.</div>
+  </div>
+</section>
+
+<div class="seam seam-otop" aria-hidden="true"></div>
+
+<!-- 05 OUTCOMES (dark band) -->
+<section class="sec outcomes" id="outcomes">
+  <span class="ghostnum">04</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow ch"><span class="chno">04</span>Outcomes, not dashboards</span>
+      <h2>What <span class="accent">changes</span>.</h2>
+      <p class="lead" style="color:#aecadf">The value shows up in decisions and in capacity, not in another tool to log into.</p>
+    </div>
+    <div class="statrow">
+      <div class="stat c1 big"><div class="fig">$2M+</div><div class="lb">Verified savings identified at a large healthcare system</div></div>
+      <div class="stat c3"><div class="fig">$291K</div><div class="lb">Unrecovered spend caught before payment cleared</div></div>
+      <div class="stat c2"><div class="fig">~8 min</div><div class="lb">To audit a full cycle, versus ~1.2 days by hand</div></div>
+      <div class="stat"><div class="fig">2 <span style="font-size:26px;font-weight:700;color:#aecadf">live</span></div><div class="lb">Digital Workers in production today, catalog growing</div></div>
+    </div>
+    <p class="statnote">Illustrative results from early Timecard Auditor deployments; figures pending final marketing sign-off.</p>
+    <div class="grid4">
+      <div class="ocard"><div class="dm" style="background:var(--cyan)"></div><h3>Scale operations without scaling headcount</h3><p>Digital Workers absorb repetitive tasks so your team can focus on complex clinical operations.</p></div>
+      <div class="ocard"><div class="dm" style="background:var(--green)"></div><h3>Consistent, expert-level review</h3><p>Every case gets the same rigorous review, nothing passes through on volume alone.</p></div>
+      <div class="ocard"><div class="dm" style="background:var(--orange)"></div><h3>Stop unrecovered spend before payment</h3><p>Catch rate discrepancies, overtime errors, and out-of-policy charges before invoices clear, not months later.</p></div>
+      <div class="ocard"><div class="dm" style="background:#7fd4f5"></div><h3>A defensible audit trail</h3><p>Every decision is documented and explainable, oversight built into the workflow itself.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="seam seam-obot" aria-hidden="true"></div>
+
+<!-- 06 BUILT ON TRUST -->
+<section class="sec tex glowtl" id="trust">
+  <span class="ghostnum" style="left:-20px;right:auto">05</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow ch"><span class="chno">05</span>Built on trust</span>
+      <h2>The AI surfaces. <span class="accent">You decide.</span></h2>
+      <p class="lead">Every Trio Digital Worker is built on the same three principles that govern all Applied AI at Trio. This is the trust spine of the platform.</p>
+    </div>
+    <div class="pillars">
+      <div class="pill"><div class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>Security First</h3><p>Data security and client confidentiality are non-negotiable. We build trust before features, always.</p></div>
+      <div class="pill"><div class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Human in the Loop</h3><p>Humans define intent and judgment. The Digital Worker executes and surfaces. The human always has the final word on what matters.</p></div>
+      <div class="pill"><div class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-3h4v3M10 20v-8h4v8M16 20v-13h4v13"/></svg></div><h3>Autonomy Is Earned</h3><p>We move deliberately: recommend, then act under review, then exception-based monitoring. A Digital Worker earns greater autonomy through demonstrated trust.</p></div>
+    </div>
+    <div class="climbwrap">
+      <div class="rl">How autonomy is earned</div>
+      <div class="climb">
+        <svg class="climbline" viewBox="0 0 1042 292" preserveAspectRatio="none">
+          <defs><linearGradient id="lg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#00AAE4"/><stop offset="1" stop-color="#78BA43"/></linearGradient></defs>
+          <path d="M176 160 L521 134 L866 108"/>
+        </svg>
+        <div class="rung r1"><div class="rnhex">01</div><h4>Recommend</h4><p>The worker proposes; a person approves every action before it takes effect.</p></div>
+        <div class="rung r2"><div class="rnhex">02</div><h4>Act under review</h4><p>It handles routine cases, with its work reviewed and sampled by your team.</p></div>
+        <div class="rung r3"><div class="rnhex">03</div><h4>Exception-based monitoring</h4><p>It runs the routine; only edge cases and exceptions surface to a person.</p></div>
+      </div>
+      <div class="climb-axis"><span>More human oversight</span><span class="up">More earned autonomy &uarr;</span></div>
+      <p class="note">A Digital Worker starts by recommending, with a person reviewing its work. As it proves itself, you extend its autonomy at your pace, never ahead of it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 APPLIED AI BRIDGE -->
+<section class="sec bridge" id="bridge">
+  <div class="wrap" style="text-align:center">
+    <div class="bighex" aria-hidden="true"></div>
+    <span class="eyebrow" style="justify-content:center">Applied AI, made tangible</span>
+    <h2 style="margin-top:14px">Every capability, tied to a measurable outcome.</h2>
+    <p class="lead center" style="max-width:64ch">Digital Workers are Trio's Applied AI made tangible. Every AI capability we build starts with a clear business need, a defined outcome, and an unwavering commitment to data security, not technology for its own sake.</p>
+    <div class="quote">
+      <div class="q">&ldquo;We believe AI should always be anchored to strategy: solving real problems, delivering measurable results, and keeping humans firmly in control of every decision that matters.&rdquo;</div>
+      <div class="cite">Brian Schwidder <span>Chief Technology Officer, Trio Workforce Solutions</span></div>
+    </div>
+    <a class="lk" href="https://triowfs.com/about/ai-approach">Explore our Applied AI approach &rarr;</a>
+  </div>
+</section>
+
+<!-- 08 PLATFORM VISION -->
+<section class="sec concept tex glowbr" id="vision">
+  <span class="ghostnum">06</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow ch"><span class="chno">06</span>Build your digital workforce</span>
+      <h2>Start with one. Build a workforce.</h2>
+      <p class="lead">Digital Workers are not individual automations. They are specialized AI teammates that solve specific operational challenges across workforce management. Start with a single role and expand across every high-volume, rules-based workflow as your organization grows.</p>
+    </div>
+    <div class="vision3">
+      <div class="vitem"><h3>Scale expertise</h3><p>Extend the capacity of your best people by taking on repetitive, rules-based work on an enterprise scale.</p></div>
+      <div class="vitem"><h3>Stay in control</h3><p>Every recommendation is explainable. Every decision remains human. Governance is built into every workflow.</p></div>
+      <div class="vitem"><h3>Build your digital workforce</h3><p>Start with one Digital Worker. Expand across every high-volume, rules-based workflow as your organization grows.</p></div>
+    </div>
+    <div class="catalog" aria-hidden="true">
+      <div class="chip live">Timecard Auditor</div>
+      <div class="chip live2">Submission Evaluator</div>
+      <div class="chip ghost">Next</div>
+      <div class="chip ghost">Next</div>
+      <div class="chip ghost">Next</div>
+    </div>
+    <p class="rolesnote">Two Digital Workers proved it already. More are on the way.</p>
+  </div>
+</section>
+
+<!-- 09 CTA CLOSE -->
+<section class="sec" id="demo">
+  <div class="wrap">
+    <div class="ctaband">
+      <div class="ctahex"></div>
+      <span class="eyebrow" style="color:#fff;justify-content:center">Ready when you are</span>
+      <h2>See a Digital Worker run on your workflow.</h2>
+      <p>Book a 30-minute working session: we'll walk the Timecard Auditor and Submission Evaluator against a real workflow from your program, no commitment.</p>
+      <div class="hero-cta" style="justify-content:center;margin-top:26px"><a class="btn btn-light" href="#demo">Book a 30-minute working session</a><a class="btn btn-outline" href="#roles">Explore the roles</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 FAQ -->
+<section class="sec concept tex glowbr" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Questions</span><h2>AI in healthcare workforce operations, answered.</h2></div>
+    <div class="faq">
+      <div class="q"><button>What is a Digital Worker?<span class="pl">+</span></button><div class="a"><p>A specialized AI teammate embedded in the Trio platform that performs a defined workforce job function, reviewing repetitive, rules-based work against defined rules and surfacing only the exceptions that need a person.</p></div></div>
+      <div class="q"><button>How is it different from automation?<span class="pl">+</span></button><div class="a"><p>Automation is built to remove people from a process. Digital Workers are built to keep a person in the loop on every decision. They extend your team's expertise rather than replace it.</p></div></div>
+      <div class="q"><button>Who is it for?<span class="pl">+</span></button><div class="a"><p>Operations and program leaders, VMS/MSP program directors, compliance and risk teams, finance, IT leadership, and Physician Management Groups, anyone accountable for high-volume, high-stakes workforce decisions.</p></div></div>
+      <div class="q"><button>What roles are live today?<span class="pl">+</span></button><div class="a"><p>Timecard Auditor and Submission Evaluator are live in production, with a growing catalog of Digital Workers expanding across workforce operations.</p></div></div>
+      <div class="q"><button>How does a Digital Worker earn more autonomy?<span class="pl">+</span></button><div class="a"><p>It moves through a deliberate ladder: recommend first, then act under review, then exception-based monitoring. Autonomy grows only through demonstrated trust.</p></div></div>
+      <div class="q"><button>Is my data secure?<span class="pl">+</span></button><div class="a"><p>Data security and client confidentiality are non-negotiable. Digital Workers run inside the Trio platform your teams already use, not as a bolt-on tool with its own login and data silo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <div class="brand" style="font-size:20px"><svg class="tmark" viewBox="0 0 100 105" fill="none"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/></svg> trio</div>
+        <div class="fnote">E. marketing@triowfs.com<br>P. 1.800.930.5119<br>7460 Warren Pkwy, Frisco, TX 75034</div>
+      </div>
+      <div class="fnote" style="max-width:340px">Trio Digital Workers are specialized AI teammates that scale your team's expertise while people stay in control of every decision.</div>
+    </div>
+    <div class="legal"><span>&copy; 2026 Trio Workforce Solutions</span><span>Terms of Use &nbsp;|&nbsp; Privacy Policy</span></div>
+  </div>
+</footer>
+
+<script>
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>10)});
+function toggleRole(id){
+  var r=document.getElementById(id), d=r.querySelector('.role-detail');
+  var open=r.classList.toggle('open');
+  d.style.maxHeight=open?d.scrollHeight+'px':0;
+}
+document.querySelectorAll('.faq .q button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var q=b.parentElement,a=q.querySelector('.a');
+    var open=q.classList.toggle('open');
+    a.style.maxHeight=open?a.scrollHeight+'px':0;
+  });
+});
+// scroll reveal (added in JS so no-JS renders fully visible)
+(function(){
+  document.querySelectorAll('.sec-head,.quote,.climbwrap,.role,.more-tile,.catalog').forEach(function(e){e.classList.add('reveal')});
+  document.querySelectorAll('.grid3,.grid4,.statrow,.pillars,.vision3,.split').forEach(function(e){e.classList.add('stagger')});
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal,.stagger').forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal,.stagger').forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
