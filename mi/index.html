@@ -120,7 +120,7 @@ header.nav.stuck{border-color:var(--line);box-shadow:0 6px 24px rgba(19,45,57,.0
 /* interactive */
 .tryit{background:var(--mist)}
 .iframe-scaler{margin:40px auto 0;position:relative;width:100%;max-width:1120px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff}
-.iframe-scaler iframe{border:0;width:1280px;height:720px;transform-origin:top left;display:block}
+.iframe-scaler iframe{border:0;width:1280px;height:820px;transform-origin:top left;display:block}
 
 /* personas */
 .personas .grid4 .ocard{background:var(--cream)}
@@ -482,7 +482,7 @@ function scaleFrame(){
   if(!s||!f)return;
   var scale=s.clientWidth/1280;
   f.style.transform='scale('+scale+')';
-  s.style.height=(720*scale)+'px';
+  s.style.height=(820*scale)+'px';
 }
 function scaleHero(){
   var s=document.getElementById('heroScaler'), f=document.getElementById('heroFrame');
