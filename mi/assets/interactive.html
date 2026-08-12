@@ -6,14 +6,14 @@ html,body{width:1280px;height:820px;overflow:hidden}
 .scene:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% 14%,rgba(0,159,199,.14),transparent 32%),radial-gradient(circle at 70% 74%,rgba(149,200,66,.14),transparent 38%),radial-gradient(circle at 3% 16%,rgba(242,100,47,.06),transparent 26%);pointer-events:none}
 .hx{position:absolute;clip-path:polygon(25% 5%,75% 5%,100% 50%,75% 95%,25% 95%,0 50%)}
 .hxa{width:520px;height:460px;background:rgba(0,159,199,.05);right:-130px;bottom:-160px}.hxb{width:90px;height:80px;background:rgba(149,200,66,.10);left:30px;top:300px}
-.wrap{position:relative;z-index:2;display:grid;grid-template-columns:360px 1fr;gap:32px;padding:54px 56px;height:100%;align-items:center}
+.wrap{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;padding:40px 56px;height:100%}
 .eyebrow{display:flex;align-items:center;gap:12px;color:var(--teal2);font-size:13px;font-weight:900;letter-spacing:.17em;text-transform:uppercase;margin-bottom:18px}.eyebrow:before{content:"";width:42px;height:3px;border-radius:10px;background:linear-gradient(90deg,var(--teal),var(--green))}
 h1{color:var(--deep);font-size:50px;line-height:1.0;letter-spacing:-.055em;font-weight:850}h1 span{color:var(--teal2)}
 .sub{color:#4f6872;font-size:18px;line-height:1.5;margin-top:20px;max-width:360px;font-weight:500}
 .cta{display:inline-flex;align-items:center;gap:9px;margin-top:28px;background:var(--teal);color:#fff;font-size:16px;font-weight:800;padding:15px 26px;border-radius:999px;box-shadow:0 14px 30px rgba(0,159,199,.30);cursor:pointer;text-decoration:none}
 .tryit{margin-top:20px;display:flex;align-items:center;gap:8px;color:#6a828b;font-size:13px;font-weight:700}.tryit .pdot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(149,200,66,.18);animation:pp 1.6s infinite}
 @keyframes pp{0%,100%{box-shadow:0 0 0 3px rgba(149,200,66,.20)}50%{box-shadow:0 0 0 7px rgba(149,200,66,0)}}
-.panel{position:relative;background:#0d1920;border-radius:16px;box-shadow:0 30px 70px rgba(13,45,57,.30);padding:18px 20px;color:#cfe0e6}
+.panel{position:relative;width:100%;max-width:900px;background:#0d1920;border-radius:16px;box-shadow:0 30px 70px rgba(13,45,57,.30);padding:18px 20px;color:#cfe0e6}
 .ph{display:flex;align-items:center;gap:10px;border-bottom:1px solid #1c2b33;padding-bottom:12px;margin-bottom:13px}
 .ph svg{width:25px;height:26px}.ph .wm{color:#dce8ea;font-weight:800;font-size:16px;letter-spacing:-.03em}.ph .mi{color:#9fc0c7;font-size:13px;font-weight:800}
 .ph .fresh{margin-left:auto;display:flex;align-items:center;gap:7px;color:#9fc7b4;font-size:11px;background:#11212a;border:1px solid #20333d;padding:5px 11px;border-radius:20px}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(149,200,66,.18)}
@@ -58,13 +58,6 @@ h1{color:var(--deep);font-size:50px;line-height:1.0;letter-spacing:-.055em;font-
 <div class="scene">
   <div class="hx hxa"></div><div class="hx hxb"></div>
   <div class="wrap">
-    <div class="left">
-      <div class="eyebrow">Market Intelligence</div>
-      <h1>See the real rate, <span>not the average.</span></h1>
-      <div class="sub">Live bill-rate intelligence by region, state, and specialty. Switch the filters and see where you stand against the market.</div>
-      <a class="cta" href="#demo">Request a demo &rarr;</a>
-      <div class="tryit" id="hint"><span class="pdot"></span><span id="hinttx">Watch the quick tour, then try it yourself</span></div>
-    </div>
     <div class="panel"><div class="fakecursor" id="fcur"><svg viewBox="0 0 24 24"><path d="M5 3l14 7-6 2-2 6-6-15z" fill="#fff" stroke="#0e2d36" stroke-width="1.6" stroke-linejoin="round"/></svg></div><div class="coach" id="coach"></div>
       <div class="ph">
         <svg viewBox="0 0 100 105" fill="none"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
