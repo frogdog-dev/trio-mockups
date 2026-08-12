@@ -1,11 +1,27 @@
 /* Trio — shared site stylesheet (single source of truth). Canonical system: Market Intelligence (teal + Inter, pill buttons, logo-accurate pointy hex). Change brand tokens in :root and every page inherits. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 :root{
-  /* ---- palette (canonical: Trio Market Intelligence system) ---- */
+  /* ============================================================
+     BRAND FOUNDATION — official Trio corporate palette (logo guidelines,
+     PMS/CMYK/RGB). Governs the LOGO and anchors the digital system below.
+     Never recolor the logo; these are the source-of-truth brand colors. */
+  --brand-lime:#a6ce42;   /* PMS 361  */
+  --brand-green:#79bb43;  /* PMS 376  */
+  --brand-cyan:#00aae5;   /* PMS 2995 */
+  --brand-blue:#0081bb;   /* Process Blue */
+  --brand-orange:#f58220; /* PMS 151  */
+  --brand-redorange:#f05523; /* PMS 021 */
+  --brand-slate:#455560;  /* PMS 431 — wordmark / type */
+  --brand-gray:#e6e7e8;   /* PMS 427  */
+
+  /* ============================================================
+     DIGITAL SYSTEM — the approved web palette (lifted from the client-
+     approved AI page; the harmonized on-screen extension of the brand).
+     This is what the UI runs on. */
   --navy:#263a45; --deep:#152d38; --ink:#2f4651; --muted:#4f6872;
   --line:#dce9ee; --mist:#f3f8fa; --mist2:#eaf4f7; --cream:#fbfdfe; --white:#fff;
   --teal:#009fc7; --teal2:#007f9f; --green:#95c842; --orange:#f2642f; --amber:#e8912a;
-  /* official logo mark colors */
+  /* recreated-mark stroke colors (for inline hex glyphs; real logo = trio-logo-wide.png) */
   --mark-green:#8cc63f; --mark-cyan:#00a0d8; --mark-orange:#f2642f;
   /* elevation + geometry */
   --shadow:0 22px 70px rgba(19,45,57,.15); --soft:0 12px 34px rgba(19,45,57,.10);
@@ -44,6 +60,10 @@ h3{font-size:22px;font-weight:800;color:var(--deep);letter-spacing:-.02em}
 .btn-lg{padding:17px 30px;font-size:16px}.btn-xl{padding:20px 40px;font-size:18px}
 /* logo mark */
 .tmark{width:30px;height:31px;flex:none}
+/* official Trio Workforce Solutions logo (real asset); --inv = reversed/white for dark bg */
+.brandmark{height:34px;width:auto;display:block}
+.brandmark--inv{filter:brightness(0) invert(1)}
+@media(max-width:520px){.brandmark{height:28px}}
 /* nav */
 /* Solid, layer-promoted nav. No backdrop-filter: blurring a sticky bar forces the browser to
    re-rasterize the backdrop every frame as animated content scrolls under it, which reads as a paint flicker.
