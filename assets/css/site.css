@@ -330,4 +330,8 @@ header.nav .btn-primary:after{content:none}
 .model:after{content:"";position:absolute;inset:0;background:radial-gradient(180px circle at var(--mx) var(--my),rgba(0,159,199,.09),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:0}
 .model:hover:after{opacity:1}
 .model>*{position:relative;z-index:1}
-@media(prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1;transform:none}.orch svg.links line,.orch svg.links .psline,.core,.prodfeat .tag,.prod .st,.btn-primary:after,.btn-light:after{animation:none}.case-feat .spark .line{stroke-dashoffset:0;transition:none}.case-feat .spark .area,.case-feat .spark .dot{opacity:1;transition:none}.mispread .mk{transition:none}}
+/* delight: the logo's hex motif tilts a few degrees when its card is hovered (user-initiated) */
+.mhex,.prod .ph,.rolecard .rc,.ovrow .oh,.demo-hex{transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+.model:hover .mhex,.prod:hover .ph,.rolecard:hover .rc,.ovrow:hover .oh{transform:rotate(-4deg) scale(1.06)}
+.demo-hex:hover{transform:rotate(-5deg) scale(1.08)}
+@media(prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1;transform:none}.orch svg.links line,.orch svg.links .psline,.core,.prodfeat .tag,.prod .st,.btn-primary:after,.btn-light:after{animation:none}.case-feat .spark .line{stroke-dashoffset:0;transition:none}.case-feat .spark .area,.case-feat .spark .dot{opacity:1;transition:none}.mispread .mk{transition:none}.model:hover .mhex,.prod:hover .ph,.rolecard:hover .rc,.ovrow:hover .oh,.demo-hex:hover{transform:none}}
