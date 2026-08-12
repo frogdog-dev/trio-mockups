@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trio Workforce Solutions — healthcare's workforce orchestration platform (homepage concept)</title>
-<meta name="x-build" content="trio-home-2026-08-11">
+<meta name="x-build" content="trio-home-2026-08-12">
 <meta name="robots" content="noindex,nofollow">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
@@ -22,7 +22,7 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
 section{position:relative}
 .sec{padding:92px 0;position:relative;overflow:hidden}
-.sec-head{max-width:66ch;position:relative;z-index:2}
+.sec-head{max-width:74ch;position:relative;z-index:2}
 .sec-head h2{margin-top:14px}.sec-head p{margin-top:16px}
 h1{font-size:60px;line-height:1.02;letter-spacing:-.03em;font-weight:800;color:var(--deep)}
 h2{font-size:42px;line-height:1.06;letter-spacing:-.025em;font-weight:800;color:var(--deep)}
@@ -35,8 +35,6 @@ h3{font-size:21px;font-weight:800;color:var(--deep);letter-spacing:-.01em}
 .eyebrow.ch:before{display:none}.eyebrow.ch{gap:0}
 .chno{color:var(--teal);font-weight:900}
 .chno:after{content:"";display:inline-block;width:20px;height:2px;background:linear-gradient(90deg,var(--teal),var(--green));border-radius:2px;vertical-align:middle;margin:0 11px 3px 10px}
-.ghostnum{position:absolute;z-index:0;font-weight:900;font-size:270px;line-height:.7;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px rgba(26,58,84,.06);pointer-events:none;user-select:none;top:-64px;right:-6px}
-@media(max-width:820px){.ghostnum{font-size:140px;top:-24px}}
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:9px;border-radius:9px;padding:15px 26px;font-weight:800;font-size:15px;cursor:pointer;border:0;transition:transform .15s,box-shadow .15s,background .15s}
 .btn:hover{transform:translateY(-1px)}
@@ -79,24 +77,24 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 @keyframes march{to{stroke-dashoffset:-22}}
 .node{position:absolute;transform:translate(-50%,-50%);background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 15px;font-size:12.5px;font-weight:800;color:var(--navy);box-shadow:var(--soft);z-index:2;white-space:nowrap;min-width:138px;justify-content:center;display:flex;align-items:center}
 .node .d{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:8px;vertical-align:middle}
-.core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:150px;height:158px;clip-path:var(--hex);background:linear-gradient(150deg,var(--teal),#0f6f89);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;z-index:3;box-shadow:0 22px 50px rgba(0,120,150,.34)}
+.core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:137px;height:158px;clip-path:var(--hex);background:linear-gradient(150deg,var(--teal),#0f6f89);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;z-index:3;box-shadow:0 22px 50px rgba(0,120,150,.34)}
 .core b{font-size:19px;font-weight:900;letter-spacing:-.01em}.core span{font-size:11px;font-weight:700;opacity:.9;text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
 .core:after{content:"";position:absolute;inset:-10px;clip-path:var(--hex);border:1px solid rgba(0,159,199,.3);opacity:.5}
 @media(max-width:900px){.hero-in{grid-template-columns:1fr}.orch{display:none}}
 /* trust strip */
 .trust{background:var(--mist2);color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .trust .wrap{display:flex;align-items:center;justify-content:center;gap:34px;flex-wrap:wrap;padding:20px 28px}
-.trust .item{font-size:14.5px;font-weight:600;display:flex;align-items:center;gap:10px}
+.trust .item{font-size:15px;font-weight:600;display:flex;align-items:center;gap:10px}
 .trust b{color:var(--deep);font-weight:800}
 .trust .peak{border:1px solid var(--teal);border-radius:8px;padding:7px 13px;font-size:12.5px;font-weight:800;color:var(--teal2);letter-spacing:.02em;background:#fff}
 .trust .logos{display:flex;gap:22px;align-items:center;font-weight:800;letter-spacing:.04em;color:var(--muted);font-size:13px}
 /* the shift */
 .shift{background:linear-gradient(180deg,#fff,var(--mist))}
-.shift .grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;margin-top:8px}
+.shift .grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start;margin-top:8px}
 .roles{display:flex;flex-direction:column;gap:12px}
 .rolecard{display:flex;align-items:center;gap:15px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;box-shadow:var(--soft);position:relative}
-.rolecard .rc{width:40px;height:44px;clip-path:var(--hex);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px}
-.rolecard b{color:var(--navy);font-size:15.5px}.rolecard span{color:var(--muted);font-size:13.5px;display:block;margin-top:1px}
+.rolecard .rc{width:38px;height:44px;clip-path:var(--hex);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px}
+.rolecard b{color:var(--navy);font-size:16px}.rolecard span{color:var(--muted);font-size:14.5px;display:block;margin-top:1px}
 .rolecard.sys{background:linear-gradient(150deg,var(--deep),var(--navy));border:0}
 .rolecard.sys b,.rolecard.sys span{color:#fff}.rolecard.sys span{color:#a7c6d3}
 .rolecard.sys .rc{background:linear-gradient(150deg,var(--teal),var(--green))}
@@ -105,7 +103,7 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .outcomes{background:linear-gradient(140deg,#0c2636,var(--deep) 55%,#0e2f43);color:#dce9f2}
 .outcomes:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(50% 80% at 18% 12%,rgba(0,159,199,.26),transparent 55%),radial-gradient(46% 74% at 86% 30%,rgba(140,198,63,.16),transparent 52%);filter:blur(30px)}
 .outcomes .eyebrow{color:#7fd4ee}.outcomes .eyebrow:before,.outcomes .chno:after{background:linear-gradient(90deg,#38c0e0,var(--green))}
-.outcomes .chno{color:#7fd4ee}.outcomes h2{color:#fff}.outcomes .ghostnum{-webkit-text-stroke:2px rgba(0,159,199,.14)}
+.outcomes .chno{color:#7fd4ee}.outcomes h2{color:#fff}
 .outcomes .sec-head h2{font-size:54px;line-height:1.03;letter-spacing:-.03em;max-width:18ch}
 .stat.c2 .fig{background:linear-gradient(160deg,#ffd0a0,#f2642f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .stat.c3 .fig{background:linear-gradient(160deg,#ffe6a6,#e8912a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -113,11 +111,11 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 @media(max-width:820px){.outcomes .sec-head h2{font-size:36px}}
 .statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px;position:relative;z-index:2;align-items:end}
 .stat{position:relative;padding:22px 8px 14px}
-.stat:before{content:"";position:absolute;z-index:-1;width:150px;height:166px;left:50%;top:-4px;transform:translateX(-50%);clip-path:var(--hex);box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
-.stat .fig{font-size:clamp(46px,5.6vw,80px);line-height:.9;white-space:nowrap;background:linear-gradient(160deg,#7fe0ff,#a6e06a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;letter-spacing:-.03em}
-.stat.c2 .fig{font-size:clamp(38px,4.6vw,66px)}
+.stat:before{content:"";position:absolute;z-index:-1;width:144px;height:166px;left:50%;top:-4px;transform:translateX(-50%);clip-path:var(--hex);box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
+.stat .fig{font-size:clamp(52px,6vw,88px);line-height:.9;white-space:nowrap;background:linear-gradient(160deg,#7fe0ff,#a6e06a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:900;letter-spacing:-.03em}
+.stat.c2 .fig{font-size:clamp(44px,5vw,72px)}
 .stat.big .fig{font-size:clamp(66px,8.8vw,134px)}
-.stat .lb{margin-top:11px;font-size:13.5px;color:#a9c6d8;font-weight:600;line-height:1.45}
+.stat .lb{margin-top:11px;font-size:14.5px;color:#b3cddd;font-weight:600;line-height:1.45}
 .stat .src{color:#7f9cb0;font-weight:600}
 .scorebar{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px;position:relative;z-index:2}
 .scorebar .s{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:700;color:#cfe4ee}
@@ -137,10 +135,10 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .model{padding:30px 26px;border-right:1px solid var(--line);cursor:pointer;transition:.18s;position:relative}
 .model:last-child{border-right:0}
 .model:hover,.model.on{background:var(--mist)}
-.model .mhex{width:46px;height:50px;clip-path:var(--hex);display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:14px;font-size:15px}
+.model .mhex{width:43px;height:50px;clip-path:var(--hex);display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:14px;font-size:15px}
 .model .mk{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal2)}
 .model h3{font-size:22px;margin:5px 0 8px}
-.model p{color:var(--muted);font-size:15px;line-height:1.52}
+.model p{color:var(--muted);font-size:16px;line-height:1.55}
 .model .who{margin-top:16px;font-size:12.5px;font-weight:900;letter-spacing:.04em;color:var(--navy);text-transform:uppercase}
 .model .who span{display:block;color:var(--muted);font-weight:600;text-transform:none;letter-spacing:0;font-size:13px;margin-top:4px}
 .model .mhex{background:linear-gradient(150deg,var(--teal),#0f6f89)}
@@ -148,11 +146,11 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .overlays{border-top:1px solid var(--line);background:var(--mist);padding:24px}
 .ovhead{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 .ovrow{display:flex;align-items:center;gap:16px;padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
-.ovrow .oh{width:42px;height:46px;clip-path:var(--hex);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:12px}
+.ovrow .oh{width:40px;height:46px;clip-path:var(--hex);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:12px}
 .ovrow b{color:var(--navy);font-size:15.5px}.ovrow p{color:var(--muted);font-size:14px;margin-top:3px;line-height:1.45}
 .ovrow .into{margin-left:auto;font-size:12px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.04em;text-align:right;white-space:nowrap}
 .olayer{display:flex;align-items:center;gap:16px;padding:18px 24px;background:linear-gradient(140deg,var(--deep),var(--navy));color:#dce9f2}
-.olayer .oi{width:40px;height:44px;clip-path:var(--hex);background:linear-gradient(150deg,var(--orange),#d64e1e);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
+.olayer .oi{width:38px;height:44px;clip-path:var(--hex);background:linear-gradient(150deg,var(--orange),#d64e1e);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
 .olayer b{color:#fff;font-size:15px}.olayer p{color:#a7c6d3;font-size:13.5px;margin-top:2px}
 .olayer .pills{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
 .olayer .pills span{font-size:11.5px;font-weight:700;color:#cfe4ee;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:5px 12px}
@@ -173,7 +171,7 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .prodfeat:after{content:"";position:absolute;right:-110px;top:-110px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(0,159,199,.34),transparent 70%);pointer-events:none}
 .prodfeat .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0e2a38;background:var(--green);border-radius:999px;padding:5px 12px}
 .prodfeat h3{color:#fff;font-size:27px;margin:16px 0 8px;position:relative;z-index:2}
-.prodfeat p{color:#a7c6d3;font-size:15px;position:relative;z-index:2;max-width:44ch}
+.prodfeat p{color:#a7c6d3;font-size:15.5px;position:relative;z-index:2;max-width:44ch}
 .prodfeat .mini{margin-top:20px;display:flex;gap:18px;position:relative;z-index:2}
 .prodfeat .mini .m b{color:#fff;font-size:22px;font-weight:800}.prodfeat .mini .m span{color:#93b6c6;font-size:12px;display:block}
 .prodfeat .lk{display:inline-block;margin-top:20px;color:#7fe0ff;font-weight:800;position:relative;z-index:2}
@@ -181,10 +179,10 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .prod{background:transparent;border:0;border-top:1px solid var(--line);border-radius:12px;padding:22px 14px;box-shadow:none;display:flex;gap:16px;align-items:flex-start;transition:background .2s}
 .prod:first-child{border-top:0}
 .prod:hover{background:var(--mist)}
-.prod .ph{width:44px;height:48px;clip-path:var(--hex);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px}
+.prod .ph{width:42px;height:48px;clip-path:var(--hex);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px}
 .prod b{color:var(--navy);font-size:17px}.prod .st{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#3f7d1e;background:rgba(140,198,63,.16);border:1px solid rgba(140,198,63,.4);border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle}
 .prod .st.soon{color:#a9761c;background:rgba(232,145,42,.12);border-color:rgba(232,145,42,.4)}
-.prod p{color:var(--muted);font-size:14.5px;margin-top:5px;line-height:1.5}
+.prod p{color:var(--muted);font-size:15.5px;margin-top:5px;line-height:1.5}
 @media(max-width:900px){.prodgrid{grid-template-columns:1fr}.fitgrid{grid-template-columns:1fr}}
 /* why different (dark) */
 .why{background:linear-gradient(140deg,#0f2a3c,var(--navy) 60%,#123246);color:#dbeaf1}
@@ -201,7 +199,7 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .qcard .qn{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#7fd4ee}
 .qcard h3{color:#bcd6e2;font-size:18px;font-weight:600;margin:12px 0 18px;letter-spacing:0}
 .qcard .ans{font-size:54px;font-weight:900;letter-spacing:-.02em;line-height:1;background:linear-gradient(120deg,#7fe0ff,var(--green));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.disclose{margin-top:30px;background:rgba(255,255,255,.05);border-left:4px solid var(--green);border-radius:0 14px 14px 0;padding:22px 26px;font-size:15px;line-height:1.6;color:#cfe4ee}
+.disclose{margin-top:30px;background:rgba(255,255,255,.05);border-left:4px solid var(--green);border-radius:0 14px 14px 0;padding:22px 26px;font-size:15.5px;line-height:1.6;color:#cfe4ee}
 .disclose b{color:#fff}
 @media(max-width:820px){.qtest{grid-template-columns:1fr}.qcard{border-left:0;border-top:1px solid rgba(255,255,255,.14);padding:18px 0}.qcard:first-child{border-top:0}}
 /* proof */
@@ -210,17 +208,17 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .case-feat{background:linear-gradient(150deg,var(--deep),var(--navy));border-radius:22px;padding:40px;color:#dce9f2;box-shadow:var(--shadow);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .case-feat:after{content:"";position:absolute;right:-110px;bottom:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.30),transparent 70%);pointer-events:none}
 .case-feat>*{position:relative;z-index:2}
-.case-feat .cstat{font-size:88px;font-weight:800;letter-spacing:-.03em;line-height:1;background:linear-gradient(160deg,#7fe0ff,#a6e06a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.case-feat .cstat{font-size:88px;font-weight:900;letter-spacing:-.03em;line-height:1;background:linear-gradient(160deg,#7fe0ff,#a6e06a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .case-feat .ck{font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#7fd4ee;margin-top:8px}
-.case-feat p{color:#a7c6d3;font-size:15px;margin-top:14px;max-width:38ch}
+.case-feat p{color:#a7c6d3;font-size:15.5px;margin-top:14px;max-width:30ch}
 .case-feat .ph{margin-top:16px;font-size:12px;font-weight:700;color:#c9a24e;font-style:italic}
 .case-col{display:flex;flex-direction:column;gap:20px}
 .case{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--soft);display:flex;flex-direction:column;flex:1;justify-content:center}
 .case .cim{position:absolute;top:0;left:0;width:100%;height:6px;background:linear-gradient(90deg,var(--teal),var(--green))}
 .case .cb{padding:26px 26px 22px}
-.case .cstat{font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--deep)}
+.case .cstat{font-size:40px;font-weight:900;letter-spacing:-.02em;color:var(--deep)}
 .case .ck{font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--teal2);margin-top:2px}
-.case p{color:var(--muted);font-size:14px;margin-top:10px;line-height:1.5}
+.case p{color:var(--muted);font-size:15px;margin-top:10px;line-height:1.5}
 .case .ph{margin-top:12px;font-size:12px;font-weight:700;color:var(--amber);font-style:italic}
 /* recognition + security */
 .recsec{background:#fff}
@@ -233,12 +231,12 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .awards{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
 .award{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:12.5px;font-weight:800;color:var(--navy)}
 .secpoints{margin-top:14px;display:flex;flex-direction:column;gap:9px}
-.secpoints div{font-size:14px;color:var(--ink);display:flex;gap:10px;align-items:flex-start}
+.secpoints div{font-size:14.5px;color:var(--ink);display:flex;gap:10px;align-items:flex-start}
 .secpoints .ic{color:var(--teal);font-weight:900}
 @media(max-width:820px){.rs{grid-template-columns:1fr}.cases{grid-template-columns:1fr}}
 /* CTA close */
 .cta-band{background:linear-gradient(125deg,var(--teal),#0f6f89 52%,var(--deep));border-radius:30px;padding:56px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 30px 70px rgba(0,120,150,.3)}
-.cta-band:after{content:"";position:absolute;right:-70px;bottom:-90px;width:360px;height:390px;clip-path:var(--hex);background:radial-gradient(circle at 40% 40%,rgba(140,198,63,.4),transparent 60%);pointer-events:none}
+.cta-band:after{content:"";position:absolute;right:-70px;bottom:-90px;width:338px;height:390px;clip-path:var(--hex);background:radial-gradient(circle at 40% 40%,rgba(140,198,63,.4),transparent 60%);pointer-events:none}
 .cta-band h2{color:#fff;position:relative;z-index:2}.cta-band p{color:#e4f4fd;font-size:18px;margin:14px auto 0;max-width:56ch;position:relative;z-index:2}
 .cta-band .hero-cta{justify-content:center;margin-top:26px;position:relative;z-index:2}
 /* faq */
@@ -246,12 +244,12 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .q{border-bottom:1px solid var(--line)}
 .q button{width:100%;text-align:left;background:none;border:0;padding:22px 4px;font-size:18px;font-weight:750;color:var(--deep);cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center}
 .q .pl{color:var(--teal);font-size:24px;font-weight:400;transition:transform .2s}.q.open .pl{transform:rotate(45deg)}
-.q .a{max-height:0;overflow:hidden;transition:max-height .25s;color:var(--muted);font-size:15.5px;line-height:1.6}.q .a p{padding:0 4px 22px}
+.q .a{max-height:0;overflow:hidden;transition:max-height .25s;color:var(--muted);font-size:16px;line-height:1.62}.q .a p{padding:0 4px 22px}
 /* footer */
 footer{background:var(--deep);color:#a9c4d2;padding:54px 0 40px}
 footer .fcols{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
 footer .brand{color:#fff;font-size:21px}
-footer .fnote{font-size:13.5px;line-height:1.7;margin-top:12px}
+footer .fnote{font-size:14.5px;line-height:1.7;margin-top:12px}
 footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding-top:18px;font-size:12.5px;color:#82a3b4;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 /* reveal */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -413,7 +411,6 @@ header.nav .btn-primary:after{content:none}
 
 <!-- 01 THE SHIFT -->
 <section class="sec shift" id="shift">
-  <span class="ghostnum" style="left:-20px;right:auto">01</span>
   <div class="wrap">
     <div class="grid">
       <div class="sec-head">
@@ -434,7 +431,6 @@ header.nav .btn-primary:after{content:none}
 <!-- 02 OUTCOMES -->
 <section class="sec outcomes" id="outcomes">
   <div class="dtop" aria-hidden="true"></div><div class="dbot" aria-hidden="true"></div>
-  <span class="ghostnum">02</span>
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow ch"><span class="chno">02</span>Outcomes, not features</span>
@@ -460,7 +456,6 @@ header.nav .btn-primary:after{content:none}
 
 <!-- 03 PLATFORM -->
 <section class="sec platform" id="platform">
-  <span class="ghostnum" style="left:-20px;right:auto">03</span>
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow ch"><span class="chno">03</span>The platform</span>
@@ -477,7 +472,7 @@ header.nav .btn-primary:after{content:none}
       <div class="overlays">
         <div class="ovhead">Two maturity overlays &mdash; grown into from any model</div>
         <div class="ovrow"><div class="oh" style="background:linear-gradient(150deg,var(--green),#5c9e2e)">EWM</div><div><b>Enterprise Workforce Management</b><p>Treat workforce as a system-wide strategic asset and engage Trio as an enterprise advisory partner.</p></div><div class="into">Matures into<br>strategic partnership</div></div>
-        <div class="ovrow"><div class="oh" style="background:linear-gradient(150deg,var(--teal),#0f6f89)">IRM</div><div><b>Internal Resource Management</b><p>Nursing, allied, locums, internal float, PRN, and physician coverage run as one orchestrated decision set.</p></div><div class="into">Matures into<br>integrated capability</div></div>
+        <div class="ovrow"><div class="oh" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">IRM</div><div><b>Internal Resource Management</b><p>Nursing, allied, locums, internal float, PRN, and physician coverage run as one orchestrated decision set.</p></div><div class="into">Matures into<br>integrated capability</div></div>
       </div>
       <div class="olayer"><div class="oi">◆</div><div><b>One orchestration layer, consistent underneath.</b><p>One platform. One data layer. One set of capabilities. The delivery model varies; the orchestration layer does not.</p></div><div class="pills"><span>Unified data &amp; insights</span><span>Governance &amp; security</span><span>Outcomes &amp; values</span></div></div>
     </div>
@@ -486,7 +481,6 @@ header.nav .btn-primary:after{content:none}
 
 <!-- 04 SYSTEM OF INTELLIGENCE -->
 <section class="sec soi" id="intelligence">
-  <span class="ghostnum" style="left:-20px;right:auto">04</span>
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow ch"><span class="chno">04</span>The system of intelligence</span>
@@ -523,7 +517,6 @@ header.nav .btn-primary:after{content:none}
 
 <!-- 06 WHY DIFFERENT -->
 <section class="sec why" id="different">
-  <span class="ghostnum">05</span>
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow ch"><span class="chno">05</span>Why Trio is different</span>
@@ -542,7 +535,6 @@ header.nav .btn-primary:after{content:none}
 
 <!-- 07 PROOF -->
 <section class="sec proof" id="proof">
-  <span class="ghostnum" style="left:-20px;right:auto">06</span>
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow ch"><span class="chno">06</span>Results</span>
@@ -556,7 +548,8 @@ header.nav .btn-primary:after{content:none}
         <div class="cstat">$2M+</div>
         <div class="ck">Verified savings identified</div>
         <p>A large health system surfaced multi-million-dollar savings through orchestrated rate governance and timecard audit, spend it can now see, govern, and defend to the board.</p>
-        <div class="ph">Illustrative &mdash; pending marketing sign-off</div>
+        <a class="lk" href="#" style="margin-top:14px;font-size:14px">Read the full case study &rarr;</a>
+        <div class="ph" style="margin-top:12px">Illustrative &mdash; pending marketing sign-off</div>
       </div>
       <div class="case-col">
         <div class="case"><div class="cim"></div><div class="cb"><div class="cstat">$291K</div><div class="ck">Unrecovered spend caught</div><p>Out-of-policy charges flagged and recovered before invoices cleared, not months later.</p><div class="ph">Illustrative &mdash; pending sign-off</div></div></div>
@@ -612,11 +605,13 @@ header.nav .btn-primary:after{content:none}
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">Questions</span><h2>Healthcare workforce orchestration, answered.</h2></div>
     <div class="faq-list">
-      <div class="q"><button>What is a workforce orchestration platform?<span class="pl">+</span></button><div class="a"><p>It's one system that connects the workforce decisions that usually happen separately, sourcing, scheduling, supplier selection, rate governance, approvals, and reporting, in real time. Trio is that layer across your suppliers, your tools, and your operators.</p></div></div>
-      <div class="q"><button>How is Trio different from a VMS or an MSP?<span class="pl">+</span></button><div class="a"><p>A VMS is a tool and an MSP is a service. Trio is the orchestration layer that makes the tools and the suppliers work together to your outcomes. You can engage it as a managed program, a hybrid, or self-managed software, and the orchestration layer stays constant across all three.</p></div></div>
-      <div class="q"><button>Do you own the panel or the data?<span class="pl">+</span></button><div class="a"><p>You do. Trio is buyer-owned and panel-neutral: you own the panel, the data, and the decisions, and every supplier, including AHS Staffing, operates under the same governance and the same scorecard.</p></div></div>
-      <div class="q"><button>What are EWM and IRM?<span class="pl">+</span></button><div class="a"><p>They're maturity overlays you grow into from any engagement model. EWM (Enterprise Workforce Management) is treating workforce as a system-wide strategic asset; IRM (Internal Resource Management) is running internal and external coverage as one orchestrated decision set. You evolve into them; you don't start there.</p></div></div>
-      <div class="q"><button>How do we get started?<span class="pl">+</span></button><div class="a"><p>Request a workforce maturity diagnostic. It's a single conversation that maps where each service line sits on the maturity curve and what it would take to own the model, before any prescription.</p></div></div>
+      <div class="q"><button>What is a workforce orchestration platform?<span class="pl">+</span></button><div class="a"><p>A workforce orchestration platform is one system that connects the workforce decisions that usually happen separately &mdash; sourcing, scheduling, supplier selection, rate governance, approvals, and reporting &mdash; in real time. Trio is that orchestration layer across your suppliers, your tools, and your operators.</p></div></div>
+      <div class="q"><button>What is the difference between a VMS and an MSP?<span class="pl">+</span></button><div class="a"><p>The difference between a VMS and an MSP is that a VMS (vendor management system) is software you use to manage contingent labor, while an MSP (managed service provider) is a service in which a partner runs your contingent workforce program for you. One is a tool; the other is an operating model. Trio spans both and adds an orchestration layer on top of them.</p></div></div>
+      <div class="q"><button>How is Trio different from a VMS?<span class="pl">+</span></button><div class="a"><p>Trio is different from a VMS because a VMS is a tool for tracking requisitions and suppliers, while Trio is the orchestration layer that makes those tools, suppliers, and decisions work together toward your outcomes. You can run Trio as self-managed software, but the orchestration and intelligence underneath are what set it apart.</p></div></div>
+      <div class="q"><button>How is Trio different from an MSP?<span class="pl">+</span></button><div class="a"><p>Trio is different from a traditional MSP because a staffing-led MSP typically owns the supplier panel and the data, whereas with Trio you own the panel, the data, and the scorecard. Trio can run your program as a managed model, but it stays neutral to any one supplier and holds every supplier &mdash; including AHS Staffing &mdash; to the same scorecard.</p></div></div>
+      <div class="q"><button>Who owns the panel and the data with Trio?<span class="pl">+</span></button><div class="a"><p>With Trio, you own the panel and the data. Trio is buyer-owned and panel-neutral: you own the supplier panel, the data, and the decisions, and every supplier, including AHS Staffing, operates under the same governance and the same scorecard.</p></div></div>
+      <div class="q"><button>What are EWM and IRM?<span class="pl">+</span></button><div class="a"><p>EWM and IRM are maturity overlays you grow into from any Trio engagement model. EWM (Enterprise Workforce Management) means treating workforce as a system-wide strategic asset; IRM (Internal Resource Management) means running internal and external coverage &mdash; nursing, allied, locums, float, PRN, and physician &mdash; as one orchestrated decision set. You evolve into them; you don't start there.</p></div></div>
+      <div class="q"><button>How do we get started with Trio?<span class="pl">+</span></button><div class="a"><p>You get started with Trio by requesting a workforce maturity diagnostic &mdash; a single conversation that maps where each of your service lines sits on the maturity curve and what it would take to own the model, before any prescription.</p></div></div>
     </div>
   </div>
 </section>
@@ -633,6 +628,24 @@ header.nav .btn-primary:after{content:none}
     <div class="legal"><span>&copy; 2026 Trio Workforce Solutions</span><span>Terms of Use &nbsp;|&nbsp; Privacy Policy</span></div>
   </div>
 </footer>
+
+<!-- FAQPage structured data — lifts the Q&A into AI answer engines and rich results.
+     Keep answers in sync with the visible FAQ copy above when it changes. -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is a workforce orchestration platform?","acceptedAnswer":{"@type":"Answer","text":"A workforce orchestration platform is one system that connects the workforce decisions that usually happen separately — sourcing, scheduling, supplier selection, rate governance, approvals, and reporting — in real time. Trio is that orchestration layer across your suppliers, your tools, and your operators."}},
+    {"@type":"Question","name":"What is the difference between a VMS and an MSP?","acceptedAnswer":{"@type":"Answer","text":"The difference between a VMS and an MSP is that a VMS (vendor management system) is software you use to manage contingent labor, while an MSP (managed service provider) is a service in which a partner runs your contingent workforce program for you. One is a tool; the other is an operating model. Trio spans both and adds an orchestration layer on top of them."}},
+    {"@type":"Question","name":"How is Trio different from a VMS?","acceptedAnswer":{"@type":"Answer","text":"Trio is different from a VMS because a VMS is a tool for tracking requisitions and suppliers, while Trio is the orchestration layer that makes those tools, suppliers, and decisions work together toward your outcomes. You can run Trio as self-managed software, but the orchestration and intelligence underneath are what set it apart."}},
+    {"@type":"Question","name":"How is Trio different from an MSP?","acceptedAnswer":{"@type":"Answer","text":"Trio is different from a traditional MSP because a staffing-led MSP typically owns the supplier panel and the data, whereas with Trio you own the panel, the data, and the scorecard. Trio can run your program as a managed model, but it stays neutral to any one supplier and holds every supplier — including AHS Staffing — to the same scorecard."}},
+    {"@type":"Question","name":"Who owns the panel and the data with Trio?","acceptedAnswer":{"@type":"Answer","text":"With Trio, you own the panel and the data. Trio is buyer-owned and panel-neutral: you own the supplier panel, the data, and the decisions, and every supplier, including AHS Staffing, operates under the same governance and the same scorecard."}},
+    {"@type":"Question","name":"What are EWM and IRM?","acceptedAnswer":{"@type":"Answer","text":"EWM and IRM are maturity overlays you grow into from any Trio engagement model. EWM (Enterprise Workforce Management) means treating workforce as a system-wide strategic asset; IRM (Internal Resource Management) means running internal and external coverage — nursing, allied, locums, float, PRN, and physician — as one orchestrated decision set. You evolve into them; you don't start there."}},
+    {"@type":"Question","name":"How do we get started with Trio?","acceptedAnswer":{"@type":"Answer","text":"You get started with Trio by requesting a workforce maturity diagnostic — a single conversation that maps where each of your service lines sits on the maturity curve and what it would take to own the model, before any prescription."}}
+  ]
+}
+</script>
 
 <script>
 var nav=document.getElementById('nav');
