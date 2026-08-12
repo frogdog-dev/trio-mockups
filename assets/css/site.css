@@ -76,6 +76,12 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .nav-links a:hover{color:var(--teal2)}
 @media(max-width:900px){.nav-links{display:none}}
 .concept-note{background:var(--deep);color:#bcd6e2;font-size:12.5px;text-align:center;padding:8px 16px;letter-spacing:.02em}.concept-note b{color:#fff}
+/* cross-page review switcher (staging aid; jump between concepts without the back button) */
+.reviewnav{background:#0c2230;color:#9fc2d2;display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;padding:8px 16px;font-size:12.5px}
+.reviewnav .lbl{font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6f97a8;margin-right:4px;font-size:11px}
+.reviewnav a{color:#cfe4ee;font-weight:700;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:4px 13px;transition:border-color .15s,background .15s,color .15s}
+.reviewnav a:hover{border-color:var(--teal);color:#fff;background:rgba(0,159,199,.18)}
+.reviewnav a.on{background:var(--teal);border-color:var(--teal);color:#fff}
 /* HERO */
 .hero{background:linear-gradient(120deg,#f4fbfd 0%,#eaf5f9 46%,#e3f1f6 100%);overflow:hidden}
 .hero:before{content:"";position:absolute;inset:0;pointer-events:none;background:
