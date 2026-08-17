@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Market Intelligence | Trio Workforce Solutions — redesign concept</title>
+<title>Market Intelligence | Trio Workforce Solutions (redesign concept)</title>
 <link rel="stylesheet" href="../assets/css/site.css">
 <style>
 
@@ -33,7 +33,7 @@
 
 /* trust strip */
 .trust{background:var(--deep);color:#cfe4ec}
-.trust .wrap{display:flex;align-items:center;justify-content:center;gap:38px;flex-wrap:wrap;padding:20px 28px}
+.trust .wrap{display:flex;align-items:center;justify-content:center;gap:20px 46px;flex-wrap:wrap;padding:20px 28px}
 .trust b{color:#fff;font-weight:800}
 .trust .dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:9px;vertical-align:middle;box-shadow:0 0 0 4px rgba(255,255,255,.08)}
 .trust .item{font-size:15px;font-weight:600;display:flex;align-items:center}
@@ -49,9 +49,18 @@
 .cmp-avg .s{font-size:13.5px;color:var(--muted);margin-top:10px;font-weight:600}
 .cmp-range .rangebar{position:relative;height:16px;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--teal) 46%,var(--orange))}
 .cmp-range .avgmark{position:absolute;top:-7px;width:4px;height:30px;background:var(--deep);border-radius:2px;transform:translateX(-50%)}
-.cmp-range .avgmark:after{content:"Avg $88.77";position:absolute;top:-24px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:12px;font-weight:800;color:var(--deep)}
+.cmp-range .avgmark:after{content:"";display:none}
+/* redline (Chris): make the market-average bar an interactive, animated slider */
+.cmp-range .rangeread{display:flex;align-items:baseline;gap:11px;margin-bottom:22px;flex-wrap:wrap}
+.cmp-range .rangeread .rr-cap{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cmp-range .rangeread b{font-size:34px;font-weight:850;letter-spacing:-.03em;color:var(--deep);line-height:1;font-variant-numeric:tabular-nums}
+.cmp-range .rangeread .rr-state{font-size:14px;font-weight:800;color:var(--teal2)}
+.cmp-range .rangebar{cursor:pointer;touch-action:none}
+.cmp-range .rangehandle{position:absolute;top:50%;left:27%;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--teal2);box-shadow:0 4px 12px rgba(19,45,57,.28);transform:translate(-50%,-50%);cursor:grab;padding:0;z-index:3;transition:box-shadow .15s}
+.cmp-range .rangehandle:hover,.cmp-range .rangehandle:focus-visible{box-shadow:0 0 0 6px rgba(0,159,199,.22),0 4px 12px rgba(19,45,57,.28);outline:none}
+.cmp-range .rangehandle.drag{cursor:grabbing}
 .cmp-range .rangelabels{display:flex;justify-content:space-between;margin-top:16px;font-size:13.5px;color:var(--muted);font-weight:800;text-align:center}
-.cmp-range .rangelabels small{display:block;font-weight:600;color:#8aa2ab;font-size:12px;margin-top:2px}
+.cmp-range .rangelabels small{display:block;font-weight:600;color:#5c7683;font-size:12px;margin-top:2px}
 .cmp-range .rangenote{margin-top:20px;font-size:15.5px;color:var(--ink);font-weight:550;line-height:1.55}
 @media(max-width:820px){.cmp-card2{grid-template-columns:1fr;gap:28px;padding:26px}}
 
@@ -71,10 +80,17 @@
 .shot .shot-img img{width:100%;height:auto;display:block}
 .shot .mark{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(0,159,199,.28),0 8px 18px rgba(19,45,57,.35);border:2px solid #fff}
 .shot-legend{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 44px;margin-top:34px}
-.lg{display:flex;gap:14px;align-items:flex-start}
-.lg .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--deep);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.lg{display:flex;gap:14px;align-items:flex-start;cursor:pointer;padding:12px 14px;border-radius:12px;transition:background .2s,box-shadow .2s}
+.lg .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:2px;box-shadow:0 0 0 4px rgba(0,159,199,.16);transition:transform .2s}
 .lg b{color:var(--deep);font-size:16.5px}
-.lg p{color:var(--muted);font-size:15px;margin-top:4px;line-height:1.5}
+.lg p{color:var(--muted);font-size:15px;line-height:1.5;max-height:0;overflow:hidden;opacity:0;margin-top:0;transition:max-height .3s ease,opacity .2s,margin-top .2s}
+/* redline (Chris): interactive product callouts — click a number (image or legend) to expand its copy */
+.lg.hl{background:var(--mist);box-shadow:inset 0 0 0 1.5px rgba(0,159,199,.45)}
+.lg.hl p{max-height:260px;opacity:1;margin-top:6px}
+.lg.hl .n{transform:scale(1.08)}
+.shot .mark{cursor:pointer}
+.shot .mark:hover{transform:translate(-50%,-50%) scale(1.12)}
+.shot .mark.active{transform:translate(-50%,-50%) scale(1.2);box-shadow:0 0 0 7px rgba(0,159,199,.3),0 10px 22px rgba(19,45,57,.42)}
 @media(max-width:820px){.shot-legend{grid-template-columns:1fr}}
 .shot-strip{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
 .thumb{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--soft)}
@@ -145,8 +161,13 @@
 .ptab{padding:12px 20px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:800;color:var(--muted);cursor:pointer;font-size:14.5px;transition:.15s}
 .ptab:hover{border-color:rgba(0,159,199,.5)}
 .ptab.on{background:var(--deep);color:#fff;border-color:var(--deep)}
-.ppanel{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:40px;display:grid;grid-template-columns:78px 1fr;gap:28px;align-items:center;min-height:172px}
-.ppanel .phex{width:66px;height:76px;clip-path:var(--hex);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:22px;transition:background .2s}
+.ppanel{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:40px;display:grid;grid-template-columns:152px 1fr;gap:36px;align-items:center;min-height:172px}
+/* redline (Chris) + creative red-team: personas want a real photo; the placeholder is a brand hex portrait aperture (accent rim recolors per persona), not a dashed box */
+.ppanel .pphoto{flex:none;width:152px;height:170px;clip-path:var(--hex);background:var(--pc,var(--teal));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;position:relative;transition:background .25s}
+.ppanel .pphoto:before{content:"";position:absolute;inset:3px;clip-path:var(--hex);background:linear-gradient(160deg,#fff,var(--mist2));z-index:0}
+.ppanel .pphoto svg{position:relative;z-index:1;color:var(--pc,var(--teal));opacity:.55;transition:color .25s}
+.ppanel .pphoto .cap{position:relative;z-index:1;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:820px){.ppanel .pphoto{width:126px;height:141px}}
 .ppanel h3{font-size:27px;color:var(--deep);letter-spacing:-.02em}
 .ppanel p{font-size:18.5px;line-height:1.5;color:#405963;margin-top:10px;font-weight:500}
 @media(max-width:820px){.ppanel{grid-template-columns:1fr;padding:28px}}
@@ -159,12 +180,12 @@
 .vscol.new{background:linear-gradient(160deg,#0a95bd,#0f6f89);border:1px solid rgba(255,255,255,.22);box-shadow:0 22px 54px rgba(0,120,150,.3)}
 .vscol .vh{font-size:12.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
 .vscol.old .vh{color:#8fb0bc}.vscol.new .vh{color:#d6f4ff}
-.vscol .vt{font-size:22px;font-weight:800;margin-top:5px;letter-spacing:-.01em}
+.vscol .vt{font-size:22px;font-weight:800;margin-top:5px;letter-spacing:-.01em;min-height:56px}
 .vscol.old .vt{color:#cde0e8}.vscol.new .vt{color:#fff}
-.vsitem{display:flex;gap:13px;align-items:flex-start;padding:15px 0;border-top:1px solid rgba(255,255,255,.12);margin-top:6px}
+.vsitem{display:flex;gap:13px;align-items:flex-start;padding:15px 0;border-top:1px solid rgba(255,255,255,.12);margin-top:6px;min-height:78px;box-sizing:border-box}
 .vsitem .ic{flex:none;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;margin-top:1px}
 /* redline (Chris): make the X red and the check green so they read clearly */
-.vscol.old .ic{background:rgba(240,85,35,.18);color:#ff8a6b}
+.vscol.old .ic{background:rgba(255,95,60,.34);color:#ffab97}
 .vscol.new .ic{background:rgba(149,200,66,.22);color:#b7ef7a}
 .vsitem b{display:block;font-size:15.5px}
 .vscol.old .vsitem b{color:#cde0e8}.vscol.new .vsitem b{color:#fff}
@@ -182,7 +203,7 @@
 .compare.sec{padding:104px 0 96px}
 .compare .sec-head h2{font-size:56px;line-height:1;letter-spacing:-.05em;max-width:16ch}
 .cmp-card2{grid-template-columns:360px 1fr}
-.cmp-avg .v{font-size:92px;white-space:nowrap;letter-spacing:-.05em;line-height:.9;margin-top:10px;background:linear-gradient(160deg,var(--deep),var(--teal2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cmp-avg .v{font-size:92px;white-space:nowrap;letter-spacing:-.05em;line-height:.9;margin-top:10px;color:var(--teal2);-webkit-text-fill-color:var(--teal2);font-variant-numeric:tabular-nums}
 .cmp-avg .k{color:var(--teal2)}
 .rangekey{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;font-weight:700;color:var(--muted)}
 .rangekey i{width:12px;height:12px;border-radius:3px;display:inline-block;margin-right:7px;vertical-align:-1px}
@@ -196,8 +217,24 @@
 .ppanel .pstat b{color:var(--teal2);font-weight:900}
 /* dominant final ask */
 .btn-xl{padding:21px 42px;font-size:18px}
-.cta-band .btn-ghost{color:#fff;opacity:.92;text-decoration:underline;text-underline-offset:4px}
+.cta-band .btn-ghost{color:#fff;opacity:.92;text-decoration:none}
 </style>
+<!-- Structured data (AEO): Organization + SoftwareApplication + FAQPage.
+     NOTE for build: confirm the production logo URL; LocalBusiness and Review/rating markup intentionally omitted (would require real address + real reviews). -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://triowfs.com/#org","name":"Trio Workforce Solutions","url":"https://triowfs.com/","logo":"https://triowfs.com/hubfs/Trio/trio-logo-wide.png","description":"Trio Workforce Solutions is a healthcare workforce orchestration platform that helps health systems make better, data-driven contingent-labor decisions."},
+{"@type":"SoftwareApplication","name":"Trio Market Intelligence","applicationCategory":"BusinessApplication","operatingSystem":"Web","provider":{"@id":"https://triowfs.com/#org"},"description":"Market Intelligence by Trio is a real-time workforce analytics tool that tracks and analyzes live bill rates, local supply trends, and 12-month historical rate volatility across nursing and allied health specialties."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is Market Intelligence?","acceptedAnswer":{"@type":"Answer","text":"Market Intelligence by Trio is a real-time workforce analytics tool that tracks and analyzes live bill rates, local supply trends, and 12-month historical rate volatility across nursing and allied health specialties."}},
+{"@type":"Question","name":"How does live bill-rate tracking differ from traditional staffing market reports?","acceptedAnswer":{"@type":"Answer","text":"Trio's Market Intelligence is different from traditional healthcare staffing reports that rely on static, lagging quarterly benchmarks. Market Intelligence updates daily using live job order data, allowing healthcare leaders to compare active facility placements against live market conditions in real time."}},
+{"@type":"Question","name":"Who benefits most from Trio's Market Intelligence?","acceptedAnswer":{"@type":"Answer","text":"CFOs, CNOs, CHROs, Procurement Directors, and Talent Managers who need objective, defensible data to negotiate contract labor rates and control agency spend benefit most from Trio's Market Intelligence."}},
+{"@type":"Question","name":"How often is the data updated?","acceptedAnswer":{"@type":"Answer","text":"Trio's Market Intelligence updates daily, so decisions are based on current, real-time market conditions."}},
+{"@type":"Question","name":"Does this replace traditional staffing market reports?","acceptedAnswer":{"@type":"Answer","text":"Trio's Market Intelligence doesn't replace traditional staffing market reports; it complements them with dynamic, visual analytics that support faster decisions."}},
+{"@type":"Question","name":"How long is the Market Intelligence full demo?","acceptedAnswer":{"@type":"Answer","text":"The Market Intelligence full demo is about 30 minutes, with a guided walkthrough of the platform and real-world use cases."}}
+]}
+]}
+</script>
 </head>
 <body>
 <div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a class="on" href="../mi/">Market Intelligence</a><a href="../digital-worker/">Digital Workers</a><a href="../brand/">Brand guide</a></div>
@@ -209,7 +246,6 @@
     <nav class="nav-links">
       <a href="#compare">Why it matters</a>
       <a href="#tour">The product</a>
-      <a href="#tryit">Try it</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-primary" href="#demo" style="padding:11px 20px">Request a demo</a>
@@ -219,7 +255,7 @@
 <!-- 1. HERO -->
 <section class="hero" id="top">
   <div class="wrap">
-    <span class="eyebrow">Trio Market Intelligence</span>
+    <span class="eyebrow nodash">Trio Market Intelligence</span>
     <h1>Better workforce decisions begin with <span class="accent">better market intelligence</span>.</h1>
     <p class="lead">Healthcare workforce decisions are more complex than ever, and national averages and static benchmarks can't keep pace with today's labor market. Market Intelligence gives leaders current market visibility to make more confident workforce decisions.</p>
     <div class="hero-cta">
@@ -244,8 +280,8 @@
 <!-- 3. CORE QUESTION / SPREAD -->
 <section class="sec compare" id="compare">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">01</span>The core question</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">The core question</span>
       <div class="head-split">
         <h2>Am I overpaying? Now you can prove it.</h2>
         <p class="lead">National averages mask local reality. A national average of $88.77 hides a market that swings from the low $80s to over $100 by region, specialty, and facility. Benchmarking against national averages drives up your contingent labor costs. Market Intelligence puts your own placement averages next to the live market, delivering defensible rate transparency in seconds, not on a spreadsheet.</p>
@@ -258,7 +294,11 @@
         <div class="s">Nursing &amp; Allied Health, all regions, trailing 12 months</div>
       </div>
       <div class="cmp-range">
-        <div class="rangebar"><span class="avgmark" style="left:38%"></span></div>
+        <div class="rangeread"><span class="rr-cap">Explore the market</span> <b id="rrate">$88.77</b> <span class="rr-state" id="rstate">National average</span></div>
+        <div class="rangebar" id="rbar">
+          <span class="avgmark" style="left:27%"></span>
+          <button class="rangehandle" id="rhandle" style="left:27%" type="button" aria-label="Market rate explorer" role="slider" aria-valuemin="82" aria-valuemax="107" aria-valuenow="88.77"></button>
+        </div>
         <div class="rangelabels">
           <span>$82<small>calm market</small></span>
           <span>&nbsp;</span>
@@ -275,10 +315,10 @@
 </section>
 
 <!-- 4. OUTCOMES -->
-<section class="sec" id="outcomes">
+<section class="sec tint" id="outcomes">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">02</span>From insight to action</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">From insight to action</span>
       <div class="head-split">
         <h2>Outcomes, not dashboards.</h2>
         <p class="lead">Every insight should lead to a better workforce decision. Market Intelligence is designed to help you validate rates, reduce unnecessary spend, support negotiations, and answer critical questions in seconds.</p>
@@ -296,8 +336,8 @@
 <!-- 5. PRODUCT (real screenshot, annotated) -->
 <section class="sec product" id="tour">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">03</span>See the product</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">See the product</span>
       <h2>Market Intelligence in action.</h2>
       <p class="lead">Explore the live Market Intelligence report. Every view uses current market data to answer one essential question: where do your rates stand in today's market? The dashboard turns raw contingent labor data into clear financial leverage.</p>
     </div>
@@ -319,29 +359,17 @@
   </div>
 </section>
 
-<!-- 6. INTERACTIVE -->
-<section class="sec tryit" id="tryit">
-  <div class="wrap">
-    <div class="sec-head center" style="text-align:center">
-      <span class="eyebrow ch" style="justify-content:center"><span class="chno">04</span>Try it yourself</span>
-      <h2>Experience Market Intelligence for yourself.</h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">This is a live, clickable demo, not a video. Filter by region or specialty and watch market rates, benchmarks, and trends update in real time, the fastest way to experience how Market Intelligence works.</p>
-      <div style="margin-top:18px"><span style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);box-shadow:var(--soft);border-radius:999px;padding:9px 18px;font-weight:800;font-size:14px;color:var(--teal2)"><span style="font-size:12px">&#9658;</span> Interactive &mdash; click and filter it yourself</span></div>
-    </div>
-    <div class="tryframe-wrap">
-      <div class="iframe-scaler" id="scaler" style="box-shadow:none;border:0;border-radius:0;max-width:none;margin:0">
-        <iframe id="tryframe" src="assets/interactive.html" title="Interactive Market Intelligence demo" scrolling="no"></iframe>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:26px"><a class="btn btn-primary btn-lg" href="#demo">See your real numbers, request a demo</a></div>
-  </div>
-</section>
+<!-- 6. INTERACTIVE SECTION — REMOVED per client redline (Courtney's 8/14 PDF).
+     Requested by Brenton (Trio head of product): "this section should be removed as it's not
+     obvious it's interactive but also confusing as we have two other UI examples displayed above."
+     The interactive demo (assets/interactive.html) is retained in the repo but no longer embedded.
+     If the team wants it back, re-embed here. -->
 
 <!-- 7. PERSONAS -->
 <section class="sec personas" id="who">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">05</span>Who it's for</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">Who it's for</span>
       <h2>Built for the leaders behind workforce strategy.</h2>
       <p class="lead">The same market intelligence, tailored to the decisions each workforce leader makes every day.</p>
     </div>
@@ -352,7 +380,7 @@
       <button class="ptab" data-p="3">Operations</button>
     </div>
     <div class="ppanel">
-      <div class="phex" id="phex" style="background:var(--teal)">&#9679;</div>
+      <div class="pphoto" id="phex" style="--pc:var(--teal)"><svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true"><path fill="currentColor" d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2.2c-4.1 0-8 2-8 5.1V21h16v-1.7c0-3.1-3.9-5.1-8-5.1Z"/></svg><span class="cap">Photo</span></div>
       <div class="pbody"><h3 id="ph">Workforce &amp; talent leaders</h3><p id="pp">Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.</p><div class="pstat" id="pstat"><b>Benchmark against 171K live job orders</b> before you set a single rate.</div></div>
     </div>
   </div>
@@ -361,8 +389,8 @@
 <!-- 8. WHY DIFFERENT -->
 <section class="sec why" id="why">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">06</span>Why Trio is different</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">Why Trio is different</span>
       <div class="head-split">
         <h2>Today's market and the trends behind it, in one view.</h2>
         <p class="lead">Traditional reports give you a static benchmark. Market Intelligence gives you the live market and the history behind it, built for how healthcare actually buys labor.</p>
@@ -388,8 +416,8 @@
 <!-- 9. FAQ -->
 <section class="sec" id="faq">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">07</span>Questions</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">Questions</span>
       <h2>Market Intelligence, answered.</h2>
     </div>
     <div class="faq-list">
@@ -408,9 +436,9 @@
   <div class="wrap">
     <div class="cta-band">
       <div class="cta-hex"></div>
-      <span class="eyebrow" style="color:#fff;justify-content:center">Ready when you are</span>
-      <h2>See your real rates.</h2>
-      <p>Schedule a demo and we will show you exactly where your rates sit against the live market, using your own data.</p>
+      <span class="eyebrow nodash" style="color:#fff;justify-content:center">Ready when you are</span>
+      <h2>See where your rates stand.</h2>
+      <p>Schedule a demo and we will show you how your rates compare against the live market for your roles, specialties, and regions.</p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-xl" href="#demo">Request a demo</a>
       </div>
@@ -465,11 +493,15 @@ var PERS=[
 ['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#95c842','<b>Back every rate decision with citable, current data</b> your CFO can defend.'],
 ['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f2642f','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.'],
 ['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#263a45','<b>Watch rate volatility across every facility</b> in one live view.']];
-document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.background=p[2];document.getElementById('pstat').innerHTML=p[3];});});
+document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];});});
 // scroll reveal (parity with home/DW)
 (function(){
   document.querySelectorAll('.sec-head,.cmp-card2,.shot,.tryframe-wrap,.ppanel,.vs').forEach(function(e){e.classList.add('reveal')});
   document.querySelectorAll('.grid4,.shot-legend,.shot-strip,.olist,.ptabs').forEach(function(e){e.classList.add('stagger')});
+  /* interactive product callouts: click a number (on the image or in the legend) to expand its copy */
+  (function(){var marks=[].slice.call(document.querySelectorAll('.shot .mark'));var lgs=[].slice.call(document.querySelectorAll('.shot-legend .lg'));if(!marks.length||!lgs.length)return;function sel(i){marks.forEach(function(x){x.classList.remove('active')});lgs.forEach(function(x){x.classList.remove('hl')});if(marks[i])marks[i].classList.add('active');if(lgs[i]){lgs[i].classList.add('hl');}}marks.forEach(function(m,i){m.setAttribute('role','button');m.setAttribute('tabindex','0');m.setAttribute('aria-label','Show product detail '+(i+1));m.addEventListener('click',function(){sel(i);});m.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(i);}});});lgs.forEach(function(l,i){l.setAttribute('tabindex','0');l.addEventListener('click',function(){sel(i);});l.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(i);}});});sel(0);})();
+  /* interactive market-range slider: scrub to see the rate + market state; auto-animates to the national average on load */
+  (function(){var bar=document.getElementById('rbar'),h=document.getElementById('rhandle'),rt=document.getElementById('rrate'),st=document.getElementById('rstate');if(!bar||!h||!rt||!st)return;var MIN=82,MAX=107;function stateFor(r){if(r<88)return['Calm market','var(--green)'];if(r<98)return['Balanced market','var(--teal2)'];return['Peak demand · overpay risk','var(--orange)'];}function setPct(p){p=Math.max(0,Math.min(100,p));h.style.left=p+'%';var r=MIN+(p/100)*(MAX-MIN);rt.textContent='$'+r.toFixed(2);var s=stateFor(r);st.textContent=s[0];st.style.color=s[1];h.style.borderColor=s[1];h.setAttribute('aria-valuenow',r.toFixed(2));}function fromEvent(e){var rect=bar.getBoundingClientRect();var cx=e.touches?e.touches[0].clientX:e.clientX;setPct((cx-rect.left)/rect.width*100);}var AVG=27.08;var dragging=false;function down(e){dragging=true;h.classList.add('drag');fromEvent(e);e.preventDefault();}function move(e){if(dragging)fromEvent(e);}function up(){dragging=false;h.classList.remove('drag');}h.addEventListener('mousedown',down);bar.addEventListener('mousedown',down);window.addEventListener('mousemove',move);window.addEventListener('mouseup',up);h.addEventListener('touchstart',down,{passive:false});window.addEventListener('touchmove',move,{passive:false});window.addEventListener('touchend',up);h.addEventListener('keydown',function(e){var cur=parseFloat(h.style.left)||27;if(e.key==='ArrowLeft'){setPct(cur-4);e.preventDefault();}if(e.key==='ArrowRight'){setPct(cur+4);e.preventDefault();}});var target=AVG;if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){setPct(target);}else{setPct(0);var start=null;requestAnimationFrame(function anim(ts){if(!start)start=ts;var t=Math.min((ts-start)/900,1);setPct(target*(1-Math.pow(1-t,3)));if(t<1)requestAnimationFrame(anim);});}})();
   if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal,.stagger').forEach(function(e){e.classList.add('in')});return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal,.stagger').forEach(function(e){io.observe(e);});

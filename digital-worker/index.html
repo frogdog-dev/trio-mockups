@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Digital Workers | Trio Workforce Solutions — concept</title>
+<title>Digital Workers | Trio Workforce Solutions (concept)</title>
 <link rel="stylesheet" href="../assets/css/site.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -31,9 +31,13 @@
 @media(max-width:860px){.hero-in{grid-template-columns:1fr}.hexcluster{display:none}}
 
 .concept{background:var(--mist)}
-.split{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;align-items:center;margin-top:8px}
-.split h2{max-width:16ch}
-.split p{font-size:17px;color:#45586b;margin-top:14px}
+/* redline (Chris): center/stack the section-01 concept copy instead of title-left / copy-right */
+.split{display:block;max-width:820px;margin:14px auto 0;text-align:center}
+.split h2{max-width:22ch;margin-left:auto;margin-right:auto}
+.split p{font-size:17px;color:#45586b;margin-top:14px;margin-left:auto;margin-right:auto;max-width:62ch}
+#concept .eyebrow{display:flex;justify-content:center;gap:0}#concept .eyebrow:before{display:none}
+.hx.hxphoto{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.42)}
+.hx.hxphoto svg{color:#fff;opacity:.85}.hx.hxphoto small{opacity:.9}
 .tagline{margin-top:22px;font-weight:800;color:var(--teal);font-size:18px}
 @media(max-width:820px){.split{grid-template-columns:1fr;gap:22px}}
 
@@ -50,7 +54,9 @@
 .role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:18px}
 .role-grid .rl{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--teal)}
 .role-grid p{font-size:15px;color:#43566a;margin-top:6px}
-.proof{display:inline-block;margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--ink)}
+/* redline (Chris): Proof reads as a headline-level callout, matching the What-it-does / How-it-works labels */
+.proof{display:block;margin-top:18px;background:var(--mist);border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:12px;padding:15px 18px;font-size:14px;color:var(--ink)}
+.proof .rl{margin-bottom:7px}
 .proof b{color:var(--deep)}
 .role-cta{margin-top:18px}
 @media(max-width:820px){.role-grid{grid-template-columns:1fr}}
@@ -88,9 +94,10 @@
 
 .bridge{background:linear-gradient(180deg,#fff,var(--mist2))}
 .quote{max-width:900px;margin:26px auto 0;text-align:center}
-.quote .q{font-size:27px;line-height:1.35;font-weight:700;color:var(--deep);letter-spacing:-.01em}
+.quote .q{font-size:clamp(25px,2.7vw,35px);line-height:1.34;font-weight:300;color:var(--deep);letter-spacing:-.012em}
+.quote .q b,.quote .q strong{font-weight:700;color:var(--teal2)}
 .quote .cite{margin-top:18px;color:var(--muted);font-weight:700}
-.quote .cite span{color:var(--muted);font-weight:500}
+.quote .cite span{color:var(--muted);font-weight:400;font-style:italic}
 .bridge .lk{display:inline-block;margin-top:24px;color:var(--teal);font-weight:800}
 
 .vision3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
@@ -128,9 +135,9 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 .hero .chno{color:#bfeaff}.hero .chno:after{background:linear-gradient(90deg,#fff,var(--green))}
 .accent{color:var(--teal)}
 
-.outcomes.sec{padding:100px 0}
+.outcomes.sec{padding:84px 0}
 .outcomes .sec-head h2{font-size:54px;letter-spacing:-.03em;line-height:1.02}
-.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
 .stat{border-top:2px solid rgba(255,255,255,.18);padding-top:16px}
 .stat .fig{font-size:50px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff}
 .stat.c1 .fig{color:#7fe0ff}.stat.c2 .fig{color:#a6e06a}.stat.c3 .fig{color:#ffb27a}
@@ -157,14 +164,15 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 .rung p{font-size:14px;color:var(--muted);margin-top:7px;line-height:1.45}
 .rung.r1{margin-bottom:0}.rung.r2{margin-bottom:26px}.rung.r3{margin-bottom:52px;border-color:rgba(120,186,67,.55)}
 .rung.r3 .rn{color:var(--green)}
-.climb-axis{display:flex;justify-content:space-between;margin-top:2px;font-size:11.5px;font-weight:800;letter-spacing:.05em;color:var(--muted);text-transform:uppercase}
+/* redline (Amy): enlarge the ladder captions + give them room below the rungs */
+.climb-axis{display:flex;justify-content:space-between;margin-top:20px;font-size:13.5px;font-weight:800;letter-spacing:.03em;color:var(--ink);text-transform:uppercase}
 .climb-axis .up{color:var(--green)}
 .ladder .note{margin-top:18px;color:var(--muted);font-size:14.5px;max-width:80ch}
 
 /* redline (Amy): center the quote box, rounded rectangle (no special corner) */
 .quote{max-width:840px;margin:34px auto 0;text-align:left;background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:16px;padding:32px 36px;box-shadow:var(--soft);position:relative}
-.quote:before{content:"\201C";position:absolute;top:2px;left:18px;font-size:74px;color:rgba(0,170,228,.20);font-family:Georgia,serif;line-height:1}
-.quote .q{font-size:25px;line-height:1.4;font-weight:700;color:var(--deep);letter-spacing:-.01em;padding-left:22px}
+.quote:before{content:"\201C";position:absolute;top:-6px;left:14px;font-size:96px;color:rgba(0,160,216,.16);line-height:1}
+.quote .q{font-size:clamp(24px,2.6vw,33px);line-height:1.4;font-weight:300;color:var(--deep);letter-spacing:-.012em;padding-left:22px}
 .quote .cite{margin-top:18px;padding-left:22px;color:var(--deep);font-weight:800;font-size:16px}
 .quote .cite span{display:block;color:var(--muted);font-weight:500;font-size:14px;margin-top:3px}
 
@@ -228,8 +236,9 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 .outcomes:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:radial-gradient(50% 80% at 20% 10%,rgba(0,170,228,.28),transparent 55%),radial-gradient(50% 80% at 85% 30%,rgba(120,186,67,.18),transparent 52%);filter:blur(30px)}
 .statrow{position:relative;z-index:2;align-items:end}
-.stat{position:relative;border-top:0;padding:22px 10px 16px}
-.stat:before{content:"";position:absolute;z-index:-1;width:150px;height:166px;left:50%;top:-6px;transform:translateX(-50%);clip-path:var(--hex);background:rgba(255,255,255,.035);outline:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
+.stat{position:relative;border-top:0;padding:6px 10px 14px}
+/* redline (Amy): remove the decorative background hexagons behind the recap stats */
+.stat:before{display:none}
 /* redline (Amy): solid Trio brand colors, no gradient text, single-line figures */
 .stat .fig{font-size:clamp(48px,5.8vw,92px);line-height:.95;color:#34c3e8;-webkit-text-fill-color:#34c3e8;letter-spacing:-.03em;white-space:nowrap;filter:drop-shadow(0 6px 22px rgba(0,170,228,.16))}
 .stat.c2 .fig{color:#95c842;-webkit-text-fill-color:#95c842}
@@ -268,6 +277,8 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 #how{background:linear-gradient(180deg,#fff,var(--mist))}
 #how .step{background:#fff}
 .ctaband>*{position:relative;z-index:2}
+/* keep the decorative corner hex out of flow (the rule above was un-absoluting it and pushing the CTA copy down) */
+.ctaband .ctahex{position:absolute;z-index:0}
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -276,6 +287,22 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 .stagger.in>*:nth-child(2){transition-delay:.08s}.stagger.in>*:nth-child(3){transition-delay:.16s}.stagger.in>*:nth-child(4){transition-delay:.24s}
 @media(prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1;transform:none}.hero:before,.hx.float,.hexlines line,.climbline path,.hx .glowdot,.role .livedot{animation:none}}
 </style>
+<!-- Structured data (AEO): Organization + SoftwareApplication + FAQPage.
+     NOTE for build: confirm the production logo URL; LocalBusiness and Review/rating markup intentionally omitted (would require real address + real reviews). -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://triowfs.com/#org","name":"Trio Workforce Solutions","url":"https://triowfs.com/","logo":"https://triowfs.com/hubfs/Trio/trio-logo-wide.png","description":"Trio Workforce Solutions is a healthcare workforce orchestration platform that helps health systems make better, data-driven contingent-labor decisions."},
+{"@type":"SoftwareApplication","name":"Trio Digital Workers","applicationCategory":"BusinessApplication","operatingSystem":"Web","provider":{"@id":"https://triowfs.com/#org"},"description":"Trio Digital Workers are specialized AI teammates embedded in the Trio platform that perform defined, rules-based workforce jobs and surface only the exceptions that need a person."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a Digital Worker?","acceptedAnswer":{"@type":"Answer","text":"A specialized AI teammate embedded in the Trio platform that performs a defined workforce job function, reviewing repetitive, rules-based work against defined rules and surfacing only the exceptions that need a person."}},
+{"@type":"Question","name":"How is it different from automation?","acceptedAnswer":{"@type":"Answer","text":"Automation is built to remove people from a process. Digital Workers are built to keep a person in the loop on every decision. They extend your team's expertise rather than replace it."}},
+{"@type":"Question","name":"Who is it for?","acceptedAnswer":{"@type":"Answer","text":"Operations and program leaders, VMS/MSP program directors, compliance and risk teams, finance, IT leadership, and Physician Management Groups, anyone accountable for high-volume, high-stakes workforce decisions."}},
+{"@type":"Question","name":"What roles are live today?","acceptedAnswer":{"@type":"Answer","text":"Timecard Auditor and Submission Evaluator are live in production, with a growing catalog of Digital Workers expanding across workforce operations."}},
+{"@type":"Question","name":"How does a Digital Worker earn more autonomy?","acceptedAnswer":{"@type":"Answer","text":"It moves through a deliberate ladder: recommend first, then act under review, then exception-based monitoring. Autonomy grows only through demonstrated trust."}},
+{"@type":"Question","name":"Is my data secure?","acceptedAnswer":{"@type":"Answer","text":"Data security and client confidentiality are non-negotiable. Digital Workers run inside the Trio platform your teams already use, not as a bolt-on tool with its own login and data silo."}}
+]}
+]}
+</script>
 </head>
 <body>
 <div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a href="../mi/">Market Intelligence</a><a class="on" href="../digital-worker/">Digital Workers</a><a href="../brand/">Brand guide</a></div>
@@ -313,7 +340,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
       <div class="hx ghost f2" style="left:186px;top:288px;width:74px;height:82px"></div>
       <div class="hx solid cyan float" style="left:40px;top:60px;width:132px;height:146px"><small>Live</small><b>Timecard Auditor</b><span class="glowdot"></span></div>
       <div class="hx solid green f2" style="left:210px;top:120px;width:132px;height:146px"><small>Live</small><b>Submission Evaluator</b><span class="glowdot"></span></div>
-      <div class="hx glass f3" style="left:58px;top:228px;width:120px;height:133px"><small>Human</small><b>In the loop</b></div>
+      <div class="hx glass f3 hxphoto" style="left:50px;top:214px;width:150px;height:166px"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2.2c-4.1 0-8 2-8 5.1V21h16v-1.7c0-3.1-3.9-5.1-8-5.1Z"/></svg><small style="margin-top:3px">Photo</small><b>Your teammate</b></div>
       <div class="hx dash float" style="left:318px;top:220px;width:104px;height:115px"><small>Next</small><b>Your catalog</b></div>
     </div>
   </div>
@@ -322,7 +349,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 <!-- 02 THE CONCEPT -->
 <section class="sec concept tex glowtl" id="concept">
   <div class="wrap">
-    <span class="eyebrow ch"><span class="chno">01</span>The next workforce isn't just human</span>
+    <span class="eyebrow">The next workforce isn't just human</span>
     <div class="split">
       <div>
         <h2>Build a digital workforce alongside your human one.</h2>
@@ -339,8 +366,8 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 <!-- 03 THE ROLES -->
 <section class="sec tex glowbr" id="roles">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">02</span>Live in production today</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">Live in production today</span>
       <h2>A role, not a feature.</h2>
       <p class="lead">Each Digital Worker performs a defined job function across the workforce lifecycle. It is managed, monitored, measured, and updated over its lifecycle, the same way the people it works alongside are. Two are already at work in production today.</p>
     </div>
@@ -361,7 +388,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
             <div><div class="rl">How it works</div><p>Validate &rarr; score &rarr; flag. Every submission is checked against your rules; only the exceptions that need judgment reach a person.</p></div>
             <div><div class="rl">Who it's for</div><p>Finance, procurement, and compliance leaders accountable for contract-labor spend and audit defensibility.</p></div>
           </div>
-          <div class="proof">Proof: <b>$2M+</b> in verified savings and <b>$291K</b> in unrecovered spend prevented at a large healthcare system. <span style="color:var(--muted)">Audit time: ~8 minutes vs. ~1.2 days for a human reviewer. <em>Figures pending final marketing sign-off.</em></span></div>
+          <div class="proof"><div class="rl">Proof</div><b>$2M+</b> in verified savings and <b>$291K</b> in unrecovered spend prevented at a large healthcare system. <span style="color:var(--muted)">Audit time: ~8 minutes vs. ~1.2 days for a human reviewer. <em>Figures pending final marketing sign-off.</em></span></div>
           <div class="role-cta"><a class="btn btn-ghost" href="#demo">See the Timecard Auditor in a demo</a></div>
         </div>
       </div>
@@ -383,7 +410,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
             <div><div class="rl">How it works</div><p>Scores each submission against role requirements in real time and returns actionable feedback to suppliers.</p></div>
             <div><div class="rl">Who it's for</div><p>VMS / MSP program directors and talent leaders focused on program integrity and submission quality.</p></div>
           </div>
-          <div class="proof">Proof: <span style="color:var(--muted)">No product-specific financial figures cleared for external use yet, lead with the consistency and quality story until numbers are approved.</span></div>
+          <div class="proof"><div class="rl">Proof</div><span style="color:var(--muted)">No product-specific financial figures cleared for external use yet, lead with the consistency and quality story until numbers are approved.</span></div>
           <div class="role-cta"><a class="btn btn-ghost" href="#demo">See the Submission Evaluator in a demo</a></div>
         </div>
       </div>
@@ -401,8 +428,8 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 <!-- 04 HOW IT WORKS -->
 <section class="sec concept tex glowtr" id="how">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">03</span>How a Digital Worker works</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">How a Digital Worker works</span>
       <h2>Hired like an employee. Governed like one, too.</h2>
       <p class="lead">A Digital Worker isn't a script or a one-off automation. It works the way a new team member does: given a role, handed the rules of the job, and kept accountable to a person. That's what makes it a teammate rather than a tool.</p>
     </div>
@@ -420,8 +447,8 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 <!-- 05 OUTCOMES (dark band) -->
 <section class="sec outcomes" id="outcomes">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">04</span>Outcomes, not dashboards</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">Outcomes, not dashboards</span>
       <h2>What <span class="accent">changes</span>.</h2>
       <p class="lead" style="color:#aecadf">The value shows up in decisions and in capacity, not in another tool to log into.</p>
     </div>
@@ -445,8 +472,8 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 <!-- 06 BUILT ON TRUST -->
 <section class="sec tex glowtl" id="trust">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">05</span>Built on trust</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">Built on trust</span>
       <h2>The AI surfaces. <span class="accent">You decide.</span></h2>
       <p class="lead">Every Trio Digital Worker is built on the same three principles that govern all Applied AI at Trio. This is the trust spine of the platform.</p>
     </div>
@@ -486,8 +513,8 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 <!-- 08 PLATFORM VISION -->
 <section class="sec concept tex glowbr" id="vision">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow ch"><span class="chno">06</span>Build your digital workforce</span>
+    <div class="sec-head tc">
+      <span class="eyebrow">Build your digital workforce</span>
       <h2>Start with one. Build a workforce.</h2>
       <p class="lead">Digital Workers are not individual automations. They are specialized AI teammates that solve specific operational challenges across workforce management. Start with a single role and expand across every high-volume, rules-based workflow as your organization grows.</p>
     </div>
@@ -515,7 +542,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
       <span class="eyebrow nodash" style="color:#fff;justify-content:center">Ready when you are</span>
       <h2>See a Digital Worker run on your workflow.</h2>
       <p>Book a 30-minute working session: we'll walk the Timecard Auditor and Submission Evaluator against a real workflow from your program, no commitment.</p>
-      <div class="hero-cta" style="justify-content:center;margin-top:26px"><a class="btn btn-light" href="#demo">Book a 30-minute working session</a><a class="btn btn-outline" href="#roles">Explore the roles</a></div>
+      <div class="hero-cta" style="justify-content:center;margin-top:26px"><a class="btn btn-light" href="#demo">Book a 30-minute working session</a><a class="btn btn-outline" href="#demo">Talk to our team</a></div>
     </div>
   </div>
 </section>
@@ -523,7 +550,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 <!-- 10 FAQ -->
 <section class="sec concept tex glowbr" id="faq">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Questions</span><h2>AI in healthcare workforce operations, answered.</h2></div>
+    <div class="sec-head tc"><span class="eyebrow">Questions</span><h2>AI in healthcare workforce operations, answered.</h2></div>
     <div class="faq">
       <div class="q"><button>What is a Digital Worker?<span class="pl">+</span></button><div class="a"><p>A specialized AI teammate embedded in the Trio platform that performs a defined workforce job function, reviewing repetitive, rules-based work against defined rules and surfacing only the exceptions that need a person.</p></div></div>
       <div class="q"><button>How is it different from automation?<span class="pl">+</span></button><div class="a"><p>Automation is built to remove people from a process. Digital Workers are built to keep a person in the loop on every decision. They extend your team's expertise rather than replace it.</p></div></div>

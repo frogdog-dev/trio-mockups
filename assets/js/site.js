@@ -52,3 +52,38 @@ document.querySelectorAll('.faq-list .q button').forEach(function(b){b.addEventL
   document.querySelectorAll('.model').forEach(function(m){m.addEventListener('mousemove',function(e){
     var r=m.getBoundingClientRect();m.style.setProperty('--mx',(e.clientX-r.left)+'px');m.style.setProperty('--my',(e.clientY-r.top)+'px');});});
 })();
+// ===== the "through-line": the pieces resolving into one system (home #shift signature) =====
+(function(){
+  var map=document.querySelector('.sysmap'); if(!map) return;
+  var wire=map.querySelector('.wire'), hub=map.querySelector('.rolecard.sys .rc');
+  if(!wire||!hub) return;
+  var pieces=[].slice.call(map.querySelectorAll('.pieces .rolecard'));
+  var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function build(){
+    var mb=map.getBoundingClientRect(); if(!mb.width) return;
+    var hb=hub.getBoundingClientRect(), hx=hb.left+hb.width/2-mb.left, hy=hb.top-mb.top+hb.height*0.5, d='';
+    pieces.forEach(function(p,i){
+      var pb=p.getBoundingClientRect(), px=pb.left+pb.width/2-mb.left, py=pb.bottom-mb.top+2, my=(py+hy)/2;
+      d+='<path class="t'+(i+1)+'" pathLength="1" d="M'+px.toFixed(1)+' '+py.toFixed(1)+' C '+px.toFixed(1)+' '+my.toFixed(1)+' '+hx.toFixed(1)+' '+my.toFixed(1)+' '+hx.toFixed(1)+' '+hy.toFixed(1)+'"/>';
+    });
+    wire.setAttribute('viewBox','0 0 '+mb.width+' '+mb.height); wire.setAttribute('preserveAspectRatio','none');
+    wire.innerHTML='<defs><linearGradient id="wireGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#009fc7"/><stop offset="1" stop-color="#8cc63f"/></linearGradient></defs>'+d;
+  }
+  build(); addEventListener('load',build); addEventListener('resize',build);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){
+      build(); wire.classList.add('wired');
+      if(!RM) setTimeout(function(){hub.classList.add('hublit');},1150);
+      io.unobserve(x.target);
+    }});},{threshold:.35});
+    io.observe(map);
+  } else { wire.classList.add('wired'); }
+  if(matchMedia('(pointer:fine)').matches){
+    map.querySelectorAll('.pieces .rolecard').forEach(function(card,i){
+      card.addEventListener('mouseenter',function(){var p=wire.querySelector('path.t'+(i+1));if(p){p.style.strokeWidth='3.5';p.style.filter='drop-shadow(0 0 5px rgba(0,159,199,.55))';}});
+      card.addEventListener('mouseleave',function(){var p=wire.querySelector('path.t'+(i+1));if(p){p.style.strokeWidth='';p.style.filter='';}});
+    });
+    var sys=map.querySelector('.rolecard.sys');
+    if(sys)sys.addEventListener('mouseenter',function(){if(RM)return;hub.classList.remove('hublit');void hub.offsetWidth;hub.classList.add('hublit');});
+  }
+})();
