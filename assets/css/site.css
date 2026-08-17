@@ -38,9 +38,10 @@ section{position:relative}
 .sec{padding:92px 0;position:relative;overflow:hidden}
 .sec-head{max-width:74ch;position:relative;z-index:2}
 .sec-head h2{margin-top:14px}.sec-head p{margin-top:16px}
-h1{font-size:62px;line-height:1;letter-spacing:-.045em;font-weight:850;color:var(--deep)}
-h2{font-size:44px;line-height:1.03;letter-spacing:-.04em;font-weight:850;color:var(--deep)}
-h3{font-size:22px;font-weight:800;color:var(--deep);letter-spacing:-.02em}
+/* redline (Amy): ease heading kerning a touch — headers were reading squished */
+h1{font-size:62px;line-height:1.02;letter-spacing:-.03em;font-weight:850;color:var(--deep)}
+h2{font-size:44px;line-height:1.05;letter-spacing:-.025em;font-weight:850;color:var(--deep)}
+h3{font-size:22px;font-weight:800;color:var(--deep);letter-spacing:-.01em}
 .lead{font-size:21px;line-height:1.5;font-weight:540;color:#405963}
 .accent{color:var(--teal)}
 /* eyebrow + chapters */

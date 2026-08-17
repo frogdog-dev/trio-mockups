@@ -10,6 +10,8 @@
 
 /* flat-top hex for number/letter badges: the wide flat top+bottom keep 2-char labels off the sloped vertices (fixes the "03"->"C3" clipping) */
 .hexbadge{width:54px;height:50px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px;line-height:1;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
+/* redline (Amy): drop the eyebrow lead-dash where it isn't led by a number */
+.eyebrow.nodash:before{display:none}.eyebrow.nodash{gap:0}
 
 .hero{background:linear-gradient(125deg,var(--teal) 0%,#0f6fb0 42%,var(--deep) 100%);color:#fff;overflow:hidden;position:relative}
 .hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 20%,rgba(120,186,67,.20),transparent 40%);pointer-events:none}
@@ -128,7 +130,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 
 .outcomes.sec{padding:100px 0}
 .outcomes .sec-head h2{font-size:54px;letter-spacing:-.03em;line-height:1.02}
-.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
 .stat{border-top:2px solid rgba(255,255,255,.18);padding-top:16px}
 .stat .fig{font-size:50px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff}
 .stat.c1 .fig{color:#7fe0ff}.stat.c2 .fig{color:#a6e06a}.stat.c3 .fig{color:#ffb27a}
@@ -159,7 +161,8 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 .climb-axis .up{color:var(--green)}
 .ladder .note{margin-top:18px;color:var(--muted);font-size:14.5px;max-width:80ch}
 
-.quote{max-width:840px;margin:34px 0 0;text-align:left;background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:0 16px 16px 0;padding:30px 36px 30px;box-shadow:var(--soft);position:relative}
+/* redline (Amy): center the quote box, rounded rectangle (no special corner) */
+.quote{max-width:840px;margin:34px auto 0;text-align:left;background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:16px;padding:32px 36px;box-shadow:var(--soft);position:relative}
 .quote:before{content:"\201C";position:absolute;top:2px;left:18px;font-size:74px;color:rgba(0,170,228,.20);font-family:Georgia,serif;line-height:1}
 .quote .q{font-size:25px;line-height:1.4;font-weight:700;color:var(--deep);letter-spacing:-.01em;padding-left:22px}
 .quote .cite{margin-top:18px;padding-left:22px;color:var(--deep);font-weight:800;font-size:16px}
@@ -227,8 +230,10 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 .statrow{position:relative;z-index:2;align-items:end}
 .stat{position:relative;border-top:0;padding:22px 10px 16px}
 .stat:before{content:"";position:absolute;z-index:-1;width:150px;height:166px;left:50%;top:-6px;transform:translateX(-50%);clip-path:var(--hex);background:rgba(255,255,255,.035);outline:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
-.stat .fig{font-size:clamp(58px,7vw,104px);line-height:.92;background:linear-gradient(160deg,#7fe0ff,#a6e06a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 6px 22px rgba(0,170,228,.25))}
-.stat.c3 .fig{background:linear-gradient(160deg,#ffce9e,#f2642f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* redline (Amy): solid Trio brand colors, no gradient text, single-line figures */
+.stat .fig{font-size:clamp(48px,5.8vw,92px);line-height:.95;color:#34c3e8;-webkit-text-fill-color:#34c3e8;letter-spacing:-.03em;white-space:nowrap;filter:drop-shadow(0 6px 22px rgba(0,170,228,.16))}
+.stat.c2 .fig{color:#95c842;-webkit-text-fill-color:#95c842}
+.stat.c3 .fig{color:#f58220;-webkit-text-fill-color:#f58220}
 .stat.big{transform:scale(1.06)}
 .stat.big .fig{font-size:clamp(66px,8.4vw,124px)}
 @media(max-width:900px){.stat.big{transform:none}}
@@ -424,7 +429,6 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
       <div class="stat c1 big"><div class="fig">$2M+</div><div class="lb">Verified savings identified at a large healthcare system</div></div>
       <div class="stat c3"><div class="fig">$291K</div><div class="lb">Unrecovered spend caught before payment cleared</div></div>
       <div class="stat c2"><div class="fig">~8 min</div><div class="lb">To audit a full cycle, versus ~1.2 days by hand</div></div>
-      <div class="stat"><div class="fig">2 <span style="font-size:26px;font-weight:700;color:#aecadf">live</span></div><div class="lb">Digital Workers in production today, catalog growing</div></div>
     </div>
     <p class="statnote">Illustrative results from early Timecard Auditor deployments; figures pending final marketing sign-off.</p>
     <div class="grid4">
@@ -468,7 +472,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
 <section class="sec bridge" id="bridge">
   <div class="wrap" style="text-align:center">
     <div class="bighex" aria-hidden="true"></div>
-    <span class="eyebrow" style="justify-content:center">Applied AI, made tangible</span>
+    <span class="eyebrow nodash" style="justify-content:center">Applied AI, made tangible</span>
     <h2 style="margin-top:14px">Every capability, tied to a measurable outcome.</h2>
     <p class="lead center" style="max-width:64ch">Digital Workers are Trio's Applied AI made tangible. Every AI capability we build starts with a clear business need, a defined outcome, and an unwavering commitment to data security, not technology for its own sake.</p>
     <div class="quote">
@@ -508,7 +512,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding
   <div class="wrap">
     <div class="ctaband">
       <div class="ctahex"></div>
-      <span class="eyebrow" style="color:#fff;justify-content:center">Ready when you are</span>
+      <span class="eyebrow nodash" style="color:#fff;justify-content:center">Ready when you are</span>
       <h2>See a Digital Worker run on your workflow.</h2>
       <p>Book a 30-minute working session: we'll walk the Timecard Auditor and Submission Evaluator against a real workflow from your program, no commitment.</p>
       <div class="hero-cta" style="justify-content:center;margin-top:26px"><a class="btn btn-light" href="#demo">Book a 30-minute working session</a><a class="btn btn-outline" href="#roles">Explore the roles</a></div>
