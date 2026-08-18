@@ -281,8 +281,10 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .case p{color:var(--muted);font-size:15px;margin-top:10px;line-height:1.5}
 .case .ph{margin-top:12px;font-size:12px;font-weight:700;color:var(--amber);font-style:italic}
 /* recognition + security */
-.recsec{background:#fff}
-.rs{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;margin-top:20px}
+.recsec{background:#fff;padding-bottom:40px}
+/* lock the closing CTA up to the recognition content above it (home only: .recsec is home-only) */
+.recsec + .sec{padding-top:20px}
+.rs{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;margin-top:20px;align-items:start}
 .rscard{background:var(--mist);border:1px solid var(--line);border-radius:18px;padding:28px}
 .rscard.dark{background:linear-gradient(150deg,var(--deep),var(--navy));border:0;color:#dce9f2}
 .rscard.dark h3{color:#fff}.rscard.dark p{color:#a7c6d3}

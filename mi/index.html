@@ -163,10 +163,10 @@
 .ptab.on{background:var(--deep);color:#fff;border-color:var(--deep)}
 .ppanel{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:40px;display:grid;grid-template-columns:152px 1fr;gap:36px;align-items:center;min-height:172px}
 /* redline (Chris) + creative red-team: personas want a real photo; the placeholder is a brand hex portrait aperture (accent rim recolors per persona), not a dashed box */
-.ppanel .pphoto{flex:none;width:152px;height:170px;clip-path:var(--hex);background:var(--pc,var(--teal));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;position:relative;transition:background .25s}
-.ppanel .pphoto:before{content:"";position:absolute;inset:3px;clip-path:var(--hex);background:linear-gradient(160deg,#fff,var(--mist2));z-index:0}
-.ppanel .pphoto svg{position:relative;z-index:1;color:var(--pc,var(--teal));opacity:.55;transition:color .25s}
-.ppanel .pphoto .cap{position:relative;z-index:1;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.ppanel .pphoto{flex:none;width:152px;height:170px;clip-path:var(--hex);background:var(--pc,var(--teal));position:relative;transition:background .25s}
+.ppanel .pphoto:before{content:"";position:absolute;inset:3px;clip-path:var(--hex);background:linear-gradient(160deg,#eef4f6,#dde9ed);z-index:0}
+.ppanel .pphoto img{position:absolute;inset:3px;width:calc(100% - 6px);height:calc(100% - 6px);object-fit:cover;object-position:top center;clip-path:var(--hex);z-index:1}
+.ppanel .pphoto .cap{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:2;background:rgba(15,45,57,.74);color:#fff;font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
 @media(max-width:820px){.ppanel .pphoto{width:126px;height:141px}}
 .ppanel h3{font-size:27px;color:var(--deep);letter-spacing:-.02em}
 .ppanel p{font-size:18.5px;line-height:1.5;color:#405963;margin-top:10px;font-weight:500}
@@ -380,7 +380,7 @@
       <button class="ptab" data-p="3">Operations</button>
     </div>
     <div class="ppanel">
-      <div class="pphoto" id="phex" style="--pc:var(--teal)"><svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true"><path fill="currentColor" d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2.2c-4.1 0-8 2-8 5.1V21h16v-1.7c0-3.1-3.9-5.1-8-5.1Z"/></svg><span class="cap">Photo</span></div>
+      <div class="pphoto" id="phex" style="--pc:var(--teal)"><img id="pphotoimg" src="https://randomuser.me/api/portraits/women/68.jpg" alt="" referrerpolicy="no-referrer"><span class="cap">FPO photo</span></div>
       <div class="pbody"><h3 id="ph">Workforce &amp; talent leaders</h3><p id="pp">Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.</p><div class="pstat" id="pstat"><b>Benchmark against 171K live job orders</b> before you set a single rate.</div></div>
     </div>
   </div>
@@ -489,11 +489,11 @@ function scaleHero(){
 function allScale(){scaleFrame();scaleHero();}
 addEventListener('resize',allScale); addEventListener('load',allScale); allScale();
 var PERS=[
-['Workforce & talent leaders','Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.','#009fc7','<b>Benchmark against 171K live job orders</b> before you set a single rate.'],
-['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#95c842','<b>Back every rate decision with citable, current data</b> your CFO can defend.'],
-['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f2642f','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.'],
-['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#263a45','<b>Watch rate volatility across every facility</b> in one live view.']];
-document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];});});
+['Workforce & talent leaders','Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.','#009fc7','<b>Benchmark against 171K live job orders</b> before you set a single rate.','https://randomuser.me/api/portraits/women/68.jpg'],
+['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#95c842','<b>Back every rate decision with citable, current data</b> your CFO can defend.','https://randomuser.me/api/portraits/men/32.jpg'],
+['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f2642f','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.','https://randomuser.me/api/portraits/women/44.jpg'],
+['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#263a45','<b>Watch rate volatility across every facility</b> in one live view.','https://randomuser.me/api/portraits/men/75.jpg']];
+document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];document.getElementById('pphotoimg').src=p[4];});});
 // scroll reveal (parity with home/DW)
 (function(){
   document.querySelectorAll('.sec-head,.cmp-card2,.shot,.tryframe-wrap,.ppanel,.vs').forEach(function(e){e.classList.add('reveal')});
