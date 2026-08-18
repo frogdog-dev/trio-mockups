@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Market Intelligence | Trio Workforce Solutions (redesign concept)</title>
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/site.css?v=20260818b">
 <style>
 
 /* MI inherits reset/type/eyebrow/buttons/nav/footer from site.css (single source). Only MI-specific components live below. */
@@ -384,7 +384,7 @@
       <button class="ptab" data-p="3">Operations</button>
     </div>
     <div class="ppanel">
-      <div class="pphoto" id="phex" style="--pc:var(--teal)"><img id="pphotoimg" src="https://randomuser.me/api/portraits/women/68.jpg" alt="" referrerpolicy="no-referrer"><span class="cap">FPO photo</span></div>
+      <div class="pphoto" id="phex" style="--pc:var(--teal)"><img id="pphotoimg" src="https://randomuser.me/api/portraits/women/68.jpg" alt="" referrerpolicy="no-referrer" onerror="this.style.display='none'"><span class="cap">FPO photo</span></div>
       <div class="pbody"><h3 id="ph">Workforce &amp; talent leaders</h3><p id="pp">Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.</p><div class="pstat" id="pstat"><b>Benchmark against 171K live job orders</b> before you set a single rate.</div></div>
     </div>
   </div>
@@ -518,7 +518,7 @@ var PERS=[
 ['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#95c842','<b>Back every rate decision with citable, current data</b> your CFO can defend.','https://randomuser.me/api/portraits/men/32.jpg'],
 ['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f2642f','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.','https://randomuser.me/api/portraits/women/44.jpg'],
 ['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#263a45','<b>Watch rate volatility across every facility</b> in one live view.','https://randomuser.me/api/portraits/men/75.jpg']];
-document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];document.getElementById('pphotoimg').src=p[4];});});
+document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];var pi=document.getElementById('pphotoimg');pi.style.display='';pi.src=p[4];});});
 // scroll reveal (parity with home/DW)
 (function(){
   document.querySelectorAll('.sec-head,.cmp-card2,.shot,.tryframe-wrap,.ppanel,.vs').forEach(function(e){e.classList.add('reveal')});
