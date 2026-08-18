@@ -37,10 +37,10 @@ a{color:inherit;text-decoration:none}
 section{position:relative}
 .sec{padding:92px 0;position:relative;overflow:hidden}
 .sec-head{max-width:74ch;position:relative;z-index:2}
-.sec-head h2{margin-top:14px}.sec-head p{margin-top:16px}
+.sec-head h2{margin-top:14px}.sec-head p{margin-top:19px}
 /* redline (Amy): ease heading kerning a touch — headers were reading squished */
-h1{font-size:62px;line-height:1.02;letter-spacing:-.03em;font-weight:850;color:var(--deep)}
-h2{font-size:44px;line-height:1.05;letter-spacing:-.025em;font-weight:850;color:var(--deep)}
+h1{font-size:62px;line-height:1.02;letter-spacing:-.03em;font-weight:850;color:var(--deep);text-wrap:balance}
+h2{font-size:44px;line-height:1.05;letter-spacing:-.025em;font-weight:850;color:var(--deep);text-wrap:balance}
 h3{font-size:22px;font-weight:800;color:var(--deep);letter-spacing:-.01em}
 .lead{font-size:21px;line-height:1.5;font-weight:540;color:#405963}
 .accent{color:var(--teal)}
