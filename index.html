@@ -13,7 +13,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter','Open Sans',system-ui,Arial,sans-serif;color:var(--ink);background:#eef4f9;-webkit-font-smoothing:antialiased;line-height:1.55}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
 .top{background:linear-gradient(125deg,var(--teal) 0%,#0f6fb0 46%,var(--navy) 100%);color:#fff;padding:54px 0 120px;position:relative;overflow:hidden}
 .top:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 84% 18%,rgba(120,186,67,.20),transparent 42%);pointer-events:none}
 .brandline{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.02em}
@@ -21,30 +21,36 @@ a{color:inherit;text-decoration:none}
 .brandline .x{opacity:.6;font-weight:500}
 .eyebrow{margin-top:34px;font-size:12.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#bfeaff}
 .top h1{font-size:44px;line-height:1.06;letter-spacing:-.02em;font-weight:850;margin-top:12px;max-width:20ch}
-.top p{margin-top:16px;font-size:18px;color:#e4f4fd;max-width:60ch;font-weight:500}
-.deck{max-width:1080px;margin:-84px auto 0;padding:0 26px 70px;position:relative;z-index:2}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.top p{margin-top:16px;font-size:18px;color:#e4f4fd;max-width:64ch;font-weight:500}
+.deck{max-width:1120px;margin:-84px auto 0;padding:0 26px 70px;position:relative;z-index:2}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
 .card:hover{transform:translateY(-4px);box-shadow:0 32px 74px rgba(20,52,94,.22)}
 .shot{position:relative;aspect-ratio:1300/840;overflow:hidden;background:var(--mist);border-bottom:1px solid var(--line)}
 .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.94);color:var(--navy);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;box-shadow:var(--soft)}
 .tag .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px;vertical-align:middle}
-.cbody{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.cbody{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
 .cbody .k{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
 .card.dw .cbody .k{color:var(--cyan)}
-.cbody h2{font-size:24px;letter-spacing:-.02em;color:var(--navy);margin-top:7px;font-weight:850}
-.cbody p{color:var(--muted);font-size:15px;margin-top:10px;flex:1}
-.meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:var(--muted);font-weight:600}
+.card.hp .cbody .k{color:var(--navy)}
+.cbody h2{font-size:22px;letter-spacing:-.02em;color:var(--navy);margin-top:7px;font-weight:850;line-height:1.12}
+.cbody p{color:var(--muted);font-size:14.5px;margin-top:10px;flex:1}
+.meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;font-size:12px;color:var(--muted);font-weight:600}
 .meta b{color:var(--navy)}
 .btnrow{margin-top:20px}
-.btn{display:inline-flex;align-items:center;gap:9px;border-radius:9px;padding:14px 22px;font-weight:800;font-size:15px;background:var(--teal);color:#fff;box-shadow:0 12px 24px rgba(0,159,199,.24);transition:transform .15s,background .15s}
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:9px;padding:13px 20px;font-weight:800;font-size:14.5px;background:var(--teal);color:#fff;box-shadow:0 12px 24px rgba(0,159,199,.24);transition:transform .15s,background .15s}
 .card.dw .btn{background:var(--cyan);box-shadow:0 12px 24px rgba(0,170,228,.24)}
+.card.hp .btn{background:var(--navy);box-shadow:0 12px 24px rgba(20,52,94,.24)}
 .btn:hover{transform:translateY(-1px)}
-.note{margin-top:34px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:0 14px 14px 0;padding:20px 24px;font-size:14.5px;color:var(--ink);box-shadow:var(--soft)}
+.reflink{text-align:center;margin-top:30px}
+.reflink a{color:var(--teal);font-weight:800;font-size:14.5px;border-bottom:1.5px solid rgba(0,159,199,.35);padding-bottom:2px;transition:color .15s,border-color .15s}
+.reflink a:hover{color:var(--navy);border-color:var(--navy)}
+.reflink .sub{display:block;color:var(--muted);font-size:12.5px;font-weight:600;margin-top:7px;border:0}
+.note{margin-top:30px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:0 14px 14px 0;padding:20px 24px;font-size:14.5px;color:var(--ink);box-shadow:var(--soft)}
 .note b{color:var(--navy)}
 .foot{color:var(--muted);font-size:13px;text-align:center;padding:0 26px 44px}
-@media(max-width:820px){.cards{grid-template-columns:1fr}.top h1{font-size:34px}}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.top h1{font-size:34px}}
 </style>
 <script type='text/javascript' src='https://api.netlify.com/glrftm4UQLcX7wY7UmBKzEflbsiLED0tZqUtNmBAUzTYQAkocqPov9pdiXglNDR-sUDXmUh88Rwt3WX9xT3kfp6Ex5-Yrzz93Mj6-ebjdocVbwqTELDeRAcnKN6fOIyDx7c4EJxseD3WQLEilIHZij2SK4YV0NWd62-yq7w4hus_wE9RKGtPkAOPjzUY6kZYs10oQQBRjkZvwhn3NsvSicCw6AlNtgXSTF2A1_b7ZZYCFCj-37a4F4tzjmXPu5aG54NkilfptYkNPa6HZpP-QqwssXl_Ai4t6QugSu-dnXSnEWQmwPvAE6DbY4R9yUuQYeWRi_pFj7565_kc43f7h82WTNqogEolBUuvjSqX_PURG_GDiuUMIvxD0emQlVt1B5toXapMnMCc9mKPWFwh2FyuvhAbHpnZkD9y_tydiBtshAsWMxkqM9dr35T9jxAJRCTsREgNlZtiUaO2Amal9mGM6EWcucAnD2M6eRrYU0hCehIVwPWK0gEMiXGnSDa0ma7LO1hz0-BkTATu5tXm'></script></head>
 <body>
@@ -52,36 +58,51 @@ a{color:inherit;text-decoration:none}
   <div class="wrap">
     <div class="brandline"><img src="assets/trio-logo-wide.png" alt="Trio Workforce Solutions"><span class="x">×</span><span>Frogdog</span></div>
     <div class="eyebrow">Concept review · design drafts</div>
-    <h1>Two pages, ready for your review.</h1>
-    <p>Below are the current concept drafts for the Market Intelligence page and the new Digital Workers page. Both are clickable and built on Trio's real UI, data, and approved copy. Open either to explore the full experience.</p>
+    <h1>Three pages, ready for your review.</h1>
+    <p>The current concept drafts: the homepage, the Market Intelligence page, and the new Digital Workers page. All three are clickable and built on Trio's real UI, data, and approved copy, on one shared design system. Open any to explore the full experience.</p>
   </div>
 </section>
 
 <div class="deck">
   <div class="cards">
+    <a class="card hp" href="home/index.html">
+      <div class="shot"><span class="tag"><span class="dot"></span>Concept · for review</span><img src="assets/thumb-home.png" alt="Homepage concept"></div>
+      <div class="cbody">
+        <div class="k">Homepage</div>
+        <h2>Nobody sees the system.</h2>
+        <p>The top-level story: the orchestration thesis, the three engagement models as co-equal doors, the live Market Intelligence moment, the neutrality proof, and a single diagnostic CTA.</p>
+        <div class="meta"><span><b>System</b> through-line</span><span>Live MI panel</span></div>
+        <div class="btnrow"><span class="btn">View the concept &rarr;</span></div>
+      </div>
+    </a>
     <a class="card mi" href="mi/index.html">
-      <div class="shot"><span class="tag"><span class="dot"></span>Approved concept · for review</span><img src="assets/thumb-mi.png" alt="Market Intelligence page concept"></div>
+      <div class="shot"><span class="tag"><span class="dot"></span>Concept · for review</span><img src="assets/thumb-mi.png" alt="Market Intelligence page concept"></div>
       <div class="cbody">
         <div class="k">Market Intelligence</div>
-        <h2>See the real rate, not the average.</h2>
-        <p>The redesigned MI landing page with the cinematic product hero, the "am I overpaying?" proof moment, the annotated live dashboard, and an embedded interactive demo.</p>
-        <div class="meta"><span><b>10</b> sections</span><span><b>Live</b> hero + demo</span><span>Redline applied</span></div>
+        <h2>Am I overpaying? Now you can prove it.</h2>
+        <p>The MI page with the cinematic product hero, the drag-to-explore market-rate slider, the annotated live dashboard with click-to-expand callouts, and the personas.</p>
+        <div class="meta"><span><b>Interactive</b> rate slider</span><span>Real UI tour</span></div>
         <div class="btnrow"><span class="btn">View the concept &rarr;</span></div>
       </div>
     </a>
     <a class="card dw" href="digital-worker/index.html">
-      <div class="shot"><span class="tag"><span class="dot"></span>New concept · for review</span><img src="assets/thumb-dw.png" alt="Digital Workers page concept"></div>
+      <div class="shot"><span class="tag"><span class="dot"></span>Concept · for review</span><img src="assets/thumb-dw.png" alt="Digital Workers page concept"></div>
       <div class="cbody">
         <div class="k">Digital Workers</div>
         <h2>Meet your newest teammate.</h2>
-        <p>The new Digital Workers page: an expandable role catalog built to scale, the outcomes proof band, the earned-autonomy ladder, and the Applied AI trust story.</p>
-        <div class="meta"><span><b>2</b> roles live</span><span>Scalable template</span><span>AEO-ready FAQ</span></div>
+        <p>The Digital Workers page: an expandable role catalog built to scale, the outcomes proof band, the earned-autonomy ladder, and the Applied AI trust story.</p>
+        <div class="meta"><span><b>2</b> roles live</span><span>Scalable template</span></div>
         <div class="btnrow"><span class="btn">View the concept &rarr;</span></div>
       </div>
     </a>
   </div>
 
-  <div class="note"><b>A note on the drafts.</b> These are design concepts for review, not the final production build. Proof-point figures on the Digital Workers page are illustrative and pending marketing sign-off. The interactive Market Intelligence demo renders live in the browser, give it a moment to load on the first visit.</div>
+  <div class="reflink">
+    <a href="brand/index.html">Reference: Trio Brand &amp; Web Style Guide &rarr;</a>
+    <span class="sub">The shared design system all three pages are built on, logo, color, type, components, and motion.</span>
+  </div>
+
+  <div class="note"><b>A note on the drafts.</b> These are design concepts for review, not the final production build. Proof-point figures on the Digital Workers page are illustrative and pending marketing sign-off, and the persona and hero images are placeholders pending photography. The live panels (the homepage Market Intelligence ticker and the MI rate explorer) render in the browser, so give them a moment on first load.</div>
 </div>
 
 <div class="foot">Frogdog · All Ears &nbsp;•&nbsp; prepared for Trio Workforce Solutions</div>
