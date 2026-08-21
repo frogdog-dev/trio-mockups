@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Intelligence — concept view</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{--teal:#009fc7;--teal2:#007f9f;--green:#95c842;--orange:#f2642f;--deep:#152d38;--ink:#2f4651;--muted:#4f6872;--line:#dce9ee;--mist:#f3f8fa;--cream:#fbfdfe}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,"Helvetica Neue",Arial,sans-serif}
+html,body{width:1280px;height:820px;overflow:hidden}
+.scene{position:relative;width:1280px;height:820px;background:linear-gradient(180deg,#fff 0%,#f3fafc 60%,#eef7fa 100%);overflow:hidden}
+/* floating brand hexes */
+.hx{position:absolute;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);pointer-events:none}
+.hxa{width:360px;height:416px;right:-120px;top:-120px;background:radial-gradient(circle at 40% 40%,rgba(0,159,199,.09),transparent 65%)}
+.hxb{width:220px;height:254px;left:-90px;bottom:-110px;background:radial-gradient(circle at 50% 40%,rgba(149,200,66,.12),transparent 66%)}
+.hxc{width:70px;height:80px;right:150px;bottom:70px;background:rgba(242,100,47,.10)}
+.wrap{position:relative;z-index:2;padding:52px 60px;height:100%;display:flex;flex-direction:column;gap:26px}
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between}
+.eye{display:inline-flex;align-items:center;gap:11px;font-size:13px;font-weight:900;letter-spacing:.17em;text-transform:uppercase;color:var(--teal2)}
+.eye:before{content:"";width:42px;height:3px;border-radius:999px;background:linear-gradient(90deg,var(--teal),var(--green))}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;box-shadow:0 8px 22px rgba(19,45,57,.06)}
+.live .d{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(149,200,66,.5);animation:pp 1.8s ease-out infinite}
+@keyframes pp{0%{box-shadow:0 0 0 0 rgba(149,200,66,.5)}100%{box-shadow:0 0 0 9px rgba(149,200,66,0)}}
+/* filter chips */
+.filters{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.fg{display:flex;align-items:center;gap:9px}
+.fg .lbl{font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#8aa2ab}
+.chips{display:inline-flex;gap:7px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--muted);font-size:13px;font-weight:800;padding:8px 15px;border-radius:999px;cursor:pointer;transition:.16s}
+.chip:hover{border-color:rgba(0,159,199,.5);color:var(--teal2)}
+.chip.on{background:linear-gradient(120deg,var(--teal),#0f8fb0);border-color:transparent;color:#fff;box-shadow:0 10px 22px rgba(0,159,199,.26)}
+.chip.on.g{background:linear-gradient(120deg,var(--green),#6faf2c)}
+/* main */
+.main{display:grid;grid-template-columns:340px 1fr;gap:34px;flex:1;align-items:stretch}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 22px 60px rgba(19,45,57,.10);padding:30px 32px}
+.figs{display:flex;flex-direction:column;justify-content:center;gap:22px}
+.k{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.big{font-size:82px;font-weight:900;letter-spacing:-.05em;line-height:.9;background:linear-gradient(150deg,var(--deep),var(--teal2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-variant-numeric:tabular-nums;transition:.3s}
+.sub{font-size:13px;color:var(--muted);font-weight:600;margin-top:9px}
+.divide{height:1px;background:var(--line)}
+.you{display:flex;align-items:center;gap:14px}
+.you .yv{font-size:34px;font-weight:900;letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:900;padding:6px 13px;border-radius:999px}
+.pill.under{color:#3f7d1e;background:rgba(149,200,66,.16);border:1px solid rgba(149,200,66,.5)}
+.pill.over{color:#c0491f;background:rgba(242,100,47,.12);border:1px solid rgba(242,100,47,.45)}
+.ylab{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8aa2ab;margin-bottom:8px}
+/* spread visual (the hero) */
+.spread{display:flex;flex-direction:column;justify-content:center}
+.spread .sh{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:34px}
+.spread .sh h3{font-size:23px;font-weight:850;letter-spacing:-.02em;color:var(--deep)}
+.spread .sh .scope{font-size:13px;font-weight:800;color:var(--teal2)}
+.bar-wrap{position:relative;padding:56px 0 66px}
+.bar{position:relative;height:22px;border-radius:999px;background:linear-gradient(90deg,var(--green) 0%,var(--teal) 48%,#f2854f 82%,var(--orange) 100%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
+.tick{position:absolute;top:-4px;width:4px;height:30px;border-radius:3px;transition:left .5s cubic-bezier(.3,.7,.3,1)}
+.tick.avg{background:var(--deep)}
+.tick.you{background:#fff;box-shadow:0 0 0 3px var(--teal),0 6px 14px rgba(0,159,199,.4)}
+.flag{position:absolute;transform:translateX(-50%);white-space:nowrap;font-size:12px;font-weight:900;padding:5px 11px;border-radius:8px;transition:left .5s cubic-bezier(.3,.7,.3,1)}
+.flag.avg{top:-34px;background:var(--deep);color:#fff}
+.flag.avg:after{content:"";position:absolute;left:50%;bottom:-5px;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:var(--deep)}
+.flag.you{bottom:-40px;background:#fff;color:var(--teal2);border:1.5px solid var(--teal)}
+.flag.you:after{content:"";position:absolute;left:50%;top:-5px;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:#fff;border-left:1.5px solid var(--teal);border-top:1.5px solid var(--teal)}
+.ends{display:flex;justify-content:space-between;margin-top:16px}
+.ends .e{font-size:13px;font-weight:800;color:var(--ink)}
+.ends .e small{display:block;font-weight:600;color:#8aa2ab;font-size:11.5px;margin-top:2px}
+.legend{display:flex;gap:22px;margin-top:38px;flex-wrap:wrap}
+.legend .li{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--muted)}
+.legend .li i{width:12px;height:12px;border-radius:4px}
+/* facility meters */
+.fac{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 22px 60px rgba(19,45,57,.08);padding:22px 30px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.m .mt{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:9px}
+.m .ml{font-size:12.5px;font-weight:800;color:var(--ink)}
+.m .mv{font-size:15px;font-weight:900;color:var(--deep);font-variant-numeric:tabular-nums}
+.track{height:9px;background:#e8f1f5;border-radius:999px;overflow:hidden}
+.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--teal),var(--green));transition:width .55s cubic-bezier(.3,.7,.3,1)}
+.foot{position:absolute;left:60px;bottom:20px;font-size:11.5px;color:#93a7ae;font-weight:600}
+</style>
+</head>
+<body>
+<div class="scene">
+  <div class="hx hxa"></div><div class="hx hxb"></div><div class="hx hxc"></div>
+  <div class="wrap">
+    <div class="top">
+      <span class="eye">Market Intelligence</span>
+      <span class="live"><span class="d"></span>Live benchmark · <span id="vol">171K</span> job orders</span>
+    </div>
+    <div class="filters">
+      <div class="fg"><span class="lbl">Region</span><div class="chips" id="reg">
+        <button class="chip on" data-v="0">All</button><button class="chip" data-v="1">West</button><button class="chip" data-v="2">Midwest</button><button class="chip" data-v="3">Northeast</button><button class="chip" data-v="4">Southeast</button></div></div>
+      <div class="fg"><span class="lbl">Specialty</span><div class="chips" id="spec">
+        <button class="chip on g" data-s="0">All</button><button class="chip g" data-s="1">Nursing</button><button class="chip g" data-s="2">Allied</button><button class="chip g" data-s="3">Locums</button></div></div>
+    </div>
+    <div class="main">
+      <div class="card figs">
+        <div>
+          <div class="k">National market average</div>
+          <div class="big" id="avg">$88.77</div>
+          <div class="sub" id="avgsub">Nursing &amp; Allied Health · trailing 12 months</div>
+        </div>
+        <div class="divide"></div>
+        <div>
+          <div class="ylab">Your placement average</div>
+          <div class="you"><span class="yv" id="you">$82.44</span><span class="pill under" id="ypill">&#9660; below market</span></div>
+        </div>
+      </div>
+      <div class="card spread">
+        <div class="sh"><h3>National averages hide the spread.</h3><span class="scope" id="scope">All regions · All specialties</span></div>
+        <div class="bar-wrap">
+          <div class="flag avg" id="favg" style="left:53%">Market avg <b id="favgv">$88.77</b></div>
+          <div class="bar"><div class="tick avg" id="tavg" style="left:53%"></div><div class="tick you" id="tyou" style="left:36%"></div></div>
+          <div class="flag you" id="fyou" style="left:36%">You <b id="fyouv">$82.44</b></div>
+          <div class="ends"><div class="e">$82<small>calm market</small></div><div class="e" style="text-align:right">$107+<small>peak demand</small></div></div>
+        </div>
+        <div class="legend"><span class="li"><i style="background:var(--green)"></i>Calm market</span><span class="li"><i style="background:var(--teal)"></i>Balanced</span><span class="li"><i style="background:var(--orange)"></i>Peak demand · overpay risk</span></div>
+      </div>
+    </div>
+    <div class="fac" id="fac">
+      <div class="m"><div class="mt"><span class="ml">Large urban</span><span class="mv">$95.60</span></div><div class="track"><div class="fill" style="width:92%"></div></div></div>
+      <div class="m"><div class="mt"><span class="ml">Mid urban</span><span class="mv">$87.05</span></div><div class="track"><div class="fill" style="width:74%"></div></div></div>
+      <div class="m"><div class="mt"><span class="ml">Suburban</span><span class="mv">$85.96</span></div><div class="track"><div class="fill" style="width:70%"></div></div></div>
+      <div class="m"><div class="mt"><span class="ml">Rural</span><span class="mv">$84.07</span></div><div class="track"><div class="fill" style="width:66%"></div></div></div>
+    </div>
+  </div>
+  <div class="foot">Illustrative concept · sample data</div>
+</div>
+<script>
+// region/specialty -> data. lo=$82 hi=$107 scale for the bar.
+var LO=82,HI=107;
+function pct(v){return Math.max(3,Math.min(97,(v-LO)/(HI-LO)*100));}
+var REG=[ // [avg, you, vol, name]
+ [88.77,82.44,'171K','All regions'],
+ [101.20,96.10,'38K','West'],
+ [84.30,86.90,'44K','Midwest'],
+ [93.55,99.80,'41K','Northeast'],
+ [82.90,80.10,'48K','Southeast']];
+var SPEC=[ // multiplier + label
+ [1.00,'All specialties'],[0.97,'Nursing'],[1.05,'Allied'],[1.34,'Locums']];
+var rI=0,sI=0;
+function fmt(n){return '$'+n.toFixed(2);}
+function upd(){
+ var r=REG[rI],sp=SPEC[sI];
+ var avg=r[0]*sp[0], you=r[1]*sp[0];
+ document.getElementById('avg').textContent=fmt(avg);
+ document.getElementById('you').textContent=fmt(you);
+ document.getElementById('favgv').textContent=fmt(avg);
+ document.getElementById('fyouv').textContent=fmt(you);
+ document.getElementById('vol').textContent=r[2];
+ document.getElementById('scope').textContent=r[3]+' · '+sp[1];
+ document.getElementById('avgsub').textContent=(sp[1]==='All specialties'?'Nursing & Allied Health':sp[1])+' · trailing 12 months';
+ var pa=pct(avg),py=pct(you);
+ document.getElementById('tavg').style.left=pa+'%';document.getElementById('favg').style.left=pa+'%';
+ document.getElementById('tyou').style.left=py+'%';document.getElementById('fyou').style.left=py+'%';
+ var over=you>avg;
+ var pill=document.getElementById('ypill');
+ pill.className='pill '+(over?'over':'under');
+ pill.innerHTML=(over?'&#9650; over market':'&#9660; below market');
+ // facility meters wiggle a touch per region
+ var base=[avg*1.077,avg*.981,avg*.969,avg*.947];
+ var els=document.querySelectorAll('#fac .m');
+ els.forEach(function(m,i){m.querySelector('.mv').textContent=fmt(base[i]);m.querySelector('.fill').style.width=pct(base[i])+'%';});
+}
+document.querySelectorAll('#reg .chip').forEach(function(c){c.addEventListener('click',function(){document.querySelectorAll('#reg .chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on');rI=+c.dataset.v;upd();});});
+document.querySelectorAll('#spec .chip').forEach(function(c){c.addEventListener('click',function(){document.querySelectorAll('#spec .chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on');sI=+c.dataset.s;upd();});});
+upd();
+</script>
+</body>
+</html>

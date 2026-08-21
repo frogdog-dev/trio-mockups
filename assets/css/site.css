@@ -1,5 +1,5 @@
 /* Trio — shared site stylesheet (single source of truth). Canonical system: Market Intelligence (teal + Inter, pill buttons, logo-accurate pointy hex). Change brand tokens in :root and every page inherits. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap');
 :root{
   /* ============================================================
      BRAND FOUNDATION — official Trio corporate palette (logo guidelines,
@@ -20,32 +20,50 @@
      This is what the UI runs on. */
   --navy:#263a45; --deep:#152d38; --ink:#2f4651; --muted:#4f6872;
   --line:#dce9ee; --mist:#f3f8fa; --mist2:#eaf4f7; --cream:#fbfdfe; --white:#fff;
-  --teal:#009fc7; --teal2:#005e78; --green:#95c842; --orange:#f2642f; --amber:#e8912a;
+  /* teal role tokens (Trio/Jesse token review, 2026-08): fill keeps #009fc7; interactive/controls
+     use teal-ink #0080a1 (4.56:1); small uppercase labels use #005e78 (6.83:1). green-ink for green text. */
+  --teal:#009fc7; --teal-ink:#0080a1; --teal2:#005e78; --green:#95c842; --green-ink:#4f7300; --orange:#f2642f; --amber:#e8912a;
+  /* full tonal ramps — named so hover/disabled/text-safe states exist (Trio token review) */
+  --teal-50:#f3fcff;--teal-100:#dbf5ff;--teal-200:#b9e6f7;--teal-300:#92d1e9;--teal-400:#61bad9;--teal-500:#009fc7;--teal-600:#0080a1;--teal-700:#005e78;--teal-800:#003f52;--teal-900:#00222f;
+  --green-50:#f3ffe6;--green-100:#eafbd7;--green-200:#daf1be;--green-300:#c5e69d;--green-400:#aed876;--green-500:#95c842;--green-600:#729f1d;--green-700:#4f7300;--green-800:#314900;--green-900:#152300;
+  --amber-50:#fff9f3;--amber-100:#ffefe1;--amber-200:#ffddbe;--amber-300:#fcc694;--amber-400:#f3ae69;--amber-500:#e8912a;--amber-600:#bd7000;--amber-700:#8a5000;--amber-800:#5b3200;--amber-900:#311700;
+  --orange-50:#fff8f6;--orange-100:#ffece6;--orange-200:#ffd4c6;--orange-300:#ffb59c;--orange-400:#ff8e68;--orange-500:#f2642f;--orange-600:#c94812;--orange-700:#992f00;--orange-800:#681c00;--orange-900:#3c0900;
+  --n-50:#fbfdfe;--n-100:#f3f8fa;--n-200:#eaf4f7;--n-300:#dce9ee;--n-400:#abbcc3;--n-500:#7c9199;--n-600:#4f6872;--n-700:#2f4651;--n-800:#263a45;--n-900:#152d38;
   /* recreated-mark stroke colors (for inline hex glyphs; real logo = trio-logo-wide.png) */
   --mark-green:#8cc63f; --mark-cyan:#00a0d8; --mark-orange:#f2642f;
+  /* spacing scale — 8px base (Trio token review): spacing steps, type flows */
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;--sp-6:32px;--sp-7:48px;--sp-8:64px;--sp-9:96px;--sp-10:128px;
+  /* type sizes added by review: mid-level heading + caption/label */
+  --fs-mid:34px; --fs-cap:14px; --fs-label:18px;
   /* elevation + geometry */
-  --shadow:0 22px 70px rgba(19,45,57,.15); --soft:0 12px 34px rgba(19,45,57,.10);
+  --rest:0 4px 14px rgba(19,45,57,.06); --shadow:0 22px 70px rgba(19,45,57,.15); --soft:0 12px 34px rgba(19,45,57,.10);
   --maxw:1180px;
   --hex:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); /* pointy-top, logo-accurate; use 0.866 w:h */
-  --radius-btn:999px; --radius-card:22px;
+  --radius-btn:999px; --radius-card:24px; --radius-card-sm:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Inter,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.55}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;position:relative;z-index:2}
+@media(max-width:900px){.wrap{padding:0 24px}}
+@media(max-width:600px){.wrap{padding:0 16px}}
 section{position:relative}
-.sec{padding:92px 0;position:relative;overflow:hidden}
+.sec{padding:128px 0;position:relative;overflow:hidden}
+@media(max-width:1200px){.sec{padding:96px 0}}
+@media(max-width:900px){.sec{padding:64px 0}}
 .sec-head{max-width:74ch;position:relative;z-index:2}
 .sec-head h2{margin-top:14px}.sec-head p{margin-top:19px}
 /* redline (Amy): ease heading kerning a touch — headers were reading squished */
-h1{font-size:62px;line-height:1.02;letter-spacing:-.03em;font-weight:850;color:var(--deep);text-wrap:balance}
-h2{font-size:44px;line-height:1.05;letter-spacing:-.025em;font-weight:850;color:var(--deep);text-wrap:balance}
-h3{font-size:22px;font-weight:800;color:var(--deep);letter-spacing:-.01em}
-.lead{font-size:21px;line-height:1.5;font-weight:540;color:#405963}
-.accent{color:var(--teal)}
+/* headline face: Archivo (Trio token review) — holds character at big sizes + tight tracking; Inter carries body */
+h1{font-family:Archivo,Inter,sans-serif;font-size:clamp(38px,5vw,62px);line-height:1.03;letter-spacing:-.03em;font-weight:800;color:var(--deep);text-wrap:balance}
+h2{font-family:Archivo,Inter,sans-serif;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-.025em;font-weight:800;color:var(--deep);text-wrap:balance}
+h3{font-family:Archivo,Inter,sans-serif;font-size:26px;font-weight:700;color:var(--deep);letter-spacing:-.01em}
+.h-mid{font-family:Archivo,Inter,sans-serif;font-size:var(--fs-mid);line-height:1.12;font-weight:700;color:var(--deep);letter-spacing:-.015em}
+.lead{font-size:clamp(18px,2vw,21px);line-height:1.5;font-weight:500;color:#405963}
+.accent{color:var(--teal-ink)}
 /* eyebrow + chapters */
-.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:900;letter-spacing:.17em;text-transform:uppercase;color:var(--teal2)}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--teal2)}
 .eyebrow:before{content:"";width:42px;height:3px;border-radius:999px;background:linear-gradient(90deg,var(--teal),var(--green))}
 .eyebrow.ch:before{display:none}.eyebrow.ch{gap:0}
 /* redline (Amy): drop the eyebrow lead-dash on centered/non-numbered eyebrows */
@@ -65,7 +83,7 @@ h3{font-size:22px;font-weight:800;color:var(--deep);letter-spacing:-.01em}
 .btn{display:inline-flex;align-items:center;gap:9px;border-radius:var(--radius-btn);padding:14px 24px;font-weight:800;font-size:14.5px;cursor:pointer;border:0;transition:transform .15s,box-shadow .15s,background .15s}
 .btn:active{transform:translateY(0) scale(.98)}
 /* creative red-team: visible keyboard focus everywhere (AA); brighter ring on dark bands */
-:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--teal-ink);outline-offset:3px;border-radius:4px}
 .outcomes :focus-visible,.why :focus-visible,.cta-band :focus-visible,.ctaband :focus-visible,.case-feat :focus-visible,.hero :focus-visible{outline-color:#7fd4ee}
 /* creative red-team: the orchestration "through-line" — disconnected pieces resolving into one system */
 .wire{position:absolute;inset:0;overflow:visible;pointer-events:none;z-index:2}
@@ -75,8 +93,8 @@ h3{font-size:22px;font-weight:800;color:var(--deep);letter-spacing:-.01em}
 @keyframes hubbloom{0%{box-shadow:0 0 0 0 rgba(140,198,63,0)}45%{box-shadow:0 0 0 12px rgba(140,198,63,.30)}100%{box-shadow:0 0 0 0 rgba(140,198,63,0)}}
 .rc.hublit{animation:hubbloom .7s cubic-bezier(.34,1.56,.64,1)}
 .btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--teal);color:#fff;box-shadow:0 12px 26px rgba(0,159,199,.28)}
-.btn-primary:hover{background:#0090b6}
+.btn-primary{background:var(--teal-ink);color:#fff;box-shadow:0 12px 26px rgba(0,128,161,.30)}
+.btn-primary:hover{background:#006f8c}
 .btn-light{background:#fff;color:var(--teal2)}
 .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
 .btn-ghost{background:transparent;color:var(--teal2);border:2px solid var(--line)}
@@ -96,17 +114,20 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--deep);font-size:21px;letter-spacing:-.01em}
 .nav-links{display:flex;gap:26px;font-size:14.5px;font-weight:650;color:var(--ink);align-items:center}
-.nav-links a:hover{color:var(--teal2)}
+.nav-links a:hover{color:var(--teal-ink)}
 /* real-site nav: Solutions + About Us hover dropdowns */
 .nav-links .has-sub{position:relative;display:flex;align-items:center}
 .nav-links .has-sub>a:after{content:"\25BE";font-size:9px;margin-left:6px;opacity:.55;position:relative;top:-1px}
 .nav-links .sub{position:absolute;top:100%;left:50%;min-width:240px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:8px;opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:opacity .16s,transform .16s,visibility .16s;z-index:70}
 .nav-links .has-sub:hover .sub,.nav-links .has-sub:focus-within .sub{opacity:1;visibility:visible;transform:translate(-50%,4px)}
 .nav-links .sub a{display:block;padding:9px 13px;border-radius:8px;font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap}
-.nav-links .sub a:hover{background:var(--mist);color:var(--teal2)}
+.nav-links .sub a:hover{background:var(--mist);color:var(--teal-ink)}
 .nav-cta{display:flex;align-items:center;gap:16px}
 .nav-cta .login{font-weight:700;color:var(--ink);font-size:14px;white-space:nowrap}
-.nav-cta .login:hover{color:var(--teal2)}
+.nav-cta .login:hover{color:var(--teal-ink)}
+/* Trio token review: header CTA is small + outlined so it stops competing with the page's primary CTA */
+.nav-cta .btn-primary{background:#fff;color:var(--teal-ink);border:2px solid var(--teal-ink);box-shadow:none;padding:9px 18px;font-size:13.5px}
+.nav-cta .btn-primary:hover{background:var(--teal-ink);color:#fff;transform:translateY(-1px)}
 /* evolved "Platform" mega-menu (MSD structure: run it / grow with it / intelligence layer) */
 .nav-links .has-mega{position:relative;display:flex;align-items:center}
 .nav-links .has-mega>a:after{content:"\25BE";font-size:9px;margin-left:6px;opacity:.55;position:relative;top:-1px}
@@ -116,10 +137,10 @@ header.nav.stuck{background:#fff;border-color:var(--line);box-shadow:0 6px 22px 
 .mega a{display:block;padding:8px 10px;border-radius:10px}
 .mega a b{display:block;font-size:14px;font-weight:800;color:var(--deep);letter-spacing:-.01em}
 .mega a span{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-top:1px}
-.mega a:hover{background:var(--mist)}.mega a:hover b{color:var(--teal2)}
+.mega a:hover{background:var(--mist)}.mega a:hover b{color:var(--teal-ink)}
 .mega .mfoot{grid-column:1/-1;border-top:1px solid var(--line);margin-top:10px;padding:13px 10px 2px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .mega .mfoot .tag{font-weight:800;color:var(--deep);font-size:13.5px}
-.mega .mfoot .mlink{color:var(--teal2);font-weight:800;font-size:13.5px;padding:0;white-space:nowrap}
+.mega .mfoot .mlink{color:var(--teal-ink);font-weight:800;font-size:13.5px;padding:0;white-space:nowrap}
 @media(max-width:1024px){.nav-links{display:none}}
 @media(max-width:520px){.nav-cta .login{display:none}}
 .concept-note{background:var(--deep);color:#bcd6e2;font-size:12.5px;text-align:center;padding:8px 16px;letter-spacing:.02em}.concept-note b{color:#fff}
