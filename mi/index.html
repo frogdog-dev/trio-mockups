@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Market Intelligence | Trio Workforce Solutions (redesign concept)</title>
-<link rel="stylesheet" href="../assets/css/site.css?v=20260821a">
+<link rel="stylesheet" href="../assets/css/site.css?v=20260824a">
 <style>
 
 /* MI inherits reset/type/eyebrow/buttons/nav/footer from site.css (single source). Only MI-specific components live below. */
@@ -35,7 +35,7 @@
 .trust{background:var(--deep);color:#cfe4ec}
 .trust .wrap{display:flex;align-items:center;justify-content:center;gap:20px 46px;flex-wrap:wrap;padding:20px 28px}
 .trust b{color:#fff;font-weight:800}
-.trust .dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:9px;vertical-align:middle;box-shadow:0 0 0 4px rgba(255,255,255,.08)}
+.trust .dot{width:11px;height:12px;clip-path:var(--hex);display:inline-block;margin-right:10px;vertical-align:middle}
 .trust .item{font-size:15px;font-weight:600;display:flex;align-items:center}
 
 /* generic section pad + sec-head inherited from site.css */
@@ -56,7 +56,7 @@
 .cmp-range .rangeread b{font-size:34px;font-weight:850;letter-spacing:-.03em;color:var(--deep);line-height:1;font-variant-numeric:tabular-nums}
 .cmp-range .rangeread .rr-state{font-size:14px;font-weight:800;color:var(--teal2)}
 .cmp-range .rangebar{cursor:pointer;touch-action:none}
-.cmp-range .rangehandle{position:absolute;top:50%;left:27%;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--teal2);box-shadow:0 4px 12px rgba(19,45,57,.28);transform:translate(-50%,-50%);cursor:grab;padding:0;z-index:3;transition:box-shadow .15s}
+.cmp-range .rangehandle{position:absolute;top:50%;left:32%;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--teal2);box-shadow:0 4px 12px rgba(19,45,57,.28);transform:translate(-50%,-50%);cursor:grab;padding:0;z-index:3;transition:box-shadow .15s}
 .cmp-range .rangehandle:hover,.cmp-range .rangehandle:focus-visible{box-shadow:0 0 0 6px rgba(0,159,199,.22),0 4px 12px rgba(19,45,57,.28);outline:none}
 .cmp-range .rangehandle.drag{cursor:grabbing}
 .cmp-range .rangelabels{display:flex;justify-content:space-between;margin-top:16px;font-size:13.5px;color:var(--muted);font-weight:800;text-align:center}
@@ -198,7 +198,7 @@
 .chno{color:var(--teal);font-weight:900;letter-spacing:.02em}
 .chno:after{content:"";display:inline-block;width:22px;height:2px;background:linear-gradient(90deg,var(--teal),var(--green));border-radius:2px;vertical-align:middle;margin:0 12px 3px 11px}
 .why .chno{color:#7fd6ea}.why .chno:after{background:linear-gradient(90deg,#38c0e0,var(--green))}
-/* second climax: the $88.77 argument */
+/* second climax: the $90.03 argument */
 .compare{background:linear-gradient(180deg,var(--mist),#fff)}
 .compare.sec{padding:104px 0 96px}
 .compare .sec-head h2{font-size:56px;line-height:1.04;letter-spacing:-.05em;max-width:22ch}
@@ -266,7 +266,7 @@
       <a class="btn btn-primary btn-lg" href="#demo">Request a demo</a>
     </div>
     <div class="hero-frame">
-      <div class="hero-scaler" id="heroScaler"><iframe id="heroFrame" src="assets/hero.html" title="Trio Market Intelligence hero animation" scrolling="no"></iframe></div>
+      <div class="hero-scaler" id="heroScaler"><iframe id="heroFrame" src="assets/hero.html?v=20260824a" title="Trio Market Intelligence hero animation" scrolling="no"></iframe></div>
     </div>
   </div>
 </section>
@@ -274,10 +274,10 @@
 <!-- 2. TRUST / SCALE -->
 <section class="trust">
   <div class="wrap">
-    <span class="item"><span class="dot" style="background:var(--teal)"></span>Updated <b>daily</b></span>
-    <span class="item"><span class="dot" style="background:var(--green)"></span><b>171K</b> job orders analyzed</span>
-    <span class="item"><span class="dot" style="background:var(--orange)"></span><b>12 months</b> of trend history</span>
-    <span class="item"><span class="dot" style="background:#fff"></span>Nursing &amp; Allied Health, more roles coming</span>
+    <span class="item"><span class="dot" style="background:#00aae5"></span>Updated <b>daily</b></span>
+    <span class="item"><span class="dot" style="background:#a6ce42"></span><b>171K</b> job orders analyzed</span>
+    <span class="item"><span class="dot" style="background:#f57e20"></span><b>12 months</b> of trend history</span>
+    <span class="item"><span class="dot" style="background:#0081bb"></span><b>Nursing &amp; Allied Health</b>, more roles coming</span>
   </div>
 </section>
 
@@ -288,20 +288,20 @@
       <span class="eyebrow">The core question</span>
       <div class="head-split">
         <h2>Am I overpaying?<br>Now you can prove it.</h2>
-        <p class="lead">National averages mask local reality. A national average of $88.77 hides a market that swings from the low $80s to over $100 by region, specialty, and facility. Benchmarking against national averages drives up your contingent labor costs. Market Intelligence puts your own placement averages next to the live market, delivering defensible rate transparency in seconds, not on a spreadsheet.</p>
+        <p class="lead">National averages mask local reality. A national average of $90.03 hides a market that swings from the low $80s to over $100 by region, specialty, and facility. Benchmarking against national averages drives up your contingent labor costs. Market Intelligence puts your own placement averages next to the live market, delivering defensible rate transparency in seconds, not on a spreadsheet.</p>
       </div>
     </div>
     <div class="cmp-card2">
       <div class="cmp-avg">
         <div class="k">National market average</div>
-        <div class="v">$88.77</div>
+        <div class="v">$90.03</div>
         <div class="s">Nursing &amp; Allied Health, all regions, trailing 12 months</div>
       </div>
       <div class="cmp-range">
-        <div class="rangeread"><span class="rr-cap">Explore the market</span> <b id="rrate">$88.77</b> <span class="rr-state" id="rstate">National average</span></div>
+        <div class="rangeread"><span class="rr-cap">Explore the market</span> <b id="rrate">$90.03</b> <span class="rr-state" id="rstate">National average</span></div>
         <div class="rangebar" id="rbar">
-          <span class="avgmark" style="left:27%"></span>
-          <button class="rangehandle" id="rhandle" style="left:27%" type="button" aria-label="Market rate explorer" role="slider" aria-valuemin="82" aria-valuemax="107" aria-valuenow="88.77"></button>
+          <span class="avgmark" style="left:32%"></span>
+          <button class="rangehandle" id="rhandle" style="left:32%" type="button" aria-label="Market rate explorer" role="slider" aria-valuemin="82" aria-valuemax="107" aria-valuenow="90.03"></button>
         </div>
         <div class="rangelabels">
           <span>$82<small>calm market</small></span>
@@ -347,17 +347,17 @@
     </div>
     <figure class="shot">
       <div class="shot-img">
-        <img src="assets/mi-ui-full.png" alt="Trio Market Intelligence dashboard showing the market rate map, market versus my placements, rates by facility size, and historical bill rate fluctuations">
-        <span class="mark" style="left:24%;top:46%">1</span>
-        <span class="mark" style="left:83%;top:30%">2</span>
-        <span class="mark" style="left:83%;top:53%">3</span>
-        <span class="mark" style="left:30%;top:87%">4</span>
+        <img src="assets/mi-ui-new.png" alt="Trio Market Rate Intelligence dashboard showing the market rate map, market versus my placements, market rate confidence, and historical bill rate fluctuations">
+        <span class="mark" style="left:24%;top:52%">1</span>
+        <span class="mark" style="left:85%;top:27%">2</span>
+        <span class="mark" style="left:85%;top:56%">3</span>
+        <span class="mark" style="left:33%;top:88%">4</span>
       </div>
     </figure>
     <div class="shot-legend">
       <div class="lg"><span class="n">1</span><div><b>Market Rate Map</b><p>See live bill-rate density across regions, identify pricing patterns, and explore market conditions with interactive facility-level volume and average overlays.</p></div></div>
       <div class="lg"><span class="n">2</span><div><b>Market vs. My Placements Average</b><p>In a single glance, compare your placements to live market rates to understand where opportunities exist.</p></div></div>
-      <div class="lg"><span class="n">3</span><div><b>Facility Size Rate Benchmarking</b><p>Compare bill rates by urban vs. rural pressures segmented by facility size, so you can benchmark to organizations similar to your own.</p></div></div>
+      <div class="lg"><span class="n">3</span><div><b>Market Rate Confidence</b><p>See how tightly rates cluster by sample size, so you know how much weight to put on any single benchmark before you set a rate.</p></div></div>
       <div class="lg"><span class="n">4</span><div><b>12-Month Historical Rate Volatility</b><p>Understand market fluctuations and rate spikes over the past 12 months to proactively forecast staffing costs and support more informed workforce planning.</p></div></div>
     </div>
   </div>
@@ -526,7 +526,7 @@ document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click
   /* interactive product callouts: click a number (on the image or in the legend) to expand its copy */
   (function(){var marks=[].slice.call(document.querySelectorAll('.shot .mark'));var lgs=[].slice.call(document.querySelectorAll('.shot-legend .lg'));if(!marks.length||!lgs.length)return;function sel(i){marks.forEach(function(x){x.classList.remove('active')});lgs.forEach(function(x){x.classList.remove('hl')});if(marks[i])marks[i].classList.add('active');if(lgs[i]){lgs[i].classList.add('hl');}}marks.forEach(function(m,i){m.setAttribute('role','button');m.setAttribute('tabindex','0');m.setAttribute('aria-label','Show product detail '+(i+1));m.addEventListener('click',function(){sel(i);});m.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(i);}});});lgs.forEach(function(l,i){l.setAttribute('tabindex','0');l.addEventListener('click',function(){sel(i);});l.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(i);}});});sel(0);})();
   /* interactive market-range slider: scrub to see the rate + market state; auto-animates to the national average on load */
-  (function(){var bar=document.getElementById('rbar'),h=document.getElementById('rhandle'),rt=document.getElementById('rrate'),st=document.getElementById('rstate');if(!bar||!h||!rt||!st)return;var MIN=82,MAX=107;function stateFor(r){if(r<88)return['Calm market','var(--green)'];if(r<98)return['Balanced market','var(--teal2)'];return['Peak demand · overpay risk','var(--orange)'];}function setPct(p){p=Math.max(0,Math.min(100,p));h.style.left=p+'%';var r=MIN+(p/100)*(MAX-MIN);rt.textContent='$'+r.toFixed(2);var s=stateFor(r);st.textContent=s[0];st.style.color=s[1];h.style.borderColor=s[1];h.setAttribute('aria-valuenow',r.toFixed(2));}function fromEvent(e){var rect=bar.getBoundingClientRect();var cx=e.touches?e.touches[0].clientX:e.clientX;setPct((cx-rect.left)/rect.width*100);}var AVG=27.08;var dragging=false;function down(e){dragging=true;h.classList.add('drag');fromEvent(e);e.preventDefault();}function move(e){if(dragging)fromEvent(e);}function up(){dragging=false;h.classList.remove('drag');}h.addEventListener('mousedown',down);bar.addEventListener('mousedown',down);window.addEventListener('mousemove',move);window.addEventListener('mouseup',up);h.addEventListener('touchstart',down,{passive:false});window.addEventListener('touchmove',move,{passive:false});window.addEventListener('touchend',up);h.addEventListener('keydown',function(e){var cur=parseFloat(h.style.left)||27;if(e.key==='ArrowLeft'){setPct(cur-4);e.preventDefault();}if(e.key==='ArrowRight'){setPct(cur+4);e.preventDefault();}});var target=AVG;if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){setPct(target);}else{setPct(0);var start=null;requestAnimationFrame(function anim(ts){if(!start)start=ts;var t=Math.min((ts-start)/900,1);setPct(target*(1-Math.pow(1-t,3)));if(t<1)requestAnimationFrame(anim);});}})();
+  (function(){var bar=document.getElementById('rbar'),h=document.getElementById('rhandle'),rt=document.getElementById('rrate'),st=document.getElementById('rstate');if(!bar||!h||!rt||!st)return;var MIN=82,MAX=107;function stateFor(r){if(r<88)return['Calm market','var(--green)'];if(r<98)return['Balanced market','var(--teal2)'];return['Peak demand · overpay risk','var(--orange)'];}function setPct(p){p=Math.max(0,Math.min(100,p));h.style.left=p+'%';var r=MIN+(p/100)*(MAX-MIN);rt.textContent='$'+r.toFixed(2);var s=stateFor(r);st.textContent=s[0];st.style.color=s[1];h.style.borderColor=s[1];h.setAttribute('aria-valuenow',r.toFixed(2));}function fromEvent(e){var rect=bar.getBoundingClientRect();var cx=e.touches?e.touches[0].clientX:e.clientX;setPct((cx-rect.left)/rect.width*100);}var AVG=32.12;var dragging=false;function down(e){dragging=true;h.classList.add('drag');fromEvent(e);e.preventDefault();}function move(e){if(dragging)fromEvent(e);}function up(){dragging=false;h.classList.remove('drag');}h.addEventListener('mousedown',down);bar.addEventListener('mousedown',down);window.addEventListener('mousemove',move);window.addEventListener('mouseup',up);h.addEventListener('touchstart',down,{passive:false});window.addEventListener('touchmove',move,{passive:false});window.addEventListener('touchend',up);h.addEventListener('keydown',function(e){var cur=parseFloat(h.style.left)||27;if(e.key==='ArrowLeft'){setPct(cur-4);e.preventDefault();}if(e.key==='ArrowRight'){setPct(cur+4);e.preventDefault();}});var target=AVG;if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){setPct(target);}else{setPct(0);var start=null;requestAnimationFrame(function anim(ts){if(!start)start=ts;var t=Math.min((ts-start)/900,1);setPct(target*(1-Math.pow(1-t,3)));if(t<1)requestAnimationFrame(anim);});}})();
   if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal,.stagger').forEach(function(e){e.classList.add('in')});return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal,.stagger').forEach(function(e){io.observe(e);});
