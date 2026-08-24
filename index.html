@@ -23,7 +23,7 @@ a{color:inherit;text-decoration:none}
 .top h1{font-size:44px;line-height:1.06;letter-spacing:-.02em;font-weight:850;margin-top:12px;max-width:20ch}
 .top p{margin-top:16px;font-size:18px;color:#e4f4fd;max-width:64ch;font-weight:500}
 .deck{max-width:1120px;margin:-84px auto 0;padding:0 26px 70px;position:relative;z-index:2}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
 .card:hover{transform:translateY(-4px);box-shadow:0 32px 74px rgba(20,52,94,.22)}
 .shot{position:relative;aspect-ratio:1300/840;overflow:hidden;background:var(--mist);border-bottom:1px solid var(--line)}
@@ -34,6 +34,7 @@ a{color:inherit;text-decoration:none}
 .cbody .k{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
 .card.dw .cbody .k{color:var(--cyan)}
 .card.hp .cbody .k{color:var(--navy)}
+.card.ai .cbody .k{color:var(--green)}
 .cbody h2{font-size:22px;letter-spacing:-.02em;color:var(--navy);margin-top:7px;font-weight:850;line-height:1.12}
 .cbody p{color:var(--muted);font-size:14.5px;margin-top:10px;flex:1}
 .meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;font-size:12px;color:var(--muted);font-weight:600}
@@ -42,6 +43,7 @@ a{color:inherit;text-decoration:none}
 .btn{display:inline-flex;align-items:center;gap:9px;border-radius:9px;padding:13px 20px;font-weight:800;font-size:14.5px;background:var(--teal);color:#fff;box-shadow:0 12px 24px rgba(0,159,199,.24);transition:transform .15s,background .15s}
 .card.dw .btn{background:var(--cyan);box-shadow:0 12px 24px rgba(0,170,228,.24)}
 .card.hp .btn{background:var(--navy);box-shadow:0 12px 24px rgba(20,52,94,.24)}
+.card.ai .btn{background:var(--green);box-shadow:0 12px 24px rgba(120,186,67,.26)}
 .btn:hover{transform:translateY(-1px)}
 .reflink{text-align:center;margin-top:30px}
 .reflink a{color:var(--teal);font-weight:800;font-size:14.5px;border-bottom:1.5px solid rgba(0,159,199,.35);padding-bottom:2px;transition:color .15s,border-color .15s}
@@ -58,8 +60,8 @@ a{color:inherit;text-decoration:none}
   <div class="wrap">
     <div class="brandline"><img src="assets/trio-logo-wide.png" alt="Trio Workforce Solutions"><span class="x">×</span><span>Frogdog</span></div>
     <div class="eyebrow">Concept review · design drafts</div>
-    <h1>Three pages, ready for your review.</h1>
-    <p>The current concept drafts: the homepage, the Market Intelligence page, and the new Digital Workers page. All three are clickable and built on Trio's real UI, data, and approved copy, on one shared design system. Open any to explore the full experience.</p>
+    <h1>Four pages, ready for your review.</h1>
+    <p>The current concept drafts: the homepage, the Market Intelligence page, the Digital Workers page, and the AI Approach page. All are clickable and built on Trio's real UI, data, and approved copy, on one shared design system. Open any to explore the full experience.</p>
   </div>
 </section>
 
@@ -95,11 +97,21 @@ a{color:inherit;text-decoration:none}
         <div class="btnrow"><span class="btn">View the concept &rarr;</span></div>
       </div>
     </a>
+    <a class="card ai" href="applied-ai/index.html">
+      <div class="shot"><span class="tag"><span class="dot"></span>Concept · for review</span><img src="assets/thumb-ai.png" alt="AI Approach page concept"></div>
+      <div class="cbody">
+        <div class="k">AI Approach</div>
+        <h2>AI that serves people, not the other way around.</h2>
+        <p>Trio's Applied AI story: the philosophy, the three-part test every initiative must pass, how AI moves the needle in practice, and the operating principles that govern it, with Amy's markup applied.</p>
+        <div class="meta"><span><b>Applied AI</b> philosophy</span><span>Governance principles</span></div>
+        <div class="btnrow"><span class="btn">View the concept &rarr;</span></div>
+      </div>
+    </a>
   </div>
 
   <div class="reflink">
     <a href="brand/index.html">Reference: Trio Brand &amp; Web Style Guide &rarr;</a>
-    <span class="sub">The shared design system all three pages are built on, logo, color, type, components, and motion.</span>
+    <span class="sub">The shared design system all four pages are built on, logo, color, type, components, and motion.</span>
   </div>
 
   <div class="note"><b>A note on the drafts.</b> These are design concepts for review, not the final production build. Proof-point figures on the Digital Workers page are illustrative and pending marketing sign-off, and the persona and hero images are placeholders pending photography. The live panels (the homepage Market Intelligence ticker and the MI rate explorer) render in the browser, so give them a moment on first load.</div>

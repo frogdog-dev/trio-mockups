@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Approach | Trio Workforce Solutions (concept)</title>
+<link rel="stylesheet" href="../assets/css/site.css?v=20260821a">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+/* flat-top hex badge for numerals (keeps 2-char labels off the sloped vertices) */
+.hexbadge{width:54px;height:50px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px;line-height:1;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
+
+/* ---------- HERO ---------- */
+.aihero{background:linear-gradient(120deg,#f4fbfd 0%,#eaf5f9 46%,#e3f1f6 100%);overflow:hidden;position:relative}
+.aihero:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 88% 20%,rgba(0,159,199,.10),transparent 42%),radial-gradient(circle at 8% 90%,rgba(120,186,67,.08),transparent 40%)}
+/* Amy: more padding between nav bar and the subhead -> generous hero top pad */
+.aihero-in{display:grid;grid-template-columns:1.04fr .96fr;gap:56px;align-items:center;padding:104px 0 96px}
+.aihero h1{max-width:15ch}
+.aihero .lead{margin-top:22px;max-width:44ch}
+.aihero .subcopy{margin-top:22px;font-size:17px;line-height:1.6;color:var(--muted);max-width:46ch}
+.aihero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.jumppills{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.jumppills a{font-size:13.5px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 18px;box-shadow:var(--rest);transition:color .15s,border-color .15s}
+.jumppills a:hover{color:var(--teal-ink);border-color:var(--teal)}
+
+/* hero signal card + CLEAN hex accents (Amy: no grid, no circles, no blue hex, no green shadow) */
+.signalwrap{position:relative;min-height:430px;display:flex;align-items:center;justify-content:center}
+.signalwrap .hexacc{position:absolute;clip-path:var(--hex)}
+.signalwrap .hexacc.g{width:150px;height:168px;background:linear-gradient(150deg,var(--green),#7bb238);left:-6px;top:-6px}
+.signalwrap .hexacc.o{width:132px;height:148px;background:linear-gradient(150deg,var(--orange),#d64e1e);right:2px;bottom:0}
+.signalwrap .hexacc.t{width:210px;height:236px;background:linear-gradient(160deg,#12617a,var(--deep));right:34px;top:26px;opacity:.94}
+.signalcard{position:relative;z-index:3;width:398px;max-width:100%;background:#fff;border-radius:22px;box-shadow:0 30px 70px rgba(19,45,57,.20);padding:26px 26px 22px}
+.signalcard h3{font-size:22px;line-height:1.15}
+.signalcard .sc-sub{margin-top:10px;font-size:14px;line-height:1.5;color:var(--muted)}
+.signalcard .sc-lbl{margin-top:20px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal2)}
+.meters{margin-top:12px;display:flex;flex-direction:column;gap:9px}
+.meter{height:9px;border-radius:999px;background:var(--mist2)}
+.meter i{display:block;height:100%;border-radius:999px}
+.meter.m1 i{width:82%;background:linear-gradient(90deg,var(--teal),var(--green))}
+.meter.m2 i{width:64%;background:linear-gradient(90deg,var(--green),#5f9bd6)}
+.meter.m3 i{width:73%;background:linear-gradient(90deg,var(--orange),var(--amber))}
+.chips{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:13px;font-weight:700;color:var(--deep)}
+.chip .dot{width:11px;height:11px;border-radius:50%;flex:none}
+
+/* ---------- DEPLOY THREE THINGS ---------- */
+.deploy .panel{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--soft);padding:40px;display:grid;grid-template-columns:.8fr 1fr 1fr 1fr;gap:34px}
+.deploy .dintro h2{font-size:30px;line-height:1.1}
+.deploy .dintro p{margin-top:12px;font-size:15px;color:var(--muted);line-height:1.55}
+/* Amy: remove hexagons from all three box backgrounds -> clean items, no bg hex watermark */
+.ditem .hx{width:56px;height:52px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
+.ditem p{margin-top:16px;font-size:15.5px;line-height:1.5;font-weight:600;color:var(--deep)}
+.deploy .dkicker{margin-top:26px;font-family:Archivo,Inter,sans-serif;font-size:22px;font-weight:700;color:var(--deep);letter-spacing:-.01em}
+
+/* ---------- APPLIED AI (philosophy) ---------- */
+.phil-in{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.phil p{margin-top:16px;font-size:16.5px;line-height:1.6;color:var(--ink)}
+.callout{margin-top:26px;background:var(--mist);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+.callout h4{font-size:18px}
+.callout p{margin-top:8px;font-size:15px;color:var(--muted)}
+/* Amy: orange hexagon w/ quote mark partially overlaid on the rounded rectangle */
+.qcardwrap{position:relative;margin-top:6px}
+.qhex{position:absolute;left:-22px;top:-22px;width:66px;height:74px;clip-path:var(--hex);background:linear-gradient(150deg,var(--orange),#d64e1e);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 12px 26px rgba(242,100,47,.30)}
+.qhex span{color:#fff;font-family:Georgia,serif;font-size:44px;line-height:1;margin-top:14px}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--soft);padding:44px 40px 34px}
+.qcard blockquote{font-family:Archivo,Inter,sans-serif;font-size:26px;line-height:1.32;font-weight:700;color:var(--deep);letter-spacing:-.01em}
+.qcard .qby{margin-top:22px;font-weight:800;color:var(--deep)}
+.qcard .qrole{font-size:14px;color:var(--muted)}
+
+/* ---------- STRATEGY: earn its place ---------- */
+.earn-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.earn-head .lead{margin-top:0}
+.earn3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+.earn-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--soft);padding:34px 30px}
+.earn-card .n{font-family:Archivo,Inter,sans-serif;font-size:52px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.earn-card.c1 .n{color:#bfe4f1}.earn-card.c2 .n{color:#d8ebbd}.earn-card.c3 .n{color:#fbd3c2}
+.earn-card h3{margin-top:16px}
+.earn-card p{margin-top:12px;font-size:15.5px;line-height:1.55;color:var(--muted)}
+
+/* ---------- IN PRACTICE (dark band) ---------- */
+.practice{background:linear-gradient(150deg,#12617a 0%,var(--deep) 62%);color:#fff}
+.practice .eyebrow{color:#9fe0f4}.practice .eyebrow:before{background:linear-gradient(90deg,#fff,var(--green))}
+.practice h2{color:#fff}
+.practice .lead{color:#cfe6ef;margin-top:16px;max-width:52ch}
+.needle4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+.ncard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:26px 24px}
+.ncard .hx{width:52px;height:48px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px}
+.ncard h3{color:#fff;margin-top:18px;font-size:21px;line-height:1.12}
+.ncard p{margin-top:12px;font-size:14.5px;line-height:1.55;color:#c4dbe4}
+/* second row: learning loop + correlating cards, aligned to the same 4-col grid */
+.loop-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px;margin-top:22px}
+.loopcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:28px}
+.loopcard h3{color:#fff;font-size:20px}
+.loopcard>p{margin-top:10px;font-size:14px;line-height:1.55;color:#c4dbe4;max-width:52ch}
+.loop{position:relative;height:230px;margin-top:8px}
+.loop .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:132px;height:150px;clip-path:var(--hex);background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--teal-ink);font-weight:800;font-size:15px;line-height:1.15;box-shadow:0 16px 34px rgba(0,0,0,.28)}
+.loop .node{position:absolute;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 14px 7px 8px;font-size:12.5px;font-weight:800;color:#fff}
+.loop .node.tl{left:0;top:12px}.loop .node.tr{right:0;top:12px}.loop .node.bl{left:0;bottom:12px}.loop .node.br{right:0;bottom:12px}
+/* correlating icon chips (repeated on nodes AND cards so people see they correlate) */
+.cico{width:26px;height:26px;border-radius:8px;flex:none;display:flex;align-items:center;justify-content:center}
+.cico svg{width:15px;height:15px;display:block}
+.cico.green{background:rgba(120,186,67,.22);color:#bfe89a}
+.cico.blue{background:rgba(0,170,229,.20);color:#7fd4ee}
+.cico.orange{background:rgba(242,100,47,.20);color:#ffb59c}
+.cico.teal{background:rgba(0,159,199,.20);color:#8fe0f4}
+.corr{display:grid;grid-template-rows:1fr 1fr;gap:22px}
+.corr .cc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px 22px}
+.corr .cc .cctop{display:flex;align-items:center;gap:10px}
+.corr .cc h4{color:#fff;font-size:15.5px}
+.corr .cc p{margin-top:9px;font-size:13.5px;line-height:1.5;color:#c4dbe4}
+
+/* ---------- OPERATING PRINCIPLES ---------- */
+.gov6{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.gcard{display:flex;gap:18px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--soft);padding:26px 28px}
+.gcard .hx{width:52px;height:48px;flex:none;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px}
+.gcard h3{font-size:19px;line-height:1.1;white-space:nowrap}
+.gcard p{margin-top:9px;font-size:15px;line-height:1.55;color:var(--muted)}
+
+/* ---------- CTA + FORM ---------- */
+.aicta .band{background:linear-gradient(125deg,var(--teal) 0%,#1f8fb2 46%,#5aa64a 100%);border-radius:30px;padding:52px;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center;color:#fff;box-shadow:0 30px 70px rgba(0,120,150,.28);overflow:hidden}
+.aicta h2{color:#fff}
+.aicta .band>div>p{margin-top:16px;color:#eafaff;font-size:17px;line-height:1.55;max-width:34ch}
+.leadform{background:#fff;border-radius:20px;padding:30px;box-shadow:0 22px 50px rgba(0,0,0,.18)}
+.leadform .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.leadform label{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.leadform label .req{color:var(--orange)}
+.leadform input,.leadform textarea{width:100%;border:1px solid var(--line);background:var(--mist);border-radius:10px;padding:12px 14px;font:inherit;font-size:14px;color:var(--deep)}
+.leadform textarea{min-height:86px;resize:vertical}
+.leadform .full{margin-bottom:16px}
+.leadform .fbtn{margin-top:4px}
+
+@media(max-width:980px){
+  .aihero-in,.phil-in,.aicta .band{grid-template-columns:1fr}
+  .deploy .panel{grid-template-columns:1fr 1fr}
+  .earn3,.needle4{grid-template-columns:1fr 1fr}
+  .loop-row{grid-template-columns:1fr}
+  .gov6{grid-template-columns:1fr}
+  .earn-head{grid-template-columns:1fr;gap:14px}
+}
+@media(max-width:600px){
+  .deploy .panel,.earn3,.needle4,.leadform .frow,.chips{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a href="../mi/">Market Intelligence</a><a href="../digital-worker/">Digital Workers</a><a class="on" href="../applied-ai/">AI Approach</a><a href="../brand/">Brand guide</a></div>
+<div class="concept-note">Frogdog concept for the Trio <b>AI Approach</b> page &nbsp;•&nbsp; rebuilt in our unified design system with Amy's markup applied &nbsp;•&nbsp; quote attribution pending marketing confirmation</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../home/"><img class="brandmark" src="../assets/trio-logo-wide.png" alt="Trio Workforce Solutions"></a>
+    <nav class="nav-links">
+      <span class="has-mega"><a href="https://www.triowfs.com/solutions">Platform</a><div class="mega"><div class="mgroup"><div class="mh">Ways to run it</div><a href="https://www.triowfs.com/solutions/trio-msp"><b>Trio MSP</b><span>Managed</span></a><a href="https://www.triowfs.com/solutions/trio-vms-plus"><b>Trio VMS+</b><span>Hybrid</span></a><a href="https://www.triowfs.com/solutions/trio-vms-saas"><b>Trio VMS</b><span>Self-Managed</span></a></div><div class="mgroup"><div class="mh">Ways to grow with it</div><a href="https://www.triowfs.com/solutions/enterprise-workforce-management"><b>Enterprise Workforce Management</b><span>EWM overlay</span></a><a href="https://www.triowfs.com/solutions/internal-resource-management"><b>Internal Resource Management</b><span>IRM overlay</span></a></div><div class="mgroup"><div class="mh">Intelligence &amp; Applied AI</div><a href="../mi/"><b>Market Intelligence</b><span>Live market data</span></a><a href="../digital-worker/"><b>Digital Workers</b><span>Applied AI teammates</span></a><a href="../applied-ai/"><b>AI Approach</b><span>How we build AI</span></a></div><div class="mfoot"><span class="tag">Three ways to run the platform. Two ways to grow with it.</span><a class="mlink" href="https://www.triowfs.com/solutions">Explore the platform &rarr;</a></div></div></span>
+      <a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a>
+      <a href="https://www.triowfs.com/resources">Resources</a>
+      <span class="has-sub"><a href="https://www.triowfs.com/about">About Us</a><div class="sub"><a href="https://www.triowfs.com/careers">Careers</a><a href="https://www.triowfs.com/about/leadership-team">Leadership Team</a><a href="https://www.triowfs.com/resources/articles">News</a><a href="https://www.triowfs.com/about/our-history">Our History</a></div></span>
+    </nav>
+    <div class="nav-cta">
+      <a class="login" href="https://trio.triovms.com/">Trio MSP Login</a>
+      <a class="btn btn-primary" href="#demo" style="padding:11px 20px">Request a demo</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="aihero" id="top">
+  <div class="wrap aihero-in">
+    <div>
+      <span class="eyebrow">AI Approach</span>
+      <h1>AI That Serves People, <span class="accent">Not the Other Way Around</span></h1>
+      <!-- Amy: soft-return "AI" to the next line -->
+      <p class="lead">Healthcare runs on human judgment.<br>AI at Trio is built to protect and sharpen it.</p>
+      <p class="subcopy">Our goal is not to replace the people who run your workforce program. Our goal is to make them more capable and impactful. AI handles the volume. Your team handles what matters. That is the division of labor we believe in and build more toward every day.</p>
+      <div class="aihero-cta">
+        <a class="btn btn-primary btn-lg" href="#demo">Request a Platform Demo</a>
+        <a class="btn btn-ghost btn-lg" href="#philosophy">Explore Our Approach</a>
+      </div>
+      <div class="jumppills">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#strategy">Strategy</a>
+        <a href="#practice">In Practice</a>
+        <a href="#principles">Operating Principles</a>
+      </div>
+    </div>
+    <!-- CLEAN hero visual: no grid, no floating circles, no blue hexagon, no green shadow (Amy) -->
+    <div class="signalwrap" aria-hidden="true">
+      <div class="hexacc t"></div>
+      <div class="hexacc g"></div>
+      <div class="hexacc o"></div>
+      <div class="signalcard">
+        <h3>Human judgment, sharpened by AI</h3>
+        <p class="sc-sub">Operational signal, program insight, and decision support designed around measurable workforce outcomes.</p>
+        <div class="sc-lbl">Program performance signal</div>
+        <div class="meters"><div class="meter m1"><i></i></div><div class="meter m2"><i></i></div><div class="meter m3"><i></i></div></div>
+        <div class="chips">
+          <div class="chip"><span class="dot" style="background:var(--teal)"></span>Strategy-aligned</div>
+          <div class="chip"><span class="dot" style="background:var(--green)"></span>Human-led</div>
+          <div class="chip"><span class="dot" style="background:var(--orange)"></span>Measured impact</div>
+          <div class="chip"><span class="dot" style="background:var(--navy)"></span>Security first</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPLOY THREE THINGS -->
+<section class="sec deploy">
+  <div class="wrap">
+    <div class="panel">
+      <div class="dintro">
+        <h2>We deploy AI to do three things:</h2>
+        <p>Trio applies AI where it gives teams back capacity and improves decisions.</p>
+      </div>
+      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--teal),#0f6f89)">01</div><p>Automate repetitive operational work that consumes your team's capacity.</p></div>
+      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">02</div><p>Surface deep analysis that makes high-stakes decisions more informed.</p></div>
+      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">03</div><p>Serve as a thorough problem solver, providing expertise and data.</p></div>
+    </div>
+    <div class="dkicker">Less process. More precision. More time for the work that matters.</div>
+  </div>
+</section>
+
+<!-- APPLIED AI / PHILOSOPHY -->
+<section class="sec philos" id="philosophy">
+  <div class="wrap">
+    <span class="eyebrow">Our Philosophy</span>
+    <div class="phil-in" style="margin-top:22px">
+      <div class="phil">
+        <h2>Applied AI</h2>
+        <p>At Trio, every AI capability we build and deploy is tied to a specific outcome your organization can measure. Not impressions of innovation. Not technology for its own sake. Results that show up in program performance, the quality of talent placed, and the clinician experience across your organization.</p>
+        <p>Healthcare is too important to rely solely on technology experimentation. Every AI capability we deploy at Trio starts with a clear business need, a defined outcome, and an unwavering commitment to data security.</p>
+        <div class="callout">
+          <h4>We call this Applied AI</h4>
+          <p>The pragmatic use of AI solutions that align with our strategy and deliver demonstrable, measurable outcomes for the healthcare organizations we serve.</p>
+        </div>
+      </div>
+      <div class="qcardwrap">
+        <div class="qhex"><span>&ldquo;</span></div>
+        <div class="qcard">
+          <blockquote>We believe AI should always be anchored to strategy: solving real problems, delivering measurable results, and keeping humans firmly in control of every decision that matters.</blockquote>
+          <div class="qby">Brenton Hall</div>
+          <div class="qrole">Head of Product, Trio Workforce Solutions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY: EARN ITS PLACE -->
+<section class="sec tint" id="strategy">
+  <div class="wrap">
+    <span class="eyebrow">Our Strategy</span>
+    <div class="earn-head" style="margin-top:20px">
+      <h2 style="max-width:none">Every AI Initiative Must Earn Its Place</h2>
+      <p class="lead">We evaluate AI investments through a disciplined lens. If it does not meet all three criteria, we do not pursue it.</p>
+    </div>
+    <div class="earn3">
+      <div class="earn-card c1"><div class="n">01</div><h3>Strategic</h3><p>Aligned with and accelerating our core business strategy. Not a shiny object.</p></div>
+      <div class="earn-card c2"><div class="n">02</div><h3>Pragmatic</h3><p>Solving a specific, well-defined problem or unlocking a defined opportunity.</p></div>
+      <div class="earn-card c3"><div class="n">03</div><h3>Results-Driven</h3><p>Delivering outcomes that are measurable: lower contingent spend, faster fill rates, stronger program performance, better supplier relationships, and an improved experience for the clinicians your program supports.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- IN PRACTICE (DARK) -->
+<section class="sec practice" id="practice">
+  <div class="wrap">
+    <span class="eyebrow">What this looks like in practice</span>
+    <h2 style="margin-top:14px">How AI Moves the Needle at Trio</h2>
+    <p class="lead">At Trio, AI is embedded in the platform and processes that deliver results for healthcare organizations every day.</p>
+    <div class="needle4">
+      <div class="ncard"><div class="hx" style="background:linear-gradient(150deg,var(--teal),#0f6f89)">01</div><h3>Speed at<br>Scale</h3><p>We compress timelines that used to take months into weeks, and decisions that took days into minutes.</p></div>
+      <div class="ncard"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">02</div><h3>Better<br>Decisions</h3><p>AI surfaces insights that improve the quality of staffing, credentialing, and program management decisions across every program we manage.</p></div>
+      <div class="ncard"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">03</div><h3>New<br>Capabilities</h3><p>AI-powered features like candidate evaluation and timecard review enable capabilities that were not previously possible at scale.</p></div>
+      <!-- Amy: instead of white, use the other blue in our palette -->
+      <div class="ncard"><div class="hx" style="background:linear-gradient(150deg,var(--brand-blue),#005f8a)">04</div><h3>Compounding<br>Advantage</h3><p>Our data and learning systems get smarter over time, creating durable, defensible advantage for the healthcare organizations we serve.</p></div>
+    </div>
+    <div class="loop-row">
+      <div class="loopcard">
+        <h3>Compounding program intelligence</h3>
+        <p>A labeled learning loop: each program cycle produces better signals for the next one.</p>
+        <div class="loop">
+          <div class="node tl"><span class="cico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span>Program data</div>
+          <div class="node tr"><span class="cico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/><circle cx="12" cy="12" r="3"/></svg></span>AI signals</div>
+          <div class="core">Learning<br>System</div>
+          <div class="node bl"><span class="cico teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span>Measured outcomes</div>
+          <div class="node br"><span class="cico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c.6-3.5 3.3-5.5 6.5-5.5s5.9 2 6.5 5.5"/></svg></span>Human decisions</div>
+        </div>
+      </div>
+      <div class="corr">
+        <div class="cc"><div class="cctop"><span class="cico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span><h4>Operational inputs</h4></div><p>program, supplier, clinician, credentialing, timecard, and spend data</p></div>
+        <div class="cc"><div class="cctop"><span class="cico teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><h4>Measured impact</h4></div><p>faster action, stronger performance, better clinician experience</p></div>
+      </div>
+      <div class="corr">
+        <div class="cc"><div class="cctop"><span class="cico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/><circle cx="12" cy="12" r="3"/></svg></span><h4>AI analysis layer</h4></div><p>signal detection, evaluation, review, and prioritization</p></div>
+        <div class="cc"><div class="cctop"><span class="cico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c.6-3.5 3.3-5.5 6.5-5.5s5.9 2 6.5 5.5"/></svg></span><h4>Human judgment</h4></div><p>intent, context, decision rights, and exception handling</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATING PRINCIPLES -->
+<section class="sec" id="principles">
+  <div class="wrap">
+    <span class="eyebrow">Operating Principles</span>
+    <div class="earn-head" style="margin-top:20px">
+      <h2 style="max-width:none">How We Govern AI, Every Time</h2>
+      <p class="lead">These are not aspirational values. They are the standards by which every AI initiative at Trio is built, evaluated, and managed.</p>
+    </div>
+    <div class="gov6">
+      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--teal),#0f6f89)">01</div><div><h3>Security First</h3><p>Data security and client confidentiality are non-negotiable. We build trust before features, always.</p></div></div>
+      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">02</div><div><h3>Business Leaders Set Direction</h3><p>AI strategy is driven by business outcomes, not technology for its own sake. Operational leaders own results.</p></div></div>
+      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">03</div><div><h3>Human in the Loop</h3><p>Humans define intent and judgment. AI executes and optimizes. The human always has the final word on what matters.</p></div></div>
+      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--brand-blue),#005f8a)">04</div><div><h3>Augment Before Automate</h3><p>We enhance human capability before we replace human steps. Augmentation is always the first move.</p></div></div>
+      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">05</div><div><h3>Autonomy Is Earned</h3><p>We move deliberately: human-in-the-loop, then human-on-the-loop, then exception-based monitoring. AI earns greater autonomy through demonstrated trust.</p></div></div>
+      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">06</div><div><h3>Measure Outcomes, Not Activity</h3><p>Success is measured by results delivered, not tools adopted. The metric is always impact, never utilization.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + FORM -->
+<section class="sec aicta" id="demo">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <h2>Want to see how Trio puts these principles to work for your organization?</h2>
+        <p>Contact us to request a platform demo or speak with a Trio workforce advisor.</p>
+      </div>
+      <form class="leadform" onsubmit="return false">
+        <div class="frow">
+          <div><label>First Name</label><input type="text" placeholder="First Name"></div>
+          <div><label>Last Name</label><input type="text" placeholder="Last Name"></div>
+        </div>
+        <div class="frow">
+          <div><label>Email <span class="req">*</span></label><input type="email" placeholder="name@organization"></div>
+          <div><label>Organization <span class="req">*</span></label><input type="text" placeholder="Healthcare organization"></div>
+        </div>
+        <div class="frow">
+          <div><label>Phone Number</label><input type="tel" placeholder="+1"></div>
+          <div><label>Role</label><input type="text" placeholder="Your role"></div>
+        </div>
+        <div class="full"><label>How can Trio help?</label><textarea placeholder="Tell us what you are looking to improve across your workforce program."></textarea></div>
+        <a class="btn btn-primary btn-lg fbtn" href="#top">Request a Platform Demo</a>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmain">
+      <div>
+        <div class="brand"><img class="brandmark brandmark--inv" src="../assets/trio-logo-wide.png" alt="Trio Workforce Solutions"></div>
+        <div class="fnote"><b>E.</b> <a href="mailto:marketing@triowfs.com">marketing@triowfs.com</a><br><b>P.</b> <a href="tel:+18009305119">1.800.930.5119</a><br>7460 Warren Pkwy<br>Frisco, TX 75034</div>
+        <div class="fsocial"><a href="https://www.linkedin.com/company/american-health-technology-group" aria-label="Trio on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21H19v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg></a></div>
+      </div>
+      <div class="fcolgroup">
+        <div class="fcol">
+          <a class="fh" href="https://www.triowfs.com/solutions">Platform</a>
+          <a href="https://www.triowfs.com/solutions/trio-msp">Trio MSP</a>
+          <a href="https://www.triowfs.com/solutions/trio-vms-plus">Trio VMS+</a>
+          <a href="https://www.triowfs.com/solutions/trio-vms-saas">Trio VMS</a>
+          <a href="https://www.triowfs.com/solutions/enterprise-workforce-management">Enterprise Workforce Management</a>
+          <a href="https://www.triowfs.com/solutions/internal-resource-management">Internal Resource Management</a>
+          <a href="../mi/">Market Intelligence</a>
+          <a href="../digital-worker/">Digital Workers</a>
+          <a href="../applied-ai/">AI Approach</a>
+        </div>
+        <div class="fcol">
+          <a class="fh" href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a>
+          <a class="fh" href="https://www.triowfs.com/resources">Resources</a>
+          <a class="fh" href="https://www.triowfs.com/about">About Us</a>
+        </div>
+        <div class="fcol">
+          <a class="fh" href="https://www.triowfs.com/contact-us">Contact Us</a>
+          <a class="fh" href="https://trio.triovms.com/">Trio MSP Login</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal"><span>&copy; 2026 Trio Workforce Solutions</span><span><a href="https://www.triowfs.com/terms-of-service">Terms of Use</a> &nbsp;|&nbsp; <a href="https://www.triowfs.com/privacy-policy">Privacy Policy</a></span></div>
+  </div>
+</footer>
+
+<script>
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>10)});
+(function(){
+  document.querySelectorAll('.sec-head,.phil,.qcardwrap,.dkicker').forEach(function(e){e.classList.add('reveal')});
+  document.querySelectorAll('.earn3,.needle4,.gov6,.chips').forEach(function(e){e.classList.add('stagger')});
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal,.stagger').forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal,.stagger').forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
