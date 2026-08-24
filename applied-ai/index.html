@@ -92,10 +92,12 @@
 .loopcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:28px}
 .loopcard h3{color:#fff;font-size:20px}
 .loopcard>p{margin-top:10px;font-size:14px;line-height:1.55;color:#c4dbe4;max-width:52ch}
-.loop{position:relative;height:230px;margin-top:8px}
-.loop .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:132px;height:150px;clip-path:var(--hex);background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--teal-ink);font-weight:800;font-size:15px;line-height:1.15;box-shadow:0 16px 34px rgba(0,0,0,.28)}
-.loop .node{position:absolute;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 14px 7px 8px;font-size:12.5px;font-weight:800;color:#fff}
-.loop .node.tl{left:0;top:12px}.loop .node.tr{right:0;top:12px}.loop .node.bl{left:0;bottom:12px}.loop .node.br{right:0;bottom:12px}
+/* learning loop: core hex centered on top, 4 feeder nodes in a 2x2 grid below (1 col on phones). No absolute positioning = no collisions at any width. */
+.loop{margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.loop .lp-core{width:120px;height:136px;clip-path:var(--hex);background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--teal-ink);font-weight:800;font-size:14.5px;line-height:1.15;box-shadow:0 16px 34px rgba(0,0,0,.28)}
+.loopnodes{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.loopnodes .lp-node{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 14px;font-size:12.5px;font-weight:800;color:#fff;white-space:nowrap}
+@media(max-width:600px){.loopnodes{grid-template-columns:1fr}}
 /* correlating icon chips (repeated on nodes AND cards so people see they correlate) */
 .cico{width:26px;height:26px;border-radius:8px;flex:none;display:flex;align-items:center;justify-content:center}
 .cico svg{width:15px;height:15px;display:block}
@@ -169,7 +171,7 @@
       <span class="eyebrow">AI Approach</span>
       <h1>AI That Serves People, <span class="accent">Not the Other Way Around</span></h1>
       <!-- Amy: soft-return "AI" to the next line -->
-      <p class="lead">Healthcare runs on human judgment.<br>AI at Trio is built to protect and sharpen it.</p>
+      <p class="lead">Healthcare runs on human judgement.<br>AI at Trio is built to protect and sharpen it.</p>
       <p class="subcopy">Our goal is not to replace the people who run your workforce program. Our goal is to make them more capable and impactful. AI handles the volume. Your team handles what matters. That is the division of labor we believe in and build more toward every day.</p>
       <div class="aihero-cta">
         <a class="btn btn-primary btn-lg" href="#demo">Request a Platform Demo</a>
@@ -211,9 +213,9 @@
         <h2>We deploy AI to do three things:</h2>
         <p>Trio applies AI where it gives teams back capacity and improves decisions.</p>
       </div>
-      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--teal),#0f6f89)">01</div><p>Automate repetitive operational work that consumes your team's capacity.</p></div>
-      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">02</div><p>Surface deep analysis that makes high-stakes decisions more informed.</p></div>
-      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">03</div><p>Serve as a thorough problem solver, providing expertise and data.</p></div>
+      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--teal),#0f6f89)">01</div><p>Automate repetitive operational work that consumes your team's capacity</p></div>
+      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">02</div><p>Surface deep analysis that make high-stakes decisions more informed</p></div>
+      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">03</div><p>Serve as a thorough problem solver providing expertise and data</p></div>
     </div>
     <div class="dkicker">Less process. More precision. More time for the work that matters.</div>
   </div>
@@ -279,11 +281,13 @@
         <h3>Compounding program intelligence</h3>
         <p>A labeled learning loop: each program cycle produces better signals for the next one.</p>
         <div class="loop">
-          <div class="node tl"><span class="cico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span>Program data</div>
-          <div class="node tr"><span class="cico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/><circle cx="12" cy="12" r="3"/></svg></span>AI signals</div>
-          <div class="core">Learning<br>System</div>
-          <div class="node bl"><span class="cico teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span>Measured outcomes</div>
-          <div class="node br"><span class="cico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c.6-3.5 3.3-5.5 6.5-5.5s5.9 2 6.5 5.5"/></svg></span>Human decisions</div>
+          <div class="lp-core">Learning<br>System</div>
+          <div class="loopnodes">
+            <div class="lp-node"><span class="cico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span>Program data</div>
+            <div class="lp-node"><span class="cico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/><circle cx="12" cy="12" r="3"/></svg></span>AI signals</div>
+            <div class="lp-node"><span class="cico teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span>Measured outcomes</div>
+            <div class="lp-node"><span class="cico orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c.6-3.5 3.3-5.5 6.5-5.5s5.9 2 6.5 5.5"/></svg></span>Human decisions</div>
+          </div>
         </div>
       </div>
       <div class="corr">
