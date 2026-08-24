@@ -26,9 +26,9 @@
 /* hero signal card + CLEAN hex accents (Amy: no grid, no circles, no blue hex, no green shadow) */
 .signalwrap{position:relative;min-height:430px;display:flex;align-items:center;justify-content:center}
 .signalwrap .hexacc{position:absolute;clip-path:var(--hex)}
-.signalwrap .hexacc.g{width:150px;height:168px;background:linear-gradient(150deg,var(--green),#7bb238);left:-6px;top:-6px}
+.signalwrap .hexacc.g{width:150px;height:168px;background:linear-gradient(150deg,var(--green),#5c9e2e);left:-6px;top:-6px}
 .signalwrap .hexacc.o{width:132px;height:148px;background:linear-gradient(150deg,var(--orange),#d64e1e);right:2px;bottom:0}
-.signalwrap .hexacc.t{width:210px;height:236px;background:linear-gradient(160deg,#12617a,var(--deep));right:34px;top:26px;opacity:.94}
+.signalwrap .hexacc.t{width:210px;height:236px;background:linear-gradient(160deg,#0f6f89,var(--deep));right:34px;top:26px;opacity:.94}
 .signalcard{position:relative;z-index:3;width:398px;max-width:100%;background:#fff;border-radius:22px;box-shadow:0 30px 70px rgba(19,45,57,.20);padding:26px 26px 22px}
 .signalcard h3{font-size:22px;line-height:1.15}
 .signalcard .sc-sub{margin-top:10px;font-size:14px;line-height:1.5;color:var(--muted)}
@@ -37,7 +37,7 @@
 .meter{height:9px;border-radius:999px;background:var(--mist2)}
 .meter i{display:block;height:100%;border-radius:999px}
 .meter.m1 i{width:82%;background:linear-gradient(90deg,var(--teal),var(--green))}
-.meter.m2 i{width:64%;background:linear-gradient(90deg,var(--green),#5f9bd6)}
+.meter.m2 i{width:64%;background:linear-gradient(90deg,var(--green),var(--teal))}
 .meter.m3 i{width:73%;background:linear-gradient(90deg,var(--orange),var(--amber))}
 .chips{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .chip{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:13px;font-weight:700;color:var(--deep)}
@@ -61,7 +61,7 @@
 /* Amy: orange hexagon w/ quote mark partially overlaid on the rounded rectangle */
 .qcardwrap{position:relative;margin-top:6px}
 .qhex{position:absolute;left:-22px;top:-22px;width:66px;height:74px;clip-path:var(--hex);background:linear-gradient(150deg,var(--orange),#d64e1e);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 12px 26px rgba(242,100,47,.30)}
-.qhex span{color:#fff;font-family:Georgia,serif;font-size:44px;line-height:1;margin-top:14px}
+.qhex span{color:#fff;font-family:Archivo,Inter,sans-serif;font-size:44px;line-height:1;margin-top:14px}
 .qcard{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--soft);padding:44px 40px 34px}
 .qcard blockquote{font-family:Archivo,Inter,sans-serif;font-size:26px;line-height:1.32;font-weight:700;color:var(--deep);letter-spacing:-.01em}
 .qcard .qby{margin-top:22px;font-weight:800;color:var(--deep)}
@@ -73,25 +73,25 @@
 .earn3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
 .earn-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--soft);padding:34px 30px}
 .earn-card .n{font-family:Archivo,Inter,sans-serif;font-size:52px;font-weight:800;line-height:1;letter-spacing:-.02em}
-.earn-card.c1 .n{color:#bfe4f1}.earn-card.c2 .n{color:#d8ebbd}.earn-card.c3 .n{color:#fbd3c2}
+.earn-card.c1 .n{color:var(--teal-200)}.earn-card.c2 .n{color:var(--green-200)}.earn-card.c3 .n{color:var(--orange-200)}
 .earn-card h3{margin-top:16px}
 .earn-card p{margin-top:12px;font-size:15.5px;line-height:1.55;color:var(--muted)}
 
 /* ---------- IN PRACTICE (dark band) ---------- */
-.practice{background:linear-gradient(150deg,#12617a 0%,var(--deep) 62%);color:#fff}
-.practice .eyebrow{color:#9fe0f4}.practice .eyebrow:before{background:linear-gradient(90deg,#fff,var(--green))}
+.practice{background:linear-gradient(140deg,#0f2947,var(--deep) 55%,#10365f);color:#fff}
+.practice .eyebrow{color:#7fd4f5}.practice .eyebrow:before{background:linear-gradient(90deg,#fff,var(--green))}
 .practice h2{color:#fff}
-.practice .lead{color:#cfe6ef;margin-top:16px;max-width:52ch}
+.practice .lead{color:#cfe0ee;margin-top:16px;max-width:52ch}
 .needle4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
 .ncard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:26px 24px}
 .ncard .hx{width:52px;height:48px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px}
 .ncard h3{color:#fff;margin-top:18px;font-size:21px;line-height:1.12}
-.ncard p{margin-top:12px;font-size:14.5px;line-height:1.55;color:#c4dbe4}
+.ncard p{margin-top:12px;font-size:14.5px;line-height:1.55;color:#aecadf}
 /* second row: learning loop + correlating cards, aligned to the same 4-col grid */
 .loop-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px;margin-top:22px}
 .loopcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:28px}
 .loopcard h3{color:#fff;font-size:20px}
-.loopcard>p{margin-top:10px;font-size:14px;line-height:1.55;color:#c4dbe4;max-width:52ch}
+.loopcard>p{margin-top:10px;font-size:14px;line-height:1.55;color:#aecadf;max-width:52ch}
 /* learning loop: core hex centered on top, 4 feeder nodes in a 2x2 grid below (1 col on phones). No absolute positioning = no collisions at any width. */
 .loop{margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:16px}
 .loop .lp-core{width:120px;height:136px;clip-path:var(--hex);background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--teal-ink);font-weight:800;font-size:14.5px;line-height:1.15;box-shadow:0 16px 34px rgba(0,0,0,.28)}
@@ -101,15 +101,15 @@
 /* correlating icon chips (repeated on nodes AND cards so people see they correlate) */
 .cico{width:26px;height:26px;border-radius:8px;flex:none;display:flex;align-items:center;justify-content:center}
 .cico svg{width:15px;height:15px;display:block}
-.cico.green{background:rgba(120,186,67,.22);color:#bfe89a}
+.cico.green{background:rgba(120,186,67,.22);color:var(--green-300)}
 .cico.blue{background:rgba(0,170,229,.20);color:#7fd4ee}
 .cico.orange{background:rgba(242,100,47,.20);color:#ffb59c}
-.cico.teal{background:rgba(0,159,199,.20);color:#8fe0f4}
+.cico.teal{background:rgba(0,159,199,.20);color:#7fd4f5}
 .corr{display:grid;grid-template-rows:1fr 1fr;gap:22px}
 .corr .cc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px 22px}
 .corr .cc .cctop{display:flex;align-items:center;gap:10px}
 .corr .cc h4{color:#fff;font-size:15.5px}
-.corr .cc p{margin-top:9px;font-size:13.5px;line-height:1.5;color:#c4dbe4}
+.corr .cc p{margin-top:9px;font-size:13.5px;line-height:1.5;color:#aecadf}
 
 /* ---------- OPERATING PRINCIPLES ---------- */
 .gov6{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
@@ -119,9 +119,9 @@
 .gcard p{margin-top:9px;font-size:15px;line-height:1.55;color:var(--muted)}
 
 /* ---------- CTA + FORM ---------- */
-.aicta .band{background:linear-gradient(125deg,var(--teal) 0%,#1f8fb2 46%,#5aa64a 100%);border-radius:30px;padding:52px;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center;color:#fff;box-shadow:0 30px 70px rgba(0,120,150,.28);overflow:hidden}
+.aicta .band{background:linear-gradient(125deg,var(--teal),#0f6f89 52%,var(--deep));border-radius:30px;padding:52px;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center;color:#fff;box-shadow:0 30px 70px rgba(0,120,150,.3);overflow:hidden}
 .aicta h2{color:#fff}
-.aicta .band>div>p{margin-top:16px;color:#eafaff;font-size:17px;line-height:1.55;max-width:34ch}
+.aicta .band>div>p{margin-top:16px;color:#e4f4fd;font-size:17px;line-height:1.55;max-width:34ch}
 .leadform{background:#fff;border-radius:20px;padding:30px;box-shadow:0 22px 50px rgba(0,0,0,.18)}
 .leadform .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .leadform label{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
@@ -214,7 +214,7 @@
         <p>Trio applies AI where it gives teams back capacity and improves decisions.</p>
       </div>
       <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--teal),#0f6f89)">01</div><p>Automate repetitive operational work that consumes your team's capacity</p></div>
-      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">02</div><p>Surface deep analysis that make high-stakes decisions more informed</p></div>
+      <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--green),#5c9e2e)">02</div><p>Surface deep analysis that make high-stakes decisions more informed</p></div>
       <div class="ditem"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">03</div><p>Serve as a thorough problem solver providing expertise and data</p></div>
     </div>
     <div class="dkicker">Less process. More precision. More time for the work that matters.</div>
@@ -271,7 +271,7 @@
     <p class="lead">At Trio, AI is embedded in the platform and processes that deliver results for healthcare organizations every day.</p>
     <div class="needle4">
       <div class="ncard"><div class="hx" style="background:linear-gradient(150deg,var(--teal),#0f6f89)">01</div><h3>Speed at<br>Scale</h3><p>We compress timelines that used to take months into weeks, and decisions that took days into minutes.</p></div>
-      <div class="ncard"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">02</div><h3>Better<br>Decisions</h3><p>AI surfaces insights that improve the quality of staffing, credentialing, and program management decisions across every program we manage.</p></div>
+      <div class="ncard"><div class="hx" style="background:linear-gradient(150deg,var(--green),#5c9e2e)">02</div><h3>Better<br>Decisions</h3><p>AI surfaces insights that improve the quality of staffing, credentialing, and program management decisions across every program we manage.</p></div>
       <div class="ncard"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">03</div><h3>New<br>Capabilities</h3><p>AI-powered features like candidate evaluation and timecard review enable capabilities that were not previously possible at scale.</p></div>
       <!-- Amy: instead of white, use the other blue in our palette -->
       <div class="ncard"><div class="hx" style="background:linear-gradient(150deg,var(--brand-blue),#005f8a)">04</div><h3>Compounding<br>Advantage</h3><p>Our data and learning systems get smarter over time, creating durable, defensible advantage for the healthcare organizations we serve.</p></div>
@@ -312,10 +312,10 @@
     </div>
     <div class="gov6">
       <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--teal),#0f6f89)">01</div><div><h3>Security First</h3><p>Data security and client confidentiality are non-negotiable. We build trust before features, always.</p></div></div>
-      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">02</div><div><h3>Business Leaders Set Direction</h3><p>AI strategy is driven by business outcomes, not technology for its own sake. Operational leaders own results.</p></div></div>
+      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--green),#5c9e2e)">02</div><div><h3>Business Leaders Set Direction</h3><p>AI strategy is driven by business outcomes, not technology for its own sake. Operational leaders own results.</p></div></div>
       <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">03</div><div><h3>Human in the Loop</h3><p>Humans define intent and judgment. AI executes and optimizes. The human always has the final word on what matters.</p></div></div>
       <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--brand-blue),#005f8a)">04</div><div><h3>Augment Before Automate</h3><p>We enhance human capability before we replace human steps. Augmentation is always the first move.</p></div></div>
-      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--green),#6f9f1d)">05</div><div><h3>Autonomy Is Earned</h3><p>We move deliberately: human-in-the-loop, then human-on-the-loop, then exception-based monitoring. AI earns greater autonomy through demonstrated trust.</p></div></div>
+      <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--green),#5c9e2e)">05</div><div><h3>Autonomy Is Earned</h3><p>We move deliberately: human-in-the-loop, then human-on-the-loop, then exception-based monitoring. AI earns greater autonomy through demonstrated trust.</p></div></div>
       <div class="gcard"><div class="hx" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">06</div><div><h3>Measure Outcomes, Not Activity</h3><p>Success is measured by results delivered, not tools adopted. The metric is always impact, never utilization.</p></div></div>
     </div>
   </div>
