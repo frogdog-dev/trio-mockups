@@ -29,13 +29,15 @@
 .hero-frame video{display:block;width:100%;height:auto}
 .hero-scaler{position:relative;width:100%;overflow:hidden;background:#fff}
 .hero-scaler iframe{border:0;width:1280px;height:720px;transform-origin:top left;display:block}
+.hero-poster{display:none}
+@media(max-width:700px){.hero-scaler{display:none}.hero-poster{display:block;width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow);border:1px solid var(--line)}}
 .microtrust{margin:20px auto 0;color:var(--muted);font-size:13.5px;font-weight:600}
 
 /* trust strip */
 .trust{background:var(--deep);color:#cfe4ec}
 .trust .wrap{display:flex;align-items:center;justify-content:center;gap:20px 46px;flex-wrap:wrap;padding:20px 28px}
 .trust b{color:#fff;font-weight:800}
-.trust .dot{width:11px;height:12px;clip-path:var(--hex);display:inline-block;margin-right:10px;vertical-align:middle}
+.trust .dot{width:14px;height:15px;clip-path:var(--hex);display:inline-block;margin-right:10px;vertical-align:middle}
 .trust .item{font-size:15px;font-weight:600;display:flex;align-items:center}
 
 /* generic section pad + sec-head inherited from site.css */
@@ -210,6 +212,7 @@
 @media(max-width:820px){.compare .sec-head h2{font-size:38px}.cmp-avg .v{font-size:84px}.cmp-card2{grid-template-columns:1fr}}
 /* bolder ghost numerals */
 .orow .idx{font-size:66px;color:rgba(0,159,199,.30)}
+.olist .orow:nth-child(1) .idx{color:#00aae5}.olist .orow:nth-child(2) .idx{color:#a6ce42}.olist .orow:nth-child(3) .idx{color:#f57e20}.olist .orow:nth-child(4) .idx{color:#0081bb}
 .orow:hover .idx{color:var(--teal)}
 /* persona proof line */
 .ppanel .pbody{align-self:center}
@@ -267,6 +270,7 @@
     </div>
     <div class="hero-frame">
       <div class="hero-scaler" id="heroScaler"><iframe id="heroFrame" src="assets/hero.html?v=20260824a" title="Trio Market Intelligence hero animation" scrolling="no"></iframe></div>
+      <img class="hero-poster" src="assets/hero-poster-new.png?v=20260824a" alt="Trio Market Intelligence dashboard: $90.03 market average, your rate $84.13, live rate map, rate confidence, and 12-month trend" loading="lazy">
     </div>
   </div>
 </section>
@@ -274,10 +278,10 @@
 <!-- 2. TRUST / SCALE -->
 <section class="trust">
   <div class="wrap">
-    <span class="item"><span class="dot" style="background:#00aae5"></span>Updated <b>daily</b></span>
-    <span class="item"><span class="dot" style="background:#a6ce42"></span><b>171K</b> job orders analyzed</span>
-    <span class="item"><span class="dot" style="background:#f57e20"></span><b>12 months</b> of trend history</span>
-    <span class="item"><span class="dot" style="background:#0081bb"></span><b>Nursing &amp; Allied Health</b>, more roles coming</span>
+    <span class="item"><span class="dot" style="background:#00aae5"></span><span>Updated <b>daily</b></span></span>
+    <span class="item"><span class="dot" style="background:#a6ce42"></span><span><b>171K</b> job orders analyzed</span></span>
+    <span class="item"><span class="dot" style="background:#f57e20"></span><span><b>12 months</b> of trend history</span></span>
+    <span class="item"><span class="dot" style="background:#0081bb"></span><span><b>Nursing &amp; Allied Health</b>, more roles coming</span></span>
   </div>
 </section>
 
@@ -355,7 +359,7 @@
       </div>
     </figure>
     <div class="shot-legend">
-      <div class="lg"><span class="n">1</span><div><b>Market Rate Map</b><p>See live bill-rate density across regions, identify pricing patterns, and explore market conditions with interactive facility-level volume and average overlays.</p></div></div>
+      <div class="lg"><span class="n">1</span><div><b>Market Rate Map</b><p>See live bill-rate density across regions, identify pricing patterns, and explore market conditions with interactive region-level volume and rate overlays.</p></div></div>
       <div class="lg"><span class="n">2</span><div><b>Market vs. My Placements Average</b><p>In a single glance, compare your placements to live market rates to understand where opportunities exist.</p></div></div>
       <div class="lg"><span class="n">3</span><div><b>Market Rate Confidence</b><p>See how tightly rates cluster by sample size, so you know how much weight to put on any single benchmark before you set a rate.</p></div></div>
       <div class="lg"><span class="n">4</span><div><b>12-Month Historical Rate Volatility</b><p>Understand market fluctuations and rate spikes over the past 12 months to proactively forecast staffing costs and support more informed workforce planning.</p></div></div>
