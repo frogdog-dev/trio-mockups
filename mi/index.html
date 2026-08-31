@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Market Intelligence | Trio Workforce Solutions (redesign concept)</title>
-<link rel="stylesheet" href="../assets/css/site.css?v=20260831a">
+<link rel="stylesheet" href="../assets/css/site.css?v=20260831b">
 <style>
 
 /* MI inherits reset/type/eyebrow/buttons/nav/footer from site.css (single source). Only MI-specific components live below. */
@@ -54,26 +54,25 @@
 .mm-bars span.tall{height:100%;background:var(--green)}
 .mm-trend{margin-top:12px}
 .mm-line{width:100%;height:56px;display:block;overflow:visible}
-.mm-callout{position:absolute;left:42%;top:41%;transform:translateX(-50%);background:var(--deep);color:#fff;font-size:13px;font-weight:700;padding:11px 18px;border-radius:12px;box-shadow:0 16px 34px rgba(19,45,57,.32);white-space:nowrap;z-index:4;opacity:0;animation:mmPop .45s 1.2s cubic-bezier(.34,1.5,.6,1) forwards}
+.mm-callout{position:absolute;left:42%;top:41%;transform:translateX(-50%);background:var(--deep);color:#fff;font-size:13px;font-weight:700;padding:11px 18px;border-radius:12px;box-shadow:0 16px 34px rgba(19,45,57,.32);white-space:nowrap;z-index:6;opacity:0}
 .mm-callout b{color:#7fd4f5}
-@keyframes mmRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes mmPop{from{opacity:0;transform:translate(-50%,7px) scale(.94)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
-@keyframes mmDotIn{from{opacity:0;transform:scale(0)}60%{opacity:1;transform:scale(1.35)}to{opacity:1;transform:scale(1)}}
-@keyframes mmBar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-@keyframes mmDraw{to{stroke-dashoffset:0}}
-@keyframes mmGlow{0%,100%{box-shadow:0 0 0 3px rgba(0,159,199,.14)}50%{box-shadow:0 0 0 6px rgba(0,159,199,.28)}}
-.mi-mock .r1,.mi-mock .r2,.mi-mock .r3,.mi-mock .r4{opacity:0;animation:mmRise .4s cubic-bezier(.2,.7,.2,1) forwards}
-.mi-mock .r1{animation-delay:.05s}.mi-mock .r2{animation-delay:.12s}.mi-mock .r3{animation-delay:.19s}.mi-mock .r4{animation-delay:.26s}
-.mm-dot{opacity:0;transform:scale(0);animation:mmDotIn .42s cubic-bezier(.34,1.5,.6,1) forwards}
-.mm-dot:nth-of-type(1){animation-delay:.34s}.mm-dot:nth-of-type(2){animation-delay:.39s}.mm-dot:nth-of-type(3){animation-delay:.44s}.mm-dot:nth-of-type(4){animation-delay:.49s}.mm-dot:nth-of-type(5){animation-delay:.54s}.mm-dot:nth-of-type(6){animation-delay:.59s}.mm-dot:nth-of-type(7){animation-delay:.64s}.mm-dot:nth-of-type(8){animation-delay:.69s}.mm-dot:nth-of-type(9){animation-delay:.74s}.mm-dot:nth-of-type(10){animation-delay:.79s}.mm-dot:nth-of-type(11){animation-delay:.84s}.mm-dot:nth-of-type(12){animation-delay:.89s}.mm-dot:nth-of-type(13){animation-delay:.94s}.mm-dot:nth-of-type(14){animation-delay:.99s}
-.mm-bars span{transform:scaleY(0);transform-origin:bottom;animation:mmBar .5s cubic-bezier(.2,.7,.2,1) forwards}
-.mm-bars span:nth-child(1){animation-delay:.55s}.mm-bars span:nth-child(2){animation-delay:.62s}.mm-bars span:nth-child(3){animation-delay:.69s}.mm-bars span:nth-child(4){animation-delay:.76s}.mm-bars span:nth-child(5){animation-delay:.83s}
-.mm-poly{stroke-dasharray:640;stroke-dashoffset:640;animation:mmDraw .95s .55s ease forwards}
-.mm-line circle{opacity:0;animation:mmDotIn .3s forwards}
-.mm-line circle:nth-child(1){animation-delay:.72s}.mm-line circle:nth-child(2){animation-delay:.8s}.mm-line circle:nth-child(3){animation-delay:.88s}.mm-line circle:nth-child(4){animation-delay:.96s}.mm-line circle:nth-child(5){animation-delay:1.04s}.mm-line circle:nth-child(6){animation-delay:1.12s}.mm-line circle:nth-child(7){animation-delay:1.2s}.mm-line circle:nth-child(8){animation-delay:1.28s}
+@keyframes mmRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.mi-mock{animation:mmRise .55s ease both}
+.mi-mock .mm-dot{opacity:0;transform:scale(0)}
+.mm-bars span{transform:scaleY(0);transform-origin:bottom}
+.mm-poly{stroke-dasharray:640;stroke-dashoffset:640}
+.mm-line circle{opacity:0}
 .mm-line circle:last-child{fill:var(--green)}
-@media(prefers-reduced-motion:reduce){.mi-mock .r1,.mi-mock .r2,.mi-mock .r3,.mi-mock .r4,.mm-dot,.mm-bars span,.mm-line circle,.mm-callout{animation:none!important;opacity:1!important;transform:none!important}.mm-poly{animation:none!important;stroke-dashoffset:0!important}.mm-callout{transform:translateX(-50%)!important}}
-@media(max-width:700px){.mm-grid{grid-template-columns:1fr}.mm-callout{left:50%;top:22%;font-size:11.5px;padding:9px 13px;white-space:normal;max-width:74%;text-align:center}.mm-kpirow b{font-size:21px}}
+.mm-plac{position:relative}
+.mm-cap{position:absolute;left:31%;top:19%;transform:translate(-50%,0);display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);box-shadow:0 16px 36px rgba(19,45,57,.20);border-radius:13px;padding:10px 16px 10px 13px;font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap;opacity:0;z-index:5;pointer-events:none}
+.mm-cap b{font-weight:850;color:var(--deep)}
+.mm-cap .ch{width:15px;height:16px;flex:none;clip-path:var(--hex);box-shadow:0 3px 8px rgba(0,0,0,.16)}
+.mm-navg{position:absolute;left:9%;right:9%;top:57%;border-top:2px dashed var(--teal-ink);opacity:0;z-index:3}
+.mm-navg span{position:absolute;left:50%;top:-10px;transform:translateX(-50%);background:var(--teal-ink);color:#fff;font-size:10px;font-weight:800;letter-spacing:.02em;padding:2px 9px;border-radius:20px;white-space:nowrap}
+.mm-rp{position:absolute;transform:translate(-50%,-155%);background:var(--deep);color:#fff;font-size:10px;font-weight:800;padding:2px 7px;border-radius:6px;white-space:nowrap;opacity:0;z-index:4;box-shadow:0 6px 14px rgba(19,45,57,.28)}
+.mm-under{position:absolute;top:0;right:0;background:#eaf4d8;color:#4f7300;font-size:9.5px;font-weight:800;padding:2px 7px;border-radius:20px;opacity:0}
+@media(prefers-reduced-motion:reduce){.mi-mock{animation:none!important}.mi-mock .mm-dot,.mm-line circle,.mm-under,.mm-callout{opacity:1!important;transform:none!important}.mm-bars span{transform:scaleY(1)!important}.mm-poly{stroke-dashoffset:0!important}.mm-cap,.mm-navg,.mm-rp{opacity:0!important}}
+@media(max-width:700px){.mm-grid{grid-template-columns:1fr}.mm-callout{left:50%;top:20%;font-size:11.5px;padding:9px 13px;white-space:normal;max-width:76%;text-align:center}.mm-cap{left:50%;top:12%;font-size:11.5px;white-space:normal;max-width:82%;padding:8px 12px}.mm-navg{top:60%}.mm-kpirow b{font-size:21px}}
 .microtrust{margin:20px auto 0;color:var(--muted);font-size:13.5px;font-weight:600}
 
 /* trust strip */
@@ -317,19 +316,26 @@
       <a class="btn btn-primary btn-lg" href="#demo">Request a demo</a>
     </div>
     <!-- LIGHT dashboard mock (reworked per 8/31 call): mirrors the real product UI, no logo, no device frame, dark-blue callout, quick reveal. Replaces the dark iframe cinematic. -->
-    <div class="mi-mock" aria-hidden="true">
+    <div class="mi-mock" id="mmMock" aria-hidden="true">
       <div class="mm-bar"><span class="mm-title">Market Rate Intelligence</span><span class="mm-pills"><span>Region</span><span>State</span><span>Specialty</span><span>Last 12 mo</span></span><span class="mm-live">Updated daily</span></div>
       <div class="mm-grid">
-        <div class="mm-map r1"><div class="mm-lbl">Market Rate Map</div><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260831a" alt=""><span class="mm-dot" style="left:16%;top:54%;background:var(--teal)"></span><span class="mm-dot" style="left:21%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:19%;top:64%;background:var(--green)"></span><span class="mm-dot" style="left:30%;top:40%;background:var(--teal)"></span><span class="mm-dot" style="left:34%;top:58%;background:var(--orange)"></span><span class="mm-dot" style="left:44%;top:36%;background:var(--teal)"></span><span class="mm-dot" style="left:47%;top:52%;background:var(--green)"></span><span class="mm-dot" style="left:41%;top:68%;background:var(--teal)"></span><span class="mm-dot" style="left:57%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:62%;top:60%;background:var(--orange)"></span><span class="mm-dot" style="left:70%;top:40%;background:var(--green)"></span><span class="mm-dot" style="left:76%;top:52%;background:var(--teal)"></span><span class="mm-dot" style="left:82%;top:34%;background:var(--teal)"></span><span class="mm-dot" style="left:85%;top:48%;background:var(--green)"></span></div>
+        <div class="mm-map" id="mmMap"><div class="mm-lbl">Market Rate Map</div><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260831b" alt="">
+          <div class="mm-navg" id="mmNavg"><span>National avg&nbsp;&nbsp;$90.03</span></div>
+          <span class="mm-dot" style="left:16%;top:54%;background:var(--teal)"></span><span class="mm-dot" style="left:21%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:19%;top:64%;background:var(--green)"></span><span class="mm-dot" style="left:30%;top:40%;background:var(--teal)"></span><span class="mm-dot" style="left:34%;top:58%;background:var(--orange)"></span><span class="mm-dot" style="left:44%;top:36%;background:var(--teal)"></span><span class="mm-dot" style="left:47%;top:52%;background:var(--green)"></span><span class="mm-dot" style="left:41%;top:68%;background:var(--teal)"></span><span class="mm-dot" style="left:57%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:62%;top:60%;background:var(--orange)"></span><span class="mm-dot" style="left:70%;top:40%;background:var(--green)"></span><span class="mm-dot" style="left:76%;top:52%;background:var(--teal)"></span><span class="mm-dot" style="left:82%;top:34%;background:var(--teal)"></span><span class="mm-dot" style="left:85%;top:48%;background:var(--green)"></span>
+          <span class="mm-rp" style="left:19%;top:64%">$104 CA</span><span class="mm-rp" style="left:34%;top:58%">$96 TX</span><span class="mm-rp" style="left:85%;top:48%">$112 NY</span>
+        </div>
         <div class="mm-col">
-          <div class="mm-kpi r2"><div class="mm-lbl">Market vs. My Placements</div><div class="mm-kpirow"><div><small>Market</small><b id="mmMkt">$90.03</b><i><span id="mmMktC">158K</span> orders</i></div><div><small>My Placements</small><b class="g" id="mmPlac">$84.13</b><i><span id="mmPlacC">8K</span> placements</i></div></div></div>
-          <div class="mm-conf r3"><div class="mm-lbl">Market Rate Confidence</div><div class="mm-bars"><span></span><span class="t2"></span><span class="tall"></span><span class="t2"></span><span></span></div></div>
+          <div class="mm-kpi" id="mmKpi"><div class="mm-lbl">Market vs. My Placements</div><div class="mm-kpirow"><div><small>Market</small><b id="mmMkt">$90.03</b><i><span id="mmMktC">158K</span> orders</i></div><div class="mm-plac"><small>My Placements</small><b class="g" id="mmPlac">$84.13</b><i><span id="mmPlacC">8K</span> placements</i><span class="mm-under" id="mmUnder">&#9662; under market</span></div></div></div>
+          <div class="mm-conf" id="mmConf"><div class="mm-lbl">Market Rate Confidence</div><div class="mm-bars"><span></span><span class="t2"></span><span class="tall"></span><span class="t2"></span><span></span></div></div>
         </div>
       </div>
-      <div class="mm-trend r4"><div class="mm-lbl">Historical bill-rate trend &middot; <span style="color:var(--green-ink)">&uarr; where rates are headed</span></div>
-        <svg class="mm-line" viewBox="0 0 600 60"><polyline class="mm-poly" points="8,50 92,46 172,42 262,32 352,27 442,19 520,14 592,10" fill="none" stroke="var(--teal)" stroke-width="2.6" stroke-linecap="round"/><g fill="var(--teal)" stroke="#fff" stroke-width="1.4"><circle cx="8" cy="50" r="3.4"/><circle cx="92" cy="46" r="3.4"/><circle cx="172" cy="42" r="3.4"/><circle cx="262" cy="32" r="3.4"/><circle cx="352" cy="27" r="3.4"/><circle cx="442" cy="19" r="3.4"/><circle cx="520" cy="14" r="3.4"/><circle cx="592" cy="10" r="3.4"/></g></svg>
+      <div class="mm-trend" id="mmTrend"><div class="mm-lbl">Historical bill-rate trend &middot; <span style="color:var(--green-ink)">&uarr; where rates are headed</span></div>
+        <svg class="mm-line" viewBox="0 0 600 60"><polyline class="mm-poly" id="mmPoly" points="8,50 92,46 172,42 262,32 352,27 442,19 520,14 592,10" fill="none" stroke="var(--teal)" stroke-width="2.6" stroke-linecap="round"/><g fill="var(--teal)" stroke="#fff" stroke-width="1.4"><circle cx="8" cy="50" r="3.4"/><circle cx="92" cy="46" r="3.4"/><circle cx="172" cy="42" r="3.4"/><circle cx="262" cy="32" r="3.4"/><circle cx="352" cy="27" r="3.4"/><circle cx="442" cy="19" r="3.4"/><circle cx="520" cy="14" r="3.4"/><circle cx="592" cy="10" r="3.4"/></g></svg>
       </div>
-      <div class="mm-callout">See your markets in <b>Trio Market Intelligence</b></div>
+      <div class="mm-cap" id="mmCap1"><span class="ch" style="background:var(--teal)"></span><span><b>National averages</b> hide the real rate.</span></div>
+      <div class="mm-cap" id="mmCap2"><span class="ch" style="background:var(--green)"></span><span>See rates by <b>region, state &amp; specialty</b>.</span></div>
+      <div class="mm-cap" id="mmCap3"><span class="ch" style="background:var(--orange)"></span><span>Know if you're <b>overpaying</b> &mdash; and where rates are headed.</span></div>
+      <div class="mm-callout" id="mmCallout">See your markets in <b>Trio Market Intelligence</b></div>
     </div>
   </div>
 </section>
@@ -602,9 +608,44 @@ function fromEvent(e){_clearChips();var rect=bar.getBoundingClientRect();var cx=
 })();
 </script>
 <script>
-(function(){var mock=document.querySelector('.mi-mock');if(!mock)return;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-function cnt(id,to,dec,pre,suf,delay){var el=document.getElementById(id);if(!el)return;if(rm){el.textContent=(pre||'')+to.toFixed(dec)+(suf||'');return;}var s0=null;setTimeout(function(){requestAnimationFrame(function a(ts){if(!s0)s0=ts;var t=Math.min((ts-s0)/850,1);var v=to*(1-Math.pow(1-t,3));el.textContent=(pre||'')+v.toFixed(dec)+(suf||'');if(t<1)requestAnimationFrame(a);});},delay);}
-cnt('mmMkt',90.03,2,'$','',200);cnt('mmPlac',84.13,2,'$','',330);cnt('mmMktC',158,0,'','K',280);cnt('mmPlacC',8,0,'','K',430);
+(function(){
+ var mock=document.getElementById('mmMock'); if(!mock) return;
+ var $=function(id){return document.getElementById(id)};
+ var dots=mock.querySelectorAll('.mm-dot'), bars=mock.querySelectorAll('.mm-bars span'),
+     tdots=mock.querySelectorAll('.mm-line circle'), caps=[$('mmCap1'),$('mmCap2'),$('mmCap3')],
+     rps=mock.querySelectorAll('.mm-rp'), poly=$('mmPoly');
+ function cl(x){return x<0?0:x>1?1:x} function eo(x){x=cl(x);return 1-Math.pow(1-x,3)}
+ function p(t,a,b){return eo((t-a)/(b-a))}
+ function op(el,v){if(el)el.style.opacity=v}
+ function ring(el,on){if(el)el.style.boxShadow=on?'0 0 0 2px var(--teal),0 12px 26px rgba(0,159,199,.18)':'none'}
+ function num(el,v,dec,pre,suf){if(el)el.textContent=(pre||'')+v.toFixed(dec)+(suf||'')}
+ function frame(t){
+   /* Beat 1 - establish the dashboard + KPIs count up (set the stage) */
+   num($('mmMkt'),90.03*p(t,.05,.13),2,'$'); num($('mmMktC'),Math.round(158*p(t,.06,.14)),0,'','K');
+   num($('mmPlac'),84.13*p(t,.08,.16),2,'$'); num($('mmPlacC'),Math.round(8*p(t,.09,.17)),0,'','K');
+   op(caps[0], p(t,.02,.07)*(1-p(t,.26,.31)) ); ring($('mmKpi'), t>=.05&&t<.18);
+   /* Beat 1.5 - the flat National-average line, SOLO, breathe, leave */
+   op($('mmNavg'), p(t,.15,.20)*(1-p(t,.29,.34)) );
+   /* Beat 2 - the map colors in region by region (real variation) */
+   op(caps[1], p(t,.31,.36)*(1-p(t,.56,.61)) ); ring($('mmMap'), t>=.34&&t<.56);
+   for(var i=0;i<dots.length;i++){var d=p(t,.35+i*.012,.41+i*.012);dots[i].style.opacity=d;dots[i].style.transform='scale('+d+')';}
+   var rpf=p(t,.50,.55)*(1-p(t,.60,.65)); for(var r=0;r<rps.length;r++){op(rps[r],rpf);}
+   /* Beat 3 - the comparison resolves + confidence (are you overpaying?) */
+   op($('mmUnder'), p(t,.60,.66) ); ring($('mmConf'), t>=.58&&t<.72);
+   for(var b=0;b<bars.length;b++){bars[b].style.transform='scaleY('+p(t,.58+b*.02,.66+b*.02)+')';}
+   op(caps[2], p(t,.64,.69)*(1-p(t,.88,.92)) );
+   /* Beat 4 - the trend draws toward the forecast (where rates are headed) */
+   ring($('mmTrend'), t>=.70&&t<.88);
+   if(poly) poly.style.strokeDashoffset = 640*(1-p(t,.70,.86));
+   for(var k=0;k<tdots.length;k++){op(tdots[k], p(t,.72+k*.015,.80+k*.015));}
+   /* End - the CTA lands */
+   op($('mmCallout'), p(t,.90,.98) );
+ }
+ var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+ if(rm){ frame(1); return; }
+ var PLAY=16000, HOLD=2200, t0=null;
+ function loop(ts){ if(t0===null)t0=ts; var e=(ts-t0)%(PLAY+HOLD); var t=e<PLAY? e/PLAY : 1; frame(t); requestAnimationFrame(loop); }
+ requestAnimationFrame(loop);
 })();
 </script>
 </body>
