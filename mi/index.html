@@ -54,13 +54,25 @@
 .mm-bars span.tall{height:100%;background:var(--green)}
 .mm-trend{margin-top:12px}
 .mm-line{width:100%;height:56px;display:block;overflow:visible}
-.mm-callout{position:absolute;left:42%;top:41%;transform:translateX(-50%);background:var(--deep);color:#fff;font-size:13px;font-weight:700;padding:11px 18px;border-radius:12px;box-shadow:0 16px 34px rgba(19,45,57,.32);white-space:nowrap;z-index:4;opacity:0;animation:mmPop .4s .5s cubic-bezier(.34,1.4,.6,1) forwards}
+.mm-callout{position:absolute;left:42%;top:41%;transform:translateX(-50%);background:var(--deep);color:#fff;font-size:13px;font-weight:700;padding:11px 18px;border-radius:12px;box-shadow:0 16px 34px rgba(19,45,57,.32);white-space:nowrap;z-index:4;opacity:0;animation:mmPop .45s 1.2s cubic-bezier(.34,1.5,.6,1) forwards}
 .mm-callout b{color:#7fd4f5}
 @keyframes mmRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes mmPop{from{opacity:0;transform:translate(-50%,6px) scale(.96)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
-.mi-mock .r1,.mi-mock .r2,.mi-mock .r3,.mi-mock .r4{opacity:0;animation:mmRise .45s cubic-bezier(.2,.7,.2,1) forwards}
-.mi-mock .r1{animation-delay:.06s}.mi-mock .r2{animation-delay:.16s}.mi-mock .r3{animation-delay:.26s}.mi-mock .r4{animation-delay:.36s}
-@media(prefers-reduced-motion:reduce){.mi-mock .r1,.mi-mock .r2,.mi-mock .r3,.mi-mock .r4{animation:none;opacity:1}.mm-callout{animation:none;opacity:1}}
+@keyframes mmPop{from{opacity:0;transform:translate(-50%,7px) scale(.94)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes mmDotIn{from{opacity:0;transform:scale(0)}60%{opacity:1;transform:scale(1.35)}to{opacity:1;transform:scale(1)}}
+@keyframes mmBar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes mmDraw{to{stroke-dashoffset:0}}
+@keyframes mmGlow{0%,100%{box-shadow:0 0 0 3px rgba(0,159,199,.14)}50%{box-shadow:0 0 0 6px rgba(0,159,199,.28)}}
+.mi-mock .r1,.mi-mock .r2,.mi-mock .r3,.mi-mock .r4{opacity:0;animation:mmRise .4s cubic-bezier(.2,.7,.2,1) forwards}
+.mi-mock .r1{animation-delay:.05s}.mi-mock .r2{animation-delay:.12s}.mi-mock .r3{animation-delay:.19s}.mi-mock .r4{animation-delay:.26s}
+.mm-dot{opacity:0;transform:scale(0);animation:mmDotIn .42s cubic-bezier(.34,1.5,.6,1) forwards}
+.mm-dot:nth-of-type(1){animation-delay:.34s}.mm-dot:nth-of-type(2){animation-delay:.39s}.mm-dot:nth-of-type(3){animation-delay:.44s}.mm-dot:nth-of-type(4){animation-delay:.49s}.mm-dot:nth-of-type(5){animation-delay:.54s}.mm-dot:nth-of-type(6){animation-delay:.59s}.mm-dot:nth-of-type(7){animation-delay:.64s}.mm-dot:nth-of-type(8){animation-delay:.69s}.mm-dot:nth-of-type(9){animation-delay:.74s}.mm-dot:nth-of-type(10){animation-delay:.79s}.mm-dot:nth-of-type(11){animation-delay:.84s}.mm-dot:nth-of-type(12){animation-delay:.89s}.mm-dot:nth-of-type(13){animation-delay:.94s}.mm-dot:nth-of-type(14){animation-delay:.99s}
+.mm-bars span{transform:scaleY(0);transform-origin:bottom;animation:mmBar .5s cubic-bezier(.2,.7,.2,1) forwards}
+.mm-bars span:nth-child(1){animation-delay:.55s}.mm-bars span:nth-child(2){animation-delay:.62s}.mm-bars span:nth-child(3){animation-delay:.69s}.mm-bars span:nth-child(4){animation-delay:.76s}.mm-bars span:nth-child(5){animation-delay:.83s}
+.mm-poly{stroke-dasharray:640;stroke-dashoffset:640;animation:mmDraw .95s .55s ease forwards}
+.mm-line circle{opacity:0;animation:mmDotIn .3s forwards}
+.mm-line circle:nth-child(1){animation-delay:.72s}.mm-line circle:nth-child(2){animation-delay:.8s}.mm-line circle:nth-child(3){animation-delay:.88s}.mm-line circle:nth-child(4){animation-delay:.96s}.mm-line circle:nth-child(5){animation-delay:1.04s}.mm-line circle:nth-child(6){animation-delay:1.12s}.mm-line circle:nth-child(7){animation-delay:1.2s}.mm-line circle:nth-child(8){animation-delay:1.28s}
+.mm-line circle:last-child{fill:var(--green)}
+@media(prefers-reduced-motion:reduce){.mi-mock .r1,.mi-mock .r2,.mi-mock .r3,.mi-mock .r4,.mm-dot,.mm-bars span,.mm-line circle,.mm-callout{animation:none!important;opacity:1!important;transform:none!important}.mm-poly{animation:none!important;stroke-dashoffset:0!important}.mm-callout{transform:translateX(-50%)!important}}
 @media(max-width:700px){.mm-grid{grid-template-columns:1fr}.mm-callout{left:50%;top:22%;font-size:11.5px;padding:9px 13px;white-space:normal;max-width:74%;text-align:center}.mm-kpirow b{font-size:21px}}
 .microtrust{margin:20px auto 0;color:var(--muted);font-size:13.5px;font-weight:600}
 
@@ -310,12 +322,12 @@
       <div class="mm-grid">
         <div class="mm-map r1"><div class="mm-lbl">Market Rate Map</div><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260831a" alt=""><span class="mm-dot" style="left:16%;top:54%;background:var(--teal)"></span><span class="mm-dot" style="left:21%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:19%;top:64%;background:var(--green)"></span><span class="mm-dot" style="left:30%;top:40%;background:var(--teal)"></span><span class="mm-dot" style="left:34%;top:58%;background:var(--orange)"></span><span class="mm-dot" style="left:44%;top:36%;background:var(--teal)"></span><span class="mm-dot" style="left:47%;top:52%;background:var(--green)"></span><span class="mm-dot" style="left:41%;top:68%;background:var(--teal)"></span><span class="mm-dot" style="left:57%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:62%;top:60%;background:var(--orange)"></span><span class="mm-dot" style="left:70%;top:40%;background:var(--green)"></span><span class="mm-dot" style="left:76%;top:52%;background:var(--teal)"></span><span class="mm-dot" style="left:82%;top:34%;background:var(--teal)"></span><span class="mm-dot" style="left:85%;top:48%;background:var(--green)"></span></div>
         <div class="mm-col">
-          <div class="mm-kpi r2"><div class="mm-lbl">Market vs. My Placements</div><div class="mm-kpirow"><div><small>Market</small><b>$90.03</b><i>158K orders</i></div><div><small>My Placements</small><b class="g">$84.13</b><i>8K placements</i></div></div></div>
+          <div class="mm-kpi r2"><div class="mm-lbl">Market vs. My Placements</div><div class="mm-kpirow"><div><small>Market</small><b id="mmMkt">$90.03</b><i><span id="mmMktC">158K</span> orders</i></div><div><small>My Placements</small><b class="g" id="mmPlac">$84.13</b><i><span id="mmPlacC">8K</span> placements</i></div></div></div>
           <div class="mm-conf r3"><div class="mm-lbl">Market Rate Confidence</div><div class="mm-bars"><span></span><span class="t2"></span><span class="tall"></span><span class="t2"></span><span></span></div></div>
         </div>
       </div>
       <div class="mm-trend r4"><div class="mm-lbl">Historical bill-rate trend &middot; <span style="color:var(--green-ink)">&uarr; where rates are headed</span></div>
-        <svg class="mm-line" viewBox="0 0 600 60"><polyline points="8,50 92,46 172,42 262,32 352,27 442,19 520,14 592,10" fill="none" stroke="var(--teal)" stroke-width="2.6" stroke-linecap="round"/><g fill="var(--teal)" stroke="#fff" stroke-width="1.4"><circle cx="8" cy="50" r="3.4"/><circle cx="92" cy="46" r="3.4"/><circle cx="172" cy="42" r="3.4"/><circle cx="262" cy="32" r="3.4"/><circle cx="352" cy="27" r="3.4"/><circle cx="442" cy="19" r="3.4"/><circle cx="520" cy="14" r="3.4"/><circle cx="592" cy="10" r="3.4"/></g></svg>
+        <svg class="mm-line" viewBox="0 0 600 60"><polyline class="mm-poly" points="8,50 92,46 172,42 262,32 352,27 442,19 520,14 592,10" fill="none" stroke="var(--teal)" stroke-width="2.6" stroke-linecap="round"/><g fill="var(--teal)" stroke="#fff" stroke-width="1.4"><circle cx="8" cy="50" r="3.4"/><circle cx="92" cy="46" r="3.4"/><circle cx="172" cy="42" r="3.4"/><circle cx="262" cy="32" r="3.4"/><circle cx="352" cy="27" r="3.4"/><circle cx="442" cy="19" r="3.4"/><circle cx="520" cy="14" r="3.4"/><circle cx="592" cy="10" r="3.4"/></g></svg>
       </div>
       <div class="mm-callout">See your markets in <b>Trio Market Intelligence</b></div>
     </div>
@@ -587,6 +599,12 @@ function fromEvent(e){_clearChips();var rect=bar.getBoundingClientRect();var cx=
   if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal,.stagger').forEach(function(e){e.classList.add('in')});return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal,.stagger').forEach(function(e){io.observe(e);});
+})();
+</script>
+<script>
+(function(){var mock=document.querySelector('.mi-mock');if(!mock)return;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+function cnt(id,to,dec,pre,suf,delay){var el=document.getElementById(id);if(!el)return;if(rm){el.textContent=(pre||'')+to.toFixed(dec)+(suf||'');return;}var s0=null;setTimeout(function(){requestAnimationFrame(function a(ts){if(!s0)s0=ts;var t=Math.min((ts-s0)/850,1);var v=to*(1-Math.pow(1-t,3));el.textContent=(pre||'')+v.toFixed(dec)+(suf||'');if(t<1)requestAnimationFrame(a);});},delay);}
+cnt('mmMkt',90.03,2,'$','',200);cnt('mmPlac',84.13,2,'$','',330);cnt('mmMktC',158,0,'','K',280);cnt('mmPlacC',8,0,'','K',430);
 })();
 </script>
 </body>
