@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Market Intelligence | Trio Workforce Solutions (redesign concept)</title>
-<link rel="stylesheet" href="../assets/css/site.css?v=20260831f">
+<link rel="stylesheet" href="../assets/css/site.css?v=20260831g">
 <style>
 
 /* MI inherits reset/type/eyebrow/buttons/nav/footer from site.css (single source). Only MI-specific components live below. */
@@ -55,7 +55,7 @@
 .mm-trend{margin-top:12px}
 .mm-line{width:100%;height:56px;display:block;overflow:visible}
 .mm-inner{display:block}
-.mm-callout{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:11px;background:var(--deep);color:#fff;padding:18px 26px;border-radius:16px;box-shadow:0 26px 54px rgba(19,45,57,.42);text-align:center;white-space:nowrap;z-index:6;opacity:0}
+.mm-callout{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);display:flex;flex-direction:row;align-items:center;justify-content:center;gap:18px;background:var(--deep);color:#fff;padding:12px 14px 12px 22px;border-radius:14px;box-shadow:0 22px 46px rgba(19,45,57,.44);text-align:left;white-space:nowrap;z-index:6;opacity:0;max-width:calc(100% - 40px)}
 .mm-co-h{font-size:15px;font-weight:750;letter-spacing:-.01em}
 .mm-co-h b{color:#7fd4f5}
 .mm-co-btn{display:inline-block;background:linear-gradient(135deg,var(--teal),var(--teal-ink));color:#fff;font-size:13px;font-weight:850;padding:9px 20px;border-radius:24px;box-shadow:0 10px 22px rgba(0,159,199,.42)}
@@ -78,7 +78,7 @@
 .mm-rp{position:absolute;transform:translate(-50%,-155%);background:var(--deep);color:#fff;font-size:10px;font-weight:800;padding:2px 7px;border-radius:6px;white-space:nowrap;opacity:0;z-index:4;box-shadow:0 6px 14px rgba(19,45,57,.28)}
 .mm-under{display:inline-block;margin-top:6px;background:#eaf4d8;color:#4f7300;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;opacity:0}
 @media(prefers-reduced-motion:reduce){.mi-mock{animation:none!important}.mi-mock .mm-dot,.mm-line circle,.mm-under,.mm-callout{opacity:1!important;transform:none!important}.mm-bars span{transform:scaleY(1)!important}.mm-poly{stroke-dashoffset:0!important}.mm-cap,.mm-navg,.mm-rp{opacity:0!important}.mm-replay{display:none}}
-@media(max-width:700px){.mm-grid{grid-template-columns:1fr}.mm-callout{left:0;right:0;top:27%;transform:translateY(-50%);margin-inline:auto;width:max-content;max-width:80%;padding:13px 16px;white-space:normal}.mm-co-h{font-size:13px}.mm-cap{left:50%;top:12%;font-size:11.5px;white-space:normal;max-width:82%;padding:8px 12px}.mm-navg{top:60%}.mm-kpirow b{font-size:21px}}
+@media(max-width:700px){.mm-grid{grid-template-columns:1fr}.mm-callout{left:14px;right:14px;bottom:12px;top:auto;transform:none;flex-direction:column;gap:9px;width:auto;max-width:none;padding:12px 16px;white-space:normal}.mm-co-h{font-size:13px}.mm-cap{left:50%;top:12%;font-size:11.5px;white-space:normal;max-width:82%;padding:8px 12px}.mm-navg{top:60%}.mm-kpirow b{font-size:21px}}
 .microtrust{margin:20px auto 0;color:var(--muted);font-size:13.5px;font-weight:600}
 
 /* trust strip */
@@ -326,7 +326,7 @@
       <div class="mm-inner" aria-hidden="true">
       <div class="mm-bar"><span class="mm-title">Market Rate Intelligence</span><span class="mm-pills"><span>Region</span><span>State</span><span>Specialty</span><span>Last 12 mo</span></span><span class="mm-live">Updated daily</span></div>
       <div class="mm-grid">
-        <div class="mm-map" id="mmMap"><div class="mm-lbl">Market Rate Map</div><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260831f" alt="">
+        <div class="mm-map" id="mmMap"><div class="mm-lbl">Market Rate Map</div><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260831g" alt="">
           <div class="mm-navg" id="mmNavg"><span>National avg&nbsp;&nbsp;$90.03</span></div>
           <span class="mm-dot" style="left:24%;top:24%;background:var(--teal)"></span><span class="mm-dot" style="left:22%;top:45%;background:var(--teal)"></span><span class="mm-dot" style="left:24%;top:57%;background:var(--green)"></span><span class="mm-dot" style="left:37%;top:42%;background:var(--teal)"></span><span class="mm-dot" style="left:32%;top:56%;background:var(--teal)"></span><span class="mm-dot" style="left:49%;top:28%;background:var(--teal)"></span><span class="mm-dot" style="left:45%;top:61%;background:var(--green)"></span><span class="mm-dot" style="left:46%;top:52%;background:var(--teal)"></span><span class="mm-dot" style="left:56%;top:36%;background:var(--teal)"></span><span class="mm-dot" style="left:50%;top:45%;background:var(--teal)"></span><span class="mm-dot" style="left:63%;top:53%;background:var(--teal)"></span><span class="mm-dot" style="left:70%;top:64%;background:var(--green)"></span><span class="mm-dot" style="left:70%;top:42%;background:var(--teal)"></span><span class="mm-dot" style="left:73%;top:35%;background:var(--green)"></span>
           <span class="mm-rp" style="left:24%;top:57%">$104 CA</span><span class="mm-rp" style="left:45%;top:61%">$96 TX</span><span class="mm-rp" style="left:73%;top:35%">$112 NY</span>
