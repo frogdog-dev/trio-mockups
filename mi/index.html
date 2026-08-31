@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Market Intelligence | Trio Workforce Solutions (redesign concept)</title>
-<link rel="stylesheet" href="../assets/css/site.css?v=20260831d">
+<link rel="stylesheet" href="../assets/css/site.css?v=20260831f">
 <style>
 
 /* MI inherits reset/type/eyebrow/buttons/nav/footer from site.css (single source). Only MI-specific components live below. */
@@ -78,7 +78,7 @@
 .mm-rp{position:absolute;transform:translate(-50%,-155%);background:var(--deep);color:#fff;font-size:10px;font-weight:800;padding:2px 7px;border-radius:6px;white-space:nowrap;opacity:0;z-index:4;box-shadow:0 6px 14px rgba(19,45,57,.28)}
 .mm-under{display:inline-block;margin-top:6px;background:#eaf4d8;color:#4f7300;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;opacity:0}
 @media(prefers-reduced-motion:reduce){.mi-mock{animation:none!important}.mi-mock .mm-dot,.mm-line circle,.mm-under,.mm-callout{opacity:1!important;transform:none!important}.mm-bars span{transform:scaleY(1)!important}.mm-poly{stroke-dashoffset:0!important}.mm-cap,.mm-navg,.mm-rp{opacity:0!important}.mm-replay{display:none}}
-@media(max-width:700px){.mm-grid{grid-template-columns:1fr}.mm-callout{left:50%;top:44%;padding:14px 18px;max-width:82%;white-space:normal}.mm-co-h{font-size:13px}.mm-cap{left:50%;top:12%;font-size:11.5px;white-space:normal;max-width:82%;padding:8px 12px}.mm-navg{top:60%}.mm-kpirow b{font-size:21px}}
+@media(max-width:700px){.mm-grid{grid-template-columns:1fr}.mm-callout{left:0;right:0;top:27%;transform:translateY(-50%);margin-inline:auto;width:max-content;max-width:80%;padding:13px 16px;white-space:normal}.mm-co-h{font-size:13px}.mm-cap{left:50%;top:12%;font-size:11.5px;white-space:normal;max-width:82%;padding:8px 12px}.mm-navg{top:60%}.mm-kpirow b{font-size:21px}}
 .microtrust{margin:20px auto 0;color:var(--muted);font-size:13.5px;font-weight:600}
 
 /* trust strip */
@@ -326,10 +326,10 @@
       <div class="mm-inner" aria-hidden="true">
       <div class="mm-bar"><span class="mm-title">Market Rate Intelligence</span><span class="mm-pills"><span>Region</span><span>State</span><span>Specialty</span><span>Last 12 mo</span></span><span class="mm-live">Updated daily</span></div>
       <div class="mm-grid">
-        <div class="mm-map" id="mmMap"><div class="mm-lbl">Market Rate Map</div><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260831d" alt="">
+        <div class="mm-map" id="mmMap"><div class="mm-lbl">Market Rate Map</div><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260831f" alt="">
           <div class="mm-navg" id="mmNavg"><span>National avg&nbsp;&nbsp;$90.03</span></div>
-          <span class="mm-dot" style="left:16%;top:54%;background:var(--teal)"></span><span class="mm-dot" style="left:21%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:19%;top:64%;background:var(--green)"></span><span class="mm-dot" style="left:30%;top:40%;background:var(--teal)"></span><span class="mm-dot" style="left:34%;top:58%;background:var(--orange)"></span><span class="mm-dot" style="left:44%;top:36%;background:var(--teal)"></span><span class="mm-dot" style="left:47%;top:52%;background:var(--green)"></span><span class="mm-dot" style="left:41%;top:68%;background:var(--teal)"></span><span class="mm-dot" style="left:57%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:62%;top:60%;background:var(--orange)"></span><span class="mm-dot" style="left:70%;top:40%;background:var(--green)"></span><span class="mm-dot" style="left:76%;top:52%;background:var(--teal)"></span><span class="mm-dot" style="left:82%;top:34%;background:var(--teal)"></span><span class="mm-dot" style="left:85%;top:48%;background:var(--green)"></span>
-          <span class="mm-rp" style="left:19%;top:64%">$104 CA</span><span class="mm-rp" style="left:34%;top:58%">$96 TX</span><span class="mm-rp" style="left:85%;top:48%">$112 NY</span>
+          <span class="mm-dot" style="left:24%;top:24%;background:var(--teal)"></span><span class="mm-dot" style="left:22%;top:45%;background:var(--teal)"></span><span class="mm-dot" style="left:24%;top:57%;background:var(--green)"></span><span class="mm-dot" style="left:37%;top:42%;background:var(--teal)"></span><span class="mm-dot" style="left:32%;top:56%;background:var(--teal)"></span><span class="mm-dot" style="left:49%;top:28%;background:var(--teal)"></span><span class="mm-dot" style="left:45%;top:61%;background:var(--green)"></span><span class="mm-dot" style="left:46%;top:52%;background:var(--teal)"></span><span class="mm-dot" style="left:56%;top:36%;background:var(--teal)"></span><span class="mm-dot" style="left:50%;top:45%;background:var(--teal)"></span><span class="mm-dot" style="left:63%;top:53%;background:var(--teal)"></span><span class="mm-dot" style="left:70%;top:64%;background:var(--green)"></span><span class="mm-dot" style="left:70%;top:42%;background:var(--teal)"></span><span class="mm-dot" style="left:73%;top:35%;background:var(--green)"></span>
+          <span class="mm-rp" style="left:24%;top:57%">$104 CA</span><span class="mm-rp" style="left:45%;top:61%">$96 TX</span><span class="mm-rp" style="left:73%;top:35%">$112 NY</span>
         </div>
         <div class="mm-col">
           <div class="mm-kpi" id="mmKpi"><div class="mm-lbl">Market vs. My Placements</div><div class="mm-kpirow"><div><small>Market</small><b id="mmMkt">$90.03</b><i><span id="mmMktC">158K</span> orders</i></div><div class="mm-plac"><small>My Placements</small><b class="g" id="mmPlac">$84.13</b><i><span id="mmPlacC">8K</span> placements</i><span class="mm-under" id="mmUnder">&#9662; under market</span></div></div></div>
