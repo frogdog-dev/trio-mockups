@@ -38,7 +38,7 @@
 .mm-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-top:14px}
 .mm-map,.mm-kpi,.mm-conf,.mm-trend{background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:13px}
 .mm-lbl{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2);margin-bottom:9px}
-.mm-map{position:relative}
+.mm-map{position:relative}.mm-mapwrap{position:relative;display:block;line-height:0;font-size:0}
 .mm-usmap{width:100%;height:auto;display:block}
 .mm-dot{position:absolute;width:7px;height:7px;border-radius:50%;box-shadow:0 0 0 3px rgba(0,159,199,.14)}
 .mm-col{display:flex;flex-direction:column;gap:12px}
@@ -326,10 +326,10 @@
       <div class="mm-inner" aria-hidden="true">
       <div class="mm-bar"><span class="mm-title">Market Rate Intelligence</span><span class="mm-pills"><span>Region</span><span>State</span><span>Specialty</span><span>Last 12 mo</span></span><span class="mm-live">Updated daily</span></div>
       <div class="mm-grid">
-        <div class="mm-map" id="mmMap"><div class="mm-lbl">Market Rate Map</div><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260901a" alt="">
+        <div class="mm-map" id="mmMap"><div class="mm-lbl">Market Rate Map</div><div class="mm-mapwrap"><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260901c" alt="">
           <div class="mm-navg" id="mmNavg"><span>National avg&nbsp;&nbsp;$90.03</span></div>
-          <span class="mm-dot" style="left:18%;top:11%;background:var(--teal)"></span><span class="mm-dot" style="left:14%;top:42%;background:var(--teal)"></span><span class="mm-dot" style="left:17%;top:51%;background:var(--green)"></span><span class="mm-dot" style="left:25%;top:56%;background:var(--teal)"></span><span class="mm-dot" style="left:33%;top:40%;background:var(--teal)"></span><span class="mm-dot" style="left:45%;top:60%;background:var(--green)"></span><span class="mm-dot" style="left:48%;top:62%;background:var(--teal)"></span><span class="mm-dot" style="left:48%;top:22%;background:var(--teal)"></span><span class="mm-dot" style="left:57%;top:33%;background:var(--teal)"></span><span class="mm-dot" style="left:49%;top:43%;background:var(--teal)"></span><span class="mm-dot" style="left:67%;top:55%;background:var(--teal)"></span><span class="mm-dot" style="left:83%;top:77%;background:var(--green)"></span><span class="mm-dot" style="left:80%;top:40%;background:var(--teal)"></span><span class="mm-dot" style="left:84%;top:31%;background:var(--green)"></span>
-          <span class="mm-rp" style="left:17%;top:51%">$104 CA</span><span class="mm-rp" style="left:45%;top:60%">$96 TX</span><span class="mm-rp" style="left:84%;top:31%">$112 NY</span>
+          <span class="mm-dot" style="left:17%;top:10%;background:var(--teal)"></span><span class="mm-dot" style="left:14%;top:45%;background:var(--teal)"></span><span class="mm-dot" style="left:16%;top:53%;background:var(--green)"></span><span class="mm-dot" style="left:26%;top:57%;background:var(--teal)"></span><span class="mm-dot" style="left:34%;top:42%;background:var(--teal)"></span><span class="mm-dot" style="left:47%;top:61%;background:var(--green)"></span><span class="mm-dot" style="left:50%;top:63%;background:var(--teal)"></span><span class="mm-dot" style="left:50%;top:19%;background:var(--teal)"></span><span class="mm-dot" style="left:63%;top:32%;background:var(--teal)"></span><span class="mm-dot" style="left:52%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:69%;top:56%;background:var(--teal)"></span><span class="mm-dot" style="left:88%;top:76%;background:var(--green)"></span><span class="mm-dot" style="left:82%;top:42%;background:var(--teal)"></span><span class="mm-dot" style="left:85%;top:31%;background:var(--green)"></span>
+          <span class="mm-rp" style="left:16%;top:53%">$104 CA</span><span class="mm-rp" style="left:47%;top:61%">$96 TX</span><span class="mm-rp" style="left:85%;top:31%">$112 NY</span></div>
         </div>
         <div class="mm-col">
           <div class="mm-kpi" id="mmKpi"><div class="mm-lbl">Market vs. My Placements</div><div class="mm-kpirow"><div><small>Market</small><b id="mmMkt">$90.03</b><i><span id="mmMktC">158K</span> orders</i></div><div class="mm-plac"><small>My Placements</small><b class="g" id="mmPlac">$84.13</b><i><span id="mmPlacC">8K</span> placements</i><span class="mm-under" id="mmUnder">&#9662; under market</span></div></div></div>
