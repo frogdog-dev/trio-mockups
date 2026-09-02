@@ -358,8 +358,7 @@
       <div class="mm-cap" id="mmCap2"><span class="ch" style="background:var(--green)"></span><span>See rates by <b>region, state &amp; specialty</b>.</span></div>
       <div class="mm-cap" id="mmCap3"><span class="ch" style="background:var(--orange)"></span><span>Know if you're <b>overpaying</b> &mdash; and where rates are headed.</span></div>
       </div>
-      <div class="mm-scrim" id="mmScrim"></div><div class="mm-callout" id="mmCallout"><button class="mm-x" id="mmX" type="button" aria-label="Close">&times;</button><img class="mm-endlogo" src="assets/trio-logo-stacked.png" alt="Trio Workforce Solutions"><div class="mm-co-tag">See your markets in Trio Market Intelligence.</div><div class="mm-co-sub">Workforce market intelligence that drives confident decisions.</div></div>
-      <button class="mm-replay" id="mmReplay" type="button" aria-label="Replay animation" title="Replay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg></button>
+      <div class="mm-scrim" id="mmScrim"></div><div class="mm-callout" id="mmCallout"><button class="mm-x" id="mmX" type="button" aria-label="Close and replay" title="Close &amp; replay">&times;</button><img class="mm-endlogo" src="assets/trio-logo-stacked.png" alt="Trio Workforce Solutions"><div class="mm-co-tag">See your markets in Trio Market Intelligence.</div><div class="mm-co-sub">Workforce market intelligence that drives confident decisions.</div></div>
     </div>
   </div>
 </section>
@@ -669,8 +668,7 @@ function fromEvent(e){_clearChips();var rect=bar.getBoundingClientRect();var cx=
  function loop(ts){ if(t0===null)t0=ts; var e=ts-t0; var t=e<PLAY? e/PLAY : 1; frame(t); if(e<PLAY){ raf=requestAnimationFrame(loop); } else { frame(1); } }
  function play(){ dismissed=false; t0=null; if(raf)cancelAnimationFrame(raf); raf=requestAnimationFrame(loop); }
  play();
- var rep=document.getElementById("mmReplay"); if(rep){ rep.style.display='none'; rep.addEventListener("click",function(){rep.style.display='none';play();}); }
- var xb=document.getElementById("mmX"); if(xb) xb.addEventListener("click",function(){dismissed=true; if($('mmScrim'))$('mmScrim').style.opacity=0; if($('mmCallout'))$('mmCallout').style.opacity=0; if(rep)rep.style.display='inline-flex';});
+ var xb=document.getElementById("mmX"); if(xb) xb.addEventListener("click",play);
 })();
 </script>
 <script>
