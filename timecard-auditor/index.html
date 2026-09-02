@@ -52,7 +52,7 @@ section[id]{scroll-margin-top:92px}
 .rpill.blocked{color:#fff;background:var(--brand-redorange);border-color:var(--brand-redorange)}
 
 /* ---------- HERO ---------- */
-.hero-in{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding:84px 0 88px}
+.hero-in{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding:84px 0 34px}
 .hero .kick{color:var(--teal2)}
 .hero .subhook{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-700);background:var(--orange-50);border:1px solid var(--orange-200);border-radius:999px;padding:7px 14px;margin-bottom:20px}
 .hero .subhook .gd{width:8px;height:8px;border-radius:50%;background:var(--orange)}
@@ -73,7 +73,7 @@ section[id]{scroll-margin-top:92px}
   .hero-stage.play .scan{animation:scansweep 2.2s cubic-bezier(.5,0,.2,1) .4s 1 forwards}
 }
 @keyframes scansweep{0%{opacity:0;transform:translateY(6px)}8%{opacity:1}92%{opacity:1}100%{opacity:0;transform:translateY(300px)}}
-@media(max-width:960px){.hero-in{grid-template-columns:1fr;gap:34px;padding:56px 0 60px}.hero-stage .ghosthex{display:none}}
+@media(max-width:960px){.hero-in{grid-template-columns:1fr;gap:34px;padding:56px 0 24px}.hero-stage .ghosthex{display:none}}
 
 /* ---------- HERO teammate: the Timecard Auditor as a living orb avatar ----------
    A refined "AI presence" (not a mascot) that emotes through the audit loop and
@@ -81,7 +81,7 @@ section[id]{scroll-margin-top:92px}
    brand tokens only: watch/think = --teal, flag = --brand-orange, the caught beat
    = --brand-redorange (used sparingly). Purely decorative + aria-hidden; all motion
    is gated on prefers-reduced-motion and falls back to a calm static state. */
-.auditor{position:absolute;z-index:4;left:-118px;top:104px;display:flex;flex-direction:row-reverse;align-items:center;gap:11px;pointer-events:none}
+.auditor{position:absolute;z-index:9;left:-118px;top:183px;display:flex;flex-direction:row-reverse;align-items:center;gap:11px;pointer-events:none}
 .orb{--s:58px;--orbColor:var(--teal);--eyeTop:42%;--eyeGap:10px;--eyeW:7px;--eyeH:3.2px;position:relative;width:var(--s);height:var(--s)}
 .orb .head{position:absolute;inset:0;border-radius:50%;
   background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.30),transparent 48%),var(--orbColor);
@@ -116,10 +116,10 @@ section[id]{scroll-margin-top:92px}
 .orb[data-state=running]   .orbit{opacity:1}
 .orb[data-state=thinking]  .think{opacity:1}
 .orb[data-state=attention] .halo{opacity:1}
-.orb[data-state=attention] .brow{opacity:1;transform:translateY(0) scaleX(1)}
+/* attention = orange + wide alert eyes + halo pulse (no angry brow — keeps enterprise register) */
 @keyframes orb-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes orb-drift{0%,100%{transform:translateY(1px)}50%{transform:translateY(-1px)}}
-@keyframes orb-wobble{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+@keyframes orb-wobble{0%,100%{transform:rotate(-1.4deg)}50%{transform:rotate(1.4deg)}}
 @keyframes orb-blink{0%,91%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}95%{transform:scaleY(1)}96.5%{transform:scaleY(.08)}98%{transform:scaleY(1)}}
 @keyframes orb-halo{0%{transform:scale(1);opacity:.45}100%{transform:scale(1.42);opacity:0}}
 @keyframes orb-orbit{to{transform:rotate(360deg)}}
@@ -133,13 +133,97 @@ section[id]{scroll-margin-top:92px}
   .orb[data-state=thinking]  .think i{animation:orb-thoughtrise 2.4s ease-in-out infinite}
   .orb[data-state=thinking]  .think i:nth-child(2){animation-delay:.3s}
   .orb[data-state=thinking]  .think i:nth-child(3){animation-delay:.6s}
-  .orb[data-state=attention] .head {animation:orb-wobble .8s ease-in-out infinite}
+  .orb[data-state=attention] .head {animation:orb-wobble 1.3s ease-in-out infinite}
   .orb[data-state=attention] .eye  {animation:orb-blink 3.1s linear infinite}
   .orb[data-state=attention] .halo {animation:orb-halo 1.4s ease-out infinite}
   .orb[data-state=resolved]  .head {animation:orb-drift 4.2s ease-in-out infinite}
   .hero-stage.alerted .ap-row.flagged .rpill.exception{transform:translateY(-2px);box-shadow:0 6px 16px rgba(240,85,35,.20)}
 }
-@media(max-width:960px){.auditor{left:-6px;top:150px;gap:8px}.auditor .label{display:none}.orb{--s:44px}}
+@media(max-width:960px){.auditor{left:-6px;top:172px;gap:8px}.auditor .label{display:none}.orb{--s:44px}}
+@media(max-width:480px){.hero-tags{display:none}}
+@media(max-width:600px){.auditor{display:none}.ap-top .crumb{display:none}}
+/* orb "settle / proud" nuance on the caught beat — a single content bob */
+@keyframes orb-settle{0%{transform:translateY(0) scale(1)}34%{transform:translateY(-5px) scale(1.04)}70%{transform:translateY(0) scale(.99)}100%{transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:no-preference){ .hero-stage.settled .orb{animation:orb-settle .62s cubic-bezier(.34,1.25,.5,1)} }
+
+/* ---------- HERO narrative layer: tab bar, watched-row cycle, scoped review modal, payoff ---------- */
+/* tab bar (All / Ready for Review / Failed) — active advances with the story */
+.ap-tabs{display:flex;gap:6px;padding:9px 16px;border-bottom:1px solid var(--line);background:#fff}
+.ap-tab{font-size:11px;font-weight:800;letter-spacing:.01em;color:var(--muted);padding:5px 11px;border-radius:999px;white-space:nowrap;transition:color .3s ease,background-color .3s ease,box-shadow .3s ease}
+.ap-tab.on{color:var(--teal2);background:var(--teal-50);box-shadow:inset 0 0 0 1px var(--teal-200)}
+
+/* the watched row: a small "in review" dot for assess/check, bg + accent ease neutral->warning->danger */
+.rkdot{width:7px;height:7px;border-radius:50%;background:#fff;display:block}
+@media(prefers-reduced-motion:no-preference){
+  .ap-row.watched[data-phase=assessing] .rkdot,.ap-row.watched[data-phase=checking] .rkdot{animation:rkpulse 1.5s ease-in-out infinite}
+}
+@keyframes rkpulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-stage .ap-row.watched{background:var(--teal-50);transition:background-color .5s ease}
+.hero-stage .ap-row.watched:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal);transition:background-color .5s ease}
+.hero-stage .ap-row.watched .who b{color:var(--deep);transition:color .4s ease}
+.hero-stage .ap-row.watched[data-phase=exception]{background:var(--orange-50)}
+.hero-stage .ap-row.watched[data-phase=exception]:before{background:var(--orange)}
+.hero-stage .ap-row.watched[data-phase=exception] .who b{color:var(--orange-700)}
+.hero-stage .ap-row.watched[data-phase=routing]{background:var(--orange-100)}
+.hero-stage .ap-row.watched[data-phase=routing]:before{background:var(--orange-500)}
+.hero-stage .ap-row.watched[data-phase=routing] .who b{color:var(--orange-700)}
+.hero-stage .ap-row.watched[data-phase=declined]{background:var(--orange-100)}
+.hero-stage .ap-row.watched[data-phase=declined]:before{background:var(--brand-redorange)}
+.hero-stage .ap-row.watched[data-phase=declined] .who b{color:var(--orange-800)}
+.hero-stage .ap-row.watched[data-phase=blocked]{background:#ffe7e0} /* derived --brand-redorange ~8% tint */
+.hero-stage .ap-row.watched[data-phase=blocked]:before{background:var(--brand-redorange)}
+.hero-stage .ap-row.watched[data-phase=blocked] .who b{color:var(--orange-800)}
+
+/* scoped review modal — an overlay WITHIN the card (clipped to it), never a full-screen takeover */
+.ap-scrim{position:absolute;inset:0;z-index:6;background:rgba(21,45,56,.5);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s}
+.ap-scrim.show{opacity:1;visibility:visible}
+.ap-modal{position:absolute;left:14px;right:14px;top:50%;z-index:7;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 26px 60px rgba(19,45,57,.30);padding:15px 16px 15px;opacity:0;visibility:hidden;transform:translateY(-50%) scale(.95);transition:opacity .35s ease,transform .38s cubic-bezier(.2,.7,.2,1),visibility .35s}
+.ap-modal.show{opacity:1;visibility:visible;transform:translateY(-50%) scale(1)}
+.ap-modal .mhd{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.ap-modal .mno{font-size:10px;color:var(--muted);font-weight:700}
+.ap-modal h4{font-family:Archivo,Inter,sans-serif;font-size:16px;font-weight:800;color:var(--deep);letter-spacing:-.01em;margin-top:2px}
+.mpill{font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap;transition:background-color .3s ease,color .3s ease}
+.mpill.ndr{color:var(--amber-700);background:var(--amber-100)}
+.mpill.dec{color:#fff;background:var(--brand-redorange)}
+.msteps-h{font-size:9px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-top:13px}
+.msteps{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:8px}
+.mstep{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;color:var(--ink)}
+.mstep .mc{width:13px;flex:none;text-align:center;font-size:11px;font-weight:900}
+.mstep.ok .mc{color:var(--green-700)}
+.mstep.bad{color:var(--orange-700);font-weight:800}
+.mstep.bad .mc{color:var(--brand-orange)}
+.mcall{margin-top:11px;background:var(--mist);border:1px solid var(--line);border-radius:10px;padding:8px 11px}
+.mcall b{display:block;font-size:9.5px;font-weight:900;letter-spacing:.06em;color:var(--orange-700);text-transform:uppercase}
+.mcall p{font-size:11px;color:var(--ink);line-height:1.45;margin-top:3px}
+.mbtns{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.mbtn{font-size:12px;font-weight:800;padding:8px 10px;border-radius:9px;text-align:center;border:1.5px solid var(--line);background:#fff;color:var(--muted);transition:background-color .3s ease,color .3s ease}
+.mbtn.decline{border-color:var(--brand-redorange);color:var(--brand-redorange)}
+.ap-modal.decided .mbtn.decline{background:var(--brand-redorange);color:#fff}
+
+/* compact payoff ribbon on the card (NOT a full-screen modal) */
+.ap-payoff{position:absolute;left:0;right:0;bottom:0;z-index:8;background:linear-gradient(180deg,var(--green-50),#fff);border-top:2px solid var(--brand-green);box-shadow:0 -10px 24px rgba(19,45,57,.12);padding:11px 16px;display:flex;align-items:center;gap:12px;transform:translateY(101%);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.ap-payoff.show{transform:none}
+.ap-payoff .pc{width:24px;height:24px;flex:none;border-radius:50%;background:var(--brand-green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+.ap-payoff .ptx{font-size:12.5px;font-weight:800;color:var(--green-700);line-height:1.25}
+.ap-payoff .ptag{align-self:center;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px;background:#fff;white-space:nowrap}
+.ap-payoff .pstats{margin-left:auto;display:flex;gap:14px}
+.ap-payoff .pstats>span{display:flex;flex-direction:column;line-height:1;text-align:right}
+.ap-payoff .pstats b{font-size:15px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.ap-payoff .pstats .s1 b{color:var(--brand-orange)}
+.ap-payoff .pstats .s2 b{color:var(--teal-ink)}
+.ap-payoff .pstats small{font-size:9px;font-weight:800;letter-spacing:.03em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+@media(max-width:440px){.ap-payoff{flex-wrap:wrap;gap:8px 10px}.ap-payoff .ptag{order:3}.ap-payoff .pstats{margin-left:0;width:100%;justify-content:flex-start;gap:22px}.ap-payoff .pstats>span{text-align:left}}
+
+/* narrated caption strip beneath the hero columns */
+.hero-captions{padding-bottom:60px}
+.capstrip{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.capstrip:before{content:"";position:absolute;top:6px;left:12.5%;right:12.5%;height:2px;background:var(--line);z-index:0}
+.capitem{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.capitem .cdot{width:13px;height:13px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px var(--n-300);transition:background-color .35s ease,box-shadow .35s ease}
+.capitem .ctxt{font-size:13px;font-weight:650;color:var(--muted);line-height:1.35;max-width:24ch;transition:color .35s ease}
+.capitem.on .cdot{background:var(--teal);box-shadow:inset 0 0 0 2px var(--teal),0 0 0 5px var(--teal-100)}
+.capitem.on .ctxt{color:var(--deep);font-weight:800}
+@media(max-width:720px){.capstrip{grid-template-columns:1fr 1fr;gap:16px 14px}.capstrip:before{display:none}.hero-captions{padding-bottom:42px}}
 
 /* ---------- PROBLEM — editorial leak list ---------- */
 .leadpara{font-size:clamp(19px,2.1vw,23px);line-height:1.5;color:var(--ink);font-weight:500;max-width:40ch;margin-top:18px}
@@ -335,7 +419,7 @@ section[id]{scroll-margin-top:92px}
 .stagger>*{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1)}
 .stagger.in>*{opacity:1;transform:none}
 .stagger.in>*:nth-child(2){transition-delay:.08s}.stagger.in>*:nth-child(3){transition-delay:.16s}.stagger.in>*:nth-child(4){transition-delay:.24s}.stagger.in>*:nth-child(5){transition-delay:.32s}.stagger.in>*:nth-child(6){transition-delay:.4s}
-@media(prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1;transform:none}.flowline path,.ap-top .ct .dot,.hero-stage.play .scan{animation:none}.hero-stage .scan{opacity:0}.rail .rfill,.rstep .rdot,.rstep .rlab,.rpill,.ap-row .ramt{transition:none}}
+@media(prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1;transform:none}.flowline path,.ap-top .ct .dot,.hero-stage.play .scan{animation:none}.hero-stage .scan{opacity:0}.rail .rfill,.rstep .rdot,.rstep .rlab,.rpill,.ap-row .ramt{transition:none}.ap-tab,.ap-row.watched,.ap-row.watched:before,.ap-row.watched .who b,.ap-scrim,.ap-modal,.mpill,.mbtn,.ap-payoff,.capitem .cdot,.capitem .ctxt{transition:none}.rkdot{animation:none}}
 </style>
 <!-- Structured data (AEO): Organization + SoftwareApplication (Timecard Auditor) + FAQPage.
      NOTE for build: confirm the production logo URL before publishing. -->
@@ -379,7 +463,7 @@ section[id]{scroll-margin-top:92px}
     <div>
       <span class="subhook"><span class="gd"></span>A pre-pay gate, not a post-pay audit</span>
       <h1>Every timecard, audited before the spend clears.</h1>
-      <p class="sub">The Timecard Auditor reviews every time and expense submission against your contracted rates, differentials, and overtime rules &mdash; flagging out-of-policy charges before they hit payroll, and surfacing only the exceptions that need a person.</p>
+      <p class="sub">The Timecard Auditor reviews every time and expense submission against your contracted rates, differentials, and overtime rules, flagging out-of-policy charges before they hit payroll and surfacing only the exceptions that need a person.</p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="#demo">Request a demo</a>
         <a class="arrow-link" href="#see">See how it works &darr;</a>
@@ -399,14 +483,48 @@ section[id]{scroll-margin-top:92px}
         </div>
         <span class="label">Timecard Auditor<span>On watch</span></span>
       </div>
-      <div class="ap" role="img" aria-label="Trio VMS accounts-payable inbox showing a timecard flagged for review before payout">
+      <div class="ap" role="img" aria-label="Trio VMS accounts-payable inbox: the Timecard Auditor assesses a submission, flags an out-of-policy overtime charge, routes it to a reviewer, and it is declined before the spend clears">
         <div class="ap-top"><svg class="tmark" viewBox="0 0 100 105" fill="none" aria-hidden="true"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/></svg><div><b>Trio VMS</b> <span class="crumb">Accounts Payable &middot; Timecard review</span></div><span class="ct"><span class="dot"></span>Auditing</span></div>
+        <div class="ap-tabs" aria-hidden="true">
+          <span class="ap-tab on" id="hTab0">All</span>
+          <span class="ap-tab" id="hTab1">Ready for Review</span>
+          <span class="ap-tab" id="hTab2">Failed</span>
+        </div>
         <div class="ap-row ok"><span class="rk ok">&#10003;</span><div class="who"><b>Registered Nurse &middot; Regular</b><span>36.0 hrs &middot; Memorial &middot; Node Staffing</span></div><div class="amt"><span class="ramt">$3,744.00</span><small>Cleared</small></div></div>
-        <div class="ap-row flagged"><span class="rk" style="background:var(--orange)">&#9873;</span><div class="who"><b>Registered Nurse &middot; Overtime</b><span>4.0 hrs OT &middot; 6/15 &middot; no approval on file</span></div><div class="amt"><span class="ramt">$624.00</span><span class="rpill exception">&#9873; Exception</span></div></div>
+        <div class="ap-row watched" id="hRow" data-phase="assessing"><span class="rk" id="hRk" style="background:var(--teal)"><i class="rkdot"></i></span><div class="who"><b>Registered Nurse &middot; Overtime</b><span>4.0 hrs OT &middot; 6/15 &middot; no approval on file</span></div><div class="amt"><span class="ramt">$624.00</span><span class="rpill assessing" id="hPill">Assessing</span></div></div>
         <div class="ap-row ok"><span class="rk ok">&#10003;</span><div class="who"><b>Surgical Tech &middot; Night differential</b><span>12.0 hrs &middot; Weekend &middot; St. Vincent</span></div><div class="amt"><span class="ramt">$1,014.00</span><small>Cleared</small></div></div>
-        <div class="ap-cap"><i>SAMPLE</i>Illustrative inbox &mdash; not a live account.</div>
+        <div class="ap-cap"><i>SAMPLE</i>Illustrative inbox, not a live account.</div>
+        <!-- scoped Timecard Review modal (the human decision) -->
+        <div class="ap-scrim" id="hScrim" aria-hidden="true"></div>
+        <div class="ap-modal" id="hModal" aria-hidden="true">
+          <div class="mhd"><div><div class="mno">Timecard #56977</div><h4>Timecard Review</h4></div><span class="mpill ndr" id="hMPill">Needs Further Review</span></div>
+          <div class="msteps-h">Steps performed</div>
+          <div class="msteps">
+            <span class="mstep ok"><span class="mc">&#10003;</span>Timesheets</span>
+            <span class="mstep ok"><span class="mc">&#10003;</span>Expenses General</span>
+            <span class="mstep bad"><span class="mc">&#10007;</span>Overtime Policy</span>
+            <span class="mstep ok"><span class="mc">&#10003;</span>Ground Transport</span>
+          </div>
+          <div class="mcall"><b>Overtime_Policy</b><p>4.0 hrs OT billed 6/15 &middot; no prior supervisor approval &middot; policy #4.2.</p></div>
+          <div class="mbtns"><span class="mbtn decline">&#10007; Decline</span><span class="mbtn approve">Approve</span></div>
+        </div>
+        <!-- compact payoff ribbon -->
+        <div class="ap-payoff" id="hPayoff" aria-hidden="true">
+          <span class="pc">&#10003;</span>
+          <span class="ptx">Caught before it cleared.<br><span style="font-weight:600;color:var(--muted);font-size:10.5px">$624 overtime never paid out</span></span>
+          <span class="ptag">Illustrative</span>
+          <span class="pstats"><span class="s1"><b>$291K</b><small>caught pre-pay</small></span><span class="s2"><b>$2M+</b><small>savings modeled</small></span></span>
+        </div>
       </div>
       <div class="scan" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="wrap hero-captions" aria-hidden="true">
+    <div class="capstrip">
+      <div class="capitem on" id="hCap0"><span class="cdot"></span><span class="ctxt">Assesses every submission</span></div>
+      <div class="capitem" id="hCap1"><span class="cdot"></span><span class="ctxt">Flags what breaks policy</span></div>
+      <div class="capitem" id="hCap2"><span class="cdot"></span><span class="ctxt">Routes only the exception to a person</span></div>
+      <div class="capitem" id="hCap3"><span class="cdot"></span><span class="ctxt">A person declines it, it never clears</span></div>
     </div>
   </div>
 </section>
@@ -749,29 +867,75 @@ addEventListener('load',threadAll); addEventListener('resize',threadAll); setTim
 // hero scan-line whimsy trigger (on load, once)
 addEventListener('load',function(){ var s=document.getElementById('heroStage'); if(s) s.classList.add('play'); });
 
-// hero teammate orb — a calm emote loop through a conceptual audit pass:
-// watch (teal) -> think (teal) -> flag (orange, halo+blink) -> caught (redorange, settle) -> repeat.
-// Falls back to a still calm state under reduced motion; pauses when the hero scrolls away.
+// hero narrative — ONE shared step index drives the orb teammate, the watched-row
+// badge, the tab bar, the scoped review modal, the caption strip and the payoff, in
+// sync. Her 6-beat arc: assess -> check -> flag -> route (modal) -> decline -> caught.
+// Reduced motion falls back to the fully resolved "caught" frame (whole story, no
+// motion); the loop pauses when the hero scrolls out of view.
 (function(){
-  var orb=document.getElementById('auditorOrb'), stage=document.getElementById('heroStage');
-  if(!orb) return;
-  if(matchMedia('(prefers-reduced-motion:reduce)').matches){ orb.setAttribute('data-state','running'); return; }
-  var seq=[['running',3400],['thinking',3000],['attention',2800],['resolved',2400]];
-  var i=0,t=null;
-  function step(){
-    var s=seq[i%seq.length];
-    orb.setAttribute('data-state',s[0]);
-    if(stage) stage.classList.toggle('alerted', s[0]==='attention');
-    i++; t=setTimeout(step,s[1]);
+  var stage=document.getElementById('heroStage'); if(!stage) return;
+  var orb=document.getElementById('auditorOrb'),
+      row=document.getElementById('hRow'), pill=document.getElementById('hPill'), rk=document.getElementById('hRk'),
+      tabs=[document.getElementById('hTab0'),document.getElementById('hTab1'),document.getElementById('hTab2')],
+      caps=[document.getElementById('hCap0'),document.getElementById('hCap1'),document.getElementById('hCap2'),document.getElementById('hCap3')],
+      scrim=document.getElementById('hScrim'), modal=document.getElementById('hModal'), mPill=document.getElementById('hMPill'),
+      payoff=document.getElementById('hPayoff'),
+      reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var DOT='<i class="rkdot"></i>';
+  // phase, badge label+class, orb state, active tab, active caption, row-key glyph+color, optional modal/payoff
+  var beats=[
+    {phase:'assessing',pill:'Assessing',orb:'running',   tab:0,cap:0,rk:DOT,       rkbg:'var(--teal)'},
+    {phase:'checking', pill:'Checking OT rules',orb:'thinking',tab:0,cap:0,rk:DOT,  rkbg:'var(--teal)'},
+    {phase:'exception',pill:'⚑ Exception',orb:'attention',tab:0,cap:1,rk:'⚑',rkbg:'var(--orange)'},
+    {phase:'routing',  pill:'→ Reviewer',orb:'attention',tab:1,cap:2,rk:'⚑',rkbg:'var(--orange)',modal:'ndr'},
+    {phase:'declined', pill:'✗ Declined',orb:'attention',tab:2,cap:3,rk:'✗',rkbg:'var(--brand-redorange)',modal:'dec'},
+    {phase:'blocked',  pill:'⛔ Blocked',orb:'resolved',  tab:2,cap:3,rk:'✗',rkbg:'var(--brand-redorange)',payoff:true}
+  ];
+  // held decline + a long dwell on the caught payoff (the CFO's beat); quick pre-amble
+  var dur=[2000,2000,2300,2500,3000,4200];
+  var st=[];
+  function clearSt(){ st.forEach(clearTimeout); st=[]; }
+  function apply(n,instant){
+    clearSt();
+    var b=beats[n];
+    // the orb leads — she notices first — then the row flags, the caption catches up, the review resolves
+    orb.setAttribute('data-state',b.orb);
+    stage.classList.toggle('alerted',b.orb==='attention');
+    stage.classList.toggle('settled',b.orb==='resolved');
+    tabs.forEach(function(el,ti){ if(el) el.classList.toggle('on',ti===b.tab); });
+    var setRow=function(){
+      row.setAttribute('data-phase',b.phase);
+      pill.className='rpill '+b.phase; pill.innerHTML=b.pill;
+      rk.innerHTML=b.rk; rk.style.background=b.rkbg;
+    };
+    var setCap=function(){ caps.forEach(function(el,ci){ if(el) el.classList.toggle('on',ci===b.cap); }); };
+    var setModal=function(){
+      if(b.modal){ scrim.classList.add('show'); modal.classList.add('show');
+        mPill.className='mpill '+b.modal; mPill.innerHTML=(b.modal==='dec'?'Declined':'Needs Further Review');
+        modal.classList.toggle('decided',b.modal==='dec');
+      } else { scrim.classList.remove('show'); modal.classList.remove('show'); }
+    };
+    var setPayoff=function(){ payoff.classList.toggle('show',!!b.payoff); };
+    if(instant){ setRow(); setCap(); setModal(); setPayoff(); return; }
+    st.push(setTimeout(setRow,160));
+    st.push(setTimeout(setCap,320));
+    st.push(setTimeout(setModal,220));
+    // the proud settle reads first, then the payoff ribbon rewards it
+    st.push(setTimeout(setPayoff, b.payoff?300:0));
   }
-  step();
+  if(reduce){ apply(beats.length-1,true); return; } // rest on the resolved "caught" frame — tells the whole story with no motion
+  var i=0,t=null,paused=false;
+  function play(){ if(paused) return; apply(i); t=setTimeout(function(){ i=(i+1)%beats.length; play(); }, dur[i]); }
+  // capture/debug hook: pin a specific beat and hold it (unused at runtime)
+  window.__heroDrive=function(n){ paused=true; clearTimeout(t); t=null; apply(n,true); };
+  window.__heroBeats=beats.length;
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(x){
-      if(x.isIntersecting){ if(t===null) step(); }
+      if(x.isIntersecting){ if(t===null) play(); }
       else { clearTimeout(t); t=null; }
-    });},{threshold:.02});
-    io.observe(stage||orb);
-  }
+    });},{threshold:.15});
+    io.observe(stage);
+  } else { play(); }
 })();
 </script>
 <script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
