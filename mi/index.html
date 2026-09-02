@@ -146,6 +146,11 @@
 .shot .mark{cursor:pointer}
 .shot .mark:hover{transform:translate(-50%,-50%) scale(1.12)}
 .shot .mark.active{transform:translate(-50%,-50%) scale(1.2);box-shadow:0 0 0 7px rgba(0,159,199,.3),0 10px 22px rgba(19,45,57,.42)}
+.shot-cap{position:absolute;z-index:6;max-width:302px;min-width:190px;background:rgba(8,19,33,.93);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:13px 16px;box-shadow:0 18px 44px rgba(8,19,33,.42);opacity:0;transform:translateY(-50%);transition:opacity .28s ease;pointer-events:none;line-height:normal}
+.shot-cap.show{opacity:1}
+.shot-cap b{display:block;font-size:15px;font-weight:800;color:#7fd4f5;margin-bottom:5px;letter-spacing:-.005em}
+.shot-cap p{font-size:13px;line-height:1.45;color:#e7f3f8;margin:0;max-height:none;opacity:1}
+@media(max-width:820px){.shot-cap{display:none}.lg p{max-height:none!important;opacity:1!important;margin-top:6px!important}}
 @media(max-width:820px){.shot-legend{grid-template-columns:1fr}}
 .shot-strip{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
 .thumb{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--soft)}
@@ -435,6 +440,7 @@
         <span class="mark" style="left:85%;top:27%">2</span>
         <span class="mark" style="left:85%;top:56%">3</span>
         <span class="mark" style="left:33%;top:88%">4</span>
+        <div class="shot-cap" id="shotCap" aria-hidden="true"><b></b><p></p></div>
       </div>
     </figure>
     <div class="shot-legend">
@@ -661,11 +667,45 @@ function fromEvent(e){_clearChips();var rect=bar.getBoundingClientRect();var cx=
 </script>
 <script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
 <script>
-(function(){var marks=document.querySelectorAll('.shot .mark'),legs=document.querySelectorAll('.shot-legend .lg');
-if(!marks.length||!legs.length)return;
-marks.forEach(function(m,i){m.setAttribute('role','button');m.setAttribute('tabindex','0');
- function go(){var n=parseInt((m.textContent||'').trim(),10);var t=legs[(n-1)]||legs[i];if(!t)return;t.scrollIntoView({behavior:'smooth',block:'center'});legs.forEach(function(l){l.classList.remove('lg-hi')});t.classList.add('lg-hi');setTimeout(function(){t.classList.remove('lg-hi')},1700);}
- m.addEventListener('click',go);m.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});});
+(function(){
+ var marks=[].slice.call(document.querySelectorAll('.shot .mark'));
+ var legs=[].slice.call(document.querySelectorAll('.shot-legend .lg'));
+ var cap=document.getElementById('shotCap');
+ if(!marks.length||!cap)return;
+ var data=legs.map(function(l){var b=l.querySelector('b'),p=l.querySelector('p');return {t:b?b.textContent:'',d:p?p.textContent:''};});
+ var capB=cap.querySelector('b'),capP=cap.querySelector('p');
+ function activate(i){
+   if(i<0||i>=marks.length||!data[i])return;
+   marks.forEach(function(m){m.classList.remove('active')});
+   legs.forEach(function(l){l.classList.remove('lg-hi')});
+   marks[i].classList.add('active'); if(legs[i])legs[i].classList.add('lg-hi');
+   capB.textContent=data[i].t; capP.textContent=data[i].d;
+   var l=parseFloat(marks[i].style.left)||50, t=parseFloat(marks[i].style.top)||50;
+   cap.style.top=t+'%';
+   if(l>=55){cap.style.left='auto';cap.style.right=(100-l+4)+'%';}
+   else{cap.style.right='auto';cap.style.left=(l+4)+'%';}
+   var ty = t>68?'-100%':(t<26?'0%':'-50%');
+   cap.style.transform='translateY('+ty+')';
+   cap.classList.add('show');
+   requestAnimationFrame(function(){
+     var host=cap.parentElement.getBoundingClientRect(), c=cap.getBoundingClientRect(), dy=0;
+     if(c.bottom>host.bottom-10) dy=(host.bottom-10)-c.bottom;
+     else if(c.top<host.top+10) dy=(host.top+10)-c.top;
+     cap.style.transform='translateY('+ty+') translateY('+Math.round(dy)+'px)';
+   });
+ }
+ marks.forEach(function(m,i){m.setAttribute('role','button');m.setAttribute('tabindex','0');
+   m.addEventListener('mouseenter',function(){activate(i)});
+   m.addEventListener('click',function(){activate(i)});
+   m.addEventListener('focus',function(){activate(i)});
+   m.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(i);}});
+ });
+ legs.forEach(function(l,i){l.style.cursor='pointer';l.setAttribute('tabindex','0');
+   l.addEventListener('mouseenter',function(){activate(i)});
+   l.addEventListener('click',function(){activate(i)});
+   l.addEventListener('focus',function(){activate(i)});
+ });
+ activate(0);
 })();
 </script>
 </body>
