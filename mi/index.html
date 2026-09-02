@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Market Intelligence | Trio Workforce Solutions (redesign concept)</title>
 <link rel="stylesheet" href="../assets/css/site.css?v=20260901d">
-<style>:root{--green:#a6ce42;--orange:#f57e20}
+<style>:root{--green:#a6ce42;--orange:#f57e20}.shot .mark{cursor:pointer;transition:transform .15s}.shot .mark:hover{transform:scale(1.12)}.shot-legend .lg{scroll-margin-top:100px;border-radius:12px;transition:background .3s,box-shadow .3s}.shot-legend .lg.lg-hi{background:rgba(0,159,199,.10);box-shadow:0 0 0 2px rgba(0,159,199,.35)}.sec-head h2{letter-spacing:-.006em}h1,h2{letter-spacing:-.01em}
 
 /* MI inherits reset/type/eyebrow/buttons/nav/footer from site.css (single source). Only MI-specific components live below. */
 .btn-outline{background:#fff;color:var(--teal2);border:2px solid rgba(0,159,199,.23)}
@@ -168,7 +168,7 @@
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
 .why-item{padding:26px;border-left:3px solid var(--teal);background:#fff;border-radius:0 18px 18px 0;box-shadow:var(--soft)}
 .why-item h3{font-size:18px;margin-bottom:8px}
-.why-item p{font-size:15px;color:var(--muted)}
+.why-item p{font-size:15px;color:#fff}
 @media(max-width:820px){.why-grid{grid-template-columns:1fr}}
 
 /* faq */
@@ -661,5 +661,13 @@ function fromEvent(e){_clearChips();var rect=bar.getBoundingClientRect();var cx=
 })();
 </script>
 <script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
+<script>
+(function(){var marks=document.querySelectorAll('.shot .mark'),legs=document.querySelectorAll('.shot-legend .lg');
+if(!marks.length||!legs.length)return;
+marks.forEach(function(m,i){m.setAttribute('role','button');m.setAttribute('tabindex','0');
+ function go(){var n=parseInt((m.textContent||'').trim(),10);var t=legs[(n-1)]||legs[i];if(!t)return;t.scrollIntoView({behavior:'smooth',block:'center'});legs.forEach(function(l){l.classList.remove('lg-hi')});t.classList.add('lg-hi');setTimeout(function(){t.classList.remove('lg-hi')},1700);}
+ m.addEventListener('click',go);m.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});});
+})();
+</script>
 </body>
 </html>
