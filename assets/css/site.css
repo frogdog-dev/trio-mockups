@@ -102,9 +102,9 @@ h3{font-family:Archivo,Inter,sans-serif;font-size:26px;font-weight:700;color:var
 /* logo mark */
 .tmark{width:30px;height:31px;flex:none}
 /* official Trio Workforce Solutions logo (real asset); --inv = reversed/white for dark bg */
-.brandmark{height:34px;width:auto;display:block}
+.brandmark{height:48px;width:auto;display:block}
 .brandmark--inv{filter:brightness(0) invert(1)}
-@media(max-width:520px){.brandmark{height:28px}}
+@media(max-width:520px){.brandmark{height:40px}}
 /* nav */
 /* Solid, layer-promoted nav. No backdrop-filter: blurring a sticky bar forces the browser to
    re-rasterize the backdrop every frame as animated content scrolls under it, which reads as a paint flicker.
