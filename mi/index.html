@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Market Intelligence | Trio Workforce Solutions (redesign concept)</title>
-<link rel="stylesheet" href="../assets/css/site.css?v=20260901d">
-<style>:root{--green:#a6ce42;--orange:#f57e20}.shot .mark{cursor:pointer;transition:transform .15s}.shot .mark:hover{transform:scale(1.12)}.shot-legend .lg{scroll-margin-top:100px;border-radius:12px;transition:background .3s,box-shadow .3s}.shot-legend .lg.lg-hi{background:rgba(0,159,199,.10);box-shadow:0 0 0 2px rgba(0,159,199,.35)}.sec-head h2{letter-spacing:-.006em}h1,h2{letter-spacing:-.01em}
+<link rel="stylesheet" href="../assets/css/site.css?v=20260902d">
+<style>:root{--green:#a6ce42;--orange:#f57e20}#faq .sec-head h2{max-width:34ch}#faq{padding-bottom:44px}#demo{padding-top:34px}.shot .mark{cursor:pointer;transition:transform .15s}.shot .mark:hover{transform:scale(1.12)}.shot-legend .lg{scroll-margin-top:100px;border-radius:12px;transition:background .3s,box-shadow .3s}.shot-legend .lg.lg-hi{background:rgba(0,159,199,.10);box-shadow:0 0 0 2px rgba(0,159,199,.35)}.sec-head h2{letter-spacing:-.006em}h1,h2{letter-spacing:-.01em}
 
 /* MI inherits reset/type/eyebrow/buttons/nav/footer from site.css (single source). Only MI-specific components live below. */
 .btn-outline{background:#fff;color:var(--teal2);border:2px solid rgba(0,159,199,.23)}
@@ -55,7 +55,7 @@
 .mm-trend{margin-top:12px}
 .mm-line{width:100%;height:72px;display:block;overflow:visible}
 .mm-inner{display:block}
-.mm-scrim{position:absolute;inset:0;border-radius:20px;background:rgba(8,19,33,.9);opacity:0;z-index:20;pointer-events:none}.mm-callout{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:13px;text-align:center;color:#fff;z-index:21;opacity:0;white-space:nowrap;pointer-events:none}
+.mm-scrim{position:absolute;inset:0;border-radius:20px;background:rgba(8,19,33,.5);opacity:0;z-index:20;pointer-events:none}.mm-callout{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:13px;text-align:center;color:#fff;z-index:21;opacity:0;white-space:nowrap;pointer-events:none}
 .mm-co-tag{font-family:Archivo,system-ui,sans-serif;font-size:25px;font-weight:800;letter-spacing:-.015em;text-shadow:0 2px 22px rgba(0,0,0,.45)}.mm-co-name{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:750;letter-spacing:.01em;opacity:.97}.mm-co-hex{width:16px;height:17px;flex:none;clip-path:var(--hex);background:linear-gradient(135deg,var(--teal),var(--green))}
 .mm-co-name b{color:#7fd4f5;font-weight:800}
 
@@ -94,22 +94,22 @@
 /* comparison */
 .compare{background:linear-gradient(180deg,var(--mist),#fff)}
 .cmp-card2{margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:40px;display:grid;grid-template-columns:290px 1fr;gap:44px;align-items:center}
-.cmp-avg .k{font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.cmp-avg .v{font-size:66px;font-weight:850;letter-spacing:-.04em;color:var(--deep);line-height:1;margin-top:8px}
+.cmp-avg .k{font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--teal2)}
+.cmp-avg .v{font-size:66px;font-weight:850;letter-spacing:-.005em;color:#00aae5;line-height:1;margin-top:8px}
 .cmp-avg .s{font-size:13.5px;color:var(--muted);margin-top:10px;font-weight:600}
 .cmp-range .rangebar{position:relative;height:16px;border-radius:999px;background:linear-gradient(90deg,#a6ce42,#00aae5 46%,#f57e20)}
-.cmp-range .avgmark{position:absolute;top:-7px;width:4px;height:30px;background:var(--deep);border-radius:2px;transform:translateX(-50%)}
+.cmp-range .avgmark{display:none}
 .cmp-range .avgmark:after{content:"";display:none}
 /* redline (Chris): make the market-average bar an interactive, animated slider */
 .cmp-range .rangeread{display:flex;align-items:baseline;gap:11px;margin-bottom:22px;flex-wrap:wrap}
-.cmp-range .rangeread .rr-cap{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cmp-range .rangeread .rr-cap{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2)}
 .cmp-range .rangeread b{font-size:34px;font-weight:850;letter-spacing:-.03em;color:var(--deep);line-height:1;font-variant-numeric:tabular-nums}
 .cmp-range .rangeread .rr-state{font-size:14px;font-weight:800;color:var(--teal2)}
 .cmp-range .rangebar{cursor:pointer;touch-action:none}
 .cmp-range .rangehandle{position:absolute;top:50%;left:32%;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--teal2);box-shadow:0 4px 12px rgba(19,45,57,.28);transform:translate(-50%,-50%);cursor:grab;padding:0;z-index:3;transition:box-shadow .15s}
 .cmp-range .rangehandle:hover,.cmp-range .rangehandle:focus-visible{box-shadow:0 0 0 6px rgba(0,159,199,.22),0 4px 12px rgba(19,45,57,.28);outline:none}
 .cmp-range .rangehandle.drag{cursor:grabbing}
-.cmp-range .rangelabels{display:flex;justify-content:space-between;margin-top:16px;font-size:13.5px;color:var(--muted);font-weight:800;text-align:center}
+.cmp-range .rangelabels{display:flex;justify-content:space-between;margin-top:16px;font-size:13.5px;color:var(--muted);font-weight:800;text-align:center}.rangelabels span:first-child{text-align:left}.rangelabels span:last-child{text-align:right}
 .cmp-range .rangelabels small{display:block;font-weight:600;color:#5c7683;font-size:12px;margin-top:2px}
 .cmp-range .rangenote{margin-top:20px;font-size:15.5px;color:var(--ink);font-weight:550;line-height:1.55}
 .rr-vol{font-size:13px;color:var(--muted);font-weight:700}
@@ -141,7 +141,7 @@
 .lg p{color:var(--muted);font-size:15px;line-height:1.5;max-height:0;overflow:hidden;opacity:0;margin-top:0;transition:max-height .3s ease,opacity .2s,margin-top .2s}
 /* redline (Chris): interactive product callouts — click a number (image or legend) to expand its copy */
 .lg.hl{background:var(--mist);box-shadow:inset 0 0 0 1.5px rgba(0,159,199,.45)}
-.lg.hl p{max-height:260px;opacity:1;margin-top:6px}
+.lg.hl p{max-height:120px;opacity:1;margin-top:6px}
 .lg.hl .n{transform:scale(1.08)}
 .shot .mark{cursor:pointer}
 .shot .mark:hover{transform:translate(-50%,-50%) scale(1.12)}
@@ -172,7 +172,7 @@
 @media(max-width:820px){.why-grid{grid-template-columns:1fr}}
 
 /* faq */
-.faq-list{margin-top:36px;max-width:820px}
+.faq-list{margin:36px auto 0;max-width:820px}
 .q{border-bottom:1px solid var(--line)}
 .q button{width:100%;text-align:left;background:none;border:0;padding:22px 4px;font-size:18px;font-weight:750;color:var(--deep);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
 .q .plus{color:var(--teal);font-size:24px;font-weight:400;flex:none;transition:transform .2s}
@@ -258,7 +258,7 @@
 .compare.sec{padding:104px 0 96px}
 .compare .sec-head h2{font-size:56px;line-height:1.04;letter-spacing:-.05em;max-width:22ch}
 .cmp-card2{grid-template-columns:360px 1fr}
-.cmp-avg .v{font-size:92px;white-space:nowrap;letter-spacing:-.05em;line-height:.9;margin-top:10px;color:var(--teal2);-webkit-text-fill-color:var(--teal2);font-variant-numeric:tabular-nums}
+.cmp-avg .v{font-size:92px;white-space:nowrap;letter-spacing:-.01em;line-height:.9;margin-top:10px;color:#00aae5;-webkit-text-fill-color:#00aae5;font-variant-numeric:tabular-nums}
 .cmp-avg .k{color:var(--teal2)}
 .rangekey{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;font-weight:700;color:var(--muted)}
 .rangekey i{width:12px;height:12px;border-radius:3px;display:inline-block;margin-right:7px;vertical-align:-1px}
@@ -326,7 +326,7 @@
       <div class="mm-inner" aria-hidden="true">
       <div class="mm-bar"><span class="mm-title">Market Rate Intelligence</span><span class="mm-pills"><span>Region</span><span>State</span><span>Specialty</span><span>Last 12 mo</span></span><span class="mm-live">Updated daily</span></div>
       <div class="mm-grid">
-        <div class="mm-map" id="mmMap"><div class="mm-lbl">Market Rate Map</div><div class="mm-mapwrap"><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260901c" alt="">
+        <div class="mm-map" id="mmMap"><div class="mm-lbl">Market Rate Map</div><div class="mm-mapwrap"><img class="mm-usmap" src="assets/mi-map-light.svg?v=20260902c" alt="">
           <div class="mm-navg" id="mmNavg"><span>National avg&nbsp;&nbsp;$90.03</span></div>
           <span class="mm-dot" style="left:17%;top:10%;background:var(--teal)"></span><span class="mm-dot" style="left:14%;top:45%;background:var(--teal)"></span><span class="mm-dot" style="left:16%;top:53%;background:var(--green)"></span><span class="mm-dot" style="left:26%;top:57%;background:var(--teal)"></span><span class="mm-dot" style="left:34%;top:42%;background:var(--teal)"></span><span class="mm-dot" style="left:47%;top:61%;background:var(--green)"></span><span class="mm-dot" style="left:50%;top:63%;background:var(--teal)"></span><span class="mm-dot" style="left:50%;top:19%;background:var(--teal)"></span><span class="mm-dot" style="left:63%;top:32%;background:var(--teal)"></span><span class="mm-dot" style="left:52%;top:44%;background:var(--teal)"></span><span class="mm-dot" style="left:69%;top:56%;background:var(--teal)"></span><span class="mm-dot" style="left:88%;top:76%;background:var(--green)"></span><span class="mm-dot" style="left:82%;top:42%;background:var(--teal)"></span><span class="mm-dot" style="left:85%;top:31%;background:var(--green)"></span>
           <span class="mm-rp" style="left:16%;top:53%">$104 CA</span><span class="mm-rp" style="left:47%;top:61%">$96 TX</span><span class="mm-rp" style="left:85%;top:31%">$112 NY</span></div>
@@ -431,7 +431,7 @@
     </div>
     <figure class="shot">
       <div class="shot-img">
-        <img src="assets/mi-ui-live.png?v=20260901b" alt="Trio Market Rate Intelligence dashboard showing the market rate map, market versus my placements, market rate confidence, and historical bill rate fluctuations">
+        <img src="assets/mi-ui-live.png?v=20260902b" alt="Trio Market Rate Intelligence dashboard showing the market rate map, market versus my placements, market rate confidence, and historical bill rate fluctuations">
         <span class="mark" style="left:24%;top:52%">1</span>
         <span class="mark" style="left:85%;top:27%">2</span>
         <span class="mark" style="left:85%;top:56%">3</span>
@@ -649,7 +649,7 @@ function fromEvent(e){_clearChips();var rect=bar.getBoundingClientRect();var cx=
    if(poly) poly.style.strokeDashoffset = 820*(1-p(t,.70,.86));
    for(var k=0;k<tdots.length;k++){op(tdots[k], p(t,.72+k*.015,.80+k*.015));}
    /* End - the CTA lands */
-   if(inner) inner.style.opacity=(1-0.86*p(t,.88,.975)).toFixed(3); op($('mmScrim'), Math.min(p(t,.86,.96),.94) ); op($('mmCallout'), p(t,.92,.99) );
+   if(inner) inner.style.opacity=(1-0.5*p(t,.88,.975)).toFixed(3); op($('mmScrim'), Math.min(p(t,.86,.96),.94) ); op($('mmCallout'), p(t,.92,.99) );
  }
  var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
  if(rm){ frame(1); if(inner)inner.style.opacity=1; if($('mmScrim'))$('mmScrim').style.opacity=0; if($('mmCallout'))$('mmCallout').style.opacity=0; return; }
