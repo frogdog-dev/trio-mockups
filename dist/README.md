@@ -22,3 +22,6 @@ Cleaned exports of the approved Trio concept pages, for Will's HubSpot scaffoldi
 - Internal cross-links are still relative (`../mi/`, `../home/`, etc.) — remap to real URLs on import.
 - External nav links already point to `https://www.triowfs.com/...`.
 - Shared styles: `assets/css/site.css`. Shared JS: `assets/js/`. MI has page-local `mi/assets/`.
+
+## Placeholder photos (FPO)
+Persona/portrait photos are external placeholders from `randomuser.me` (e.g. `.../portraits/women/68.jpg`) pending Amy's stock imagery. Swap these for the real assets during/after the HubSpot build.
