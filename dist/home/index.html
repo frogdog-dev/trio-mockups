@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trio Workforce Solutions | healthcare's workforce orchestration platform (homepage concept)</title>
+<meta name="x-build" content="trio-home-2026-08-12">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../assets/css/site.css?v=20260901d">
+</head>
+<body>
+<!--
+════════════════════════════════════════════════════════════════════════════
+  HUBSPOT MODULARIZATION MAP — read before carving this page into HS modules
+  Each <section> below is a self-contained candidate for one HS custom module.
+  Every section has a stable id; markup order = intended module order.
+  Design tokens live once in :root (see <style>) — port them to a shared HubL
+  variable/CSS-partial so every module inherits the same palette + type.
+  Two <script> blocks at page-end: (A) global UI (sticky-nav, FAQ accordion,
+  model highlight, scroll-reveal) and (B) the interactive layer (MI live card,
+  stat count-ups, sparkline draw, cursor spotlight). When splitting into
+  modules, move each behavior into its owning module's JS and keep the tiny
+  shared IntersectionObserver/reveal util in a page/theme script.
+
+  MODULES (id · repeatable fields · JS):
+  1. header.nav              global header · logo, nav-links[label,href], primary-CTA[label,href] · (A) stuck-on-scroll
+  2. #top  HERO              eyebrow, headline(rich+accent), subhead, CTA[label,href], deliverable-line, nodes[label,dot-color] · CSS-only pulses; JS node hover optional
+  3. .trust TRUST BAR        audience-line, everest-badge, stat-items[value,label]
+  4. #shift  01 THE SHIFT    eyebrow, headline(rich+accent), lead, role-cards[abbr,color,title,desc] + system-card(highlighted)
+  5. #outcomes 02 OUTCOMES   dark · eyebrow, headline, lead, stats[figure,label,source,color-class,is-lead,data-count/dec/prefix/suffix], scorecard-pills[label], note · (B) count-up
+  6. #platform 03 PLATFORM   eyebrow, headline, lead, module-header, models[kicker,name,desc,who-runs,who-desc], overlays[abbr,name,desc,matures-into], orchestration-bar[title,desc,pills] · (A) model highlight + (B) cursor spotlight
+  7. #intelligence 04 SoI    eyebrow, headline, lead, MI-feature[tag,title,desc,base-rate,lo,hi,vol,chips[label,r,lo,hi,v]], products[abbr,color,name,status,desc] · (B) MI live ticker + chip re-price
+  8. #different 05 WHY       dark · eyebrow, headline, lead, questions[qn,question,answer,is-pay], disclosure(rich), CTA
+  9. #proof 06 RESULTS       eyebrow, headline, lead, featured-case[stat,label,desc,note,sparkline-path], supporting-cases[stat,label,desc,note] · (B) sparkline draw
+ 10. #recognition 07         eyebrow, headline, analyst-card[awards[label]], security-card(dark)[points[text]]
+ 11. #demo CTA               eyebrow, headline, desc, CTA[label,href]
+ 12. #faq FAQ                eyebrow, headline, qa[question,answer] · (A) accordion
+ 13. footer                  global footer · logo, contact, tagline, legal-links
+
+  ACCESSIBILITY/PERF NOTES for the HS build:
+  • All motion is gated by prefers-reduced-motion (see the @media block) — preserve it per module.
+  • Interval/rAF loops (MI ticker) are gated by IntersectionObserver so nothing animates offscreen — keep that.
+  • The sticky nav must stay solid (no backdrop-filter) and layer-promoted (transform:translateZ(0)) to avoid scroll repaint.
+════════════════════════════════════════════════════════════════════════════
+-->
+
+<!-- svg logo template -->
+<svg width="0" height="0" style="position:absolute"><symbol id="triomark" viewBox="0 0 100 105"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/></symbol></svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img class="brandmark" src="../assets/trio-logo-stacked.png" alt="Trio Workforce Solutions"></a>
+    <nav class="nav-links">
+      <span class="has-mega"><a href="https://www.triowfs.com/solutions">Platform</a><div class="mega"><div class="mgroup"><div class="mh">Ways to run it</div><a href="https://www.triowfs.com/solutions/trio-msp"><b>Trio MSP</b><span>Managed</span></a><a href="https://www.triowfs.com/solutions/trio-vms-plus"><b>Trio VMS+</b><span>Hybrid</span></a><a href="https://www.triowfs.com/solutions/trio-vms-saas"><b>Trio VMS</b><span>Self-Managed</span></a></div><div class="mgroup"><div class="mh">Ways to grow with it</div><a href="https://www.triowfs.com/solutions/enterprise-workforce-management"><b>Enterprise Workforce Management</b><span>EWM overlay</span></a><a href="https://www.triowfs.com/solutions/internal-resource-management"><b>Internal Resource Management</b><span>IRM overlay</span></a></div><div class="mgroup"><div class="mh">Intelligence &amp; Applied AI</div><a href="../mi/"><b>Market Intelligence</b><span>Live market data</span></a><a href="../digital-worker/"><b>Digital Workers</b><span>Applied AI teammates</span></a><a href="../applied-ai/"><b>AI Approach</b><span>How we build AI</span></a></div><div class="mfoot"><span class="tag">Three ways to run the platform. Two ways to grow with it.</span><a class="mlink" href="https://www.triowfs.com/solutions">Explore the platform &rarr;</a></div></div></span>
+      <a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a>
+      <a href="https://www.triowfs.com/resources">Resources</a>
+      <span class="has-sub"><a href="https://www.triowfs.com/about">About Us</a><div class="sub"><a href="https://www.triowfs.com/careers">Careers</a><a href="https://www.triowfs.com/about/leadership-team">Leadership Team</a><a href="https://www.triowfs.com/resources/articles">News</a><a href="https://www.triowfs.com/about/our-history">Our History</a></div></span>
+    </nav>
+    <div class="nav-cta">
+      <a class="login" href="https://trio.triovms.com/">Trio MSP Login</a>
+      <a class="btn btn-primary" href="#demo" style="padding:11px 20px">Request a diagnostic</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">Healthcare's workforce orchestration platform</span>
+      <h1 style="margin-top:16px">Own the model. Govern the spend. <span class="kick">Drive the outcomes.</span></h1>
+      <p>Trio connects the workforce decisions that usually happen separately into one system, in real time.<br>One platform, built for healthcare.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#demo">Request a workforce maturity diagnostic</a>
+      </div>
+      <div class="hero-cta" style="margin-top:14px"><span class="sub">~15 minutes &middot; a maturity read across your service lines &middot; no pitch.</span></div>
+    </div>
+    <div class="orch" aria-hidden="true">
+      <svg class="links" viewBox="0 0 460 430" preserveAspectRatio="none">
+        <line x1="230" y1="215" x2="95" y2="70"/><line x1="230" y1="215" x2="370" y2="70"/>
+        <line x1="230" y1="215" x2="35" y2="215"/><line x1="230" y1="215" x2="425" y2="215"/>
+        <line x1="230" y1="215" x2="95" y2="360"/><line x1="230" y1="215" x2="370" y2="360"/>
+        <line class="psline" x1="95" y1="70" x2="230" y2="215" style="animation-delay:0s"/>
+        <line class="psline" x1="370" y1="70" x2="230" y2="215" style="animation-delay:.5s"/>
+        <line class="psline" x1="35" y1="215" x2="230" y2="215" style="animation-delay:1s"/>
+        <line class="psline" x1="425" y1="215" x2="230" y2="215" style="animation-delay:1.5s"/>
+        <line class="psline" x1="95" y1="360" x2="230" y2="215" style="animation-delay:2s"/>
+        <line class="psline" x1="370" y1="360" x2="230" y2="215" style="animation-delay:2.5s"/>
+      </svg>
+      <div class="core"><b>Trio</b><span>Orchestration</span></div>
+      <div class="node" style="left:20%;top:16%"><span class="d" style="background:var(--teal)"></span>Sourcing</div>
+      <div class="node" style="left:80%;top:16%"><span class="d" style="background:var(--green)"></span>Scheduling</div>
+      <div class="node" style="left:8%;top:50%"><span class="d" style="background:var(--orange)"></span>Supplier selection</div>
+      <div class="node" style="left:92%;top:50%"><span class="d" style="background:var(--teal2)"></span>Rate governance</div>
+      <div class="node" style="left:20%;top:84%"><span class="d" style="background:var(--green)"></span>Approvals</div>
+      <div class="node" style="left:80%;top:84%"><span class="d" style="background:var(--teal)"></span>Reporting</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <span class="logos">Health systems &middot; Physician groups &middot; Specialty providers</span>
+    <span class="item"><span class="peak">Everest PEAK Matrix</span> Major Contender &amp; Star Performer, VMS North America</span>
+    <span class="item"><b>250+</b> enterprise integrations over 12 years</span>
+    <span class="item"><b>~1.5M</b> API calls a month</span>
+  </div>
+</section>
+
+<!-- 01 THE SHIFT -->
+<section class="sec shift" id="shift">
+  <div class="wrap">
+    <div class="sec-head tc shift-head">
+      <h2 class="thesis"><span class="t-quiet">Everyone sees a piece.</span><span class="t-loud">Nobody sees the system.</span></h2>
+      <p class="lead">Healthcare workforce management is moving from fragmented tools and supplier-led models to one integrated, client-governed system. The leaders who make that shift gain control, predictability, and the capacity to grow.</p>
+    </div>
+    <div class="sysmap">
+      <svg class="wire" aria-hidden="true"></svg>
+      <div class="pieces">
+        <div class="rolecard"><div class="rc" style="background:var(--teal)">CFO</div><div><b>The CFO sees the cost line.</b><span>Contingent spend, margin exposure, the number to defend to the board.</span></div></div>
+        <div class="rolecard"><div class="rc" style="background:var(--green)">CHRO</div><div><b>The CHRO sees the people.</b><span>Total-population visibility, retention risk they can't see coming.</span></div></div>
+        <div class="rolecard"><div class="rc" style="background:var(--orange)">COO</div><div><b>The COO sees the fill rate.</b><span>Time-to-fill, throughput, the units running short today.</span></div></div>
+      </div>
+      <div class="rolecard sys"><div class="rc">◆</div><div><b>Trio sees the system.</b><span>One connected view across every supplier, tool, and operator, governed on your terms.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 OUTCOMES -->
+<section class="sec outcomes" id="outcomes">
+  <div class="dtop" aria-hidden="true"></div><div class="dbot" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Outcomes, not features</span>
+      <h2>The operating model isn't integrated.<br>The numbers show it.</h2>
+      <p class="lead" style="color:#a9c6d8">Orchestration is measured by system-level outcomes, not another dashboard to log into.</p>
+    </div>
+    <div class="statrow">
+      <div class="stat big c1"><div class="fig" data-count="47" data-suffix="%">47%</div><div class="lb">Healthcare temp fill rate vs. 84% in industrial staffing <span class="src">(SIA, 2024)</span></div></div>
+      <div class="stat c2"><div class="fig">20&ndash;30%</div><div class="lb">More per shift for contingent labor than permanent <span class="src">(KPMG)</span></div></div>
+      <div class="stat c3"><div class="fig" data-count="2.7" data-dec="1" data-suffix="%">2.7%</div><div class="lb">Median hospital operating margin, no room for surprises <span class="src">(Kaufman Hall)</span></div></div>
+      <div class="stat c4"><div class="fig" data-count="250" data-suffix="+">250+</div><div class="lb">Enterprise integrations Trio has built over 12 years</div></div>
+    </div>
+    <div class="scorebar">
+      <span class="s">Fill rate, system-level</span>
+      <span class="s">Time-to-fill across service lines</span>
+      <span class="s">Internal vs. external utilization</span>
+      <span class="s">Spend variance compression</span>
+      <span class="s">Perm + contingent visibility</span>
+    </div>
+    <p class="statnote">Market figures cited to source. Trio first-party figures verified; any client outcome shown elsewhere on this page is illustrative pending marketing sign-off.</p>
+  </div>
+</section>
+
+<!-- 03 PLATFORM -->
+<section class="sec platform" id="platform">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The platform</span>
+      <h2>Three ways to run the platform.<br>Two ways to grow with it.</h2>
+      <p class="lead">Three doors into the same platform, not three steps up a ladder. Pick the one that matches the capability you have today; the orchestration layer underneath stays constant, and you reset the line as you grow.</p>
+    </div>
+    <div class="pmod">
+      <div class="pmaturity"><span>Three engagement models: choose how Trio runs the operating capability, with one orchestration layer underneath</span></div>
+      <div class="models">
+        <div class="model m1 on"><div class="mhex">◆</div><div class="mk">Managed</div><h3>MSP</h3><p>A fully managed program. Trio runs day-to-day operations according to your governance posture and defined outcomes.</p><div class="who">We run it<span>If you want a fully managed model.</span></div></div>
+        <div class="model m2"><div class="mhex">◆</div><div class="mk">Hybrid</div><h3>VMS+</h3><p>Configurable orchestration. You set the line between what you own and what Trio runs, and reset it as you mature.</p><div class="who">We run it together<span>If you're building capability.</span></div></div>
+        <div class="model m3"><div class="mhex">◆</div><div class="mk">Self-managed</div><h3>VMS / SaaS</h3><p>Tech-only orchestration. You run the platform; Trio supplies the orchestration layer underneath.</p><div class="who">You run it<span>If you have internal capability.</span></div></div>
+      </div>
+      <div class="overlays">
+        <div class="ovhead">Two maturity overlays, grown into from any model</div>
+        <div class="ovrow"><div class="oh" style="background:linear-gradient(150deg,var(--green),#5c9e2e)">EWM</div><div><b>Enterprise Workforce Management</b><p>Treat workforce as a system-wide strategic asset and engage Trio as an enterprise advisory partner.</p></div><div class="into">Matures into<br>strategic partnership</div></div>
+        <div class="ovrow"><div class="oh" style="background:linear-gradient(150deg,var(--orange),#d64e1e)">IRM</div><div><b>Internal Resource Management</b><p>Nursing, allied, locums, internal float, PRN, and physician coverage run as one orchestrated decision set.</p></div><div class="into">Matures into<br>integrated capability</div></div>
+      </div>
+      <div class="olayer"><div class="oi">◆</div><div><b>One orchestration layer, consistent underneath.</b><p>One platform. One data layer. One set of capabilities. The delivery model varies; the orchestration layer does not.</p></div><div class="pills"><span>Unified data &amp; insights</span><span>Governance &amp; security</span><span>Outcomes &amp; values</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SYSTEM OF INTELLIGENCE -->
+<section class="sec soi" id="intelligence">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The system of intelligence</span>
+      <h2>Decision support at the point of the decision.</h2>
+      <p class="lead">The engine beneath orchestration: intelligence embedded where routing, scheduling, and approvals actually happen, not in a report that lands three weeks later. New capabilities plug into the same platform as they ship.</p>
+    </div>
+    <div class="prodgrid">
+      <div class="prodfeat">
+        <span class="tag">Live &middot; interactive</span>
+        <h3>Market Intelligence</h3>
+        <p>See the real rate, not the average. Live bill-rate intelligence by region, profession, and specialty, so you can prove whether you're overpaying in seconds.</p>
+        <div class="milive">
+          <div class="milead"><span class="rate" id="mirate">$<span id="miratenum">90.03</span></span><span class="rdelta" id="midelta">&#9650; live</span></div>
+          <div class="mivol">Updated daily &middot; <span id="mivol">171K</span> job orders analyzed</div>
+          <div class="mispread"><div class="track"><span class="mk" id="mimk" style="left:32%"></span></div><span class="lo" id="milo">$82</span><span class="hi" id="mihi">$107</span></div>
+          <div class="michips">
+            <button class="chip on" data-r="90.03" data-lo="82" data-hi="107" data-v="158K">RN &middot; TX</button>
+            <button class="chip" data-r="112.40" data-lo="88" data-hi="138" data-v="9.4K">RN &middot; CA</button>
+            <button class="chip" data-r="96.10" data-lo="78" data-hi="120" data-v="42K">Allied &middot; TX</button>
+            <button class="chip" data-r="134.80" data-lo="104" data-hi="171" data-v="7.1K">Locums &middot; FL</button>
+          </div>
+        </div>
+        <a class="lk" href="#demo" style="margin-top:22px">Explore Market Intelligence &rarr;</a>
+      </div>
+      <div class="prodlist">
+        <div class="prod"><div class="ph" style="background:var(--teal)">TA</div><div><b>Timecard Audit AI</b><span class="st">Live</span><p>Reviews every submission against contracted rates and flags out-of-policy charges before invoices clear.</p></div></div>
+        <div class="prod"><div class="ph" style="background:var(--green)">SE</div><div><b>Submission Evaluator</b><span class="st">Live</span><p>Scores every candidate submission in real time so quality rises across the supplier panel.</p></div></div>
+        <div class="prod"><div class="ph" style="background:var(--orange)">TS</div><div><b>Trio Shifts</b><span class="st">Live</span><p>Mobile real-time shift booking and internal float-pool enablement.</p></div></div>
+        <div class="prod"><div class="ph" style="background:var(--teal2)">SA</div><div><b>Smart Approver</b><span class="st soon">On the roadmap</span><p>Exception-based approvals that surface only the decisions that need a person.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 WHY DIFFERENT -->
+<section class="sec why" id="different">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why Trio is different</span>
+      <h2>Neutral to the choice.<br>Not neutral on the outcome.</h2>
+      <p class="lead">Ask any competitor three questions. A staffing-led model answers "we do" to all three. Trio answers "you do."</p>
+    </div>
+    <div class="qtest">
+      <div class="qcard"><div class="qn">Question 1</div><h3>Who owns the panel?</h3><div class="ans">You do.</div></div>
+      <div class="qcard"><div class="qn">Question 2</div><h3>Who owns the data?</h3><div class="ans">You do.</div></div>
+      <div class="qcard pay"><div class="qn">Question 3</div><h3>Who's held to the scorecard?</h3><div class="ans">Every supplier.</div></div>
+    </div>
+    <div class="disclose">Because Trio is not built to maximize any one supplier's placements, we architect the workforce model around your outcomes, across all of your suppliers, all of your tools, and all of your operators. <b>Yes, AHS Staffing sits on the panel, under the same governance and the same scorecard as everyone else.</b> That's not a conflict to hide; it's proof we know how to architect any staffing model.</div>
+    <div class="whycta"><a class="btn btn-light" href="#demo">Request a diagnostic</a><span>Not sure how you'd answer these three? That's exactly what the diagnostic maps.</span></div>
+  </div>
+</section>
+
+<!-- 07 PROOF -->
+<section class="sec proof" id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Results</span>
+      <h2>Proof, with the numbers up front.</h2>
+      <p class="lead">Three stories, one pattern: workforce spend governed, capacity extended, decisions kept human.</p>
+    </div>
+    <div class="cases">
+      <div class="case-feat">
+        <div class="spklab">Governed spend, 12&#8209;mo trend</div>
+        <svg class="spark" viewBox="0 0 290 124" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="sparkg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22c4e6"/><stop offset="1" stop-color="#a6e06a"/></linearGradient><linearGradient id="sparkfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8cc63f" stop-opacity=".32"/><stop offset="1" stop-color="#8cc63f" stop-opacity="0"/></linearGradient></defs><path class="area" d="M4 108 L40 100 L76 102 L112 80 L148 68 L184 48 L220 34 L256 20 L286 6 L286 124 L4 124Z" fill="url(#sparkfill)"/><path class="line" pathLength="1" fill="none" stroke="url(#sparkg)" d="M4 108 L40 100 L76 102 L112 80 L148 68 L184 48 L220 34 L256 20 L286 6"/><circle class="dot" cx="286" cy="6" r="4.5" fill="#a6e06a"/></svg>
+        <div class="cstat">$2M+</div>
+        <div class="ck">Verified savings identified</div>
+        <p>A large health system surfaced multi-million-dollar savings through orchestrated rate governance and timecard audit, spend it can now see, govern, and defend to the board.</p>
+        <a class="lk" href="#" style="margin-top:14px;font-size:14px">Read the full case study &rarr;</a>
+        <div class="ph" style="margin-top:12px">Illustrative, pending marketing sign-off</div>
+      </div>
+      <div class="case-col">
+        <div class="case"><div class="cim"></div><div class="cb"><div class="cstat">$291K</div><div class="ck">Unrecovered spend caught</div><p>Out-of-policy charges flagged and recovered before invoices cleared, not months later.</p><div class="ph">Illustrative, pending sign-off</div></div></div>
+        <div class="case"><div class="cim"></div><div class="cb"><div class="cstat" style="font-size:23px;color:var(--teal2)">Your strongest story here</div><div class="ck">Curated case slot</div><p>Reserved for your best fill-rate or time-to-fill result, numbers up front.</p><div class="ph">Placeholder, from existing case studies</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 RECOGNITION + SECURITY -->
+<section class="sec recsec" id="recognition">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Recognition &amp; trust</span>
+      <h2>Recognized by the analysts.<br>Built for healthcare data.</h2>
+    </div>
+    <div class="rs">
+      <div class="rscard">
+        <h3>Analyst recognition</h3>
+        <p>Independent validation of the platform and its technology, not marketing claims.</p>
+        <div class="awards">
+          <span class="award">Everest PEAK &middot; Major Contender, VMS NA</span>
+          <span class="award">Everest &middot; Star Performer</span>
+          <span class="award">Ardent Partners &middot; VMS Tech Advisor</span>
+        </div>
+      </div>
+      <div class="rscard dark">
+        <h3>Security first</h3>
+        <p>Data security and client confidentiality are non-negotiable, and they pair with the security-first principle behind every Applied AI capability.</p>
+        <div class="secpoints">
+          <div><span class="ic">&#10003;</span> Runs inside the Trio platform your teams already use, not a bolt-on tool with its own login and data silo.</div>
+          <div><span class="ic">&#10003;</span> Governance and oversight built into the workflow, with a defensible, explainable audit trail.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 CTA -->
+<section class="sec" id="demo">
+  <div class="wrap">
+    <div class="cta-band">
+      <span class="eyebrow nodash" style="color:#fff;justify-content:center">Ready when you are</span>
+      <h2>Where does your workforce strategy stand today?</h2>
+      <p>Request a workforce maturity diagnostic: a single conversation that maps where each of your service lines sits on the curve, and what it would take to own the model. Diagnose first, prescribe second.</p>
+      <div class="hero-cta"><a class="btn btn-light btn-xl" href="#demo">Request a workforce maturity diagnostic</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 FAQ -->
+<section class="sec fit" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Questions</span><h2>Healthcare workforce orchestration, answered.</h2></div>
+    <div class="faq-list">
+      <div class="q"><button>What is a workforce orchestration platform?<span class="pl">+</span></button><div class="a"><p>A workforce orchestration platform is one system that connects the workforce decisions that usually happen separately (sourcing, scheduling, supplier selection, rate governance, approvals, and reporting) in real time. Trio is that orchestration layer across your suppliers, your tools, and your operators.</p></div></div>
+      <div class="q"><button>What is the difference between a VMS and an MSP?<span class="pl">+</span></button><div class="a"><p>The difference between a VMS and an MSP is that a VMS (vendor management system) is software you use to manage contingent labor, while an MSP (managed service provider) is a service in which a partner runs your contingent workforce program for you. One is a tool; the other is an operating model. Trio spans both and adds an orchestration layer on top of them.</p></div></div>
+      <div class="q"><button>How is Trio different from a VMS?<span class="pl">+</span></button><div class="a"><p>Trio is different from a VMS because a VMS is a tool for tracking requisitions and suppliers, while Trio is the orchestration layer that makes those tools, suppliers, and decisions work together toward your outcomes. You can run Trio as self-managed software, but the orchestration and intelligence underneath are what set it apart.</p></div></div>
+      <div class="q"><button>How is Trio different from an MSP?<span class="pl">+</span></button><div class="a"><p>Trio is different from a traditional MSP because a staffing-led MSP typically owns the supplier panel and the data, whereas with Trio you own the panel, the data, and the scorecard. Trio can run your program as a managed model, but it stays neutral to any one supplier and holds every supplier (including AHS Staffing) to the same scorecard.</p></div></div>
+      <div class="q"><button>Who owns the panel and the data with Trio?<span class="pl">+</span></button><div class="a"><p>With Trio, you own the panel and the data. Trio is buyer-owned and panel-neutral: you own the supplier panel, the data, and the decisions, and every supplier, including AHS Staffing, operates under the same governance and the same scorecard.</p></div></div>
+      <div class="q"><button>What are EWM and IRM?<span class="pl">+</span></button><div class="a"><p>EWM and IRM are maturity overlays you grow into from any Trio engagement model. EWM (Enterprise Workforce Management) means treating workforce as a system-wide strategic asset; IRM (Internal Resource Management) means running internal and external coverage (nursing, allied, locums, float, PRN, and physician) as one orchestrated decision set. You evolve into them; you don't start there.</p></div></div>
+      <div class="q"><button>How do we get started with Trio?<span class="pl">+</span></button><div class="a"><p>You get started with Trio by requesting a workforce maturity diagnostic, a single conversation that maps where each of your service lines sits on the maturity curve and what it would take to own the model, before any prescription.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmain">
+      <div>
+        <div class="brand"><img class="brandmark brandmark--inv" src="../assets/trio-logo-stacked.png" alt="Trio Workforce Solutions"></div>
+        <div class="fnote"><b>E.</b> <a href="mailto:marketing@triowfs.com">marketing@triowfs.com</a><br><b>P.</b> <a href="tel:+18009305119">1.800.930.5119</a><br>7460 Warren Pkwy<br>Frisco, TX 75034</div>
+        <div class="fsocial"><a href="https://www.linkedin.com/company/american-health-technology-group" aria-label="Trio on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21H19v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg></a></div>
+      </div>
+      <div class="fcolgroup">
+        <div class="fcol">
+          <a class="fh" href="https://www.triowfs.com/solutions">Platform</a>
+          <a href="https://www.triowfs.com/solutions/trio-msp">Trio MSP</a>
+          <a href="https://www.triowfs.com/solutions/trio-vms-plus">Trio VMS+</a>
+          <a href="https://www.triowfs.com/solutions/trio-vms-saas">Trio VMS</a>
+          <a href="https://www.triowfs.com/solutions/enterprise-workforce-management">Enterprise Workforce Management</a>
+          <a href="https://www.triowfs.com/solutions/internal-resource-management">Internal Resource Management</a>
+          <a href="../mi/">Market Intelligence</a>
+          <a href="../digital-worker/">Digital Workers</a>
+        </div>
+        <div class="fcol">
+          <a class="fh" href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a>
+          <a class="fh" href="https://www.triowfs.com/resources">Resources</a>
+          <a class="fh" href="https://www.triowfs.com/about">About Us</a>
+        </div>
+        <div class="fcol">
+          <a class="fh" href="https://www.triowfs.com/contact-us">Contact Us</a>
+          <a class="fh" href="https://trio.triovms.com/">Trio MSP Login</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal"><span>&copy; 2026 Trio Workforce Solutions</span><span><a href="https://www.triowfs.com/terms-of-service">Terms of Use</a> &nbsp;|&nbsp; <a href="https://www.triowfs.com/privacy-policy">Privacy Policy</a></span></div>
+  </div>
+</footer>
+
+<!-- FAQPage structured data — lifts the Q&A into AI answer engines and rich results.
+     Keep answers in sync with the visible FAQ copy above when it changes. -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is a workforce orchestration platform?","acceptedAnswer":{"@type":"Answer","text":"A workforce orchestration platform is one system that connects the workforce decisions that usually happen separately (sourcing, scheduling, supplier selection, rate governance, approvals, and reporting) in real time. Trio is that orchestration layer across your suppliers, your tools, and your operators."}},
+    {"@type":"Question","name":"What is the difference between a VMS and an MSP?","acceptedAnswer":{"@type":"Answer","text":"The difference between a VMS and an MSP is that a VMS (vendor management system) is software you use to manage contingent labor, while an MSP (managed service provider) is a service in which a partner runs your contingent workforce program for you. One is a tool; the other is an operating model. Trio spans both and adds an orchestration layer on top of them."}},
+    {"@type":"Question","name":"How is Trio different from a VMS?","acceptedAnswer":{"@type":"Answer","text":"Trio is different from a VMS because a VMS is a tool for tracking requisitions and suppliers, while Trio is the orchestration layer that makes those tools, suppliers, and decisions work together toward your outcomes. You can run Trio as self-managed software, but the orchestration and intelligence underneath are what set it apart."}},
+    {"@type":"Question","name":"How is Trio different from an MSP?","acceptedAnswer":{"@type":"Answer","text":"Trio is different from a traditional MSP because a staffing-led MSP typically owns the supplier panel and the data, whereas with Trio you own the panel, the data, and the scorecard. Trio can run your program as a managed model, but it stays neutral to any one supplier and holds every supplier (including AHS Staffing) to the same scorecard."}},
+    {"@type":"Question","name":"Who owns the panel and the data with Trio?","acceptedAnswer":{"@type":"Answer","text":"With Trio, you own the panel and the data. Trio is buyer-owned and panel-neutral: you own the supplier panel, the data, and the decisions, and every supplier, including AHS Staffing, operates under the same governance and the same scorecard."}},
+    {"@type":"Question","name":"What are EWM and IRM?","acceptedAnswer":{"@type":"Answer","text":"EWM and IRM are maturity overlays you grow into from any Trio engagement model. EWM (Enterprise Workforce Management) means treating workforce as a system-wide strategic asset; IRM (Internal Resource Management) means running internal and external coverage (nursing, allied, locums, float, PRN, and physician) as one orchestrated decision set. You evolve into them; you don't start there."}},
+    {"@type":"Question","name":"How do we get started with Trio?","acceptedAnswer":{"@type":"Answer","text":"You get started with Trio by requesting a workforce maturity diagnostic, a single conversation that maps where each of your service lines sits on the maturity curve and what it would take to own the model, before any prescription."}}
+  ]
+}
+</script>
+
+<script src="../assets/js/site.js?v=20260821a"></script>
+</body>
+</html>
