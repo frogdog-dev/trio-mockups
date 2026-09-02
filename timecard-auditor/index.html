@@ -75,6 +75,72 @@ section[id]{scroll-margin-top:92px}
 @keyframes scansweep{0%{opacity:0;transform:translateY(6px)}8%{opacity:1}92%{opacity:1}100%{opacity:0;transform:translateY(300px)}}
 @media(max-width:960px){.hero-in{grid-template-columns:1fr;gap:34px;padding:56px 0 60px}.hero-stage .ghosthex{display:none}}
 
+/* ---------- HERO teammate: the Timecard Auditor as a living orb avatar ----------
+   A refined "AI presence" (not a mascot) that emotes through the audit loop and
+   sits beside the flagged row, linking the worker to the work. States remap to
+   brand tokens only: watch/think = --teal, flag = --brand-orange, the caught beat
+   = --brand-redorange (used sparingly). Purely decorative + aria-hidden; all motion
+   is gated on prefers-reduced-motion and falls back to a calm static state. */
+.auditor{position:absolute;z-index:4;left:-118px;top:104px;display:flex;flex-direction:row-reverse;align-items:center;gap:11px;pointer-events:none}
+.orb{--s:58px;--orbColor:var(--teal);--eyeTop:42%;--eyeGap:10px;--eyeW:7px;--eyeH:3.2px;position:relative;width:var(--s);height:var(--s)}
+.orb .head{position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.30),transparent 48%),var(--orbColor);
+  box-shadow:0 12px 26px rgba(19,45,57,.22),inset 0 0 0 1px rgba(255,255,255,.16);
+  transition:background-color .55s ease}
+.orb .eye{position:absolute;top:var(--eyeTop);width:var(--eyeW);height:var(--eyeH);background:#fff;border-radius:999px;transform-origin:center;z-index:2;
+  transition:top .5s cubic-bezier(.2,.7,.2,1),left .5s cubic-bezier(.2,.7,.2,1),width .5s cubic-bezier(.2,.7,.2,1),height .5s cubic-bezier(.2,.7,.2,1)}
+.orb .eye.l{left:calc(50% - var(--eyeGap)/2 - var(--eyeW))}
+.orb .eye.r{left:calc(50% + var(--eyeGap)/2)}
+.orb .brow{position:absolute;top:calc(var(--eyeTop) - 5px);width:calc(var(--eyeW) + 2px);height:2px;border-radius:999px;background:rgba(255,255,255,.92);
+  opacity:0;transform:translateY(3px) scaleX(.55);transition:opacity .4s ease,transform .4s ease;z-index:2}
+.orb .brow.l{left:calc(50% - var(--eyeGap)/2 - var(--eyeW) - 1px)}
+.orb .brow.r{left:calc(50% + var(--eyeGap)/2 - 1px)}
+.orb .halo{position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--brand-redorange);opacity:0;z-index:0}
+.orb .orbit{position:absolute;inset:-7px;z-index:0;opacity:0;transition:opacity .5s ease}
+.orb .orbit i{position:absolute;top:50%;left:50%;width:4px;height:4px;border-radius:50%;background:var(--teal-300)}
+.orb .orbit i:nth-child(1){transform:translate(-50%,-50%) rotate(0deg)   translateY(calc(var(--s)/-2 - 5px))}
+.orb .orbit i:nth-child(2){transform:translate(-50%,-50%) rotate(120deg) translateY(calc(var(--s)/-2 - 5px))}
+.orb .orbit i:nth-child(3){transform:translate(-50%,-50%) rotate(240deg) translateY(calc(var(--s)/-2 - 5px))}
+.orb .think{position:absolute;left:calc(50% + var(--s)*.30);top:-4px;width:20px;height:20px;z-index:0;opacity:0;transition:opacity .4s ease}
+.orb .think i{position:absolute;border-radius:50%;background:var(--teal-300)}
+.orb .think i:nth-child(1){width:4px;height:4px;left:0;top:12px}
+.orb .think i:nth-child(2){width:5px;height:5px;left:6px;top:4px}
+.orb .think i:nth-child(3){width:6px;height:6px;left:13px;top:-6px;background:var(--teal)}
+.auditor .label{font-size:10.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--teal2);text-align:right;line-height:1.3;width:76px;text-shadow:0 1px 0 var(--mist)}
+.auditor .label span{display:block;font-size:8.5px;letter-spacing:.14em;color:var(--muted);font-weight:800;margin-top:2px}
+/* per-state expression (color / eye geometry / accessory visibility) */
+.orb[data-state=running]  {--orbColor:var(--teal);--eyeTop:42%;--eyeGap:10px;--eyeW:7px;--eyeH:3.2px}
+.orb[data-state=thinking] {--orbColor:var(--teal);--eyeTop:37%;--eyeGap:10px;--eyeW:6.3px;--eyeH:8.5px}
+.orb[data-state=attention]{--orbColor:var(--brand-orange);--eyeTop:40%;--eyeGap:8.5px;--eyeW:8.2px;--eyeH:10.8px}
+.orb[data-state=resolved] {--orbColor:var(--teal);--eyeTop:44%;--eyeGap:9px;--eyeW:8px;--eyeH:2.8px}
+.orb[data-state=running]   .orbit{opacity:1}
+.orb[data-state=thinking]  .think{opacity:1}
+.orb[data-state=attention] .halo{opacity:1}
+.orb[data-state=attention] .brow{opacity:1;transform:translateY(0) scaleX(1)}
+@keyframes orb-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes orb-drift{0%,100%{transform:translateY(1px)}50%{transform:translateY(-1px)}}
+@keyframes orb-wobble{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+@keyframes orb-blink{0%,91%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}95%{transform:scaleY(1)}96.5%{transform:scaleY(.08)}98%{transform:scaleY(1)}}
+@keyframes orb-halo{0%{transform:scale(1);opacity:.45}100%{transform:scale(1.42);opacity:0}}
+@keyframes orb-orbit{to{transform:rotate(360deg)}}
+@keyframes orb-thoughtrise{0%{opacity:0;transform:translateY(4px)}30%,70%{opacity:1}100%{opacity:0;transform:translateY(-5px)}}
+/* she reacts to the flag she's sitting on: the adjacent Exception pill lifts on the attention beat */
+.hero-stage .ap-row.flagged .rpill.exception{transition:transform .5s ease,box-shadow .5s ease}
+@media(prefers-reduced-motion:no-preference){
+  .orb[data-state=running]   .head {animation:orb-bob 3.4s ease-in-out infinite}
+  .orb[data-state=running]   .orbit{animation:orb-orbit 9s linear infinite}
+  .orb[data-state=thinking]  .head {animation:orb-drift 3.2s ease-in-out infinite}
+  .orb[data-state=thinking]  .think i{animation:orb-thoughtrise 2.4s ease-in-out infinite}
+  .orb[data-state=thinking]  .think i:nth-child(2){animation-delay:.3s}
+  .orb[data-state=thinking]  .think i:nth-child(3){animation-delay:.6s}
+  .orb[data-state=attention] .head {animation:orb-wobble .8s ease-in-out infinite}
+  .orb[data-state=attention] .eye  {animation:orb-blink 3.1s linear infinite}
+  .orb[data-state=attention] .halo {animation:orb-halo 1.4s ease-out infinite}
+  .orb[data-state=resolved]  .head {animation:orb-drift 4.2s ease-in-out infinite}
+  .hero-stage.alerted .ap-row.flagged .rpill.exception{transform:translateY(-2px);box-shadow:0 6px 16px rgba(240,85,35,.20)}
+}
+@media(max-width:960px){.auditor{left:-6px;top:150px;gap:8px}.auditor .label{display:none}.orb{--s:44px}}
+
 /* ---------- PROBLEM — editorial leak list ---------- */
 .leadpara{font-size:clamp(19px,2.1vw,23px);line-height:1.5;color:var(--ink);font-weight:500;max-width:40ch;margin-top:18px}
 .leadpara b{color:var(--deep);font-weight:800}
@@ -322,6 +388,17 @@ section[id]{scroll-margin-top:92px}
     <div class="hero-stage" id="heroStage">
       <div class="ghosthex" aria-hidden="true"></div>
       <div class="hero-tags" aria-hidden="true"><span class="fl">&#9873;</span>Flagged before payout</div>
+      <div class="auditor" aria-hidden="true">
+        <div class="orb" id="auditorOrb" data-state="running">
+          <span class="halo"></span>
+          <span class="orbit"><i></i><i></i><i></i></span>
+          <span class="think"><i></i><i></i><i></i></span>
+          <span class="head"></span>
+          <span class="brow l"></span><span class="brow r"></span>
+          <span class="eye l"></span><span class="eye r"></span>
+        </div>
+        <span class="label">Timecard Auditor<span>On watch</span></span>
+      </div>
       <div class="ap" role="img" aria-label="Trio VMS accounts-payable inbox showing a timecard flagged for review before payout">
         <div class="ap-top"><svg class="tmark" viewBox="0 0 100 105" fill="none" aria-hidden="true"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/></svg><div><b>Trio VMS</b> <span class="crumb">Accounts Payable &middot; Timecard review</span></div><span class="ct"><span class="dot"></span>Auditing</span></div>
         <div class="ap-row ok"><span class="rk ok">&#10003;</span><div class="who"><b>Registered Nurse &middot; Regular</b><span>36.0 hrs &middot; Memorial &middot; Node Staffing</span></div><div class="amt"><span class="ramt">$3,744.00</span><small>Cleared</small></div></div>
@@ -671,6 +748,31 @@ addEventListener('load',threadAll); addEventListener('resize',threadAll); setTim
 
 // hero scan-line whimsy trigger (on load, once)
 addEventListener('load',function(){ var s=document.getElementById('heroStage'); if(s) s.classList.add('play'); });
+
+// hero teammate orb — a calm emote loop through a conceptual audit pass:
+// watch (teal) -> think (teal) -> flag (orange, halo+blink) -> caught (redorange, settle) -> repeat.
+// Falls back to a still calm state under reduced motion; pauses when the hero scrolls away.
+(function(){
+  var orb=document.getElementById('auditorOrb'), stage=document.getElementById('heroStage');
+  if(!orb) return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){ orb.setAttribute('data-state','running'); return; }
+  var seq=[['running',3400],['thinking',3000],['attention',2800],['resolved',2400]];
+  var i=0,t=null;
+  function step(){
+    var s=seq[i%seq.length];
+    orb.setAttribute('data-state',s[0]);
+    if(stage) stage.classList.toggle('alerted', s[0]==='attention');
+    i++; t=setTimeout(step,s[1]);
+  }
+  step();
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){
+      if(x.isIntersecting){ if(t===null) step(); }
+      else { clearTimeout(t); t=null; }
+    });},{threshold:.02});
+    io.observe(stage||orb);
+  }
+})();
 </script>
 <script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
 </body>
