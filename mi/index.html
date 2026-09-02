@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Market Intelligence | Trio Workforce Solutions (redesign concept)</title>
 <link rel="stylesheet" href="../assets/css/site.css?v=20260901d">
-<style>
+<style>:root{--green:#a6ce42;--orange:#f57e20}
 
 /* MI inherits reset/type/eyebrow/buttons/nav/footer from site.css (single source). Only MI-specific components live below. */
 .btn-outline{background:#fff;color:var(--teal2);border:2px solid rgba(0,159,199,.23)}
@@ -97,7 +97,7 @@
 .cmp-avg .k{font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .cmp-avg .v{font-size:66px;font-weight:850;letter-spacing:-.04em;color:var(--deep);line-height:1;margin-top:8px}
 .cmp-avg .s{font-size:13.5px;color:var(--muted);margin-top:10px;font-weight:600}
-.cmp-range .rangebar{position:relative;height:16px;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--teal) 46%,var(--orange))}
+.cmp-range .rangebar{position:relative;height:16px;border-radius:999px;background:linear-gradient(90deg,#a6ce42,#00aae5 46%,#f57e20)}
 .cmp-range .avgmark{position:absolute;top:-7px;width:4px;height:30px;background:var(--deep);border-radius:2px;transform:translateX(-50%)}
 .cmp-range .avgmark:after{content:"";display:none}
 /* redline (Chris): make the market-average bar an interactive, animated slider */
@@ -387,9 +387,9 @@
           <span>$107+<small>peak demand</small></span>
         </div>
         <div class="rangekey">
-          <span><i style="background:var(--green)"></i>Calm market</span>
-          <span><i style="background:var(--teal)"></i>Balanced</span>
-          <span><i style="background:var(--orange)"></i>Peak demand &middot; overpay risk</span>
+          <span><i style="background:#a6ce42"></i>Calm market</span>
+          <span><i style="background:#00aae5"></i>Balanced</span>
+          <span><i style="background:#f57e20"></i>Peak demand &middot; overpay risk</span>
         </div>
         <div class="michips2">
           <button class="chip on" data-r="90.03" data-v="171K job orders" data-name="RN &middot; Texas">RN &middot; TX</button>
@@ -609,7 +609,7 @@ document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click
   /* interactive product callouts: click a number (on the image or in the legend) to expand its copy */
   (function(){var marks=[].slice.call(document.querySelectorAll('.shot .mark'));var lgs=[].slice.call(document.querySelectorAll('.shot-legend .lg'));if(!marks.length||!lgs.length)return;function sel(i){marks.forEach(function(x){x.classList.remove('active')});lgs.forEach(function(x){x.classList.remove('hl')});if(marks[i])marks[i].classList.add('active');if(lgs[i]){lgs[i].classList.add('hl');}}marks.forEach(function(m,i){m.setAttribute('role','button');m.setAttribute('tabindex','0');m.setAttribute('aria-label','Show product detail '+(i+1));m.addEventListener('click',function(){sel(i);});m.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(i);}});});lgs.forEach(function(l,i){l.setAttribute('tabindex','0');l.addEventListener('click',function(){sel(i);});l.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(i);}});});sel(0);})();
   /* interactive market-range slider: scrub to see the rate + market state; auto-animates to the national average on load */
-  (function(){var bar=document.getElementById('rbar'),h=document.getElementById('rhandle'),rt=document.getElementById('rrate'),st=document.getElementById('rstate');if(!bar||!h||!rt||!st)return;var MIN=82,MAX=107;function stateFor(r){if(r<88)return['Calm market','var(--green)'];if(r<98)return['Balanced market','var(--teal2)'];return['Peak demand · overpay risk','var(--orange)'];}function setPct(p){p=Math.max(0,Math.min(100,p));h.style.left=p+'%';var r=MIN+(p/100)*(MAX-MIN);rt.textContent='$'+r.toFixed(2);var s=stateFor(r);st.textContent=s[0];st.style.color=s[1];h.style.borderColor=s[1];h.setAttribute('aria-valuenow',r.toFixed(2));}function _clearChips(){document.querySelectorAll('.michips2 .chip').forEach(function(c){c.classList.remove('on');});var _rv=document.getElementById('rvol');if(_rv)_rv.textContent='';}
+  (function(){var bar=document.getElementById('rbar'),h=document.getElementById('rhandle'),rt=document.getElementById('rrate'),st=document.getElementById('rstate');if(!bar||!h||!rt||!st)return;var MIN=82,MAX=107;function stateFor(r){if(r<88)return['Calm market','#a6ce42'];if(r<98)return['Balanced market','#00aae5'];return['Peak demand · overpay risk','#f57e20'];}function setPct(p){p=Math.max(0,Math.min(100,p));h.style.left=p+'%';var r=MIN+(p/100)*(MAX-MIN);rt.textContent='$'+r.toFixed(2);var s=stateFor(r);st.textContent=s[0];st.style.color=s[1];h.style.borderColor=s[1];h.setAttribute('aria-valuenow',r.toFixed(2));}function _clearChips(){document.querySelectorAll('.michips2 .chip').forEach(function(c){c.classList.remove('on');});var _rv=document.getElementById('rvol');if(_rv)_rv.textContent='';}
 function fromEvent(e){_clearChips();var rect=bar.getBoundingClientRect();var cx=e.touches?e.touches[0].clientX:e.clientX;setPct((cx-rect.left)/rect.width*100);}var AVG=32.12;var dragging=false;function down(e){dragging=true;h.classList.add('drag');fromEvent(e);e.preventDefault();}function move(e){if(dragging)fromEvent(e);}function up(){dragging=false;h.classList.remove('drag');}h.addEventListener('mousedown',down);bar.addEventListener('mousedown',down);window.addEventListener('mousemove',move);window.addEventListener('mouseup',up);h.addEventListener('touchstart',down,{passive:false});window.addEventListener('touchmove',move,{passive:false});window.addEventListener('touchend',up);h.addEventListener('keydown',function(e){var cur=parseFloat(h.style.left)||27;if(e.key==='ArrowLeft'){setPct(cur-4);e.preventDefault();}if(e.key==='ArrowRight'){setPct(cur+4);e.preventDefault();}});var rvol=document.getElementById('rvol');var chips=document.querySelectorAll('.michips2 .chip');function setRate(r,vol,name,el){var pct=Math.max(0,Math.min(100,(r-MIN)/(MAX-MIN)*100));h.style.left=pct+'%';rt.textContent='$'+r.toFixed(2);var sf=stateFor(r);st.textContent=name;st.style.color=sf[1];h.style.borderColor=sf[1];h.setAttribute('aria-valuenow',r.toFixed(2));if(rvol)rvol.textContent=vol?(' · '+vol):'';chips.forEach(function(c){c.classList.remove('on');});if(el)el.classList.add('on');}chips.forEach(function(c){c.addEventListener('click',function(){setRate(parseFloat(c.dataset.r),c.dataset.v,c.dataset.name,c);});});var def=document.querySelector('.michips2 .chip.on')||chips[0];if(def){setRate(parseFloat(def.dataset.r),def.dataset.v,def.dataset.name,def);}else{setPct(AVG);}})();
   if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal,.stagger').forEach(function(e){e.classList.add('in')});return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
