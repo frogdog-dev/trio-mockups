@@ -239,7 +239,7 @@
 /* redline (Chris) + creative red-team: personas want a real photo; the placeholder is a brand hex portrait aperture (accent rim recolors per persona), not a dashed box */
 .ppanel .pphoto{flex:none;width:152px;height:170px;clip-path:var(--hex);background:var(--pc,var(--teal));position:relative;transition:background .25s}
 .ppanel .pphoto:before{content:"";position:absolute;inset:3px;clip-path:var(--hex);background:linear-gradient(160deg,#eef4f6,#dde9ed);z-index:0}
-.ppanel .pphoto .pimg{position:absolute;inset:3px;clip-path:var(--hex);z-index:1;background-repeat:no-repeat;background-position:50% 32%;background-size:auto 110%;transition:background-size .25s,background-position .25s}
+.ppanel .pphoto img{position:absolute;inset:3px;width:calc(100% - 6px);height:calc(100% - 6px);object-fit:cover;object-position:center;transform:scale(var(--pz,1)) translate(var(--tx,0),var(--ty,0));transform-origin:center;clip-path:var(--hex);z-index:1;transition:transform .25s}
 .ppanel .pphoto .cap{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:2;background:rgba(15,45,57,.74);color:#fff;font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
 @media(max-width:820px){.ppanel .pphoto{width:126px;height:141px}}
 .ppanel h3{font-size:27px;color:var(--deep);letter-spacing:-.02em}
@@ -478,7 +478,7 @@
       <button class="ptab" data-p="3">Operations</button>
     </div>
     <div class="ppanel">
-      <div class="pphoto" id="phex" style="--pc:#00aae5"><div class="pimg" id="pphotoimg" role="img" aria-label="Workforce and talent leaders" style="background-image:url(assets/persona-workforce.jpg?v=2);background-position:50% 30%;background-size:auto 86%"></div></div>
+      <div class="pphoto" id="phex" style="--pc:#00aae5"><img id="pphotoimg" src="assets/persona-workforce.jpg?v=2" alt="Workforce and talent leaders" style="--pz:1;--tx:0%;--ty:0%"></div>
       <div class="pbody"><h3 id="ph">Workforce &amp; talent leaders</h3><p id="pp">Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.</p><div class="pstat" id="pstat"><b>Benchmark against 171K live job orders</b> before you set a single rate.</div></div>
     </div>
   </div>
@@ -607,11 +607,11 @@ function scaleHero(){
 function allScale(){scaleFrame();scaleHero();}
 addEventListener('resize',allScale); addEventListener('load',allScale); allScale();
 var PERS=[
-['Workforce & talent leaders','Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.','#00aae5','<b>Benchmark against 171K live job orders</b> before you set a single rate.','assets/persona-workforce.jpg?v=2','50% 30%','auto 86%'],
-['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#a6ce42','<b>Back every rate decision with citable, current data</b> your CFO can defend.','assets/persona-financial.jpg?v=2','60% 28%','auto 132%'],
-['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f57e20','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.','assets/persona-clinical.jpg?v=2','58% 34%','auto 116%'],
-['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#0081bb','<b>Watch rate volatility across every facility</b> in one live view.','assets/persona-operations.jpg?v=2','54% 34%','auto 124%']];
-document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];var pi=document.getElementById('pphotoimg');pi.style.backgroundImage='url('+p[4]+')';pi.style.backgroundPosition=p[5]||'50% 30%';pi.style.backgroundSize=p[6]||'auto 110%';pi.setAttribute('aria-label',p[0]);});});
+['Workforce & talent leaders','Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.','#00aae5','<b>Benchmark against 171K live job orders</b> before you set a single rate.','assets/persona-workforce.jpg?v=2','1','0%','0%'],
+['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#a6ce42','<b>Back every rate decision with citable, current data</b> your CFO can defend.','assets/persona-financial.jpg?v=2','1.32','-17%','-4%'],
+['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f57e20','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.','assets/persona-clinical.jpg?v=2','1.22','-10%','-4%'],
+['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#0081bb','<b>Watch rate volatility across every facility</b> in one live view.','assets/persona-operations.jpg?v=2','1.2','-10%','-2%']];
+document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];var pi=document.getElementById('pphotoimg');pi.src=p[4];pi.style.setProperty('--pz',p[5]||'1');pi.style.setProperty('--tx',p[6]||'0%');pi.style.setProperty('--ty',p[7]||'0%');pi.alt=p[0];});});
 // scroll reveal (parity with home/DW)
 (function(){
   document.querySelectorAll('.sec-head,.cmp-card2,.shot,.tryframe-wrap,.ppanel,.vs').forEach(function(e){e.classList.add('reveal')});
