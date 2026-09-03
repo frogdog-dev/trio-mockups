@@ -478,7 +478,7 @@
       <button class="ptab" data-p="3">Operations</button>
     </div>
     <div class="ppanel">
-      <div class="pphoto" id="phex" style="--pc:#00aae5"><img id="pphotoimg" src="assets/persona-workforce.jpg?v=2" alt="Workforce and talent leaders" style="--pz:1;--tx:0%;--ty:0%"></div>
+      <div class="pphoto" id="phex" style="--pc:#00aae5"><img id="pphotoimg" src="assets/persona-workforce-v3.jpg?v=3" alt="Workforce and talent leaders" style="--pz:1;--tx:0%;--ty:0%"></div>
       <div class="pbody"><h3 id="ph">Workforce &amp; talent leaders</h3><p id="pp">Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.</p><div class="pstat" id="pstat"><b>Benchmark against 171K live job orders</b> before you set a single rate.</div></div>
     </div>
   </div>
@@ -607,10 +607,10 @@ function scaleHero(){
 function allScale(){scaleFrame();scaleHero();}
 addEventListener('resize',allScale); addEventListener('load',allScale); allScale();
 var PERS=[
-['Workforce & talent leaders','Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.','#00aae5','<b>Benchmark against 171K live job orders</b> before you set a single rate.','assets/persona-workforce.jpg?v=2','1','0%','0%'],
-['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#a6ce42','<b>Back every rate decision with citable, current data</b> your CFO can defend.','assets/persona-financial.jpg?v=2','1.32','-17%','-4%'],
-['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f57e20','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.','assets/persona-clinical.jpg?v=2','1.22','-10%','-4%'],
-['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#0081bb','<b>Watch rate volatility across every facility</b> in one live view.','assets/persona-operations.jpg?v=2','1.2','-10%','-2%']];
+['Workforce & talent leaders','Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.','#00aae5','<b>Benchmark against 171K live job orders</b> before you set a single rate.','assets/persona-workforce-v3.jpg?v=3','1','0%','0%'],
+['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#a6ce42','<b>Back every rate decision with citable, current data</b> your CFO can defend.','assets/persona-financial-v3.jpg?v=3','1','0%','0%'],
+['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f57e20','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.','assets/persona-clinical-v3.jpg?v=3','1','0%','0%'],
+['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#0081bb','<b>Watch rate volatility across every facility</b> in one live view.','assets/persona-operations-v3.jpg?v=3','1','0%','0%']];
 document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];var pi=document.getElementById('pphotoimg');pi.src=p[4];pi.style.setProperty('--pz',p[5]||'1');pi.style.setProperty('--tx',p[6]||'0%');pi.style.setProperty('--ty',p[7]||'0%');pi.alt=p[0];});});
 // scroll reveal (parity with home/DW)
 (function(){
