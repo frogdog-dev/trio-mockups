@@ -609,11 +609,11 @@ function scaleHero(){
 function allScale(){scaleFrame();scaleHero();}
 addEventListener('resize',allScale); addEventListener('load',allScale); allScale();
 var PERS=[
-['Workforce & talent leaders','Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.','#00aae5','<b>Benchmark against 171K live job orders</b> before you set a single rate.','assets/persona-workforce.jpg?v=2'],
-['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#a6ce42','<b>Back every rate decision with citable, current data</b> your CFO can defend.','assets/persona-financial.jpg?v=2'],
-['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f57e20','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.','assets/persona-clinical.jpg?v=2'],
-['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#0081bb','<b>Watch rate volatility across every facility</b> in one live view.','assets/persona-operations.jpg?v=2']];
-document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];var pi=document.getElementById('pphotoimg');pi.style.display='';pi.src=p[4];});});
+['Workforce & talent leaders','Benchmark live market rates, build competitive workforce strategies, and make more confident rate decisions.','#00aae5','<b>Benchmark against 171K live job orders</b> before you set a single rate.','assets/persona-workforce.jpg?v=2','50% 18%'],
+['Finance & procurement','Complete visibility into contract labor cost variance, spot supplier premium markups, project contingent labor spend, and negotiate with confidence.','#a6ce42','<b>Back every rate decision with citable, current data</b> your CFO can defend.','assets/persona-financial.jpg?v=2','72% 30%'],
+['Clinical leaders','Proactively align staffing plans with current market conditions to avoid acute labor shortages and support patient care and clinical capacity.','#f57e20','<b>Catch rate spikes early</b> to protect staffing plans and clinical capacity.','assets/persona-clinical.jpg?v=2','66% 26%'],
+['Operations','Monitor regional workforce trends, catch early rate volatility across multi-facility networks, support expansion planning, and improve operational performance.','#0081bb','<b>Watch rate volatility across every facility</b> in one live view.','assets/persona-operations.jpg?v=2','65% 30%']];
+document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');var p=PERS[+b.dataset.p];document.getElementById('ph').textContent=p[0];document.getElementById('pp').textContent=p[1];document.getElementById('phex').style.setProperty('--pc',p[2]);document.getElementById('pstat').innerHTML=p[3];var pi=document.getElementById('pphotoimg');pi.style.display='';pi.src=p[4];pi.style.objectPosition=p[5]||'top center';});});
 // scroll reveal (parity with home/DW)
 (function(){
   document.querySelectorAll('.sec-head,.cmp-card2,.shot,.tryframe-wrap,.ppanel,.vs').forEach(function(e){e.classList.add('reveal')});
@@ -691,7 +691,7 @@ function fromEvent(e){_clearChips();var rect=bar.getBoundingClientRect();var cx=
  }
  marks.forEach(function(m,i){m.setAttribute('role','button');m.setAttribute('tabindex','0');
    m.addEventListener('mouseenter',function(){activate(i)});
-   m.addEventListener('click',function(){activate(i)});
+   m.addEventListener('click',function(){activate(i); if(cap) cap.scrollIntoView({behavior:'smooth',block:'nearest'});});
    m.addEventListener('focus',function(){activate(i)});
    m.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(i);}});
  });
