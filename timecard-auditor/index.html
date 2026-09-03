@@ -146,6 +146,76 @@ section[id]{scroll-margin-top:92px}
 @keyframes orb-settle{0%{transform:translateY(0) scale(1)}34%{transform:translateY(-5px) scale(1.04)}70%{transform:translateY(0) scale(.99)}100%{transform:translateY(0) scale(1)}}
 @media(prefers-reduced-motion:no-preference){ .hero-stage.settled .orb{animation:orb-settle .62s cubic-bezier(.34,1.25,.5,1)} }
 
+/* ============================================================================
+   FULL-SWAP DARK HERO — Courtney's top hero, tightened into our unified system.
+   Dark gradient + hex motif, breadcrumb, live pill, stat row, live auditor card
+   with the orb teammate in the header running a simple assessing cycle.
+   ============================================================================ */
+.hero-dk{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(155deg,#16212a 0%,#0f3a46 56%,#164034 100%)}
+.hero-dk .dh-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-dk .dh-bg:before{content:"";position:absolute;right:-150px;top:-140px;width:580px;height:660px;clip-path:var(--hex);border:2px solid rgba(255,255,255,.05)}
+.hero-dk .dh-bg:after{content:"";position:absolute;right:70px;top:150px;width:360px;height:410px;clip-path:var(--hex);border:2px solid rgba(0,159,199,.12)}
+.hero-dk .dh-in{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:52px;align-items:center;padding:64px 0 80px}
+.dh-crumb{font-size:12px;font-weight:700;letter-spacing:.02em;color:rgba(255,255,255,.55);margin-bottom:18px}
+.dh-crumb a{color:rgba(255,255,255,.55)} .dh-crumb a:hover{color:#fff}
+.dh-crumb b{color:rgba(255,255,255,.9);font-weight:700}
+.dh-crumb .sl{margin:0 7px;color:rgba(255,255,255,.32)}
+.dh-pill{display:inline-flex;align-items:center;gap:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:7px 8px 7px 14px;margin-bottom:26px}
+.dh-pill .pl{font-size:11.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#fff;display:inline-flex;align-items:center;gap:9px}
+.dh-pill .pl svg{width:17px;height:18px;flex:none}
+.dh-pill .pv{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-lime);background:rgba(166,206,66,.14);border-radius:999px;padding:5px 11px;display:inline-flex;align-items:center;gap:7px}
+.dh-pill .pv i{width:7px;height:7px;border-radius:50%;background:var(--brand-lime);box-shadow:0 0 0 0 rgba(166,206,66,.6);animation:pulse 2.4s ease-out infinite}
+.hero-dk h1{color:#fff;max-width:15ch;letter-spacing:-.015em}
+.dh-sub{margin-top:20px;font-size:18.5px;line-height:1.55;color:rgba(233,241,244,.82);max-width:46ch;font-weight:500}
+.dh-cta{display:flex;gap:16px;align-items:center;margin-top:30px;flex-wrap:wrap}
+.dh-ghost{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14.5px;color:#fff;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:12px 20px}
+.dh-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.dh-stats{display:flex;gap:42px;margin-top:40px;flex-wrap:wrap}
+.dh-stat b{display:block;font-family:Archivo,Inter,sans-serif;font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.dh-stat small{display:block;margin-top:7px;font-size:12.5px;font-weight:600;color:rgba(233,241,244,.62)}
+.dh-stat .c-cyan{color:var(--brand-cyan)} .dh-stat .c-org{color:var(--brand-orange)} .dh-stat .c-grn{color:var(--brand-lime)}
+.dh-illus{margin-top:15px;font-size:10.5px;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.4)}
+/* right column — live auditor card */
+.dh-stage{position:relative;z-index:2}
+.dh-card{position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.34);padding:18px 18px 4px}
+.dh-card-hd{display:flex;align-items:center;gap:14px;padding:4px 4px 16px}
+.dh-hd-tx{min-width:0}
+.dh-hd-name{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:15.5px;letter-spacing:-.01em}
+.dh-hd-live{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-lime)}
+.dh-hd-live i{width:7px;height:7px;border-radius:50%;background:var(--brand-lime);box-shadow:0 0 0 0 rgba(166,206,66,.6);animation:pulse 2.4s ease-out infinite}
+.dh-hd-act{margin-top:3px;font-size:12.5px;font-weight:700;color:var(--brand-cyan);transition:color .3s ease}
+.dh-tc{background:#fff;border-radius:13px;padding:13px 15px 5px;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.dh-tc-no{font-size:10px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.dh-tr{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;font-size:13.5px;color:var(--ink);font-weight:700}
+.dh-tr span{color:#3f5866}
+.dh-tr b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:800}
+.dh-tr+.dh-tr{border-top:1px solid var(--line)}
+.dh-tr.watched{border:1.5px solid var(--teal);border-radius:10px;margin:5px 0;padding:11px 12px;background:var(--teal-50);transition:border-color .4s ease,background-color .4s ease}
+.dh-tr.watched span{color:var(--deep);font-weight:800}
+.dh-tr.watched+.dh-tr{border-top:0}
+.dh-tr.watched[data-phase=exception],.dh-tr.watched[data-phase=routing]{border-color:var(--orange);background:var(--orange-50)}
+.dh-tr.watched[data-phase=caught]{border-color:var(--brand-redorange);background:#ffe7e0}
+.dh-badge{font-size:10.5px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap;border:1px solid transparent;transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+.dh-badge.assessing,.dh-badge.checking{color:var(--teal2);background:#fff;border-color:var(--teal-200)}
+.dh-badge.exception,.dh-badge.routing{color:var(--orange-700);background:#fff;border-color:var(--orange-300)}
+.dh-badge.caught{color:#fff;background:var(--brand-redorange);border-color:var(--brand-redorange)}
+.dh-card-ft{display:flex;align-items:center;gap:12px;padding:14px 6px 12px;font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.dh-card-ft .dh-track{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,159,199,.5),rgba(166,206,66,.5))}
+.dh-run{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:12px;font-weight:600;color:rgba(233,241,244,.78);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:9px 15px}
+.dh-run i{width:8px;height:8px;border-radius:50%;background:var(--brand-lime);flex:none}
+.orb .odot{position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:9px;height:9px;border-radius:50%;background:var(--brand-orange);z-index:3;box-shadow:0 0 0 2px rgba(245,130,32,.25)}
+.hero-dk .orb{--s:52px}
+/* keep the bot teal on alert (faithful to Courtney's teal bot); the redorange halo + orange crown carry the alarm */
+.hero-dk .orb[data-state=attention]{--orbColor:var(--teal)}
+@media(prefers-reduced-motion:no-preference){ .hero-dk.settled .orb{animation:orb-settle .62s cubic-bezier(.34,1.25,.5,1)} }
+@media(max-width:900px){
+  .hero-dk .dh-in{grid-template-columns:1fr;gap:34px;padding:40px 0 52px}
+  .dh-stats{gap:24px 30px}
+  .dh-stat b{font-size:27px}
+  .hero-dk h1{max-width:none}
+  .dh-sub{font-size:16.5px}
+}
+
 /* ---------- HERO narrative layer: tab bar, watched-row cycle, scoped review modal, payoff ---------- */
 /* tab bar (All / Ready for Review / Failed) — active advances with the story */
 .ap-tabs{display:flex;gap:6px;padding:9px 16px;border-bottom:1px solid var(--line);background:#fff}
@@ -458,73 +528,55 @@ section[id]{scroll-margin-top:92px}
 </header>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <div class="wrap hero-in">
-    <div>
-      <span class="subhook"><span class="gd"></span>A pre-pay gate, not a post-pay audit</span>
+<section class="hero-dk" id="top">
+  <div class="dh-bg" aria-hidden="true"></div>
+  <div class="wrap dh-in">
+    <div class="dh-copy">
+      <div class="dh-crumb"><a href="https://www.triowfs.com/digital-workers/">Digital Workers</a><span class="sl">/</span><b>Timecard Auditor</b></div>
+      <span class="dh-pill">
+        <span class="pl"><svg viewBox="0 0 100 105" fill="none" aria-hidden="true"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="7" stroke-linejoin="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="7" stroke-linejoin="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="7" stroke-linejoin="round"/></svg>Trio Digital Worker</span>
+        <span class="pv"><i></i>Live in production</span>
+      </span>
       <h1>Every timecard, audited before the spend clears.</h1>
-      <p class="sub">The Timecard Auditor reviews every time and expense submission against your contracted rates, differentials, and overtime rules, flagging out-of-policy charges before they hit payroll and surfacing only the exceptions that need a person.</p>
-      <div class="hero-cta">
+      <p class="dh-sub">The Timecard Auditor reviews every time and expense submission against your contracted rates, differentials, and overtime rules, flagging out-of-policy charges before they hit payroll and surfacing only the exceptions that need a person.</p>
+      <div class="dh-cta">
         <a class="btn btn-primary btn-lg" href="#demo">Request a demo</a>
-        <a class="arrow-link" href="#see">See how it works &darr;</a>
+        <a class="dh-ghost" href="#see">See how it works &rarr;</a>
       </div>
+      <div class="dh-stats">
+        <div class="dh-stat"><b class="c-cyan">$2M+</b><small>verified savings</small></div>
+        <div class="dh-stat"><b class="c-org">$291K</b><small>caught before payment</small></div>
+        <div class="dh-stat"><b class="c-grn">~8 min</b><small>to audit a full timecard</small></div>
+      </div>
+      <div class="dh-illus">Illustrative figures, pending marketing sign-off.</div>
     </div>
-    <div class="hero-stage" id="heroStage">
-      <div class="ghosthex" aria-hidden="true"></div>
-      <div class="hero-tags" aria-hidden="true"><span class="fl">&#9873;</span>Flagged before payout</div>
-      <div class="auditor" aria-hidden="true">
-        <div class="orb" id="auditorOrb" data-state="running">
-          <span class="halo"></span>
-          <span class="orbit"><i></i><i></i><i></i></span>
-          <span class="think"><i></i><i></i><i></i></span>
-          <span class="head"></span>
-          <span class="brow l"></span><span class="brow r"></span>
-          <span class="eye l"></span><span class="eye r"></span>
-        </div>
-        <span class="label">Timecard Auditor<span>On watch</span></span>
-      </div>
-      <div class="ap" role="img" aria-label="Trio VMS accounts-payable inbox: the Timecard Auditor assesses a submission, flags an out-of-policy overtime charge, routes it to a reviewer, and it is declined before the spend clears">
-        <div class="ap-top"><svg class="tmark" viewBox="0 0 100 105" fill="none" aria-hidden="true"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/></svg><div><b>Trio VMS</b> <span class="crumb">Accounts Payable &middot; Timecard review</span></div><span class="ct"><span class="dot"></span>Auditing</span></div>
-        <div class="ap-tabs" aria-hidden="true">
-          <span class="ap-tab on" id="hTab0">All</span>
-          <span class="ap-tab" id="hTab1">Ready for Review</span>
-          <span class="ap-tab" id="hTab2">Failed</span>
-        </div>
-        <div class="ap-row ok"><span class="rk ok">&#10003;</span><div class="who"><b>Registered Nurse &middot; Regular</b><span>36.0 hrs &middot; Memorial &middot; Node Staffing</span></div><div class="amt"><span class="ramt">$3,744.00</span><small>Cleared</small></div></div>
-        <div class="ap-row watched" id="hRow" data-phase="assessing"><span class="rk" id="hRk" style="background:var(--teal)"><i class="rkdot"></i></span><div class="who"><b>Registered Nurse &middot; Overtime</b><span>4.0 hrs OT &middot; 6/15 &middot; no approval on file</span></div><div class="amt"><span class="ramt">$624.00</span><span class="rpill assessing" id="hPill">Assessing</span></div></div>
-        <div class="ap-row ok"><span class="rk ok">&#10003;</span><div class="who"><b>Surgical Tech &middot; Night differential</b><span>12.0 hrs &middot; Weekend &middot; St. Vincent</span></div><div class="amt"><span class="ramt">$1,014.00</span><small>Cleared</small></div></div>
-        <div class="ap-cap"><i>SAMPLE</i>Illustrative inbox, not a live account.</div>
-        <!-- scoped Timecard Review modal (the human decision) -->
-        <div class="ap-scrim" id="hScrim" aria-hidden="true"></div>
-        <div class="ap-modal" id="hModal" aria-hidden="true">
-          <div class="mhd"><div><div class="mno">Timecard #56977</div><h4>Timecard Review</h4></div><span class="mpill ndr" id="hMPill">Needs Further Review</span></div>
-          <div class="msteps-h">Steps performed</div>
-          <div class="msteps">
-            <span class="mstep ok"><span class="mc">&#10003;</span>Timesheets</span>
-            <span class="mstep ok"><span class="mc">&#10003;</span>Expenses General</span>
-            <span class="mstep bad"><span class="mc">&#10007;</span>Overtime Policy</span>
-            <span class="mstep ok"><span class="mc">&#10003;</span>Ground Transport</span>
+    <div class="dh-stage">
+      <div class="dh-card" role="img" aria-label="Live view of the Timecard Auditor inside the Trio VMS accounts-payable queue: it assesses a submitted timecard, checks it against overtime rules, and flags an out-of-policy overtime charge before it reaches payroll.">
+        <div class="dh-card-hd">
+          <div class="orb" id="hOrb" data-state="running" aria-hidden="true">
+            <span class="odot"></span>
+            <span class="halo"></span>
+            <span class="orbit"><i></i><i></i><i></i></span>
+            <span class="think"><i></i><i></i><i></i></span>
+            <span class="head"></span>
+            <span class="brow l"></span><span class="brow r"></span>
+            <span class="eye l"></span><span class="eye r"></span>
           </div>
-          <div class="mcall"><b>Overtime_Policy</b><p>4.0 hrs OT billed 6/15 &middot; no prior supervisor approval &middot; policy #4.2.</p></div>
-          <div class="mbtns"><span class="mbtn decline">&#10007; Decline</span><span class="mbtn approve">Approve</span></div>
+          <div class="dh-hd-tx">
+            <div class="dh-hd-name">Timecard Auditor <span class="dh-hd-live"><i></i>Live</span></div>
+            <div class="dh-hd-act" id="hAct">Assessing submission</div>
+          </div>
         </div>
-        <!-- compact payoff ribbon -->
-        <div class="ap-payoff" id="hPayoff" aria-hidden="true">
-          <span class="pc">&#10003;</span>
-          <span class="ptx">Caught before it cleared.<br><span style="font-weight:600;color:var(--muted);font-size:10.5px">$624 overtime never paid out</span></span>
-          <span class="ptag">Illustrative</span>
-          <span class="pstats"><span class="s1"><b>$291K</b><small>caught pre-pay</small></span><span class="s2"><b>$2M+</b><small>savings modeled</small></span></span>
+        <div class="dh-tc">
+          <div class="dh-tc-no">Timecard #48213</div>
+          <div class="dh-tr"><span>Shift &middot; Aug 12</span><b>8.0h</b></div>
+          <div class="dh-tr"><span>Shift &middot; Aug 14</span><b>12.5h</b></div>
+          <div class="dh-tr watched" id="hOT" data-phase="assessing"><span>Overtime &middot; Aug 15</span><span class="dh-badge assessing" id="hBadge">Assessing</span></div>
+          <div class="dh-tr"><span>Shift &middot; Aug 18</span><b>8.0h</b></div>
         </div>
+        <div class="dh-card-ft"><span>Autonomous</span><span class="dh-track"></span><span>Human-reviewed</span></div>
       </div>
-      <div class="scan" aria-hidden="true"></div>
-    </div>
-  </div>
-  <div class="wrap hero-captions" aria-hidden="true">
-    <div class="capstrip">
-      <div class="capitem on" id="hCap0"><span class="cdot"></span><span class="ctxt">Assesses every submission</span></div>
-      <div class="capitem" id="hCap1"><span class="cdot"></span><span class="ctxt">Flags what breaks policy</span></div>
-      <div class="capitem" id="hCap2"><span class="cdot"></span><span class="ctxt">Routes only the exception to a person</span></div>
-      <div class="capitem" id="hCap3"><span class="cdot"></span><span class="ctxt">A person declines it, it never clears</span></div>
+      <div class="dh-run"><i></i>Running live inside Trio VMS, auditing time &amp; expense across the supplier panel.</div>
     </div>
   </div>
 </section>
@@ -864,77 +916,42 @@ addEventListener('load',threadAll); addEventListener('resize',threadAll); setTim
   document.querySelectorAll('.reveal,.stagger').forEach(function(e){io.observe(e);});
 })();
 
-// hero scan-line whimsy trigger (on load, once)
-addEventListener('load',function(){ var s=document.getElementById('heroStage'); if(s) s.classList.add('play'); });
-
-// hero narrative — ONE shared step index drives the orb teammate, the watched-row
-// badge, the tab bar, the scoped review modal, the caption strip and the payoff, in
-// sync. Her 6-beat arc: assess -> check -> flag -> route (modal) -> decline -> caught.
-// Reduced motion falls back to the fully resolved "caught" frame (whole story, no
-// motion); the loop pauses when the hero scrolls out of view.
+// hero: the live Timecard Auditor card — a simple assessing cycle (orb teammate in
+// the header + the watched Overtime row), matching Courtney's top-hero treatment.
+// Reduced motion rests on the resolved "caught" frame; the loop pauses off-screen.
 (function(){
-  var stage=document.getElementById('heroStage'); if(!stage) return;
-  var orb=document.getElementById('auditorOrb'),
-      row=document.getElementById('hRow'), pill=document.getElementById('hPill'), rk=document.getElementById('hRk'),
-      tabs=[document.getElementById('hTab0'),document.getElementById('hTab1'),document.getElementById('hTab2')],
-      caps=[document.getElementById('hCap0'),document.getElementById('hCap1'),document.getElementById('hCap2'),document.getElementById('hCap3')],
-      scrim=document.getElementById('hScrim'), modal=document.getElementById('hModal'), mPill=document.getElementById('hMPill'),
-      payoff=document.getElementById('hPayoff'),
+  var sec=document.getElementById('top'); if(!sec) return;
+  var orb=document.getElementById('hOrb'),
+      act=document.getElementById('hAct'),
+      row=document.getElementById('hOT'),
+      badge=document.getElementById('hBadge'),
       reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var DOT='<i class="rkdot"></i>';
-  // phase, badge label+class, orb state, active tab, active caption, row-key glyph+color, optional modal/payoff
   var beats=[
-    {phase:'assessing',pill:'Assessing',orb:'running',   tab:0,cap:0,rk:DOT,       rkbg:'var(--teal)'},
-    {phase:'checking', pill:'Checking OT rules',orb:'thinking',tab:0,cap:0,rk:DOT,  rkbg:'var(--teal)'},
-    {phase:'exception',pill:'⚑ Exception',orb:'attention',tab:0,cap:1,rk:'⚑',rkbg:'var(--orange)'},
-    {phase:'routing',  pill:'→ Reviewer',orb:'attention',tab:1,cap:2,rk:'⚑',rkbg:'var(--orange)',modal:'ndr'},
-    {phase:'declined', pill:'✗ Declined',orb:'attention',tab:2,cap:3,rk:'✗',rkbg:'var(--brand-redorange)',modal:'dec'},
-    {phase:'blocked',  pill:'⛔ Blocked',orb:'resolved',  tab:2,cap:3,rk:'✗',rkbg:'var(--brand-redorange)',payoff:true}
+    {act:'Assessing submission',    badge:'Assessing',   cls:'assessing', phase:'assessing', orb:'running'},
+    {act:'Checking overtime rules', badge:'Checking',    cls:'checking',  phase:'checking',  orb:'thinking'},
+    {act:'Flagging exception',      badge:'&#9873; Exception', cls:'exception', phase:'exception', orb:'attention'},
+    {act:'Routing to a person',     badge:'&rarr; Reviewer',   cls:'routing',   phase:'routing',   orb:'attention'},
+    {act:'Caught before payout',    badge:'&#10007; Caught',   cls:'caught',    phase:'caught',    orb:'resolved'}
   ];
-  // held decline + a long dwell on the caught payoff (the CFO's beat); quick pre-amble
-  var dur=[2000,2000,2300,2500,3000,4200];
-  var st=[];
-  function clearSt(){ st.forEach(clearTimeout); st=[]; }
-  function apply(n,instant){
-    clearSt();
+  var dur=[2200,2200,2400,2400,3400];
+  function apply(n){
     var b=beats[n];
-    // the orb leads — she notices first — then the row flags, the caption catches up, the review resolves
     orb.setAttribute('data-state',b.orb);
-    stage.classList.toggle('alerted',b.orb==='attention');
-    stage.classList.toggle('settled',b.orb==='resolved');
-    tabs.forEach(function(el,ti){ if(el) el.classList.toggle('on',ti===b.tab); });
-    var setRow=function(){
-      row.setAttribute('data-phase',b.phase);
-      pill.className='rpill '+b.phase; pill.innerHTML=b.pill;
-      rk.innerHTML=b.rk; rk.style.background=b.rkbg;
-    };
-    var setCap=function(){ caps.forEach(function(el,ci){ if(el) el.classList.toggle('on',ci===b.cap); }); };
-    var setModal=function(){
-      if(b.modal){ scrim.classList.add('show'); modal.classList.add('show');
-        mPill.className='mpill '+b.modal; mPill.innerHTML=(b.modal==='dec'?'Declined':'Needs Further Review');
-        modal.classList.toggle('decided',b.modal==='dec');
-      } else { scrim.classList.remove('show'); modal.classList.remove('show'); }
-    };
-    var setPayoff=function(){ payoff.classList.toggle('show',!!b.payoff); };
-    if(instant){ setRow(); setCap(); setModal(); setPayoff(); return; }
-    st.push(setTimeout(setRow,160));
-    st.push(setTimeout(setCap,320));
-    st.push(setTimeout(setModal,220));
-    // the proud settle reads first, then the payoff ribbon rewards it
-    st.push(setTimeout(setPayoff, b.payoff?300:0));
+    sec.classList.toggle('settled',b.orb==='resolved');
+    act.textContent=b.act;
+    row.setAttribute('data-phase',b.phase);
+    badge.className='dh-badge '+b.cls; badge.innerHTML=b.badge;
   }
-  if(reduce){ apply(beats.length-1,true); return; } // rest on the resolved "caught" frame — tells the whole story with no motion
-  var i=0,t=null,paused=false;
-  function play(){ if(paused) return; apply(i); t=setTimeout(function(){ i=(i+1)%beats.length; play(); }, dur[i]); }
-  // capture/debug hook: pin a specific beat and hold it (unused at runtime)
-  window.__heroDrive=function(n){ paused=true; clearTimeout(t); t=null; apply(n,true); };
+  if(reduce){ apply(beats.length-1); return; }
+  var i=0,t=null;
+  function play(){ apply(i); t=setTimeout(function(){ i=(i+1)%beats.length; play(); }, dur[i]); }
+  window.__heroDrive=function(n){ clearTimeout(t); t=null; apply(n); };
   window.__heroBeats=beats.length;
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(x){
-      if(x.isIntersecting){ if(t===null) play(); }
-      else { clearTimeout(t); t=null; }
-    });},{threshold:.15});
-    io.observe(stage);
+      if(x.isIntersecting){ if(t===null) play(); } else { clearTimeout(t); t=null; }
+    });},{threshold:.12});
+    io.observe(sec);
   } else { play(); }
 })();
 </script>
