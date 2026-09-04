@@ -402,9 +402,9 @@ section[id]{scroll-margin-top:92px}
 .fnode{position:relative;z-index:2;background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:var(--soft);text-align:center;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
 .fnode:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .fhex{position:relative;z-index:4;width:62px;height:70px;clip-path:var(--hex);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:20px;box-shadow:0 14px 30px rgba(19,45,57,.2)}
-.fnode:nth-child(1) .fhex{background:linear-gradient(150deg,var(--teal),#0f6f89)}
-.fnode:nth-child(2) .fhex{background:linear-gradient(150deg,var(--green-500),var(--green-700))}
-.fnode:nth-child(3) .fhex{background:linear-gradient(150deg,var(--orange),#c94812)}
+.fnode:nth-of-type(1) .fhex{background:linear-gradient(150deg,var(--teal),#0f6f89)}
+.fnode:nth-of-type(2) .fhex{background:linear-gradient(150deg,var(--green-500),var(--green-700))}
+.fnode:nth-of-type(3) .fhex{background:linear-gradient(150deg,var(--orange),#c94812)}
 .fnode h3{font-size:20px;letter-spacing:-.015em}
 .fnode p{color:var(--muted);font-size:15px;margin-top:9px;line-height:1.55}
 .flowclose{text-align:center;margin-top:56px;font-size:20px;font-weight:800;color:var(--deep)}
@@ -683,8 +683,8 @@ section[id]{scroll-margin-top:92px}
     </div>
     <div class="flow" id="flow">
       <svg class="flowline" id="flowline" aria-hidden="true"><path d=""/></svg>
-      <div class="fnode"><div class="fhex">01</div><h3>Given the billing rulebook</h3><p>The Auditor is configured with your contracts, rate cards, and facility-level policies &mdash; the handbook it audits every submission against.</p></div>
-      <div class="fnode"><div class="fhex">02</div><h3>Audits every submission</h3><p>It validates each timecard and expense line against those rules the moment it lands &mdash; consistently, on every one of them, in minutes.</p></div>
+      <div class="fnode"><div class="fhex">01</div><h3>Given the billing rulebook</h3><p>The Auditor is configured with your contracts, rate cards, and facility-level policies, the handbook it audits every submission against.</p></div>
+      <div class="fnode"><div class="fhex">02</div><h3>Audits every submission</h3><p>It validates each timecard and expense line against those rules the moment it lands, consistently, on every one of them, in minutes.</p></div>
       <div class="fnode"><div class="fhex">03</div><h3>Surfaces only the exceptions</h3><p>Clean cards pass through; out-of-policy charges are flagged and routed to a reviewer, who keeps the final word on every decision.</p></div>
     </div>
     <div class="flowclose">A job you define. Rules you set. Decisions that stay human.</div>
