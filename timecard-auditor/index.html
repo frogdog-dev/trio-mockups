@@ -11,6 +11,16 @@
 *{box-sizing:border-box;margin:0;padding:0}
 section[id]{scroll-margin-top:92px}
 
+/* ============================================================================
+   COURTNEY REDLINE 2026-09-09 — global overrides
+   #40 remove eyebrow dash everywhere · #36 remove decorative hash/dot texture ·
+   #50 remove ghost/decorative background hexagons.
+   ============================================================================ */
+.eyebrow:before{display:none!important}.eyebrow{gap:0!important}           /* #40 */
+.sec.tex:before{display:none!important}                                    /* #36 */
+.hero-dk .dh-bg:before,.hero-dk .dh-bg:after,
+.cta-band .ctahex,.cta-band:after{display:none!important}                  /* #50 */
+
 /* flat-top hex badge (2-char labels stay clear of vertices) */
 .hexbadge{width:54px;height:50px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;line-height:1;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
 .pending{display:inline-block;margin-left:10px;font-size:11px;font-weight:700;color:#a9761c;background:rgba(245,130,32,.12);border:1px dashed rgba(245,130,32,.4);border-radius:999px;padding:3px 10px;vertical-align:middle}
@@ -216,6 +226,43 @@ section[id]{scroll-margin-top:92px}
   .dh-sub{font-size:16.5px}
 }
 
+/* ============================================================================
+   REDLINE #35 / #34 — hero widget reimagined as the TOTAL audit process
+   (a live end-to-end pipeline, not a duplicate of the See-it-Work inbox).
+   No orb/emoticon (#34); header block left-justified.
+   ============================================================================ */
+.dh-hd-sub{margin-top:3px;font-size:12.5px;font-weight:600;color:rgba(233,241,244,.62)}
+.dh-cycle{display:inline-flex;align-items:center;gap:7px;margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-lime)}
+.dh-cycle i{width:7px;height:7px;border-radius:50%;background:var(--brand-lime);box-shadow:0 0 0 0 rgba(166,206,66,.6);animation:pulse 2.4s ease-out infinite}
+.dh-pipe{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:13px;padding:6px 16px;margin-top:4px}
+.dh-pipe:before{content:"";position:absolute;left:34px;top:34px;bottom:34px;width:2px;border-radius:2px;z-index:0;
+  background:linear-gradient(180deg,var(--brand-cyan),var(--brand-green) 46%,var(--brand-orange))}
+.pstage{position:relative;z-index:1;display:grid;grid-template-columns:36px 1fr auto;gap:14px;align-items:center;padding:13px 0}
+.pstage+.pstage{border-top:1px solid rgba(255,255,255,.07)}
+.pstage .ph{width:36px;height:40px;clip-path:var(--hex);display:flex;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.pstage .ph svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pstage .pl{min-width:0}
+.pstage .pl b{display:block;color:#fff;font-size:13.5px;font-weight:700;letter-spacing:-.01em}
+.pstage .pl span{display:block;color:rgba(233,241,244,.6);font-size:11px;font-weight:600;margin-top:2px}
+.pstage .pm{text-align:right;font-family:Archivo,Inter,sans-serif;font-variant-numeric:tabular-nums;font-weight:800;font-size:19px;line-height:1;letter-spacing:-.01em;white-space:nowrap}
+.pstage .pm small{display:block;font-family:Inter,sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:rgba(233,241,244,.5);margin-top:5px}
+.pstage.s1 .ph{background:linear-gradient(150deg,var(--brand-cyan),var(--brand-blue))}.pstage.s1 .pm{color:var(--brand-cyan)}
+.pstage.s2 .ph{background:linear-gradient(150deg,var(--brand-cyan),var(--brand-blue))}.pstage.s2 .pm{color:#7fd4ee}
+.pstage.s3 .ph{background:linear-gradient(150deg,var(--brand-lime),var(--brand-green))}.pstage.s3 .pm{color:var(--brand-lime)}
+.pstage.s4 .ph{background:linear-gradient(150deg,var(--brand-orange),var(--brand-redorange))}.pstage.s4 .pm{color:var(--brand-orange)}
+.pstage.s2 .ph{position:relative}
+.pstage.s2 .ph:after{content:"";position:absolute;inset:-4px;clip-path:var(--hex);border:1.5px solid rgba(0,170,229,.5)}
+@media(prefers-reduced-motion:no-preference){.pstage.s2 .ph:after{animation:phpulse 2.6s ease-out infinite}}
+@keyframes phpulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.28);opacity:0}}
+.dh-payoffbar{display:flex;align-items:center;gap:11px;margin-top:14px;padding:13px 15px;border-radius:12px;background:rgba(240,85,35,.12);border:1px solid rgba(245,130,32,.34)}
+.dh-payoffbar .pc{width:26px;height:26px;flex:none;border-radius:50%;background:var(--brand-orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+.dh-payoffbar b{color:#fff;font-size:13px;font-weight:800;white-space:nowrap}
+.dh-payoffbar span{color:rgba(233,241,244,.72);font-size:12px;font-weight:600}
+.dh-payoffbar .pf{margin-left:auto;font-family:Archivo,Inter,sans-serif;font-variant-numeric:tabular-nums;font-weight:800;font-size:20px;color:var(--brand-orange);white-space:nowrap}
+@keyframes pfpop{0%{transform:scale(.92);opacity:.35}60%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+.dh-payoffbar .pf.pop{animation:pfpop .5s cubic-bezier(.2,.7,.2,1)}
+@media(max-width:900px){.dh-payoffbar{flex-wrap:wrap}.dh-payoffbar .pf{margin-left:0}}
+
 /* ---------- HERO narrative layer: tab bar, watched-row cycle, scoped review modal, payoff ---------- */
 /* tab bar (All / Ready for Review / Failed), active advances with the story */
 .ap-tabs{display:flex;gap:6px;padding:9px 16px;border-bottom:1px solid var(--line);background:#fff}
@@ -296,7 +343,8 @@ section[id]{scroll-margin-top:92px}
 @media(max-width:720px){.capstrip{grid-template-columns:1fr 1fr;gap:16px 14px}.capstrip:before{display:none}.hero-captions{padding-bottom:42px}}
 
 /* ---------- PROBLEM, editorial leak list ---------- */
-.leadpara{font-size:clamp(19px,2.1vw,23px);line-height:1.5;color:var(--ink);font-weight:500;max-width:40ch;margin-top:18px}
+/* #38 — normalized to our standard lead size (was clamp 19-23px) */
+.leadpara{font-size:clamp(18px,2vw,21px);line-height:1.5;color:var(--ink);font-weight:500;max-width:44ch;margin-top:18px}
 .leadpara b{color:var(--deep);font-weight:800}
 .leak{margin-top:8px;border-top:1px solid var(--line)}
 .leakrow{display:grid;grid-template-columns:78px 1fr;gap:22px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line)}
@@ -336,15 +384,68 @@ section[id]{scroll-margin-top:92px}
 
 /* ---------- SEE IT WORK, live demo (STAR) ---------- */
 .see{background:linear-gradient(180deg,var(--mist),#fff)}
-.demo-lead{max-width:none}
-.demo-lead .eyebrow{margin-bottom:14px}
-/* mid-page display climax, the four verbs colored to the rail's own teal->green->amber->orange march */
-.demo-lead h2{font-family:Archivo,Inter,sans-serif;font-size:clamp(40px,6vw,72px);font-weight:900;line-height:1.0;letter-spacing:-.035em;max-width:none}
-.demo-lead h2 .v1{color:var(--teal)}
-.demo-lead h2 .v2{color:var(--green-600)}
-.demo-lead h2 .v3{color:var(--amber-600)}
-.demo-lead h2 .v4{color:var(--orange-500)}
-.demo-lead .lead{margin-top:16px;max-width:58ch}
+/* #41 — headline normalized to our standard navy H2 (site.css defaults); section centered like the lifted storyboard */
+.demo-lead{max-width:none;text-align:center}
+.demo-lead .eyebrow{justify-content:center;margin-bottom:14px}
+.demo-lead h2{margin-left:auto;margin-right:auto;max-width:24ch}
+.demo-lead .lead{margin:16px auto 0;max-width:62ch}
+
+/* ============================================================================
+   #42 — See-it-Work rebuilt from Courtney's Claude storyboard: a product-real
+   A/P inbox TABLE auditing a cycle live (replaces the prior 2-column demo).
+   Reuses the shared .rpill status pills and the scoped .ap-scrim/.ap-modal.
+   ============================================================================ */
+.swwrap{max-width:1000px;margin:42px auto 0}
+.swframe{background:var(--mist2);border:1px solid var(--line);border-radius:20px;padding:24px}
+.swtop{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.apx{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:#fff}
+.apx-nav{display:flex;align-items:center;gap:24px;padding:13px 22px;background:linear-gradient(150deg,var(--deep),var(--navy))}
+.apx-nav .tmark{width:20px;height:21px;flex:none}
+.apx-nav .tabs{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.apx-nav .tabs .on{color:#fff;position:relative}
+.apx-nav .tabs .on:after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:2px;background:var(--brand-cyan)}
+.apx-body{padding:18px 22px 22px}
+.apx-title{font-size:14.5px;font-weight:800;color:var(--deep)}
+.apx-title span{font-weight:500;color:var(--muted)}
+.apx-filters{display:flex;gap:8px;margin:14px 0 4px}
+.apx-filter{padding:5px 12px;border-radius:999px;font-size:11px;font-weight:800;background:var(--mist);color:var(--muted);cursor:default;user-select:none;transition:background-color .4s ease,color .4s ease,box-shadow .4s ease}
+.apx-filter.on{background:var(--teal-50);color:var(--teal2);box-shadow:inset 0 0 0 1px var(--teal-200)}
+.apxrow{display:grid;grid-template-columns:.85fr 1.75fr 1.05fr .95fr;gap:0;align-items:center;padding:14px 12px}
+.apx-hrow{font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);padding:11px 12px}
+.apx-drow{border-bottom:1px solid var(--line);font-size:13.5px;color:#3f5866}
+.apx-drow:last-of-type{border-bottom:0}
+.apx-drow .inv{font-weight:700;color:var(--ink)}
+.apx-drow.watched{background:var(--teal-50);transition:background-color .5s ease;position:relative}
+.apx-drow.watched:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal);transition:background-color .5s ease}
+.apx-drow.watched .inv,.apx-drow.watched .cli{color:var(--deep);font-weight:800}
+.apx-drow.watched[data-phase=exception],.apx-drow.watched[data-phase=routing]{background:var(--orange-50)}
+.apx-drow.watched[data-phase=exception]:before,.apx-drow.watched[data-phase=routing]:before{background:var(--orange)}
+.apx-drow.watched[data-phase=blocked]{background:#ffe7e0}
+.apx-drow.watched[data-phase=blocked]:before{background:var(--brand-redorange)}
+.apx-st{display:inline-flex;width:fit-content;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
+.apx-st.sub{background:var(--mist);color:var(--muted)}
+.apx-st.pass{background:var(--green-50);color:var(--green-700)}
+.apx-st.fail{background:var(--orange-100);color:var(--orange-700)}
+.blockbar{display:flex;align-items:center;gap:11px;padding:12px 14px;background:#ffe7e0;border-bottom:1px solid var(--line);overflow:hidden;max-height:0;padding-top:0;padding-bottom:0;opacity:0;transition:max-height .45s ease,opacity .4s ease,padding .45s ease}
+.blockbar.show{max-height:60px;padding-top:12px;padding-bottom:12px;opacity:1}
+.blockbar .bc{width:24px;height:24px;flex:none;border-radius:50%;background:var(--brand-redorange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900}
+.blockbar b{font-size:12.5px;font-weight:800;color:#992f00}
+.apx-caps{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:26px}
+.apx-cap{display:flex;flex-direction:column;align-items:center;gap:9px;max-width:150px;text-align:center}
+.apx-cap .cd{width:11px;height:11px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px var(--n-300);transition:background-color .4s ease,box-shadow .4s ease}
+.apx-cap .ct{font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.3;transition:color .4s ease}
+.apx-cap.on .cd{background:var(--teal);box-shadow:inset 0 0 0 2px var(--teal),0 0 0 4px var(--teal-100)}
+.apx-cap.on.warn .cd{background:var(--orange);box-shadow:inset 0 0 0 2px var(--orange),0 0 0 4px var(--orange-100)}
+.apx-cap.on.danger .cd{background:var(--brand-redorange);box-shadow:inset 0 0 0 2px var(--brand-redorange),0 0 0 4px #ffe0d7}
+.apx-cap.on .ct{color:var(--deep);font-weight:800}
+.sw-cta{text-align:center;margin-top:34px}
+@media(prefers-reduced-motion:reduce){.apx-drow.watched,.apx-drow.watched:before,.apx-filter,.blockbar,.apx-cap .cd,.apx-cap .ct,.ap-scrim,.ap-modal{transition:none}}
+@media(max-width:640px){
+  .apx-nav .tabs{gap:14px;font-size:10px}
+  .apxrow{grid-template-columns:.8fr 1.7fr 1fr;font-size:12.5px}
+  .apx-hrow .sp,.apx-drow .sp{display:none}   /* drop Specialty column on phones */
+  .apx-caps{gap:16px 20px}
+}
 .demowrap{margin-top:40px;display:grid;grid-template-columns:1.12fr .88fr;gap:26px;align-items:start}
 .demo-panel{position:relative}
 .demo-cue{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;color:var(--teal2);background:#fff;border:1px solid var(--teal-200);border-radius:999px;padding:8px 15px;box-shadow:var(--soft)}
@@ -396,15 +497,17 @@ section[id]{scroll-margin-top:92px}
 
 /* ---------- HOW IT WORKS, threaded 3-node flow ---------- */
 .flow{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
-.flowline{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:3;pointer-events:none}
-.flowline path{fill:none;stroke:rgba(0,159,199,.5);stroke-width:2.5;stroke-dasharray:6 7;animation:march 3.4s linear infinite}
+/* #44 — connector line sits BEHIND the cards (mirrors the maturity climbline) and uses brand colors (blue -> green -> orange gradient) */
+.flowline{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:0;pointer-events:none}
+.flowline path{fill:none;stroke:url(#flowgrad);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
 @keyframes march{to{stroke-dashoffset:-26}}
 .fnode{position:relative;z-index:2;background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:var(--soft);text-align:center;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
 .fnode:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .fhex{position:relative;z-index:4;width:62px;height:70px;clip-path:var(--hex);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:20px;box-shadow:0 14px 30px rgba(19,45,57,.2)}
-.fnode:nth-of-type(1) .fhex{background:linear-gradient(150deg,var(--teal),#0f6f89)}
-.fnode:nth-of-type(2) .fhex{background:linear-gradient(150deg,var(--green-500),var(--green-700))}
-.fnode:nth-of-type(3) .fhex{background:linear-gradient(150deg,var(--orange),#c94812)}
+/* #39 — bright + dark versions of the brand blue, green and orange from the guide */
+.fnode:nth-of-type(1) .fhex{background:linear-gradient(150deg,var(--brand-cyan),var(--brand-blue))}
+.fnode:nth-of-type(2) .fhex{background:linear-gradient(150deg,var(--brand-lime),var(--brand-green))}
+.fnode:nth-of-type(3) .fhex{background:linear-gradient(150deg,var(--brand-orange),var(--brand-redorange))}
 .fnode h3{font-size:20px;letter-spacing:-.015em}
 .fnode p{color:var(--muted);font-size:15px;margin-top:9px;line-height:1.55}
 .flowclose{text-align:center;margin-top:56px;font-size:20px;font-weight:800;color:var(--deep)}
@@ -425,6 +528,35 @@ section[id]{scroll-margin-top:92px}
 .ocard p{color:#aecadf;font-size:14.5px;margin-top:8px;line-height:1.55}
 @media(max-width:960px){.ochange{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.ochange{grid-template-columns:1fr}}
+
+/* #46 — case-study proof card (source of the $2M / $291K figures) + quote placeholder */
+.casestudy{position:relative;z-index:2;margin-top:54px;display:grid;grid-template-columns:1.45fr 1fr;gap:0;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);backdrop-filter:blur(6px)}
+.casestudy .cs-main{padding:36px 38px}
+.cs-ey{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-lime);display:inline-flex;align-items:center;gap:10px}
+.cs-ey svg{width:18px;height:19px;flex:none}
+.casestudy p.cs-body{margin-top:16px;font-size:clamp(17px,1.7vw,20.5px);line-height:1.5;color:#eef5f9;font-weight:500;max-width:52ch}
+.casestudy p.cs-body b{color:#fff;font-weight:800}
+.casestudy .cs-quote{background:rgba(255,255,255,.05);border-left:3px solid var(--brand-cyan);padding:32px 32px;display:flex;flex-direction:column;justify-content:center}
+.casestudy blockquote{font-family:Archivo,Inter,sans-serif;font-size:18px;line-height:1.45;color:#dfeaf1;font-weight:600;letter-spacing:-.01em}
+.casestudy .cs-mk{font-size:40px;line-height:.7;margin-bottom:2px;color:var(--brand-cyan);font-family:Archivo,Inter,sans-serif}
+.casestudy .cs-by{margin-top:18px;font-size:12.5px;font-weight:700;color:#bcd3df}
+.casestudy .cs-by span{display:block;font-weight:600;color:#8fb0c0;margin-top:2px}
+@media(max-width:820px){.casestudy{grid-template-columns:1fr}.casestudy .cs-quote{border-left:0;border-top:1px solid rgba(255,255,255,.12)}}
+
+/* ---------- BUILT ON TRUST — #47: 3-principles card grid lifted from the Applied AI page treatment ---------- */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+.pcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--soft);padding:32px 28px 28px;overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.pcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.pcard:before{content:"";position:absolute;top:0;left:0;right:0;height:5px}
+.pcard .phx{width:56px;height:62px;clip-path:var(--hex);display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:20px;box-shadow:0 12px 26px rgba(19,45,57,.18)}
+.pcard .phx svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pcard h3{font-size:20px;letter-spacing:-.01em}
+.pcard p{color:var(--muted);font-size:15px;margin-top:10px;line-height:1.55}
+.pcard .pst{margin-top:18px;display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--teal2);background:var(--teal-50);border:1px solid var(--teal-200);border-radius:999px;padding:6px 13px}
+.pcard.p1:before{background:var(--navy)}.pcard.p1 .phx{background:linear-gradient(150deg,var(--navy),var(--deep))}
+.pcard.p2:before{background:var(--brand-cyan)}.pcard.p2 .phx{background:linear-gradient(150deg,var(--brand-cyan),var(--brand-blue))}
+.pcard.p3:before{background:var(--brand-green)}.pcard.p3 .phx{background:linear-gradient(150deg,var(--brand-lime),var(--brand-green))}
+@media(max-width:820px){.principles{grid-template-columns:1fr}}
 
 /* ---------- BUILT ON TRUST, governance ledger ---------- */
 .ledger{margin-top:44px;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);background:#fff}
@@ -466,6 +598,31 @@ section[id]{scroll-margin-top:92px}
 .climbnote{margin:26px auto 0;text-align:center;max-width:70ch;color:var(--muted);font-size:15px;line-height:1.6}
 @media(max-width:820px){.climb{grid-template-columns:1fr;gap:14px;align-items:stretch}.rung.r1,.rung.r2,.rung.r3{margin-bottom:0}.climbline,.climb-axis{display:none}}
 
+/* ---------- AUTONOMY SCALE — #48 (ladder reworked to a side-by-side "choose your own adventure" scale) + #37 (equal, top-aligned cards, MI-style, no bottom-align) ---------- */
+.scale{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px;align-items:stretch}
+.scard{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--soft);padding:28px 26px;text-align:center;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.scard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.scard .shx{width:58px;height:66px;clip-path:var(--hex);margin:0 auto 15px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:17px;box-shadow:0 12px 26px rgba(19,45,57,.16)}
+.scard.o1 .shx{background:linear-gradient(150deg,var(--brand-cyan),var(--brand-blue))}
+.scard.o2 .shx{background:linear-gradient(150deg,var(--teal),var(--teal-ink))}
+.scard.o3 .shx{background:linear-gradient(150deg,var(--brand-lime),var(--brand-green))}
+.scard h3{font-size:19px;letter-spacing:-.015em}
+.scard p{color:var(--muted);font-size:14.5px;margin-top:9px;line-height:1.55}
+.scaleaxis{position:relative;display:grid;grid-template-columns:repeat(3,1fr);margin-top:32px}
+.scaleaxis:before{content:"";position:absolute;top:8px;left:16.66%;right:16.66%;height:4px;border-radius:999px;z-index:0;
+  background:linear-gradient(90deg,var(--brand-blue),var(--teal) 50%,var(--brand-green))}
+.spt{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px}
+.spt .sd{width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 3px var(--teal)}
+.spt:nth-child(1) .sd{box-shadow:inset 0 0 0 3px var(--brand-blue)}
+.spt:nth-child(3) .sd{box-shadow:inset 0 0 0 3px var(--brand-green)}
+.spt span{font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink)}
+@media(max-width:820px){
+  .scale{grid-template-columns:1fr;gap:14px}
+  .scaleaxis{grid-template-columns:1fr;gap:12px;margin-top:22px}
+  .scaleaxis:before{display:none}
+  .spt{flex-direction:row;gap:11px;justify-content:flex-start}
+}
+
 /* ---------- CTA CLOSE ---------- */
 .cta-band .ctahex{position:absolute;z-index:0;width:230px;height:255px;clip-path:var(--hex);background:rgba(255,255,255,.09);left:-56px;top:-70px;pointer-events:none}
 
@@ -489,7 +646,7 @@ section[id]{scroll-margin-top:92px}
 .stagger>*{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1)}
 .stagger.in>*{opacity:1;transform:none}
 .stagger.in>*:nth-child(2){transition-delay:.08s}.stagger.in>*:nth-child(3){transition-delay:.16s}.stagger.in>*:nth-child(4){transition-delay:.24s}.stagger.in>*:nth-child(5){transition-delay:.32s}.stagger.in>*:nth-child(6){transition-delay:.4s}
-@media(prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1;transform:none}.flowline path,.ap-top .ct .dot,.hero-stage.play .scan{animation:none}.hero-stage .scan{opacity:0}.rail .rfill,.rstep .rdot,.rstep .rlab,.rpill,.ap-row .ramt{transition:none}.ap-tab,.ap-row.watched,.ap-row.watched:before,.ap-row.watched .who b,.ap-scrim,.ap-modal,.mpill,.mbtn,.ap-payoff,.capitem .cdot,.capitem .ctxt{transition:none}.rkdot{animation:none}}
+@media(prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1;transform:none}.dh-pill .pv i,.dh-hd-live i,.dh-cycle i,.pstage.s2 .ph:after{animation:none}.flowline path,.ap-top .ct .dot,.hero-stage.play .scan{animation:none}.hero-stage .scan{opacity:0}.rail .rfill,.rstep .rdot,.rstep .rlab,.rpill,.ap-row .ramt{transition:none}.ap-tab,.ap-row.watched,.ap-row.watched:before,.ap-row.watched .who b,.ap-scrim,.ap-modal,.mpill,.mbtn,.ap-payoff,.capitem .cdot,.capitem .ctxt{transition:none}.rkdot{animation:none}}
 </style>
 <!-- Structured data (AEO): Organization + SoftwareApplication (Timecard Auditor) + FAQPage.
      NOTE for build: confirm the production logo URL before publishing. -->
@@ -544,39 +701,29 @@ section[id]{scroll-margin-top:92px}
         <a class="dh-ghost" href="#see">See how it works &rarr;</a>
       </div>
       <div class="dh-stats">
-        <div class="dh-stat"><b class="c-cyan">$2M+</b><small>verified savings</small></div>
-        <div class="dh-stat"><b class="c-org">$291K</b><small>caught before payment</small></div>
+        <div class="dh-stat"><b class="c-cyan">$2M+</b><small>savings identified</small></div>
+        <div class="dh-stat"><b class="c-org">$291K</b><small>caught before payout</small></div>
         <div class="dh-stat"><b class="c-grn">~8 min</b><small>to audit a full timecard</small></div>
       </div>
       <div class="dh-illus">Illustrative figures, pending marketing sign-off.</div>
     </div>
     <div class="dh-stage">
-      <div class="dh-card" role="img" aria-label="Live view of the Timecard Auditor inside the Trio VMS accounts-payable queue: it assesses a submitted timecard, checks it against overtime rules, and flags an out-of-policy overtime charge before it reaches payroll.">
+      <div class="dh-card" role="img" aria-label="The Timecard Auditor's end-to-end process for the current billing cycle: 1,248 time and expense submissions received across the supplier panel, 100% audited against your rules, 1,191 cleared automatically, and 57 out-of-policy exceptions flagged and routed to a person, catching 291 thousand dollars in spend before it was paid.">
         <div class="dh-card-hd">
-          <div class="orb" id="hOrb" data-state="running" aria-hidden="true">
-            <span class="odot"></span>
-            <span class="halo"></span>
-            <span class="orbit"><i></i><i></i><i></i></span>
-            <span class="think"><i></i><i></i><i></i></span>
-            <span class="head"></span>
-            <span class="brow l"></span><span class="brow r"></span>
-            <span class="eye l"></span><span class="eye r"></span>
-          </div>
           <div class="dh-hd-tx">
             <div class="dh-hd-name">Timecard Auditor <span class="dh-hd-live"><i></i>Live</span></div>
-            <div class="dh-hd-act" id="hAct">Assessing submission</div>
+            <div class="dh-hd-sub">This billing cycle, end to end</div>
           </div>
+          <span class="dh-cycle"><i></i>Cycle 6/15</span>
         </div>
-        <div class="dh-tc">
-          <div class="dh-tc-no">Timecard #48213</div>
-          <div class="dh-tr"><span>Shift &middot; Aug 12</span><b>8.0h</b></div>
-          <div class="dh-tr"><span>Shift &middot; Aug 14</span><b>12.5h</b></div>
-          <div class="dh-tr watched" id="hOT" data-phase="assessing"><span>Overtime &middot; Aug 15</span><span class="dh-badge assessing" id="hBadge">Assessing</span></div>
-          <div class="dh-tr"><span>Shift &middot; Aug 18</span><b>8.0h</b></div>
+        <div class="dh-pipe" aria-hidden="true">
+          <div class="pstage s1"><span class="ph"><svg viewBox="0 0 24 24"><path d="M3 13h4l2 3h6l2-3h4"/><path d="M4 6h16v12H4z"/></svg></span><span class="pl"><b>Submissions received</b><span>Time &amp; expense, full supplier panel</span></span><span class="pm" data-count="1248">1,248</span></div>
+          <div class="pstage s2"><span class="ph"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></span><span class="pl"><b>Audited against your rules</b><span>Every line, every card, in minutes</span></span><span class="pm">100%<small>audited</small></span></div>
+          <div class="pstage s3"><span class="ph"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span class="pl"><b>Cleared automatically</b><span>Clean cards pass straight through</span></span><span class="pm" data-count="1191">1,191</span></div>
+          <div class="pstage s4"><span class="ph"><svg viewBox="0 0 24 24"><path d="M5 21V4h11l-1.5 3.5L16 11H5"/></svg></span><span class="pl"><b>Flagged &amp; routed to a person</b><span>Only the exceptions that need judgment</span></span><span class="pm" data-count="57">57</span></div>
         </div>
-        <div class="dh-card-ft"><span>Autonomous</span><span class="dh-track"></span><span>Human-reviewed</span></div>
+        <div class="dh-payoffbar"><span class="pc">&#9940;</span><b>Caught before payout</b><span>out-of-policy spend stopped this cycle</span><span class="pf">$291K</span></div>
       </div>
-      <div class="dh-run"><i></i>Running live inside Trio VMS, auditing time &amp; expense across the supplier panel.</div>
     </div>
   </div>
 </section>
@@ -632,35 +779,59 @@ section[id]{scroll-margin-top:92px}
   <div class="wrap">
     <div class="demo-lead">
       <span class="eyebrow">See it work</span>
-      <h2><span class="v1">Assess.</span> <span class="v2">Flag.</span> <span class="v3">Route.</span> <span class="v4">Resolve.</span></h2>
+      <h2>Assess. Flag. Route. Resolve.</h2>
       <p class="lead">Here's the Timecard Auditor running inside the Trio VMS A/P inbox, catching an unapproved overtime charge before it ever reaches payroll.</p>
     </div>
-    <div class="demowrap">
-      <div class="demo-panel">
-        <div class="demo-panelhead">
-          <span class="demo-cue"><span class="pt">&#9656;</span>Live, clickable demo</span>
+    <div class="swwrap">
+      <div class="swframe">
+        <div class="swtop">
+          <span class="demo-cue"><span class="pt">&#9656;</span>Live audit demo &middot; press replay</span>
           <button class="replay" id="replayBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>Replay the audit</button>
         </div>
-        <div class="ap" id="demoInbox">
-          <div class="ap-top"><svg class="tmark" viewBox="0 0 100 105" fill="none" aria-hidden="true"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/></svg><div><b>Trio VMS</b> <span class="crumb">Accounts Payable &middot; Cycle 6/15</span></div><span class="ct"><span class="dot"></span>Timecard Auditor</span></div>
-          <div class="ap-row ok"><span class="rk ok">&#10003;</span><div class="who"><b>Registered Nurse &middot; Regular</b><span>36.0 hrs &middot; Memorial &middot; Node Staffing</span></div><div class="amt"><span class="ramt">$3,744.00</span><small>Cleared</small></div></div>
-          <div class="ap-row flagged" id="demoRow"><span class="rk" style="background:var(--orange)" id="demoRk">&#9873;</span><div class="who"><b>Registered Nurse &middot; Overtime</b><span>4.0 hrs OT &middot; 6/15 &middot; Memorial</span></div><div class="amt"><span class="ramt struck" id="demoAmt">$624.00</span><span class="rpill blocked" id="demoPill">&#9940; Blocked</span></div></div>
-          <div class="ap-row ok"><span class="rk ok">&#10003;</span><div class="who"><b>Surgical Tech &middot; Night differential</b><span>12.0 hrs &middot; Weekend &middot; St. Vincent</span></div><div class="amt"><span class="ramt">$1,014.00</span><small>Cleared</small></div></div>
-          <div class="ap-cap"><i>SAMPLE</i>Illustrative inbox, not a live account.</div>
+        <div class="apx" id="apx" role="img" aria-label="The Trio VMS accounts-payable inbox for billing cycle 6/15. One submission from Harpewood United Hospital is audited live: the Timecard Auditor assesses it, flags an out-of-policy overtime charge, routes it to a reviewer who declines it, and the spend is blocked before it clears.">
+          <div class="apx-nav">
+            <svg class="tmark" viewBox="0 0 100 105" fill="none" aria-hidden="true"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            <div class="tabs"><span>Dashboard</span><span>Locums</span><span class="on">Billing</span><span>Reports</span></div>
+          </div>
+          <div class="apx-body">
+            <div class="apx-title">A/P Inbox <span>&middot; Submitted timecards &amp; expenses &middot; Cycle 6/15</span></div>
+            <div class="apx-filters">
+              <span class="apx-filter on" id="fAll">All</span>
+              <span class="apx-filter" id="fReview">Ready for review</span>
+              <span class="apx-filter" id="fFlag">Flagged</span>
+            </div>
+          </div>
+          <div class="apx-hrow apxrow"><span>Invoice No</span><span class="cli">Client</span><span class="sp">Specialty</span><span>Status</span></div>
+          <div class="apx-drow apxrow"><span class="inv">57007</span><span class="cli">Canyon Memorial Hospital</span><span class="sp">Med Surg</span><span class="apx-st sub">Submitted</span></div>
+          <div class="apx-drow apxrow watched" id="apxWatch" data-phase="assessing"><span class="inv">56977</span><span class="cli">Harpewood United Hospital</span><span class="sp">Neurology</span><span class="rpill assessing" id="apxBadge">Assessing</span></div>
+          <div class="blockbar" id="blockbar"><span class="bc">&#9940;</span><b>Blocked &middot; spend never cleared</b></div>
+          <div class="apx-drow apxrow"><span class="inv">57035</span><span class="cli">Moore Memorial Health</span><span class="sp">Critical Care</span><span class="apx-st pass">Passed</span></div>
+          <div class="apx-drow apxrow"><span class="inv">56842</span><span class="cli">St. Augustine Hospital</span><span class="sp">Med Surg</span><span class="apx-st fail">Failed</span></div>
+
+          <div class="ap-scrim" id="apxScrim" aria-hidden="true"></div>
+          <div class="ap-modal" id="apxModal" aria-hidden="true">
+            <div class="mhd"><div><div class="mno">Timecard #56977 &middot; Harpewood United</div><h4>Timecard review</h4></div><span class="mpill ndr" id="apxMpill">Needs review</span></div>
+            <div class="msteps-h">Checks performed</div>
+            <div class="msteps">
+              <div class="mstep ok"><span class="mc">&#10003;</span>Timesheets</div>
+              <div class="mstep ok"><span class="mc">&#10003;</span>Expenses</div>
+              <div class="mstep bad"><span class="mc">&#9873;</span>Overtime policy</div>
+              <div class="mstep ok"><span class="mc">&#10003;</span>Ground transport</div>
+            </div>
+            <div class="mcall"><b>Overtime policy</b><p>4.0 hours of overtime billed on 6/15 without prior supervisor approval on file, per policy #4.2.</p></div>
+            <div class="mbtns"><span class="mbtn decline" id="apxDecline">Decline</span><span class="mbtn">Approve</span></div>
+          </div>
         </div>
-        <div class="flagline show" id="flagline"><span class="fi">&#9873;</span><p><b>4.0 hours of overtime billed on 6/15 without prior supervisor approval on file,</b> per policy #4.2.</p></div>
+        <div class="apx-caps">
+          <div class="apx-cap" data-cap="0"><span class="cd"></span><span class="ct">Assessing the submission</span></div>
+          <div class="apx-cap warn" data-cap="1"><span class="cd"></span><span class="ct">Flagged an exception</span></div>
+          <div class="apx-cap warn" data-cap="2"><span class="cd"></span><span class="ct">Routed to a person</span></div>
+          <div class="apx-cap danger" data-cap="3"><span class="cd"></span><span class="ct">Blocked before payout</span></div>
+        </div>
       </div>
-      <div class="demo-result show" id="demoResult">
-        <span class="rk"><span class="gc">&#10003;</span>Result</span>
-        <h3>Caught before it cleared.</h3>
-        <p>This unapproved overtime charge would have paid out undetected. Instead, it was <b>flagged, reviewed and declined</b>, the spend never left the building.</p>
-        <div class="moneyblock"><span class="mk">On this line</span><s>$624.00</s><span class="arw">&rarr;</span><b>$0 paid out</b></div>
-        <div class="stamp" id="stamp"><span class="sx">&#9940;</span>Blocked, spend protected</div>
+      <div class="sw-cta">
+        <a class="btn btn-primary btn-lg" href="#demo">See this in your workflow</a>
       </div>
-    </div>
-    <div class="hero-cta" style="margin-top:36px">
-      <a class="btn btn-ghost btn-lg" href="#changes">See the full impact</a>
-      <a class="arrow-link" href="#demo">See this on your workflow &rarr;</a>
     </div>
   </div>
 </section>
@@ -673,7 +844,7 @@ section[id]{scroll-margin-top:92px}
       <h2>Hired for one job. Governed like an employee.</h2>
     </div>
     <div class="flow" id="flow">
-      <svg class="flowline" id="flowline" aria-hidden="true"><path d=""/></svg>
+      <svg class="flowline" id="flowline" aria-hidden="true"><defs><linearGradient id="flowgrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1160" y2="0"><stop offset="0" stop-color="#0081bb"/><stop offset="0.5" stop-color="#79bb43"/><stop offset="1" stop-color="#f58220"/></linearGradient></defs><path d=""/></svg>
       <div class="fnode"><div class="fhex">01</div><h3>Given the billing rulebook</h3><p>The Auditor is configured with your contracts, rate cards, and facility-level policies, the handbook it audits every submission against.</p></div>
       <div class="fnode"><div class="fhex">02</div><h3>Audits every submission</h3><p>It validates each timecard and expense line against those rules the moment it lands, consistently, on every one of them, in minutes.</p></div>
       <div class="fnode"><div class="fhex">03</div><h3>Surfaces only the exceptions</h3><p>Clean cards pass through; out-of-policy charges are flagged and routed to a reviewer, who keeps the final word on every decision.</p></div>
@@ -683,8 +854,8 @@ section[id]{scroll-margin-top:92px}
 </section>
 
 <!-- WHAT CHANGES (dark band) -->
+<!-- #45 — flat band edges (diagonal/slanted seam wedges removed) -->
 <section class="sec outcomes" id="changes">
-  <div class="dtop" aria-hidden="true"></div><div class="dbot" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head tc">
       <span class="eyebrow">The impact</span>
@@ -702,7 +873,18 @@ section[id]{scroll-margin-top:92px}
       <div class="ocard"><div class="dm" style="background:var(--orange)"></div><h3>Stop spend before it clears</h3><p>Catch rate discrepancies and out-of-policy charges before invoices clear, not months later.</p></div>
       <div class="ocard"><div class="dm" style="background:#7fd4ee"></div><h3>A defensible audit trail</h3><p>Every flag, decision, and rationale documented and explainable, oversight built into the workflow.</p></div>
     </div>
-    <p class="statnote">Qualitative outcomes from early Timecard Auditor deployments; illustrative and pending marketing sign-off.</p>
+    <div class="casestudy reveal">
+      <div class="cs-main">
+        <span class="cs-ey"><svg viewBox="0 0 100 105" fill="none" aria-hidden="true"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="7" stroke-linejoin="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="7" stroke-linejoin="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="7" stroke-linejoin="round"/></svg>Case study</span>
+        <p class="cs-body">In a large healthcare system, Trio's AI Digital Worker helped generate more than <b>$2 million in savings</b> while preventing <b>$291,000 in overbilling</b> by flagging timecard and expense submissions that may otherwise have been approved.</p>
+      </div>
+      <div class="cs-quote">
+        <div class="cs-mk">&ldquo;</div>
+        <blockquote>Client quote to come, a line on what the Timecard Auditor changed for their team.</blockquote>
+        <div class="cs-by">Name, Title<span>Large healthcare system &middot; quote pending marketing sign-off</span></div>
+      </div>
+    </div>
+    <p class="statnote">Case-study figures from an early Timecard Auditor deployment; pending marketing sign-off.</p>
   </div>
 </section>
 
@@ -714,11 +896,10 @@ section[id]{scroll-margin-top:92px}
       <h2>The AI surfaces. <span class="accent">You decide.</span></h2>
       <p class="lead">The Timecard Auditor is built on the same three principles that govern all Applied AI at Trio.</p>
     </div>
-    <div class="ledger">
-      <div class="ledger-head"><svg class="tmark" viewBox="0 0 100 105" fill="none" aria-hidden="true"><path d="M50 14 69 25 69 47 50 58 31 47 31 25Z" stroke="#8cc63f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M31 47 50 58 50 80 31 91 12 80 12 58Z" stroke="#00a0d8" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M69 47 88 58 88 80 69 91 50 80 50 58Z" stroke="#f2642f" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/></svg><b>Applied AI &middot; Governance principles</b><span class="cols">Principle &nbsp;/&nbsp; Status</span></div>
-      <div class="lrow"><div class="lseal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><div><h3>Security First</h3><p>Billing and contract data never leaves the Trio platform. Trust is built before features, always.</p></div><span class="lstatus">Enforced</span></div>
-      <div class="lrow"><div class="lseal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>Human in the Loop</h3><p>The Auditor flags and recommends. A reviewer approves or declines every exception. The human always has the final word.</p></div><span class="lstatus">Required</span></div>
-      <div class="lrow"><div class="lseal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20v-3h4v3M10 20v-8h4v8M16 20v-13h4v13"/></svg></div><div><h3>Autonomy Is Earned</h3><p>It starts by recommending, then acts under review, then runs on exception-based monitoring, at your pace.</p></div><span class="lstatus">Earned</span></div>
+    <div class="principles stagger">
+      <div class="pcard p1"><div class="phx"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>Security First</h3><p>Billing and contract data never leaves the Trio platform. Trust is built before features, always.</p><span class="pst">Enforced</span></div>
+      <div class="pcard p2"><div class="phx"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Human in the Loop</h3><p>The Auditor flags and recommends. A reviewer approves or declines every exception. The human always has the final word.</p><span class="pst">Required</span></div>
+      <div class="pcard p3"><div class="phx"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20v-3h4v3M10 20v-8h4v8M16 20v-13h4v13"/></svg></div><h3>Autonomy Is Earned</h3><p>It earns greater autonomy only by proving itself against your policies, at your pace and never ahead of your trust.</p><span class="pst">Earned</span></div>
     </div>
   </div>
 </section>
@@ -727,17 +908,20 @@ section[id]{scroll-margin-top:92px}
 <section class="sec maturity" id="maturity">
   <div class="wrap">
     <div class="sec-head tc">
-      <span class="eyebrow">The autonomy ladder</span>
-      <h2>It earns its way up the ladder.</h2>
-      <p class="lead">The Auditor's autonomy rises only as it proves itself against your policies, never ahead of your trust.</p>
+      <span class="eyebrow">The Autonomy Scale</span>
+      <h2>Choose how much autonomy is granted.</h2>
+      <p class="lead">Grant the Timecard Auditor as much or as little autonomy as your policies call for, and dial it up or down as it proves itself, at your pace.</p>
     </div>
-    <div class="climb" id="climb">
-      <svg class="climbline" id="climbline" aria-hidden="true"><path d=""/></svg>
-      <div class="rung r1"><div class="rhex">01</div><h3>Recommend</h3><p>The Auditor flags; a person approves every decline before it takes effect.</p></div>
-      <div class="rung r2"><div class="rhex">02</div><h3>Act under review</h3><p>It handles routine cases, with its work reviewed and sampled by your team.</p></div>
-      <div class="rung r3"><div class="rhex">03</div><h3>Exception-based monitoring</h3><p>It runs the routine; only edge cases and disputes surface to a person.</p></div>
+    <div class="scale stagger">
+      <div class="scard o1"><div class="shx">01</div><h3>Recommend</h3><p>The Auditor flags; a person approves every decline before it takes effect.</p></div>
+      <div class="scard o2"><div class="shx">02</div><h3>Act under review</h3><p>It handles routine cases, with its work reviewed and sampled by your team.</p></div>
+      <div class="scard o3"><div class="shx">03</div><h3>Exception-based monitoring</h3><p>It runs the routine; only edge cases and disputes surface to a person.</p></div>
     </div>
-    <div class="climb-axis"><span>More human oversight</span><span class="up">More earned autonomy &uarr;</span></div>
+    <div class="scaleaxis">
+      <div class="spt"><span class="sd"></span><span>More Human Oversight</span></div>
+      <div class="spt"><span class="sd"></span><span>Some Human Oversight</span></div>
+      <div class="spt"><span class="sd"></span><span>Less Human Oversight</span></div>
+    </div>
   </div>
 </section>
 
@@ -749,7 +933,7 @@ section[id]{scroll-margin-top:92px}
       <span class="eyebrow nodash" style="color:#fff;justify-content:center">Ready when you are</span>
       <h2>Run the Timecard Auditor on your own spend.</h2>
       <p>Book a 30-minute working session: we'll walk the Timecard Auditor against a real billing cycle from your program, and show you what it would have caught. No commitment.</p>
-      <div class="hero-cta" style="justify-content:center;margin-top:26px"><a class="btn btn-light btn-lg" href="#demo">Book a 30-minute session</a><a class="btn btn-outline btn-lg" href="../digital-worker/">See Digital Workers up close</a></div>
+      <div class="hero-cta" style="justify-content:center;margin-top:26px"><a class="btn btn-light btn-lg" href="#demo">Book a 30-minute session</a><a class="btn btn-outline btn-lg" href="../digital-worker/">See digital workers up close</a></div>
     </div>
   </div>
 </section>
@@ -828,58 +1012,49 @@ function thread(svgId,nodeSel){
   var d='M'+pts.map(function(p){return p[0].toFixed(1)+' '+p[1].toFixed(1);}).join(' L');
   svg.querySelector('path').setAttribute('d',d);
 }
-function threadAll(){ thread('flowline','.fhex'); thread('climbline','.rhex'); }
+function threadAll(){
+  thread('flowline','.fhex'); thread('climbline','.rhex');
+  // keep the brand gradient (userSpaceOnUse) spanning the measured flow width so the horizontal connector paints (#44)
+  var g=document.getElementById('flowgrad'), fl=document.getElementById('flowline');
+  if(g&&fl){var vb=fl.getAttribute('viewBox'); var w=vb?parseFloat(vb.split(' ')[2]):0; if(w){g.setAttribute('x2',w);g.setAttribute('y2',0);}}
+}
 addEventListener('load',threadAll); addEventListener('resize',threadAll); setTimeout(threadAll,400);
 /* re-thread once each connector's section is actually in view (reveal transforms have settled) so the path measures final node centers */
 (function(){var tio=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){threadAll();setTimeout(threadAll,680);}})},{threshold:.25});document.querySelectorAll('.climbline,.flowline').forEach(function(s){if(s.parentElement)tio.observe(s.parentElement);});})();
 
-// ---- See It Work: live A/P audit demo ----
+// ---- See It Work: live A/P inbox audit storyboard (lifted from the Claude mockup, #42) ----
 (function(){
-  var steps=[
-    {lab:'Assessing',cls:'assessing'}, {lab:'Checking OT rules',cls:'checking'}, {lab:'⚑ Exception',cls:'exception'}, {lab:'→ Reviewer',cls:'routing'}, {lab:'✗ Declined',cls:'declined'}, {lab:'⛔ Blocked',cls:'blocked'}
-  ];
-  // variable cadence: quick through assess/check, a held beat before the Block lands
-  var delays=[0,750,750,950,950,1150];
-  var pill=document.getElementById('demoPill'), rk=document.getElementById('demoRk'), amt=document.getElementById('demoAmt'), rail=document.getElementById('rail'), rfill=document.getElementById('rfill'), result=document.getElementById('demoResult'), stamp=document.getElementById('stamp'), rsteps=rail?rail.querySelectorAll('.rstep'):[], reduce=matchMedia('(prefers-reduced-motion:reduce)').matches, timers=[];
-  function clearTimers(){ timers.forEach(clearTimeout); timers=[]; }
-  function setStep(i){
-    var s=steps[i];
-    pill.className='rpill '+s.cls;
-    pill.innerHTML=s.lab;
-    rsteps.forEach(function(el){
-      var n=+el.dataset.i;
-      el.classList.toggle('done',n<i);
-      el.classList.toggle('active',n===i);
-    });
-    if(rfill) rfill.style.width=(i/(steps.length-1)*(100-100/6))+'%';
-    var last=(i===steps.length-1);
-    if(last){ rk.innerHTML='⛔'; rk.style.background='var(--brand-redorange)'; if(amt) amt.classList.add('struck'); }
-    else { rk.innerHTML='⚑'; rk.style.background='var(--orange)'; if(amt) amt.classList.remove('struck'); }
-  }
-  function showResult(thunk){
-    result.classList.add('show');
-    if(thunk && !reduce){ stamp.classList.remove('thunk'); void stamp.offsetWidth; stamp.classList.add('thunk'); }
-    else { stamp.style.opacity=1; }
-  }
-  function endState(){ clearTimers(); setStep(steps.length-1); showResult(false); }
+  var apx=document.getElementById('apx'); if(!apx) return;
+  var badge=document.getElementById('apxBadge'), watch=document.getElementById('apxWatch'),
+      scrim=document.getElementById('apxScrim'), modal=document.getElementById('apxModal'),
+      mpill=document.getElementById('apxMpill'), blockbar=document.getElementById('blockbar'),
+      fAll=document.getElementById('fAll'), fReview=document.getElementById('fReview'), fFlag=document.getElementById('fFlag'),
+      caps=[].slice.call(document.querySelectorAll('.apx-cap')),
+      reduce=matchMedia('(prefers-reduced-motion:reduce)').matches, timers=[];
+  function clearT(){ timers.forEach(clearTimeout); timers=[]; }
+  function badgeSet(cls,txt){ badge.className='rpill '+cls; badge.innerHTML=txt; }
+  function phase(p){ watch.setAttribute('data-phase',p); }
+  function cap(i){ caps.forEach(function(c){ c.classList.toggle('on', +c.dataset.cap<=i); }); }
+  function filter(which){ [fAll,fReview,fFlag].forEach(function(f){ f.classList.remove('on'); }); which.classList.add('on'); }
+  function showModal(s){ scrim.classList.toggle('show',s); modal.classList.toggle('show',s); }
+  function reset(){ clearT(); badgeSet('assessing','Assessing'); phase('assessing'); cap(-1); filter(fAll); showModal(false); modal.classList.remove('decided'); mpill.className='mpill ndr'; mpill.innerHTML='Needs review'; blockbar.classList.remove('show'); }
+  function endState(){ clearT(); showModal(false); modal.classList.remove('decided'); badgeSet('blocked','&#9940; Blocked'); phase('blocked'); cap(3); filter(fFlag); blockbar.classList.add('show'); }
   function play(){
-    clearTimers();
+    reset();
     if(reduce){ endState(); return; }
-    result.classList.remove('show'); stamp.classList.remove('thunk'); stamp.style.opacity=0;
-    var i=0;
-    (function next(){
-      setStep(i);
-      if(i===steps.length-1){ showResult(true); return; }
-      timers.push(setTimeout(function(){ i++; next(); }, delays[i+1]));
-    })();
+    cap(0);
+    timers.push(setTimeout(function(){ badgeSet('checking','Checking OT rules'); filter(fReview); }, 950));
+    timers.push(setTimeout(function(){ badgeSet('exception','&#9873; Exception'); phase('exception'); cap(1); }, 1950));
+    timers.push(setTimeout(function(){ badgeSet('routing','&rarr; Reviewer'); phase('routing'); cap(2); showModal(true); }, 2950));
+    timers.push(setTimeout(function(){ modal.classList.add('decided'); mpill.className='mpill dec'; mpill.innerHTML='Declined'; }, 4350));
+    timers.push(setTimeout(function(){ showModal(false); }, 5100));
+    timers.push(setTimeout(function(){ badgeSet('blocked','&#9940; Blocked'); phase('blocked'); cap(3); filter(fFlag); blockbar.classList.add('show'); }, 5350));
   }
-  // start in resolved end-state (meaningful static render); play on first view + on replay
-  endState();
-  var btn=document.getElementById('replayBtn');
-  if(btn) btn.addEventListener('click',play);
+  endState(); // meaningful static end-state for no-JS / first paint
+  var btn=document.getElementById('replayBtn'); if(btn) btn.addEventListener('click',play);
   if('IntersectionObserver' in window){
     var seen=false;
-    var io=new IntersectionObserver(function(es){es.forEach(function(x){ if(x.isIntersecting && !seen){ seen=true; play(); io.disconnect(); }});},{threshold:.4});
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){ if(x.isIntersecting && !seen){ seen=true; play(); io.disconnect(); }});},{threshold:.35});
     io.observe(document.getElementById('see'));
   }
 })();
@@ -893,35 +1068,36 @@ addEventListener('load',threadAll); addEventListener('resize',threadAll); setTim
   document.querySelectorAll('.reveal,.stagger').forEach(function(e){io.observe(e);});
 })();
 
-// hero: the live Timecard Auditor card, a simple assessing cycle (orb teammate in
-// the header + the watched Overtime row), matching Courtney's top-hero treatment.
-// Reduced motion rests on the resolved "caught" frame; the loop pauses off-screen.
+// hero: the reimagined end-to-end process card (#35). Numeric stage figures
+// count up once, when the hero enters view. No-JS / reduced-motion render shows
+// the final figures immediately (they are set in the markup).
 (function(){
   var sec=document.getElementById('top'); if(!sec) return;
-  var orb=document.getElementById('hOrb'), act=document.getElementById('hAct'), row=document.getElementById('hOT'), badge=document.getElementById('hBadge'), reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var beats=[
-    {act:'Assessing submission', badge:'Assessing', cls:'assessing', phase:'assessing', orb:'running'}, {act:'Checking overtime rules', badge:'Checking', cls:'checking', phase:'checking', orb:'thinking'}, {act:'Flagging exception', badge:'&#9873; Exception', cls:'exception', phase:'exception', orb:'attention'}, {act:'Routing to a person', badge:'&rarr; Reviewer', cls:'routing', phase:'routing', orb:'attention'}, {act:'Caught before payout', badge:'&#10007; Caught', cls:'caught', phase:'caught', orb:'resolved'}
-  ];
-  var dur=[2200,2200,2400,2400,3400];
-  function apply(n){
-    var b=beats[n];
-    orb.setAttribute('data-state',b.orb);
-    sec.classList.toggle('settled',b.orb==='resolved');
-    act.textContent=b.act;
-    row.setAttribute('data-phase',b.phase);
-    badge.className='dh-badge '+b.cls; badge.innerHTML=b.badge;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  if(!('IntersectionObserver' in window)) return;
+  var nums=[].slice.call(sec.querySelectorAll('.pm[data-count]'));
+  var payoff=sec.querySelector('.dh-payoffbar .pf');
+  function fmt(n){ return n.toLocaleString('en-US'); }
+  nums.forEach(function(el){ el.textContent='0'; });   // seed synchronously so the figures never flash final -> 0
+  function run(el,delay){
+    var target=+el.getAttribute('data-count'), start=null, dur=1000;
+    function step(ts){
+      if(start===null) start=ts;
+      var p=Math.min((ts-start)/dur,1), eased=1-Math.pow(1-p,3);
+      el.textContent=fmt(Math.round(target*eased));
+      if(p<1) requestAnimationFrame(step);
+    }
+    setTimeout(function(){ requestAnimationFrame(step); }, delay||0);
   }
-  if(reduce){ apply(beats.length-1); return; }
-  var i=0,t=null;
-  function play(){ apply(i); t=setTimeout(function(){ i=(i+1)%beats.length; play(); }, dur[i]); }
-  window.__heroDrive=function(n){ clearTimeout(t); t=null; apply(n); };
-  window.__heroBeats=beats.length;
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(x){
-      if(x.isIntersecting){ if(t===null) play(); } else { clearTimeout(t); t=null; }
-    });},{threshold:.12});
-    io.observe(sec);
-  } else { play(); }
+  var seen=false;
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){
+    if(x.isIntersecting && !seen){ seen=true;
+      nums.forEach(function(el,i){ run(el, i*160); });                                   // sweep the counts down the rail
+      if(payoff) setTimeout(function(){ payoff.classList.add('pop'); }, 160*nums.length+360);  // land the caught-spend figure last
+      io.disconnect();
+    }
+  });},{threshold:.35});
+  io.observe(sec);
 })();
 </script>
 <script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
