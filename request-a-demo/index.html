@@ -8,141 +8,45 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 /* flat-top hex badge for numerals (keeps 2-char labels off the sloped vertices) */
-.hexbadge{width:54px;height:50px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px;line-height:1;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
 
 /* ---------- HERO ---------- */
-.aihero{background:linear-gradient(120deg,#f4fbfd 0%,#eaf5f9 46%,#e3f1f6 100%);overflow:hidden;position:relative}
-.aihero:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 88% 20%,rgba(0,159,199,.10),transparent 42%),radial-gradient(circle at 8% 90%,rgba(120,186,67,.08),transparent 40%)}
 /* Amy: more padding between nav bar and the subhead -> generous hero top pad */
-.aihero-in{display:grid;grid-template-columns:1.04fr .96fr;gap:56px;align-items:center;padding:104px 0 96px}
-.aihero h1{max-width:15ch}
-.aihero .lead{margin-top:22px;max-width:44ch}
-.aihero .subcopy{margin-top:22px;font-size:17px;line-height:1.6;color:var(--muted);max-width:46ch}
-.aihero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
-.jumppills{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.jumppills a{font-size:13.5px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 18px;box-shadow:var(--rest);transition:color .15s,border-color .15s}
-.jumppills a:hover{color:var(--teal-ink);border-color:var(--teal)}
 
 /* hero signal card + CLEAN hex accents (Amy: no grid, no circles, no blue hex, no green shadow) */
-.signalwrap{position:relative;min-height:430px;display:flex;align-items:center;justify-content:center}
-.signalwrap .hexacc{position:absolute;clip-path:var(--hex)}
-.signalwrap .hexacc.g{width:150px;height:168px;background:linear-gradient(150deg,var(--green),#5c9e2e);left:-6px;top:-6px}
-.signalwrap .hexacc.o{width:132px;height:148px;background:linear-gradient(150deg,var(--orange),#d64e1e);right:2px;bottom:0}
-.signalwrap .hexacc.t{width:210px;height:236px;background:linear-gradient(160deg,#0f6f89,var(--deep));right:34px;top:26px;opacity:.94}
-.signalcard{position:relative;z-index:3;width:398px;max-width:100%;background:#fff;border-radius:22px;box-shadow:0 30px 70px rgba(19,45,57,.20);padding:26px 26px 22px}
-.signalcard h3{font-size:22px;line-height:1.15}
-.signalcard .sc-sub{margin-top:10px;font-size:14px;line-height:1.5;color:var(--muted)}
-.signalcard .sc-lbl{margin-top:20px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal2)}
-.meters{margin-top:12px;display:flex;flex-direction:column;gap:9px}
-.meter{height:9px;border-radius:999px;background:var(--mist2)}
-.meter i{display:block;height:100%;border-radius:999px}
-.meter.m1 i{width:82%;background:linear-gradient(90deg,var(--teal),var(--green))}
-.meter.m2 i{width:64%;background:linear-gradient(90deg,var(--green),var(--teal))}
-.meter.m3 i{width:73%;background:linear-gradient(90deg,var(--orange),var(--amber))}
 .chips{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.chip{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:13px;font-weight:700;color:var(--deep)}
-.chip .dot{width:11px;height:11px;border-radius:50%;flex:none}
 
 /* ---------- DEPLOY THREE THINGS ---------- */
-.deploy .panel{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--soft);padding:40px;display:grid;grid-template-columns:.8fr 1fr 1fr 1fr;gap:34px}
-.deploy .dintro h2{font-size:30px;line-height:1.1}
-.deploy .dintro p{margin-top:12px;font-size:15px;color:var(--muted);line-height:1.55}
 /* Amy: remove hexagons from all three box backgrounds -> clean items, no bg hex watermark */
-.ditem .hx{width:56px;height:52px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
-.ditem p{margin-top:16px;font-size:15.5px;line-height:1.5;font-weight:600;color:var(--deep)}
-.deploy .dkicker{margin-top:26px;font-family:Archivo,Inter,sans-serif;font-size:22px;font-weight:700;color:var(--deep);letter-spacing:-.01em}
 
 /* ---------- APPLIED AI (philosophy) ---------- */
-.phil-in{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
 .phil p{margin-top:16px;font-size:16.5px;line-height:1.6;color:var(--ink)}
-.callout{margin-top:26px;background:var(--mist);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
-.callout h4{font-size:18px}
-.callout p{margin-top:8px;font-size:15px;color:var(--muted)}
 /* Amy: orange hexagon w/ quote mark partially overlaid on the rounded rectangle */
 .qcardwrap{position:relative;margin-top:6px}
-.qhex{position:absolute;left:-22px;top:-22px;width:66px;height:74px;clip-path:var(--hex);background:linear-gradient(150deg,var(--orange),#d64e1e);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 12px 26px rgba(242,100,47,.30)}
-.qhex span{color:#fff;font-family:Archivo,Inter,sans-serif;font-size:44px;line-height:1;margin-top:14px}
-.qcard{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--soft);padding:44px 40px 34px}
-.qcard blockquote{font-family:Archivo,Inter,sans-serif;font-size:26px;line-height:1.32;font-weight:700;color:var(--deep);letter-spacing:-.01em}
-.qcard .qby{margin-top:22px;font-weight:800;color:var(--deep)}
-.qcard .qrole{font-size:14px;color:var(--muted)}
 
 /* ---------- STRATEGY: earn its place ---------- */
-.earn-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
-.earn-head .lead{margin-top:0}
 .earn3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
-.earn-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--soft);padding:34px 30px}
-.earn-card .n{font-family:Archivo,Inter,sans-serif;font-size:52px;font-weight:800;line-height:1;letter-spacing:-.02em}
-.earn-card.c1 .n{color:var(--teal-200)}.earn-card.c2 .n{color:var(--green-200)}.earn-card.c3 .n{color:var(--orange-200)}
-.earn-card h3{margin-top:16px}
-.earn-card p{margin-top:12px;font-size:15.5px;line-height:1.55;color:var(--muted)}
 
 /* ---------- IN PRACTICE (dark band) ---------- */
-.practice{background:linear-gradient(140deg,#0f2947,var(--deep) 55%,#10365f);color:#fff}
-.practice .eyebrow{color:#7fd4f5}.practice .eyebrow:before{background:linear-gradient(90deg,#fff,var(--green))}
 /* Courtney: remove the dash lines on every heading eyebrow */
 .eyebrow:before{display:none!important}.eyebrow{gap:0!important}
-.practice h2{color:#fff}
-.practice .lead{color:#cfe0ee;margin-top:16px;max-width:52ch}
 .needle4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
-.ncard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:26px 24px}
-.ncard .hx{width:52px;height:48px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px}
-.ncard h3{color:#fff;margin-top:18px;font-size:21px;line-height:1.12}
-.ncard p{margin-top:12px;font-size:14.5px;line-height:1.55;color:#aecadf}
 /* second row: learning loop + correlating cards, aligned to the same 4-col grid */
-.loop-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px;margin-top:22px}
-.loopcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:28px}
-.loopcard h3{color:#fff;font-size:20px}
-.loopcard>p{margin-top:10px;font-size:14px;line-height:1.55;color:#aecadf;max-width:52ch}
 /* learning loop: core hex centered on top, 4 feeder nodes in a 2x2 grid below (1 col on phones). No absolute positioning = no collisions at any width. */
-.loop{margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:16px}
-.loop .lp-core{width:120px;height:136px;clip-path:var(--hex);background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--teal-ink);font-weight:800;font-size:14.5px;line-height:1.15;box-shadow:0 16px 34px rgba(0,0,0,.28)}
-.loopnodes{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
-.loopnodes .lp-node{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 14px;font-size:12.5px;font-weight:800;color:#fff;white-space:nowrap}
-@media(max-width:600px){.loopnodes{grid-template-columns:1fr}}
 /* correlating icon chips (repeated on nodes AND cards so people see they correlate) */
-.cico{width:26px;height:26px;border-radius:8px;flex:none;display:flex;align-items:center;justify-content:center}
-.cico svg{width:15px;height:15px;display:block}
-.cico.green{background:rgba(120,186,67,.22);color:var(--green-300)}
-.cico.blue{background:rgba(0,170,229,.20);color:#7fd4ee}
-.cico.orange{background:rgba(242,100,47,.20);color:#ffb59c}
-.cico.teal{background:rgba(0,159,199,.20);color:#7fd4f5}
-.corr{display:grid;grid-template-rows:1fr 1fr;gap:22px}
-.corr .cc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px 22px}
-.corr .cc .cctop{display:flex;align-items:center;gap:10px}
-.corr .cc h4{color:#fff;font-size:15.5px}
-.corr .cc p{margin-top:9px;font-size:13.5px;line-height:1.5;color:#aecadf}
 
 /* ---------- OPERATING PRINCIPLES ---------- */
 .gov6{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
-.gcard{display:flex;gap:18px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--soft);padding:26px 28px}
-.gcard .hx{width:52px;height:48px;flex:none;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px}
-.gcard h3{font-size:19px;line-height:1.1;white-space:nowrap}
-.gcard p{margin-top:9px;font-size:15px;line-height:1.55;color:var(--muted)}
 
 /* ---------- CTA + FORM ---------- */
-.aicta .band{background:linear-gradient(125deg,var(--teal),#0f6f89 52%,var(--deep));border-radius:30px;padding:52px;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center;color:#fff;box-shadow:0 30px 70px rgba(0,120,150,.3);overflow:hidden}
-.aicta h2{color:#fff}
-.aicta .band>div>p{margin-top:16px;color:#e4f4fd;font-size:17px;line-height:1.55;max-width:34ch}
-.leadform{background:#fff;border-radius:20px;padding:30px;box-shadow:0 22px 50px rgba(0,0,0,.18)}
-.leadform .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.leadform label{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.leadform label .req{color:var(--orange)}
-.leadform input,.leadform textarea{width:100%;border:1px solid var(--line);background:var(--mist);border-radius:10px;padding:12px 14px;font:inherit;font-size:14px;color:var(--deep)}
-.leadform textarea{min-height:86px;resize:vertical}
-.leadform .full{margin-bottom:16px}
-.leadform .fbtn{margin-top:4px}
 
 @media(max-width:980px){
-  .aihero-in,.phil-in,.aicta .band{grid-template-columns:1fr}
-  .deploy .panel{grid-template-columns:1fr 1fr}
   .earn3,.needle4{grid-template-columns:1fr 1fr}
-  .loop-row{grid-template-columns:1fr}
   .gov6{grid-template-columns:1fr}
-  .earn-head{grid-template-columns:1fr;gap:14px}
 }
 @media(max-width:600px){
-  .deploy .panel,.earn3,.needle4,.leadform .frow,.chips{grid-template-columns:1fr}
+  .earn3,
+.needle4,
+.chips{grid-template-columns:1fr}
 }
 </style>
 </head>
