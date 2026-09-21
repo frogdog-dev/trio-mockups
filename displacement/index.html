@@ -19,7 +19,7 @@
 /* Amy: remove hexagons from all three box backgrounds -> clean items, no bg hex watermark */
 
 /* ---------- APPLIED AI (philosophy) ---------- */
-.phil p{margin-top:16px;font-size:16.5px;line-height:1.6;color:var(--ink)}
+.phil p{margin-top:16px;font-size:17px;line-height:1.6;color:var(--ink)}
 /* Amy: orange hexagon w/ quote mark partially overlaid on the rounded rectangle */
 .qcardwrap{position:relative;margin-top:6px}
 
@@ -71,6 +71,12 @@
   </div>
 </header>
 <style>
+/* These tokens are NOT defined in site.css (it writes the stacks literally).
+   Define them here to match it exactly, or every var(--f-head)/var(--f-sans)
+   reference below silently invalidates its whole font shorthand. */
+:root{--f-head:Archivo,Inter,sans-serif;--f-sans:Inter,"Helvetica Neue",Arial,sans-serif}
+button,input,select,textarea{font-family:inherit}
+
 /* ============ DISPLACEMENT / "THE WORKFORCE IS YOURS" ============
    Frogdog design pass over Courtney's v2. Quiz LOGIC + QUESTIONS frozen
    (see _source/displacement-v2/_QUIZ-SPEC-FROZEN.md); only surface restyled. */
@@ -93,8 +99,8 @@
 @supports (background:linear-gradient(in oklab,red,blue)){
   @property --own{syntax:'<percentage>';inherits:false;initial-value:100%}
 }
-.wy-sub{font-family:var(--f-head);font-weight:700;font-size:clamp(19px,2.1vw,26px);color:#9fd9ee;letter-spacing:-.01em;margin:14px 0 20px}
-.wy-lede{font-size:17.5px;line-height:1.64;color:#cfe3ec;max-width:60ch;margin:0 0 14px}
+.wy-sub{font-family:var(--f-head);font-weight:700;font-size:clamp(19px,2.1vw,26px);line-height:1.24;color:#9fd9ee;letter-spacing:-.01em;margin:14px 0 20px}
+.wy-lede{font-size:17px;line-height:1.64;color:#cfe3ec;max-width:60ch;margin:0 0 14px}
 .wy-lede b{color:#fff;font-weight:600}
 .wy-heroCta{display:flex;flex-wrap:wrap;gap:13px;align-items:center;margin:30px 0 8px}
 .wy-note{font-size:13px;color:#8fa7b4}
@@ -104,7 +110,7 @@
   display:grid;grid-template-columns:repeat(4,1fr)}
 .wy-rail div{padding:22px 20px 30px;border-right:1px solid rgba(255,255,255,.10)}
 .wy-rail div:last-child{border-right:0}
-.wy-rail .k{display:block;font:800 10.5px/1 var(--f-sans);letter-spacing:.15em;text-transform:uppercase;color:#7fb9d0;margin-bottom:9px;min-height:2.2em}
+.wy-rail .k{display:block;font:800 11.5px/1.3 var(--f-sans);letter-spacing:.15em;text-transform:uppercase;color:#7fb9d0;margin-bottom:9px;line-height:1.3;min-height:2.6em}
 .wy-rail .v{font-family:var(--f-head);font-weight:700;font-size:17px;color:#fff;letter-spacing:-.01em}
 
 /* -------- 2. SIGNALS (typographic rows, not cards) -------- */
@@ -119,7 +125,7 @@
 .wy-proofin .fig{font-family:var(--f-head);font-weight:800;font-size:clamp(36px,4.4vw,54px);line-height:.88;letter-spacing:-.03em;
   color:#a6ce42;white-space:nowrap}
 .wy-proofin .figc{font:700 12px/1.3 var(--f-sans);letter-spacing:.1em;text-transform:uppercase;color:#8fd6ec;margin-top:8px}
-.wy-proofin p{margin:0;font-size:16.5px;line-height:1.62;color:#cfe3ec}
+.wy-proofin p{margin:0;font-size:17px;line-height:1.62;color:#cfe3ec;max-width:54ch}
 .wy-proofin b{color:#fff}
 
 /* -------- 4. CORE QUESTION (statement + list) -------- */
@@ -128,7 +134,7 @@
 .wy-pull{font-family:var(--f-head);font-weight:700;font-size:clamp(20px,2.3vw,27px);line-height:1.34;color:var(--teal2);
   border-left:4px solid var(--brand-green);padding:4px 0 4px 20px;margin:26px 0;max-width:46ch}
 .wy-flags{list-style:none;margin:26px 0 0;padding:0}
-.wy-flags li{position:relative;padding:14px 0 14px 34px;border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.58;color:var(--ink)}
+.wy-flags li{position:relative;padding:14px 0 14px 34px;border-bottom:1px solid var(--line);font-size:17px;line-height:1.58;color:var(--ink)}
 .wy-flags li:before{content:"";position:absolute;left:0;top:21px;width:15px;height:17px;clip-path:var(--hex);background:var(--brand-orange);opacity:.85}
 
 /* -------- 5. THREE-STEP INTRO -------- */
@@ -140,7 +146,7 @@
 .wy-step:nth-of-type(1) .hx{background:var(--brand-cyan)}
 .wy-step:nth-of-type(2) .hx{background:var(--brand-green)}
 .wy-step:nth-of-type(3) .hx{background:var(--brand-orange)}
-.wy-step h4{font-family:var(--f-head);font-weight:700;font-size:19px;color:var(--ink);margin:0 0 6px;letter-spacing:-.01em}
+.wy-step h4{font-family:var(--f-head);font-weight:700;font-size:19px;line-height:1.3;color:var(--ink);margin:0 0 6px;letter-spacing:-.01em}
 .wy-step p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.5}
 
 /* ============ 6. THE ASSESSMENT (quiz) ============ */
@@ -150,7 +156,7 @@
 /* step tabs */
 .wy-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
 .wy-tab{display:flex;align-items:center;gap:11px;padding:15px 18px;border:0;background:#f5f7f8;text-align:left;
-  font-family:var(--f-sans);font-size:13.5px;font-weight:600;color:var(--muted);border-right:1px solid var(--line);transition:background-color .22s,color .22s}
+  font-family:var(--f-sans);font-size:14px;font-weight:600;color:var(--muted);border-right:1px solid var(--line);transition:background-color .22s,color .22s}
 .wy-tab:last-child{border-right:0}
 .wy-tab .dot{width:23px;height:25px;clip-path:var(--hex);background:#616f78;display:grid;place-items:center;
   font:800 11.5px/1 var(--f-sans);color:#fff;flex:0 0 auto;transition:.22s}
@@ -162,14 +168,14 @@
 .wy-pane[hidden]{display:none}
 .wy-eyeb{font:800 11.5px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--teal2);margin-bottom:12px}
 .wy-qh{font-family:var(--f-head);font-weight:700;font-size:clamp(21px,2.4vw,28px);line-height:1.2;letter-spacing:-.015em;color:var(--ink);margin:0 0 10px;max-width:30ch}
-.wy-qp{font-size:15px;line-height:1.6;color:var(--muted);max-width:74ch;margin:0 0 26px}
+.wy-qp{font-size:15px;line-height:1.6;color:var(--muted);max-width:56ch;margin:0 0 26px}
 
 /* questions */
 .wy-q{padding:20px 0;border-top:1px solid var(--line)}
 .wy-q:first-of-type{border-top:0;padding-top:4px}
 .wy-qlab{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:12px}
-.wy-qlab span{font-family:var(--f-head);font-weight:700;font-size:16.5px;color:var(--ink);letter-spacing:-.01em}
-.wy-qval{font-family:var(--f-head);font-weight:800;font-size:22px;color:var(--teal2);letter-spacing:-.02em;white-space:nowrap}
+.wy-qlab span{font-family:var(--f-head);font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.wy-qval{font-family:var(--f-head);font-weight:800;font-size:22px;line-height:1.1;color:var(--teal2);letter-spacing:-.02em;white-space:nowrap}
 .wy-range{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:99px;background:#dfe9ee;outline:0}
 .wy-range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--teal);
   border:4px solid #fff;box-shadow:0 2px 8px rgba(21,45,56,.28);cursor:pointer}
@@ -184,7 +190,7 @@
 
 .wy-why{margin-top:26px;background:var(--mist);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
 .wy-why h5{font-family:var(--f-head);font-weight:700;font-size:14.5px;color:var(--ink);margin:0 0 6px}
-.wy-why p{margin:0;font-size:14px;line-height:1.6;color:var(--muted)}
+.wy-why p{margin:0;font-size:14px;line-height:1.6;color:var(--muted);max-width:58ch}
 .wy-cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:26px}
 
 /* step 2 — score */
@@ -195,7 +201,7 @@
 .wy-tier{opacity:0;transform:translateY(6px);transition:opacity .28s ease,transform .34s cubic-bezier(.2,.7,.2,1)}
 .wy-tier.lit{opacity:1;transform:none}
 .wy-tier{display:inline-block;margin-top:14px;padding:7px 16px;border-radius:99px;font:800 12.5px/1 var(--f-sans);color:#16242c}
-.wy-readout{font-size:16.5px;line-height:1.64;color:var(--ink);margin:0 0 20px}
+.wy-readout{font-family:var(--f-head);font-weight:600;font-size:clamp(19px,2vw,24px);line-height:1.34;letter-spacing:-.012em;color:var(--ink);max-width:44ch;margin:0 0 22px}
 .wy-dims{margin-top:6px}
 .wy-dim{padding:13px 0;border-bottom:1px solid var(--line)}
 .wy-dimTop{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:7px}
@@ -203,13 +209,13 @@
 .wy-dimTop i{font-style:normal;font:700 13px/1 var(--f-sans);color:var(--muted)}
 .wy-bar{height:7px;border-radius:99px;background:#e4edf1;overflow:hidden}
 .wy-bar i{display:block;height:100%;border-radius:99px;transition:width .5s cubic-bezier(.2,.7,.2,1)}
-.wy-dimName{font-size:13.5px;color:var(--muted);margin-top:7px;line-height:1.5}
+.wy-dimName{font-size:14px;color:var(--muted);margin-top:7px;line-height:1.5}
 
 .wy-money{display:grid;grid-template-columns:1fr;gap:16px;margin-top:22px}
 .wy-moneyC{background:var(--deep);color:#fff;border-radius:16px;padding:20px 22px}
 .wy-moneyC .f{font-family:var(--f-head);font-weight:800;font-size:34px;line-height:1;letter-spacing:-.03em;
   color:#a6ce42}
-.wy-moneyC p{margin:8px 0 0;font-size:13.5px;line-height:1.5;color:#b9d2dd}
+.wy-moneyC p{margin:8px 0 0;font-size:14px;line-height:1.5;color:#b9d2dd}
 
 .wy-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .wy-lg{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:99px;
@@ -226,17 +232,17 @@
 .wy-gaps{margin-top:26px}
 .wy-gap{display:grid;grid-template-columns:18px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
 .wy-gap .hx{width:16px;height:18px;clip-path:var(--hex);margin-top:4px}
-.wy-gap b{font-family:var(--f-head);font-weight:700;font-size:15.5px;color:var(--ink);display:block;margin-bottom:3px}
+.wy-gap b{font-family:var(--f-head);font-weight:700;font-size:15px;color:var(--ink);display:block;margin-bottom:3px}
 .wy-gap b i{font-style:normal;font-family:var(--f-sans);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-left:9px}
-.wy-gap p{margin:0;font-size:14.5px;line-height:1.58;color:var(--muted)}
+.wy-gap p{margin:0;font-size:14.5px;line-height:1.58;color:var(--muted);max-width:58ch}
 
 .wy-method{margin-top:24px;border-top:1px solid var(--line);padding-top:18px}
 .wy-methodBtn{border:0;background:none;padding:0;font:700 14px/1 var(--f-sans);color:var(--teal2);cursor:pointer}
 .wy-methodBtn:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
 .wy-methodBody[hidden]{display:none}
 .wy-methodBody{margin-top:16px}
-.wy-methodBody>p{font-size:14px;line-height:1.65;color:var(--muted);max-width:80ch}
-.wy-disc{margin-top:18px;font-size:12.5px;line-height:1.6;color:var(--muted);max-width:86ch}
+.wy-methodBody>p{font-size:14px;line-height:1.65;color:var(--muted);max-width:56ch}
+.wy-disc{margin-top:18px;font-size:14.5px;line-height:1.65;color:var(--muted);max-width:52ch}
 
 /* step 3 — scheduler */
 .wy-bookGrid{display:grid;grid-template-columns:1.05fr 1fr;gap:30px;align-items:start}
@@ -248,11 +254,11 @@
 .wy-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .wy-cal{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}
 .wy-calTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.wy-calTop b{font-family:var(--f-head);font-weight:700;font-size:15.5px;color:var(--ink)}
+.wy-calTop b{font-family:var(--f-head);font-weight:700;font-size:15px;color:var(--ink)}
 .wy-calNav{border:1px solid var(--line);background:#fff;border-radius:9px;width:30px;height:30px;cursor:pointer;color:#455560;font-size:15px;transition:background-color .18s,color .18s}
 .wy-calNav[disabled]{color:#c8d0d5;cursor:default}
 .wy-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:5px}
-.wy-dow span{text-align:center;font:800 10px/1 var(--f-sans);letter-spacing:.08em;color:var(--muted);padding:5px 0}
+.wy-dow span{text-align:center;font:800 11.5px/1 var(--f-sans);letter-spacing:.08em;color:var(--muted);padding:5px 0}
 .wy-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
 .wy-day{border:0;background:transparent;border-radius:9px;padding:9px 0;font:600 13.5px/1 var(--f-sans);color:#232d35;cursor:pointer;font-weight:700;transition:background-color .18s,color .18s}
 .wy-day[disabled]{color:#c8d0d5;cursor:default}
@@ -261,7 +267,7 @@
 .wy-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}
 .wy-slot{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 6px;font:600 13.5px/1 var(--f-sans);color:#455560;cursor:pointer;transition:background-color .18s,border-color .18s,color .18s}
 .wy-slot[aria-pressed="true"]{border-color:var(--teal);background:#e9f5fb;color:var(--teal2);font-weight:700}
-.wy-slotNote{font-size:13.5px;color:var(--muted);margin-top:14px}
+.wy-slotNote{font-size:14px;color:var(--muted);margin-top:14px}
 .wy-confirm{width:100%;margin-top:18px;border:0;border-radius:99px;padding:15px 20px;
   font:800 15px/1 var(--f-sans);color:var(--muted);background:var(--mist2);cursor:not-allowed;transition:background-color .2s,box-shadow .2s}
 .wy-confirm[data-ready="1"]{background:var(--brand-orange);cursor:pointer;box-shadow:0 10px 26px rgba(245,130,32,.32)}
@@ -274,7 +280,7 @@
   font:700 14.5px/1 var(--f-sans);color:var(--teal2)}
 .wy-gift{margin-top:26px;text-align:left;background:var(--deep);color:#fff;border-radius:18px;padding:26px 28px}
 .wy-gift .k{font:800 11px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:#8fd6ec;margin-bottom:10px}
-.wy-gift h4{font-family:var(--f-head);font-weight:700;font-size:20px;margin:0 0 8px;letter-spacing:-.01em}
+.wy-gift h4{font-family:var(--f-head);font-weight:700;font-size:20px;line-height:1.28;margin:0 0 8px;letter-spacing:-.01em}
 .wy-gift p{margin:0;font-size:14.5px;line-height:1.6;color:#b9d2dd}
 
 @media(max-width:900px){
@@ -324,7 +330,7 @@
     <div class="wy-sigs">
       <div class="wy-sig"><div class="n">01</div><p><b>Decision rights.</b> Who decides which suppliers work in your program, and who can remove one.</p></div>
       <div class="wy-sig"><div class="n">02</div><p><b>Supplier choice.</b> Whether every source of supply competes for a role on the same terms, including your own internal pool.</p></div>
-      <div class="wy-sig"><div class="n">03</div><p><b>Total spend view.</b> Whether you can see sourcing, utilization and rates as one economic picture rather than a stack of agency invoices.</p></div>
+      <div class="wy-sig"><div class="n">03<span class="wy-stack" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div><p><b>Total spend view.</b> Whether you can see sourcing, utilization and rates as one economic picture rather than a stack of agency invoices.</p></div>
       <div class="wy-sig"><div class="n">04</div><p><b>Data ownership.</b> Whether your program, supplier, rate and utilization data stays reportable and portable, governed by the health system rather than rented back to it.</p></div>
     </div>
     <div class="wy-proofin">
@@ -344,15 +350,15 @@
       <div class="eyebrow">The core question</div>
     </div>
     <h2 class="wy-ask">Who owns the model your <em>workforce runs on?</em></h2>
-    <p class="lead" style="max-width:68ch">Scale matters. Supply matters. Technology and managed services matter. But when one company provides the talent, the technology and the operating model, a more important question emerges.</p>
+    <p class="lead" style="max-width:52ch">Scale matters. Supply matters. Technology and managed services matter. But when one company provides the talent, the technology and the operating model, a more important question emerges.</p>
     <div class="wy-pull">How much control do you have over how your workforce runs?</div>
-    <p class="lead" style="max-width:68ch">The issue is bigger than features. It is about who owns the decisions, the data and the rules that shape your workforce, and whether you can change the model as your needs evolve.</p>
+    <p class="lead" style="max-width:52ch">The issue is bigger than features. It is about who owns the decisions, the data and the rules that shape your workforce, and whether you can change the model as your needs evolve.</p>
     <p class="lead" style="max-width:68ch;color:var(--teal2);font-weight:600">The workforce is yours. The model should be too.</p>
 
     <h3 style="font-family:var(--f-head);font-weight:700;font-size:20px;color:var(--ink);margin:40px 0 0;letter-spacing:-.01em">Signals the model may not be yours</h3>
     <ul class="wy-flags">
       <li>Changing suppliers means changing technology, or the reverse.</li>
-      <li>Internal float pools, permanent hiring and contingent labor are managed as three separate strategies.</li>
+      <li><span class="wy-three" aria-hidden="true"><i></i><i></i><i></i></span>Internal float pools, permanent hiring and contingent labor are managed as three separate strategies.</li>
       <li>Not every source of supply is measured against the same expectations.</li>
       <li>Rate reporting is available; total workforce economics are not.</li>
       <li>Your program data lives somewhere you cannot fully govern.</li>
@@ -407,7 +413,7 @@
 
         <div class="wy-q">
           <div class="wy-qlab"><span>What percentage of spend does your largest supplier govern?</span><b class="wy-qval" id="wyShareLab">65%</b></div>
-          <input class="wy-range" type="range" id="wyShare" aria-valuetext="65 percent" min="0" max="100" step="1" value="65" aria-label="Percentage of spend governed by your largest supplier">
+          <div class="wy-ladder"><input class="wy-range" type="range" id="wyShare" aria-valuetext="65 percent" min="0" max="100" step="1" value="65" aria-label="Percentage of spend governed by your largest supplier"><span class="lk" style="--p:.25" aria-hidden="true"></span><span class="lk" style="--p:.50" aria-hidden="true"></span><span class="lk" style="--p:.75" aria-hidden="true"></span><span class="lk" style="--p:.90" aria-hidden="true"></span></div>
         </div>
 
         <div class="wy-q">
@@ -426,6 +432,7 @@
             <button class="wy-opt" data-k="priority" role="radio" aria-checked="false">MSP&rsquo;s agency first</button>
             <button class="wy-opt" data-k="exclusive" role="radio" aria-checked="true">MSP fills it first</button>
           </div>
+          <div class="wy-rel" id="wyRel" aria-hidden="true"><span class="rtrack"></span><span class="rfill"></span><span class="rreq"></span><span class="rnode"></span><span class="rnode"></span><span class="rnode"></span></div>
         </div>
 
         <div class="wy-q">
@@ -568,7 +575,8 @@
             <div class="wy-gift">
               <div class="k">A token of our appreciation</div>
               <h4>10 Questions to Ask Before Your Next Renewal</h4>
-              <p>Our latest whitepaper is on its way to your inbox now, no forms, no follow-up required. Use it with any incumbent, including us.</p>
+              <p>Our latest whitepaper is on its way to your inbox now, no forms, no follow-up required.</p>
+              <p class="wy-brave">Use it with any incumbent, including us.</p>
             </div>
             <div class="wy-gift" style="background:var(--mist);color:var(--ink);border:1px solid var(--line)">
               <div class="k" style="color:var(--teal2)">What happens first</div>
@@ -690,7 +698,7 @@
         <div id="wyRDone" hidden style="text-align:center;padding:24px 0">
           <div style="width:58px;height:64px;clip-path:var(--hex);background:var(--brand-green);display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:24px">&#10003;</div>
           <h4 style="font-family:var(--f-head);font-weight:700;font-size:21px;color:var(--ink);margin:0 0 8px">On its way.</h4>
-          <p style="font-size:14.5px;color:var(--muted);margin:0">Check <b id="wyREcho" style="color:var(--teal2)"></b> — the report should land within a minute. Nothing else follows it.</p>
+          <p style="font-size:14.5px;color:var(--muted);margin:0">Check <b id="wyREcho" style="color:var(--teal2)"></b>. The report should land within a minute. Nothing else follows it.</p>
         </div>
       </div>
     </div>
@@ -719,6 +727,7 @@
 <section class="sec" id="demo" style="background:var(--deep);color:#fff;position:relative;overflow:hidden">
   <div class="wrap" style="text-align:center;position:relative;z-index:2">
     <h2 style="color:#fff;max-width:20ch;margin:0 auto 16px">Before you renew, ask who really owns the model.</h2>
+    <div class="wy-term" aria-hidden="true"><span class="ta"></span><span class="tb"></span><span class="tanniv"></span><span class="tmark"></span><span class="thead"></span></div>
     <p class="lead" style="color:#cfe3ec;max-width:60ch;margin:0 auto 28px">Control, choice, economics and outcomes, not just features. Start with an in-depth 30-minute Workforce Architecture Assessment.</p>
     <a class="btn btn-primary btn-xl" href="#assessment">Book your free assessment</a>
   </div>
@@ -729,7 +738,7 @@
    The geometry IS the method ("four questions, 25 points each"), so the
    picture carries the argument without adding a word of copy. ---- */
 .wy-ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:0 0 20px;max-width:660px}
-.wy-lcol .lh{font:800 9.5px/1.35 var(--f-sans);letter-spacing:.09em;text-transform:uppercase;
+.wy-lcol .lh{font:800 11.5px/1.3 var(--f-sans);letter-spacing:.09em;text-transform:uppercase;
   color:var(--muted);margin-bottom:10px;min-height:2.7em}
 .wy-cells{display:flex;flex-direction:column-reverse;gap:3px}
 .wy-crow{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
@@ -749,8 +758,8 @@
 .wy-commits{display:grid;grid-template-columns:1fr 1fr;gap:30px 40px;margin-top:44px}
 .wy-commit{position:relative;padding-left:0}
 .wy-commit .hx{display:block;width:34px;height:38px;clip-path:var(--hex);margin-bottom:16px}
-.wy-commit h4{font-family:var(--f-head);font-weight:700;font-size:clamp(19px,2.1vw,23px);color:#fff;margin:0 0 9px;letter-spacing:-.015em;min-height:2.2em}
-.wy-commit p{margin:0;font-size:15.5px;line-height:1.62;color:#b9d2dd;max-width:46ch}
+.wy-commit h4{font-family:var(--f-head);font-weight:700;font-size:clamp(19px,2.1vw,23px);line-height:1.22;color:#fff;margin:0 0 9px;letter-spacing:-.015em;min-height:2.44em}
+.wy-commit p{margin:0;font-size:15px;line-height:1.62;color:#b9d2dd;max-width:46ch}
 
 /* -------- role tabs -------- */
 .wy-roleTabs{display:flex;flex-wrap:wrap;gap:10px;margin:38px 0 26px}
@@ -780,7 +789,7 @@
 /* darkened brand orange for legibility on white (WCAG AA); matches the
    on-light variant the source used for the same hue */
 .wy-sideCard .k{font:800 11px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:#a34a12;margin-bottom:12px}
-.wy-sideCard h4{font-family:var(--f-head);font-weight:700;font-size:21px;color:var(--ink);margin:0 0 10px;letter-spacing:-.015em}
+.wy-sideCard h4{font-family:var(--f-head);font-weight:700;font-size:21px;line-height:1.25;color:var(--ink);margin:0 0 10px;letter-spacing:-.015em}
 .wy-sideCard p{margin:0;font-size:15px;line-height:1.6;color:var(--muted)}
 .wy-assures{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid var(--line)}
 .wy-assures>div{padding:22px 24px 8px;border-right:1px solid var(--line);font-size:15px;line-height:1.6;color:var(--muted)}
@@ -793,6 +802,93 @@
 .wy-rlist{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .wy-rlist li{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 16px;font:600 13.5px/1 var(--f-sans);color:var(--teal2)}
 .wy-rform{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px;box-shadow:var(--soft)}
+
+
+/* ===================== DISCIPLINE-NATIVE FLOURISHES =====================
+   Each appears exactly once. All decorative, all aria-hidden, all
+   reduced-motion aware. Nothing here changes quiz copy or logic. */
+
+/* 1. THE NOTICE WINDOW - one contract year; the final 90 days resolve from
+   coarse to fine ticks and the play-head stops at the notice date. Evergreen
+   auto-renewal is the trap behind "Before you renew". */
+.wy-term{position:relative;width:min(560px,100%);height:22px;margin:22px auto 30px}
+.wy-term span{position:absolute;display:block}
+.wy-term .ta{left:0;width:75.34%;top:9px;height:4px;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.22),rgba(255,255,255,.22) 1px,transparent 1px,transparent 6px)}
+.wy-term .tb{left:75.34%;width:24.66%;top:9px;height:4px;
+  background:repeating-linear-gradient(90deg,#8fd6ec,#8fd6ec 1px,transparent 1px,transparent 3px);
+  opacity:0;transition:opacity .6s ease 1.28s}
+.wy-term .tanniv{right:0;top:4px;width:1px;height:14px;background:rgba(255,255,255,.34)}
+.wy-term .tmark{left:75.34%;top:6px;width:9px;height:10.4px;margin-left:-4.5px;clip-path:var(--hex);
+  background:var(--brand-orange);transform:scale(0);transform-origin:50% 50%;
+  transition:transform .18s cubic-bezier(.2,.9,.3,1.25) 1.34s}
+.wy-term .thead{left:0;top:2px;width:1px;height:18px;background:#fff;opacity:.55;
+  transition:left 1.4s cubic-bezier(.33,0,.15,1)}
+.wy-term.lit .tb{opacity:1}
+.wy-term.lit .tmark{transform:scale(1)}
+.wy-term.lit .thead{left:75.34%}
+
+/* 2. THE RELEASE CASCADE - VMS distribution tiers. The tier hold IS the answer. */
+.wy-rel{position:relative;height:18px;width:min(420px,100%);margin:16px 0 0}
+.wy-rel span{position:absolute;display:block}
+.wy-rel .rtrack{left:6px;right:0;top:8px;height:1px;
+  background:repeating-linear-gradient(90deg,var(--line),var(--line) 3px,transparent 3px,transparent 7px)}
+.wy-rel .rfill{left:6px;top:8px;height:1px;width:0;background:var(--teal);
+  transition:width var(--rdur,.52s) cubic-bezier(.33,0,.2,1)}
+.wy-rel .rreq{left:0;top:2px;width:12px;height:13.8px;clip-path:var(--hex);background:var(--teal2)}
+.wy-rel .rnode{top:3px;width:11px;height:12.7px;margin-left:-5.5px;clip-path:var(--hex);
+  background:#dbe6ec;transform:scale(.82);
+  transition:background .26s ease,transform .26s cubic-bezier(.2,.9,.3,1.3)}
+.wy-rel .rnode:nth-of-type(4){left:34%}
+.wy-rel .rnode:nth-of-type(5){left:64%}
+.wy-rel .rnode:nth-of-type(6){left:94%}
+.wy-rel .rnode.on{transform:scale(1)}
+
+/* 3. THE STACK OF AGENCY INVOICES - signal 03 promises one economic picture. */
+.wy-sig .n{position:relative}
+.wy-stack{display:block;position:relative;width:26px;height:26px;margin-top:12px}
+.wy-stack i{position:absolute;left:0;top:0;width:20px;height:5px;border-radius:1px;background:var(--line);
+  transition:transform .62s cubic-bezier(.22,.75,.18,1),background .4s ease}
+.wy-stack i:nth-child(1){transform:translate(6px,0) rotate(-4deg)}
+.wy-stack i:nth-child(2){transform:translate(2px,6px) rotate(3deg)}
+.wy-stack i:nth-child(3){transform:translate(5px,12px) rotate(-2deg)}
+.wy-stack i:nth-child(4){transform:translate(1px,18px) rotate(5deg)}
+.wy-sig.regd .wy-stack i{transform:translate(3px,9px) rotate(0deg);background:var(--teal)}
+.wy-sig.regd .wy-stack i:nth-child(2){transition-delay:.06s}
+.wy-sig.regd .wy-stack i:nth-child(3){transition-delay:.12s}
+.wy-sig.regd .wy-stack i:nth-child(4){transition-delay:.18s}
+
+/* 4. THREE SEPARATE STRATEGIES - the brand mark is three hexes that touch. These do not. */
+.wy-flags li:nth-child(2):before{display:none}
+.wy-three{position:absolute;left:0;top:15px;width:27px;height:28px;display:block}
+.wy-three i{position:absolute;width:8px;height:9.2px;clip-path:var(--hex);background:var(--brand-orange);opacity:.85}
+.wy-three i:nth-child(1){left:0;top:1px}
+.wy-three i:nth-child(2){left:9px;top:10px}
+.wy-three i:nth-child(3){left:18px;top:0}
+
+/* 5. THE CONCENTRATION LADDER - the band edges the score actually turns on. */
+.wy-ladder{position:relative}
+.wy-ladder .lk{position:absolute;top:50%;width:1px;height:14px;margin-top:-7px;
+  left:calc(12px + (100% - 24px) * var(--p));background:#a9c1cd;pointer-events:none}
+.wy-ladder .lk.hit{animation:wyEdge .42s cubic-bezier(.2,.7,.2,1)}
+@keyframes wyEdge{0%{background:var(--brand-orange);height:20px;margin-top:-10px}
+  100%{background:#a9c1cd;height:14px;margin-top:-7px}}
+
+/* the only circles on a page built from hexagons */
+.wy-range::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:25.4px;border:0;border-radius:0;
+  clip-path:var(--hex);background:var(--teal2);margin-top:-10px;cursor:pointer;
+  filter:drop-shadow(0 2px 5px rgba(21,45,56,.25))}
+.wy-range::-moz-range-thumb{width:22px;height:25.4px;border:0;border-radius:0;clip-path:var(--hex);
+  background:var(--teal2);cursor:pointer;filter:drop-shadow(0 2px 5px rgba(21,45,56,.25))}
+
+.wy-brave{margin:14px 0 0!important;padding-top:14px;border-top:1px solid rgba(255,255,255,.18);
+  font-size:17px!important;color:#fff!important;font-weight:600}
+
+@media(prefers-reduced-motion:reduce){
+  .wy-term .tb,.wy-term .tmark,.wy-term .thead,.wy-rel .rfill,.wy-rel .rnode,
+  .wy-stack i{transition:none}
+  .wy-ladder .lk.hit{animation:none}
+}
 
 @media(max-width:900px){
   .wy-commits{grid-template-columns:1fr;gap:26px}
@@ -915,6 +1011,31 @@
     var w=$(wrapId); if(!w) return;
     [].forEach.call(w.querySelectorAll('.wy-opt'),function(b){
       b.setAttribute('aria-checked', String(S[key]===b.dataset.k));
+    });
+  }
+
+  /* ---- release cascade: the tier hold is the answer, drawn without a word ---- */
+  function paintRelease(k){
+    var w=$('wyRel'); if(!w) return;
+    var fill=w.querySelector('.rfill'),
+        nodes=[].slice.call(w.querySelectorAll('.rnode')),
+        still=RM.matches;
+    fill.style.transition='none'; fill.style.width='0';
+    nodes.forEach(function(n){n.style.transition='none';n.className='rnode';n.style.background='';n.style.transitionDelay='0ms';});
+    void w.offsetWidth;
+    fill.style.transition=''; nodes.forEach(function(n){n.style.transition='';});
+    var plan = k==='open'
+        ? {w:'calc(94% - 6px)',dur:'.52s',lit:[[0,360],[1,420],[2,480]],col:'var(--brand-green)'}
+      : k==='priority'
+        ? {w:'calc(94% - 6px)',dur:'.94s',lit:[[0,170],[1,760],[2,830]],col:null}
+        : {w:'calc(34% - 6px)',dur:'.24s',lit:[[0,170]],col:'var(--brand-redorange)'};
+    fill.style.setProperty('--rdur', still?'0s':plan.dur);
+    fill.style.width=plan.w;
+    plan.lit.forEach(function(p){
+      var n=nodes[p[0]];
+      n.style.transitionDelay=(still?0:p[1])+'ms';
+      n.style.background = plan.col || (p[0]===0?'var(--brand-orange)':'var(--teal)');
+      n.classList.add('on');
     });
   }
 
@@ -1047,11 +1168,21 @@
 
   /* ---------- events ---------- */
   $('wySpend').addEventListener('input',function(e){S.spend=+e.target.value;renderScore();});
-  $('wyShare').addEventListener('input',function(e){S.share=+e.target.value;renderScore();});
+  var BANDS=[25,50,75,90], LKS=null, lastShare=S.share;
+  $('wyShare').addEventListener('input',function(e){
+    var v=+e.target.value;
+    if(!LKS) LKS=document.querySelectorAll('.wy-ladder .lk');
+    if(!RM.matches) BANDS.forEach(function(b,i){
+      if((lastShare<b)!==(v<b) && LKS[i]){ LKS[i].classList.remove('hit'); void LKS[i].offsetWidth; LKS[i].classList.add('hit'); }
+    });
+    lastShare=v;
+    S.share=v; renderScore();
+  });
   [['wyGovern','govern'],['wyNeutral','neutral'],['wyRate','rate']].forEach(function(pair){
     $(pair[0]).addEventListener('click',function(e){
       var b=e.target.closest('.wy-opt'); if(!b) return;
       S[pair[1]]=b.dataset.k; renderOpts(pair[0],pair[1]); renderScore();
+      if(pair[1]==='neutral') paintRelease(S.neutral);
     });
   });
   var revealed=false;
@@ -1203,7 +1334,7 @@
   LEDGERS=[buildLedger('wyLedger1',['Supplier concentration','Supplier governance','Vendor neutrality','Rate governance']),
            buildLedger('wyLedger2',['Supplier concentration','Supplier governance','Vendor neutrality','Rate governance'])];
   ['wyGovern','wyNeutral','wyRate'].forEach(function(id,i){renderOpts(id,['govern','neutral','rate'][i]);});
-  renderScore(); renderStep();
+  renderScore(); renderStep(); paintRelease(S.neutral);
 
   /* FAQ accordion (shared .q/.a system from site.css) */
   [].forEach.call(document.querySelectorAll('.faq-list .q button'),function(btn){
@@ -1260,6 +1391,22 @@ addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>10)});
   if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal,.stagger').forEach(function(e){e.classList.add('in')});return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal,.stagger').forEach(function(e){io.observe(e);});
+})();
+</script>
+<script>
+/* scroll-triggered flourishes: the notice window + the invoice stack. Decorative. */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches, noIO=!('IntersectionObserver' in window);
+  function once(el,cls,delay){
+    if(!el) return;
+    if(reduce||noIO){ el.classList.add(cls); return; }
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){
+      if(x.isIntersecting){ setTimeout(function(){el.classList.add(cls);}, delay||0); io.disconnect(); }
+    });},{threshold:.6});
+    io.observe(el);
+  }
+  once(document.querySelector('.wy-term'),'lit',0);
+  once(document.querySelectorAll('.wy-sig')[2],'regd',320);
 })();
 </script>
 <script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
