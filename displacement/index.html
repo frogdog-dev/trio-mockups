@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Workforce Is Yours | Trio Workforce Solutions (concept)</title>
+<link rel="stylesheet" href="../assets/css/site.css?v=20260901d">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+/* flat-top hex badge for numerals (keeps 2-char labels off the sloped vertices) */
+
+/* ---------- HERO ---------- */
+/* Amy: more padding between nav bar and the subhead -> generous hero top pad */
+
+/* hero signal card + CLEAN hex accents (Amy: no grid, no circles, no blue hex, no green shadow) */
+.chips{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* ---------- DEPLOY THREE THINGS ---------- */
+/* Amy: remove hexagons from all three box backgrounds -> clean items, no bg hex watermark */
+
+/* ---------- APPLIED AI (philosophy) ---------- */
+.phil p{margin-top:16px;font-size:16.5px;line-height:1.6;color:var(--ink)}
+/* Amy: orange hexagon w/ quote mark partially overlaid on the rounded rectangle */
+.qcardwrap{position:relative;margin-top:6px}
+
+/* ---------- STRATEGY: earn its place ---------- */
+.earn3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+
+/* ---------- IN PRACTICE (dark band) ---------- */
+/* Courtney: remove the dash lines on every heading eyebrow */
+.eyebrow:before{display:none!important}.eyebrow{gap:0!important}
+.needle4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+/* second row: learning loop + correlating cards, aligned to the same 4-col grid */
+/* learning loop: core hex centered on top, 4 feeder nodes in a 2x2 grid below (1 col on phones). No absolute positioning = no collisions at any width. */
+/* correlating icon chips (repeated on nodes AND cards so people see they correlate) */
+
+/* ---------- OPERATING PRINCIPLES ---------- */
+.gov6{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+
+/* ---------- CTA + FORM ---------- */
+
+@media(max-width:980px){
+  .earn3,.needle4{grid-template-columns:1fr 1fr}
+  .gov6{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .earn3,
+.needle4,
+.chips{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a healthcare VMS?", "acceptedAnswer": {"@type": "Answer", "text": "A vendor management system is the technology a hospital or health system uses to manage contingent labor end to end: requisitions, submissions, credentialing, scheduling, timecards, billing and supplier performance. A healthcare VMS models clinical realities such as licensure, privileging, unit-level scheduling and float pools rather than treating clinicians as generic contractors."}}, {"@type": "Question", "name": "What does it mean for a VMS to be independent of supply?", "acceptedAnswer": {"@type": "Answer", "text": "It means the platform you use to compare, award and govern work is not owned by a company competing to fill that work. Every supplier, including internal resources, is measured against the same expectations, and the health system decides where volume goes."}}, {"@type": "Question", "name": "Can we change suppliers without replacing the technology?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Supplier changes, added specialties and shifts in operating responsibility are configuration decisions inside Trio VMS, not a program rebuild. Managed, hybrid and self-managed operating models are settings, so responsibility can move without the model being torn down."}}, {"@type": "Question", "name": "How do internal float pools fit a total workforce model?", "acceptedAnswer": {"@type": "Answer", "text": "Internal resource management sits alongside external supply in the same demand view, so open need is offered internally first and escalated outward on your rules. Permanent, internal and contingent labor are planned as one workforce strategy instead of three."}}, {"@type": "Question", "name": "How long does a transition take?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on program size, integrations and how many facilities go live at once. The assessment produces a transition roadmap with sequencing, owners and the risks worth planning around, before any commitment."}}, {"@type": "Question", "name": "Do you work with California health systems?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Trio Workforce Solutions supports health systems nationally and is actively working with California organizations on nursing, allied health and locums programs, including California-specific rate, ratio and compliance considerations."}}]}</script>
+</head>
+<body>
+<div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a href="../mi/">Market Intelligence</a><a href="../digital-worker/">Digital Workers</a><a href="../timecard-auditor/">Timecard Auditor</a><a href="../displacement/" class="on">Workforce Is Yours</a><a href="../brand/">Brand guide</a></div>
+<div class="concept-note">Frogdog design pass for the Trio <b>Workforce Architecture Assessment</b> campaign page &nbsp;&bull;&nbsp; quiz logic and questions preserved exactly from Courtney's v2; styling only brought on-brand &nbsp;&bull;&nbsp; scheduler is illustrative, wires to HubSpot Meetings on build</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../home/"><img class="brandmark" src="../assets/trio-logo-stacked.png" alt="Trio Workforce Solutions"></a>
+    <nav class="nav-links">
+      <span class="has-mega"><a href="https://www.triowfs.com/solutions">Platform</a><div class="mega"><div class="mgroup"><div class="mh">Ways to run it</div><a href="https://www.triowfs.com/solutions/trio-msp"><b>Trio MSP</b><span>Managed</span></a><a href="https://www.triowfs.com/solutions/trio-vms-plus"><b>Trio VMS+</b><span>Hybrid</span></a><a href="https://www.triowfs.com/solutions/trio-vms-saas"><b>Trio VMS</b><span>Self-Managed</span></a></div><div class="mgroup"><div class="mh">Ways to grow with it</div><a href="https://www.triowfs.com/solutions/enterprise-workforce-management"><b>Enterprise Workforce Management</b><span>EWM overlay</span></a><a href="https://www.triowfs.com/solutions/internal-resource-management"><b>Internal Resource Management</b><span>IRM overlay</span></a></div><div class="mgroup"><div class="mh">Intelligence &amp; Applied AI</div><a href="../mi/"><b>Market Intelligence</b><span>Live market data</span></a><a href="../digital-worker/"><b>Digital Workers</b><span>Applied AI teammates</span></a><a href="../applied-ai/"><b>AI Approach</b><span>How we build AI</span></a></div><div class="mfoot"><span class="tag">Three ways to run the platform. Two ways to grow with it.</span><a class="mlink" href="https://www.triowfs.com/solutions">Explore the platform &rarr;</a></div></div></span>
+      <a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a>
+      <a href="https://www.triowfs.com/resources">Resources</a>
+      <span class="has-sub"><a href="https://www.triowfs.com/about">About Us</a><div class="sub"><a href="https://www.triowfs.com/careers">Careers</a><a href="https://www.triowfs.com/about/leadership-team">Leadership Team</a><a href="https://www.triowfs.com/resources/articles">News</a><a href="https://www.triowfs.com/about/our-history">Our History</a></div></span>
+    </nav>
+    <div class="nav-cta">
+      <a class="login" href="https://trio.triovms.com/">Trio MSP Login</a>
+      <a class="btn btn-primary" href="/request-a-demo/" style="padding:11px 20px">Request a demo</a>
+    </div>
+  </div>
+</header>
+<style>
+/* ============ DISPLACEMENT / "THE WORKFORCE IS YOURS" ============
+   Frogdog design pass over Courtney's v2. Quiz LOGIC + QUESTIONS frozen
+   (see _source/displacement-v2/_QUIZ-SPEC-FROZEN.md); only surface restyled. */
+
+/* -------- 1. HERO -------- */
+.wy-hero{position:relative;background:var(--deep);color:#fff;overflow:hidden;padding:76px 0 0}
+.wy-hero:before{content:"";position:absolute;inset:0;
+  background:radial-gradient(760px 420px at 12% 6%,rgba(0,159,199,.30),transparent 62%),
+             radial-gradient(620px 400px at 92% 88%,rgba(121,187,67,.16),transparent 66%);pointer-events:none}
+.wy-hero .wrap{position:relative;z-index:2}
+.wy-crumb{display:inline-flex;align-items:center;gap:9px;font:800 11.5px/1 var(--f-sans);letter-spacing:.15em;text-transform:uppercase;color:#8fd6ec;margin-bottom:26px}
+
+/* color MUST be set explicitly: site.css sets h1{color:...} directly, which beats
+   the inherited #fff from .wy-hero. Without this the headline is navy-on-navy. */
+.wy-h1{color:#fff;font-family:var(--f-head);font-weight:800;font-size:clamp(46px,6.6vw,92px);line-height:.94;letter-spacing:-.025em;margin:0 0 6px;max-width:15ch}
+.wy-h1 em{font-style:normal;display:block;--own:100%;
+  background:linear-gradient(94deg,#7fe0ff 0%,#a6ce42 calc(var(--own) - .5%),#5b8194 var(--own),#5b8194 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  transition:--own 1.25s cubic-bezier(.22,.75,.18,1) .15s}
+@supports (background:linear-gradient(in oklab,red,blue)){
+  @property --own{syntax:'<percentage>';inherits:false;initial-value:100%}
+}
+.wy-sub{font-family:var(--f-head);font-weight:700;font-size:clamp(19px,2.1vw,26px);color:#9fd9ee;letter-spacing:-.01em;margin:14px 0 20px}
+.wy-lede{font-size:17.5px;line-height:1.64;color:#cfe3ec;max-width:60ch;margin:0 0 14px}
+.wy-lede b{color:#fff;font-weight:600}
+.wy-heroCta{display:flex;flex-wrap:wrap;gap:13px;align-items:center;margin:30px 0 8px}
+.wy-note{font-size:13px;color:#8fa7b4}
+
+/* signal rail inside hero */
+.wy-rail{position:relative;z-index:2;margin-top:54px;border-top:1px solid rgba(255,255,255,.14);
+  display:grid;grid-template-columns:repeat(4,1fr)}
+.wy-rail div{padding:22px 20px 30px;border-right:1px solid rgba(255,255,255,.10)}
+.wy-rail div:last-child{border-right:0}
+.wy-rail .k{display:block;font:800 10.5px/1 var(--f-sans);letter-spacing:.15em;text-transform:uppercase;color:#7fb9d0;margin-bottom:9px;min-height:2.2em}
+.wy-rail .v{font-family:var(--f-head);font-weight:700;font-size:17px;color:#fff;letter-spacing:-.01em}
+
+/* -------- 2. SIGNALS (typographic rows, not cards) -------- */
+.wy-sigs{border-top:1px solid var(--line)}
+.wy-sig{display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:start;padding:26px 0;border-bottom:1px solid var(--line)}
+.wy-sig .n{font-family:var(--f-head);font-weight:800;font-size:15px;color:var(--teal2);padding-top:3px}
+.wy-sig p{margin:0;font-size:17px;line-height:1.6;color:var(--ink);max-width:70ch}
+
+/* -------- 3. PROOF INSET -------- */
+.wy-proofin{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;
+  background:var(--deep);color:#fff;border-radius:20px;padding:34px 38px;box-shadow:var(--shadow);margin-top:40px}
+.wy-proofin .fig{font-family:var(--f-head);font-weight:800;font-size:clamp(36px,4.4vw,54px);line-height:.88;letter-spacing:-.03em;
+  color:#a6ce42;white-space:nowrap}
+.wy-proofin .figc{font:700 12px/1.3 var(--f-sans);letter-spacing:.1em;text-transform:uppercase;color:#8fd6ec;margin-top:8px}
+.wy-proofin p{margin:0;font-size:16.5px;line-height:1.62;color:#cfe3ec}
+.wy-proofin b{color:#fff}
+
+/* -------- 4. CORE QUESTION (statement + list) -------- */
+.wy-ask{font-family:var(--f-head);font-weight:800;font-size:clamp(30px,3.9vw,50px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);max-width:19ch;margin:0 0 22px}
+.wy-ask em{font-style:normal;color:var(--teal2)}
+.wy-pull{font-family:var(--f-head);font-weight:700;font-size:clamp(20px,2.3vw,27px);line-height:1.34;color:var(--teal2);
+  border-left:4px solid var(--brand-green);padding:4px 0 4px 20px;margin:26px 0;max-width:46ch}
+.wy-flags{list-style:none;margin:26px 0 0;padding:0}
+.wy-flags li{position:relative;padding:14px 0 14px 34px;border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.58;color:var(--ink)}
+.wy-flags li:before{content:"";position:absolute;left:0;top:21px;width:15px;height:17px;clip-path:var(--hex);background:var(--brand-orange);opacity:.85}
+
+/* -------- 5. THREE-STEP INTRO -------- */
+.wy-steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+.wy-stepline{position:absolute;left:0;top:34px;width:100%;height:2px;z-index:0;pointer-events:none}
+.wy-step{position:relative;z-index:2;text-align:center}
+.wy-step .hx{width:68px;height:75px;margin:0 auto 16px;clip-path:var(--hex);display:grid;place-items:center;
+  font-family:var(--f-head);font-weight:800;font-size:24px;color:var(--deep)}
+.wy-step:nth-of-type(1) .hx{background:var(--brand-cyan)}
+.wy-step:nth-of-type(2) .hx{background:var(--brand-green)}
+.wy-step:nth-of-type(3) .hx{background:var(--brand-orange)}
+.wy-step h4{font-family:var(--f-head);font-weight:700;font-size:19px;color:var(--ink);margin:0 0 6px;letter-spacing:-.01em}
+.wy-step p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.5}
+
+/* ============ 6. THE ASSESSMENT (quiz) ============ */
+.wy-assess{background:var(--mist);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.wy-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--soft);overflow:hidden}
+
+/* step tabs */
+.wy-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.wy-tab{display:flex;align-items:center;gap:11px;padding:15px 18px;border:0;background:#f5f7f8;text-align:left;
+  font-family:var(--f-sans);font-size:13.5px;font-weight:600;color:var(--muted);border-right:1px solid var(--line);transition:background-color .22s,color .22s}
+.wy-tab:last-child{border-right:0}
+.wy-tab .dot{width:23px;height:25px;clip-path:var(--hex);background:#616f78;display:grid;place-items:center;
+  font:800 11.5px/1 var(--f-sans);color:#fff;flex:0 0 auto;transition:.22s}
+.wy-tab[data-state="active"]{background:#e9f5fb;color:var(--ink)}
+.wy-tab[data-state="active"] .dot{background:var(--teal2)}
+.wy-tab[data-state="done"]{background:#f1f8ec;color:var(--ink);cursor:pointer}
+.wy-tab[data-state="done"] .dot{background:#4c8a2c}
+.wy-pane{padding:34px 36px 38px}
+.wy-pane[hidden]{display:none}
+.wy-eyeb{font:800 11.5px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--teal2);margin-bottom:12px}
+.wy-qh{font-family:var(--f-head);font-weight:700;font-size:clamp(21px,2.4vw,28px);line-height:1.2;letter-spacing:-.015em;color:var(--ink);margin:0 0 10px;max-width:30ch}
+.wy-qp{font-size:15px;line-height:1.6;color:var(--muted);max-width:74ch;margin:0 0 26px}
+
+/* questions */
+.wy-q{padding:20px 0;border-top:1px solid var(--line)}
+.wy-q:first-of-type{border-top:0;padding-top:4px}
+.wy-qlab{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:12px}
+.wy-qlab span{font-family:var(--f-head);font-weight:700;font-size:16.5px;color:var(--ink);letter-spacing:-.01em}
+.wy-qval{font-family:var(--f-head);font-weight:800;font-size:22px;color:var(--teal2);letter-spacing:-.02em;white-space:nowrap}
+.wy-range{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:99px;background:#dfe9ee;outline:0}
+.wy-range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--teal);
+  border:4px solid #fff;box-shadow:0 2px 8px rgba(21,45,56,.28);cursor:pointer}
+.wy-range::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--teal);border:4px solid #fff;box-shadow:0 2px 8px rgba(21,45,56,.28);cursor:pointer}
+.wy-range:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+.wy-opts{display:flex;flex-wrap:wrap;gap:10px}
+.wy-opt{border:1px solid var(--line);background:#fff;border-radius:99px;padding:10px 18px;
+  font:600 14px/1 var(--f-sans);color:var(--muted);cursor:pointer;font-weight:700;transition:background-color .18s,border-color .18s,color .18s}
+.wy-opt:hover{border-color:var(--teal);color:var(--teal2)}
+.wy-opt[aria-pressed="true"]{border-color:var(--teal);background:#e9f5fb;color:var(--teal2);font-weight:700}
+.wy-opt:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+
+.wy-why{margin-top:26px;background:var(--mist);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.wy-why h5{font-family:var(--f-head);font-weight:700;font-size:14.5px;color:var(--ink);margin:0 0 6px}
+.wy-why p{margin:0;font-size:14px;line-height:1.6;color:var(--muted)}
+.wy-cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:26px}
+
+/* step 2 — score */
+.wy-scoreGrid{display:grid;grid-template-columns:260px 1fr;gap:34px;align-items:start}
+.wy-scoreBox{text-align:center;background:var(--mist);border:1px solid var(--line);border-radius:18px;padding:26px 20px}
+.wy-scoreNum{font-variant-numeric:tabular-nums;font-feature-settings:'tnum';font-family:var(--f-head);font-weight:800;font-size:clamp(88px,10vw,140px);line-height:.9;letter-spacing:-.04em}
+.wy-scoreCap{font:700 11.5px/1.3 var(--f-sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.wy-tier{opacity:0;transform:translateY(6px);transition:opacity .28s ease,transform .34s cubic-bezier(.2,.7,.2,1)}
+.wy-tier.lit{opacity:1;transform:none}
+.wy-tier{display:inline-block;margin-top:14px;padding:7px 16px;border-radius:99px;font:800 12.5px/1 var(--f-sans);color:#16242c}
+.wy-readout{font-size:16.5px;line-height:1.64;color:var(--ink);margin:0 0 20px}
+.wy-dims{margin-top:6px}
+.wy-dim{padding:13px 0;border-bottom:1px solid var(--line)}
+.wy-dimTop{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:7px}
+.wy-dimTop b{font-family:var(--f-head);font-weight:700;font-size:15px;color:var(--ink)}
+.wy-dimTop i{font-style:normal;font:700 13px/1 var(--f-sans);color:var(--muted)}
+.wy-bar{height:7px;border-radius:99px;background:#e4edf1;overflow:hidden}
+.wy-bar i{display:block;height:100%;border-radius:99px;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.wy-dimName{font-size:13.5px;color:var(--muted);margin-top:7px;line-height:1.5}
+
+.wy-money{display:grid;grid-template-columns:1fr;gap:16px;margin-top:22px}
+.wy-moneyC{background:var(--deep);color:#fff;border-radius:16px;padding:20px 22px}
+.wy-moneyC .f{font-family:var(--f-head);font-weight:800;font-size:34px;line-height:1;letter-spacing:-.03em;
+  color:#a6ce42}
+.wy-moneyC p{margin:8px 0 0;font-size:13.5px;line-height:1.5;color:#b9d2dd}
+
+.wy-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.wy-lg{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:99px;
+  padding:8px 15px;font:600 13px/1 var(--f-sans);color:var(--ink);cursor:pointer;transition:background-color .18s,box-shadow .18s}
+.wy-lg span{width:13px;height:15px;clip-path:var(--hex);display:inline-block}
+.wy-tip{margin-top:14px;border-radius:14px;padding:16px 18px;background:var(--mist);border:1px solid var(--line);border-left:4px solid transparent}
+.wy-lg[aria-pressed="true"]{box-shadow:inset 0 0 0 1.5px currentColor;background:var(--mist)}
+.wy-tab[aria-disabled="true"]{opacity:.55}
+.wy-tab[aria-disabled="true"] .dot{background:#c3ced5;color:#2c3a42}
+.wy-tip[hidden]{display:none}
+.wy-tip h5{font-family:var(--f-head);font-weight:700;font-size:14.5px;margin:0 0 6px}
+.wy-tip p{margin:0;font-size:14px;line-height:1.6;color:var(--ink)}
+
+.wy-gaps{margin-top:26px}
+.wy-gap{display:grid;grid-template-columns:18px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.wy-gap .hx{width:16px;height:18px;clip-path:var(--hex);margin-top:4px}
+.wy-gap b{font-family:var(--f-head);font-weight:700;font-size:15.5px;color:var(--ink);display:block;margin-bottom:3px}
+.wy-gap b i{font-style:normal;font-family:var(--f-sans);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-left:9px}
+.wy-gap p{margin:0;font-size:14.5px;line-height:1.58;color:var(--muted)}
+
+.wy-method{margin-top:24px;border-top:1px solid var(--line);padding-top:18px}
+.wy-methodBtn{border:0;background:none;padding:0;font:700 14px/1 var(--f-sans);color:var(--teal2);cursor:pointer}
+.wy-methodBtn:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wy-methodBody[hidden]{display:none}
+.wy-methodBody{margin-top:16px}
+.wy-methodBody>p{font-size:14px;line-height:1.65;color:var(--muted);max-width:80ch}
+.wy-disc{margin-top:18px;font-size:12.5px;line-height:1.6;color:var(--muted);max-width:86ch}
+
+/* step 3 — scheduler */
+.wy-bookGrid{display:grid;grid-template-columns:1.05fr 1fr;gap:30px;align-items:start}
+.wy-field{margin-bottom:14px}
+.wy-field label{display:block;font:700 12.5px/1 var(--f-sans);letter-spacing:.04em;color:var(--ink);margin-bottom:7px}
+.wy-field input,.wy-field select{width:100%;border:1px solid var(--line);border-radius:11px;padding:12px 14px;
+  font:400 15px/1.3 var(--f-sans);color:var(--ink);background:var(--mist)}
+.wy-field input:focus,.wy-field select:focus{outline:3px solid var(--teal);outline-offset:1px;background:#fff}
+.wy-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wy-cal{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}
+.wy-calTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.wy-calTop b{font-family:var(--f-head);font-weight:700;font-size:15.5px;color:var(--ink)}
+.wy-calNav{border:1px solid var(--line);background:#fff;border-radius:9px;width:30px;height:30px;cursor:pointer;color:#455560;font-size:15px;transition:background-color .18s,color .18s}
+.wy-calNav[disabled]{color:#c8d0d5;cursor:default}
+.wy-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:5px}
+.wy-dow span{text-align:center;font:800 10px/1 var(--f-sans);letter-spacing:.08em;color:var(--muted);padding:5px 0}
+.wy-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.wy-day{border:0;background:transparent;border-radius:9px;padding:9px 0;font:600 13.5px/1 var(--f-sans);color:#232d35;cursor:pointer;font-weight:700;transition:background-color .18s,color .18s}
+.wy-day[disabled]{color:#c8d0d5;cursor:default}
+.wy-day[aria-pressed="true"]{background:var(--brand-green);color:#fff;font-weight:800}
+.wy-day:not([disabled]):hover{background:var(--mist2)}
+.wy-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}
+.wy-slot{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 6px;font:600 13.5px/1 var(--f-sans);color:#455560;cursor:pointer;transition:background-color .18s,border-color .18s,color .18s}
+.wy-slot[aria-pressed="true"]{border-color:var(--teal);background:#e9f5fb;color:var(--teal2);font-weight:700}
+.wy-slotNote{font-size:13.5px;color:var(--muted);margin-top:14px}
+.wy-confirm{width:100%;margin-top:18px;border:0;border-radius:99px;padding:15px 20px;
+  font:800 15px/1 var(--f-sans);color:var(--muted);background:var(--mist2);cursor:not-allowed;transition:background-color .2s,box-shadow .2s}
+.wy-confirm[data-ready="1"]{background:var(--brand-orange);cursor:pointer;box-shadow:0 10px 26px rgba(245,130,32,.32)}
+.wy-selSum{text-align:center;font:700 13.5px/1 var(--f-sans);color:var(--muted);margin-top:12px}
+.wy-booked{text-align:center;padding:14px 0 6px}
+.wy-booked .hx{width:66px;height:73px;clip-path:var(--hex);background:var(--brand-green);display:grid;place-items:center;margin:0 auto 18px;color:#fff;font-size:28px}
+.wy-booked h3{font-family:var(--f-head);font-weight:800;font-size:clamp(24px,3vw,34px);color:var(--ink);margin:0 0 10px;letter-spacing:-.02em}
+.wy-booked p{font-size:16px;line-height:1.62;color:var(--muted);max-width:60ch;margin:0 auto 14px}
+.wy-bookedSum{display:inline-block;background:var(--mist);border:1px solid var(--line);border-radius:99px;padding:10px 20px;
+  font:700 14.5px/1 var(--f-sans);color:var(--teal2)}
+.wy-gift{margin-top:26px;text-align:left;background:var(--deep);color:#fff;border-radius:18px;padding:26px 28px}
+.wy-gift .k{font:800 11px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:#8fd6ec;margin-bottom:10px}
+.wy-gift h4{font-family:var(--f-head);font-weight:700;font-size:20px;margin:0 0 8px;letter-spacing:-.01em}
+.wy-gift p{margin:0;font-size:14.5px;line-height:1.6;color:#b9d2dd}
+
+@media(max-width:900px){
+  .wy-rail{grid-template-columns:1fr 1fr}
+  .wy-rail div{border-bottom:1px solid rgba(255,255,255,.10)}
+  .wy-scoreGrid,.wy-bookGrid{grid-template-columns:1fr}
+  .wy-steps{grid-template-columns:1fr;gap:26px}
+  .wy-stepline{display:none}
+  .wy-proofin{grid-template-columns:1fr;gap:18px}
+  .wy-money{grid-template-columns:1fr}
+  .wy-pane{padding:26px 20px 30px}
+  .wy-tab{flex-direction:column;align-items:flex-start;gap:7px;font-size:12px;padding:12px 11px}
+}
+</style>
+
+<!-- ======================= 1. HERO ======================= -->
+<section class="wy-hero" id="top">
+  <div class="wrap">
+    <div class="wy-crumb">Workforce architecture</div>
+    <h1 class="wy-h1">The Workforce <em>Is Yours.</em></h1>
+    <div class="wy-sub">One workforce. Your terms.</div>
+    <p class="wy-lede">Your workforce strategy should be built around your organization, <b>not around one staffing supplier, marketplace or technology ecosystem.</b></p>
+    <p class="wy-lede">Trio is a healthcare-built VMS for U.S. contingent workforce management. Internal, permanent and contingent labor come together in one connected workforce model, with managed, hybrid and self-managed options that can evolve without a rebuild. The health system keeps control of the data, governance and decisions that shape how the program runs.</p>
+    <div class="wy-heroCta">
+      <a class="btn btn-primary btn-lg" href="#assessment">Start a Workforce Architecture Assessment</a>
+      <span class="wy-note">Three minutes. No data pull. No email required to see your score.</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="wy-rail">
+      <div><span class="k">Own the model</span><span class="v">Decision rights</span></div>
+      <div><span class="k">Choice without compromise</span><span class="v">Supplier choice</span></div>
+      <div><span class="k">Better managed spend</span><span class="v">Total spend view</span></div>
+      <div><span class="k">A model that moves</span><span class="v">Data ownership</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2. FOUR SIGNALS ======================= -->
+<section class="sec" id="signals">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Model control signals</div>
+      <h2>Where does control<br>actually sit today?</h2>
+      <p class="lead">Four signals we look at in every workforce architecture review, before anyone talks about rates or features.</p>
+    </div>
+    <div class="wy-sigs">
+      <div class="wy-sig"><div class="n">01</div><p><b>Decision rights.</b> Who decides which suppliers work in your program, and who can remove one.</p></div>
+      <div class="wy-sig"><div class="n">02</div><p><b>Supplier choice.</b> Whether every source of supply competes for a role on the same terms, including your own internal pool.</p></div>
+      <div class="wy-sig"><div class="n">03</div><p><b>Total spend view.</b> Whether you can see sourcing, utilization and rates as one economic picture rather than a stack of agency invoices.</p></div>
+      <div class="wy-sig"><div class="n">04</div><p><b>Data ownership.</b> Whether your program, supplier, rate and utilization data stays reportable and portable, governed by the health system rather than rented back to it.</p></div>
+    </div>
+    <div class="wy-proofin">
+      <div>
+        <div class="fig">$1.4M</div>
+        <div class="figc">saved the first year</div>
+      </div>
+      <p>A health system in Central Iowa was running a fragmented MSP with limited supplier visibility. After moving to Trio, they saved <b>$1.4M in the first year</b>, with every supplier governed in one place.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3. THE CORE QUESTION ======================= -->
+<section class="sec tint" id="question">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The core question</div>
+    </div>
+    <h2 class="wy-ask">Who owns the model your <em>workforce runs on?</em></h2>
+    <p class="lead" style="max-width:68ch">Scale matters. Supply matters. Technology and managed services matter. But when one company provides the talent, the technology and the operating model, a more important question emerges.</p>
+    <div class="wy-pull">How much control do you have over how your workforce runs?</div>
+    <p class="lead" style="max-width:68ch">The issue is bigger than features. It is about who owns the decisions, the data and the rules that shape your workforce, and whether you can change the model as your needs evolve.</p>
+    <p class="lead" style="max-width:68ch;color:var(--teal2);font-weight:600">The workforce is yours. The model should be too.</p>
+
+    <h3 style="font-family:var(--f-head);font-weight:700;font-size:20px;color:var(--ink);margin:40px 0 0;letter-spacing:-.01em">Signals the model may not be yours</h3>
+    <ul class="wy-flags">
+      <li>Changing suppliers means changing technology, or the reverse.</li>
+      <li>Internal float pools, permanent hiring and contingent labor are managed as three separate strategies.</li>
+      <li>Not every source of supply is measured against the same expectations.</li>
+      <li>Rate reporting is available; total workforce economics are not.</li>
+      <li>Your program data lives somewhere you cannot fully govern.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================= 4. THE OFFER ======================= -->
+<section class="sec" id="offer">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The offer</div>
+      <h2>The Workforce<br>Architecture Assessment</h2>
+      <p class="lead">Not a demo. Three steps: set four inputs, see where your model sits, and if it is useful, book the full assessment. Three minutes end to end.</p>
+    </div>
+    <div class="wy-steps">
+      <svg class="wy-stepline" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="0" y1="1" x2="100" y2="1" stroke="url(#wygrad)" stroke-width="2" stroke-dasharray="4 4"/>
+        <defs><linearGradient id="wygrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0">
+          <stop offset="0%" stop-color="#00aae5"/><stop offset="50%" stop-color="#79bb43"/><stop offset="100%" stop-color="#f58220"/>
+        </linearGradient></defs>
+      </svg>
+      <div class="wy-step"><div class="hx">1</div><h4>Set your inputs</h4><p>Four inputs, no data pull</p></div>
+      <div class="wy-step"><div class="hx">2</div><h4>See your score</h4><p>Model control index, instantly</p></div>
+      <div class="wy-step"><div class="hx">3</div><h4>Book the full assessment</h4><p>Working session with an architect</p></div>
+    </div>
+  </div>
+</section>
+<!-- ======================= 5. THE ASSESSMENT (quiz — logic frozen) ======================= -->
+<section class="wy-assess sec" id="assessment">
+  <div class="wrap">
+    <div class="wy-card">
+      <div class="wy-tabs" role="tablist">
+        <button class="wy-tab" id="wyT1" aria-controls="wyP1" data-goto="1" data-state="active" role="tab"><span class="dot">1</span> Your inputs</button>
+        <button class="wy-tab" id="wyT2" aria-controls="wyP2" data-goto="2" data-state="idle" role="tab"><span class="dot">2</span> Your score</button>
+        <button class="wy-tab" id="wyT3" aria-controls="wyP3" data-goto="3" data-state="idle" role="tab"><span class="dot">3</span> Book the assessment</button>
+      </div>
+
+      <!-- ---------- STEP 1 ---------- -->
+      <div class="wy-pane" id="wyP1" role="tabpanel" aria-labelledby="wyT1">
+        <div class="wy-eyeb">Step 1 of 3 · Your inputs</div>
+        <h3 class="wy-qh">Four questions decide how much of your model is yours.</h3>
+        <p class="wy-qp">Each is worth 25 points. Estimates are fine, your spend sizes the dollar figures, not the score. Nothing is submitted at this step and no email is required.</p>
+
+        <div class="wy-ledger" id="wyLedger1" aria-hidden="true"></div>
+          <p class="wy-ledgerCap">Four dimensions, 25 points each. Cells fill as you answer.</p>
+
+        <div class="wy-q">
+          <div class="wy-qlab"><span>Annual contingent labor spend</span><b class="wy-qval" id="wySpendLab">$120M</b></div>
+          <input class="wy-range" type="range" id="wySpend" aria-valuetext="$120 million" min="5" max="400" step="5" value="120" aria-label="Annual contingent labor spend in millions">
+        </div>
+
+        <div class="wy-q">
+          <div class="wy-qlab"><span>What percentage of spend does your largest supplier govern?</span><b class="wy-qval" id="wyShareLab">65%</b></div>
+          <input class="wy-range" type="range" id="wyShare" aria-valuetext="65 percent" min="0" max="100" step="1" value="65" aria-label="Percentage of spend governed by your largest supplier">
+        </div>
+
+        <div class="wy-q">
+          <div class="wy-qlab"><span>Who selects and removes suppliers in your program?</span></div>
+          <div class="wy-opts" id="wyGovern" role="radiogroup">
+            <button class="wy-opt" data-k="us" role="radio" aria-checked="false">We do</button>
+            <button class="wy-opt" data-k="joint" role="radio" aria-checked="false">Jointly with our MSP</button>
+            <button class="wy-opt" data-k="msp" role="radio" aria-checked="true">Our MSP decides</button>
+          </div>
+        </div>
+
+        <div class="wy-q">
+          <div class="wy-qlab"><span>When a role opens, who gets to fill it?</span></div>
+          <div class="wy-opts" id="wyNeutral" role="radiogroup">
+            <button class="wy-opt" data-k="open" role="radio" aria-checked="false">All suppliers, equally</button>
+            <button class="wy-opt" data-k="priority" role="radio" aria-checked="false">MSP&rsquo;s agency first</button>
+            <button class="wy-opt" data-k="exclusive" role="radio" aria-checked="true">MSP fills it first</button>
+          </div>
+        </div>
+
+        <div class="wy-q">
+          <div class="wy-qlab"><span>Who sets and approves your bill rates?</span></div>
+          <div class="wy-opts" id="wyRate" role="radiogroup">
+            <button class="wy-opt" data-k="us" role="radio" aria-checked="false">We do</button>
+            <button class="wy-opt" data-k="joint" role="radio" aria-checked="false">Jointly with our MSP</button>
+            <button class="wy-opt" data-k="msp" role="radio" aria-checked="true">Our MSP decides</button>
+          </div>
+        </div>
+
+        <div class="wy-why">
+          <h5>Why these four</h5>
+          <p>Concentration, who selects your suppliers, whether your MSP competes fairly with them, and who sets the rates you pay. Any one of them can stop a change on its own, so each is worth the same 25 points.</p>
+        </div>
+
+        <div class="wy-cta-row">
+          <button class="btn btn-primary btn-lg" id="wyReveal">See your score</button>
+          <span class="wy-note" style="color:var(--muted)">Nothing is submitted at this step.</span>
+        </div>
+      </div>
+
+      <!-- ---------- STEP 2 ---------- -->
+      <div class="wy-pane" id="wyP2" role="tabpanel" aria-labelledby="wyT2" hidden>
+        <div class="wy-eyeb">Step 2 of 3 · Your score</div>
+        <div class="wy-ledger" id="wyLedger2" aria-hidden="true"></div>
+        <p class="wy-ledgerCap" style="margin-bottom:26px">Filled cells are governed by the health system. Empty cells are not.</p>
+        <div class="wy-scoreGrid">
+          <div>
+            <div class="wy-scoreBox">
+              <div class="wy-scoreNum" id="wyScore">0</div>
+              <p id="wyLive" role="status" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap"></p>
+              <div class="wy-scoreCap">Model control index · out of 100</div>
+              <div class="wy-tier" id="wyTier">High exposure</div>
+            </div>
+            <div class="wy-money">
+              <div class="wy-moneyC">
+                <div class="f" id="wyConc">$78M</div>
+                <p>of annual spend governed inside one ecosystem</p>
+              </div>
+              <div class="wy-moneyC">
+                <div class="f" id="wyFlex">35%</div>
+                <p>of the model you could change independently</p>
+              </div>
+            </div>
+            <p class="wy-note" style="color:var(--muted);margin-top:14px">Score updates live as you change your inputs.</p>
+            <button class="btn btn-ghost" id="wyBack1" style="margin-top:8px">&larr; Adjust my inputs</button>
+          </div>
+          <div>
+            <p class="wy-readout" id="wyReadout"></p>
+            <h4 style="font-family:var(--f-head);font-weight:700;font-size:17px;color:var(--ink);margin:0 0 4px">Where control and governance sit today</h4>
+            <div class="wy-dims" id="wyDims"></div>
+
+            <div class="wy-legend">
+              <button class="wy-lg" data-tip="high"><span style="background:#f05523"></span> High exposure</button>
+              <button class="wy-lg" data-tip="mod"><span style="background:#f58220"></span> Moderate exposure</button>
+              <button class="wy-lg" data-tip="low"><span style="background:#79bb43"></span> Low exposure</button>
+            </div>
+            <div class="wy-tip" id="wyTip" hidden><h5 id="wyTipT"></h5><p id="wyTipB"></p></div>
+
+            <div class="wy-gaps" id="wyGaps"></div>
+
+            <div class="wy-method">
+              <button class="wy-methodBtn" id="wyMethodBtn" aria-expanded="false">How this is scored &#9662;</button>
+              <div class="wy-methodBody" id="wyMethodBody" hidden>
+                <p>How your score is calculated, four questions, 25 points each. Nothing else is weighted or inferred.</p>
+                <div id="wyMethod" style="margin-top:14px"></div>
+                <p style="margin-top:14px">Each is worth 25 points because each is separately capable of stopping a change: concentration decides whether an alternative source of supply exists, supplier governance decides whether you can act on it, vendor neutrality decides whether the market actually competes for your roles, and rate governance decides who sets the price you pay. Full points means that component is governed by the health system; zero means it is decided or held outside it. Annual spend sizes the dollar figures only, it does not affect the score.</p>
+              </div>
+            </div>
+
+            <p class="wy-disc">This index is a directional conversation tool, not an audit, actuarial finding, or financial projection. It reflects only the four inputs above and does not account for contract terms, quality or fill performance, clinical outcomes, or your local labor market. Scores and savings figures are illustrative and are not a guarantee of results. A Trio workforce analysis reviews your actual program data.</p>
+
+            <div class="wy-cta-row">
+              <button class="btn btn-primary btn-lg" id="wyAdvance">Book your full assessment &rarr;</button>
+              <span class="wy-note" style="color:var(--muted)">A score is a starting point. The full assessment reads your actual program data.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- STEP 3 ---------- -->
+      <div class="wy-pane" id="wyP3" role="tabpanel" aria-labelledby="wyT3" hidden>
+        <div id="wyBookForm">
+          <div class="wy-eyeb">Step 3 of 3 · Book the full assessment</div>
+          <h3 class="wy-qh">Book your full assessment.</h3>
+          <p class="wy-qp">Pick a day and time that work for you, it lands on a workforce architect&rsquo;s calendar the moment you confirm. No waiting on a callback.</p>
+          <div class="wy-bookGrid">
+            <div>
+              <div class="wy-two">
+                <div class="wy-field"><label for="wyFn">Full name</label><input id="wyFn" type="text"></div>
+                <div class="wy-field"><label for="wyTi">Title</label><input id="wyTi" type="text"></div>
+              </div>
+              <div class="wy-field"><label for="wyHs">Health system</label><input id="wyHs" type="text"></div>
+              <div class="wy-two">
+                <div class="wy-field"><label for="wyEm">Work email</label><input id="wyEm" type="email"></div>
+                <div class="wy-field"><label for="wyPh">Phone</label><input id="wyPh" type="tel"></div>
+              </div>
+              <div class="wy-field">
+                <label for="wyDr">What is driving the question?</label>
+                <select id="wyDr">
+                  <option>Upcoming MSP / VMS renewal</option>
+                  <option>Workforce spend under review</option>
+                  <option>Fill rate and speed concerns</option>
+                  <option>Consolidating internal and contingent labor</option>
+                  <option>Technology or integration constraints</option>
+                  <option>Exploring the market</option>
+                </select>
+              </div>
+              <p class="wy-note" style="color:var(--muted)">Your index: <b id="wyIdx" style="color:var(--teal2)">0</b> · Workforce assessment · 30 minutes · Video meeting · Central Time (GMT&minus;6)</p>
+            </div>
+            <div>
+              <div class="wy-cal">
+                <div class="wy-calTop">
+                  <button class="wy-calNav" id="wyPrev" aria-label="Previous month">&lsaquo;</button>
+                  <b id="wyMonth">Month</b>
+                  <button class="wy-calNav" id="wyNext" aria-label="Next month">&rsaquo;</button>
+                </div>
+                <div class="wy-dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+                <div class="wy-grid" id="wyGrid"></div>
+                <div id="wySlotWrap">
+                  <h5 style="font-family:var(--f-head);font-weight:700;font-size:14.5px;color:var(--ink);margin:18px 0 0" id="wySlotHead">Open times</h5>
+                  <div class="wy-slots" id="wySlots"></div>
+                  <p class="wy-slotNote" id="wySlotNote">Select an available day to see open times.</p>
+                </div>
+                <button class="wy-confirm" id="wyConfirm" data-ready="0" aria-disabled="true">Pick a day &amp; time</button>
+                <div class="wy-selSum" id="wySelSum">Select a day and time</div>
+              </div>
+              <button class="btn btn-ghost" id="wyBack2" style="margin-top:14px">&larr; Back to my score</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="wyBooked" hidden>
+          <div class="wy-booked">
+            <div class="hx">&#10003;</div>
+            <h3>Your assessment is booked</h3>
+            <p>We look forward to meeting with you. Your time is locked in and a calendar invite is on its way, no callback required to schedule. A Trio workforce architect will meet you then. Everything we discuss is yours to keep, whether or not you ever run an evaluation.</p>
+            <div class="wy-bookedSum" id="wyBookedSum"></div>
+            <div class="wy-gift">
+              <div class="k">A token of our appreciation</div>
+              <h4>10 Questions to Ask Before Your Next Renewal</h4>
+              <p>Our latest whitepaper is on its way to your inbox now, no forms, no follow-up required. Use it with any incumbent, including us.</p>
+            </div>
+            <div class="wy-gift" style="background:var(--mist);color:var(--ink);border:1px solid var(--line)">
+              <div class="k" style="color:var(--teal2)">What happens first</div>
+              <p style="color:var(--muted)">We start with your real program data, rates, sourcing and utilization, not the estimates you provided.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 6. FOUR COMMITMENTS (dark POV peak) ======================= -->
+<section class="sec darkband" id="commitments" style="position:relative;background:var(--deep);color:#fff">
+  <div class="dtop" style="position:absolute;left:0;top:-1px;width:100%;height:56px;z-index:1;pointer-events:none;background:var(--mist);clip-path:polygon(0 0,100% 0,0 100%)"></div>
+  <div class="dbot" style="position:absolute;left:0;bottom:-1px;width:100%;height:56px;z-index:1;pointer-events:none;background:#fff;clip-path:polygon(0 0,0 100%,100% 100%)"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sec-head">
+      <div class="eyebrow" style="color:#8fd6ec">What we stand for</div>
+      <h2 style="color:#fff">Four commitments<br>the model has to keep.</h2>
+      <p class="lead" style="color:#cfe3ec">Not aspirations. These are the standards a health system should hold any workforce operating model to, including ours.</p>
+    </div>
+    <div class="wy-commits">
+      <div class="wy-commit"><span class="hx" style="background:var(--brand-cyan)"></span><h4>Own the Model.</h4><p>The health system decides how the workforce runs, where decisions sit and how performance is governed. Not the supplier ecosystem around it.</p></div>
+      <div class="wy-commit"><span class="hx" style="background:var(--brand-green)"></span><h4>Choice Without Compromise.</h4><p>Change suppliers, technology or operating responsibility without rebuilding the program from the ground up.</p></div>
+      <div class="wy-commit"><span class="hx" style="background:var(--brand-orange)"></span><h4>A Model That Moves With You.</h4><p>Internal, permanent and contingent labor planned and managed as parts of the same workforce strategy, as your team and capabilities change.</p></div>
+      <div class="wy-commit"><span class="hx" style="background:var(--brand-lime)"></span><h4>A More Transparent, Managed, Workforce Spend.</h4><p>See how sourcing, utilization, rates and supplier decisions affect total workforce spend, not just agency rates.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 7. WHO IT'S FOR (tab switcher) ======================= -->
+<section class="sec" id="leaders">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Who it is for</div>
+      <h2>Built for the leaders who<br>carry the workforce decision.</h2>
+      <p class="lead">The same architecture question, framed around the decisions each leader actually makes.</p>
+    </div>
+    <div class="wy-roleTabs" id="wyRoleTabs">
+      <button class="wy-roleTab" data-r="cfo" aria-pressed="true">CFO</button>
+      <button class="wy-roleTab" data-r="coo" aria-pressed="false">COO / Ops</button>
+      <button class="wy-roleTab" data-r="cio" aria-pressed="false">CIO / CTO</button>
+    </div>
+    <div class="wy-rolePane" data-r="cfo">
+      <p class="wy-roleLead">Look at the workforce as one economic system, not a stack of agency invoices.</p>
+      <blockquote class="wy-roleQ">&ldquo;I know what agency labor costs. Do I know what the current workforce model is costing us overall and where we can improve?&rdquo;</blockquote>
+      <a class="btn btn-primary" href="#assessment">Start the assessment &rarr;</a>
+    </div>
+    <div class="wy-rolePane" data-r="coo" hidden>
+      <p class="wy-roleLead">Improve fill and speed by fixing how workforce decisions connect across the system.</p>
+      <blockquote class="wy-roleQ">&ldquo;Where are handoffs, approvals or disconnected processes slowing the system down?&rdquo;</blockquote>
+      <a class="btn btn-primary" href="#assessment">Start the assessment &rarr;</a>
+    </div>
+    <div class="wy-rolePane" data-r="cio" hidden>
+      <p class="wy-roleLead">Keep control of architecture, integration and data as the workforce model evolves.</p>
+      <blockquote class="wy-roleQ">&ldquo;Can the workforce model evolve without being tied to one provider&rsquo;s ecosystem?&rdquo;</blockquote>
+      <a class="btn btn-primary" href="#assessment">Start the assessment &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 8. PROOF (featured + supporting) ======================= -->
+<section class="sec tint" id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Proof, not promises</div>
+      <h2>Delivered capabilities,<br>not roadmap promises.</h2>
+    </div>
+    <div class="wy-proofGrid">
+      <article class="wy-feature">
+        <div class="k">Client proof · North Memorial Health</div>
+        <div class="wy-featFig">$2M</div>
+        <div class="wy-featCap">in cost savings, first 8 months</div>
+        <p>Nursing, allied and locums consolidated under one neutral model, with seamless provider transitions, no service gaps, and real-time spend and utilization visibility.</p>
+        <blockquote>&ldquo;Working with Trio has helped us streamline our staffing process, reduce costs, and ensure we have the right people in place to provide excellent patient care.&rdquo;
+          <cite>Shannon Sloan · Chief Human Resources Officer, North Memorial Health</cite></blockquote>
+      </article>
+      <aside class="wy-side">
+        <div class="wy-sideCard">
+          <div class="k">2nd consecutive year</div>
+          <h4>Star Performer &amp; Major Contender</h4>
+          <p>Everest Group VMS PEAK Matrix&reg; 2025 and 2026. Two consecutive years as a Star Performer and Major Contender, independent recognition of the market impact and capabilities Trio is delivering today.</p>
+        </div>
+      </aside>
+    </div>
+    <div class="wy-assures">
+      <div><b>Healthcare-first.</b> Nursing, allied health, locums, per diem, float pools and credentialing, modeled as clinical work, not generic contingent labor.</div>
+      <div><b>Your data.</b> Program, supplier, rate and utilization data stays reportable and portable, governed by the health system, not rented back to it.</div>
+      <div><b>Transition planned.</b> Switching models is a project, not a leap. Every engagement starts with a transition roadmap and a named owner on both sides.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 9. REPORT OFFER ======================= -->
+<section class="sec" id="report">
+  <div class="wrap">
+    <div class="wy-report">
+      <div>
+        <div class="eyebrow">Free report · no meeting required</div>
+        <h2 style="margin-top:10px">The 2026 Healthcare Contingent Labor Demand Report</h2>
+        <p class="lead">Rate movement by specialty and region, fill-rate benchmarks, and where nursing, allied and locums demand is heading through renewal season, the market data behind the dependencies this page describes. Read it before your next renewal conversation.</p>
+        <ul class="wy-rlist">
+          <li>Rate benchmarks by specialty</li>
+          <li>Regional demand outlook</li>
+          <li>Fill-rate and time-to-fill norms</li>
+        </ul>
+      </div>
+      <div class="wy-rform" id="wyRWrap">
+        <form id="wyRForm">
+          <div class="wy-two">
+            <div class="wy-field"><label for="wyRf">First name</label><input id="wyRf" type="text" required></div>
+            <div class="wy-field"><label for="wyRl">Last name</label><input id="wyRl" type="text" required></div>
+          </div>
+          <div class="wy-field"><label for="wyRe">Work email</label><input id="wyRe" type="email" required></div>
+          <button class="btn btn-primary btn-lg" type="submit" style="width:100%">Send me the report</button>
+          <p class="wy-note" style="color:var(--muted);margin-top:12px;text-align:center">PDF, emailed instantly. No meeting required.</p>
+        </form>
+        <div id="wyRDone" hidden style="text-align:center;padding:24px 0">
+          <div style="width:58px;height:64px;clip-path:var(--hex);background:var(--brand-green);display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:24px">&#10003;</div>
+          <h4 style="font-family:var(--f-head);font-weight:700;font-size:21px;color:var(--ink);margin:0 0 8px">On its way.</h4>
+          <p style="font-size:14.5px;color:var(--muted);margin:0">Check <b id="wyREcho" style="color:var(--teal2)"></b> — the report should land within a minute. Nothing else follows it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 10. FAQ ======================= -->
+<section class="sec tint" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Questions we get</div>
+      <h2>Healthcare workforce<br>management, answered plainly.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="q"><button>What is a healthcare VMS?<span class="pl">+</span></button><div class="a"><p>A vendor management system is the technology a hospital or health system uses to manage contingent labor end to end: requisitions, submissions, credentialing, scheduling, timecards, billing and supplier performance. A healthcare VMS models clinical realities such as licensure, privileging, unit-level scheduling and float pools rather than treating clinicians as generic contractors.</p></div></div>
+      <div class="q"><button>What does it mean for a VMS to be independent of supply?<span class="pl">+</span></button><div class="a"><p>It means the platform you use to compare, award and govern work is not owned by a company competing to fill that work. Every supplier, including internal resources, is measured against the same expectations, and the health system decides where volume goes.</p></div></div>
+      <div class="q"><button>Can we change suppliers without replacing the technology?<span class="pl">+</span></button><div class="a"><p>Yes. Supplier changes, added specialties and shifts in operating responsibility are configuration decisions inside Trio VMS, not a program rebuild. Managed, hybrid and self-managed operating models are settings, so responsibility can move without the model being torn down.</p></div></div>
+      <div class="q"><button>How do internal float pools fit a total workforce model?<span class="pl">+</span></button><div class="a"><p>Internal resource management sits alongside external supply in the same demand view, so open need is offered internally first and escalated outward on your rules. Permanent, internal and contingent labor are planned as one workforce strategy instead of three.</p></div></div>
+      <div class="q"><button>How long does a transition take?<span class="pl">+</span></button><div class="a"><p>It depends on program size, integrations and how many facilities go live at once. The assessment produces a transition roadmap with sequencing, owners and the risks worth planning around, before any commitment.</p></div></div>
+      <div class="q"><button>Do you work with California health systems?<span class="pl">+</span></button><div class="a"><p>Yes. Trio Workforce Solutions supports health systems nationally and is actively working with California organizations on nursing, allied health and locums programs, including California-specific rate, ratio and compliance considerations.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 11. CLOSE ======================= -->
+<section class="sec" id="demo" style="background:var(--deep);color:#fff;position:relative;overflow:hidden">
+  <div class="wrap" style="text-align:center;position:relative;z-index:2">
+    <h2 style="color:#fff;max-width:20ch;margin:0 auto 16px">Before you renew, ask who really owns the model.</h2>
+    <p class="lead" style="color:#cfe3ec;max-width:60ch;margin:0 auto 28px">Control, choice, economics and outcomes, not just features. Start with an in-depth 30-minute Workforce Architecture Assessment.</p>
+    <a class="btn btn-primary btn-xl" href="#assessment">Book your free assessment</a>
+  </div>
+</section>
+<style>
+
+/* ---- control ledger: 4 dimensions x 25 points, as Trio hex cells.
+   The geometry IS the method ("four questions, 25 points each"), so the
+   picture carries the argument without adding a word of copy. ---- */
+.wy-ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:0 0 20px;max-width:660px}
+.wy-lcol .lh{font:800 9.5px/1.35 var(--f-sans);letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;min-height:2.7em}
+.wy-cells{display:flex;flex-direction:column-reverse;gap:3px}
+.wy-crow{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.wy-cells i{aspect-ratio:.866;clip-path:var(--hex);background:#dbe6ec;
+  transition:background .34s cubic-bezier(.2,.7,.2,1)}
+.wy-cells i.on{background:var(--teal)}
+.wy-cells i.full{background:var(--brand-green)}
+.wy-ledgerCap{font-size:12.5px;color:var(--muted);margin:2px 0 0}
+@media(prefers-reduced-motion:reduce){.wy-cells i{transition:none}}
+@media(max-width:620px){.wy-ledger{grid-template-columns:1fr 1fr;gap:16px 22px}.wy-lcol .lh{font-size:10px;min-height:0}}
+/* gradient-clipped text has no paint in forced-colors mode */
+@media(forced-colors:active){
+  .wy-h1 em{-webkit-text-fill-color:currentColor;background:none;color:CanvasText}
+}
+
+/* -------- commitments (dark) -------- */
+.wy-commits{display:grid;grid-template-columns:1fr 1fr;gap:30px 40px;margin-top:44px}
+.wy-commit{position:relative;padding-left:0}
+.wy-commit .hx{display:block;width:34px;height:38px;clip-path:var(--hex);margin-bottom:16px}
+.wy-commit h4{font-family:var(--f-head);font-weight:700;font-size:clamp(19px,2.1vw,23px);color:#fff;margin:0 0 9px;letter-spacing:-.015em;min-height:2.2em}
+.wy-commit p{margin:0;font-size:15.5px;line-height:1.62;color:#b9d2dd;max-width:46ch}
+
+/* -------- role tabs -------- */
+.wy-roleTabs{display:flex;flex-wrap:wrap;gap:10px;margin:38px 0 26px}
+.wy-roleTab{border:1px solid var(--line);background:#fff;border-radius:99px;padding:11px 24px;
+  font:700 14.5px/1 var(--f-sans);color:var(--muted);cursor:pointer;font-weight:700;transition:background-color .18s,border-color .18s,color .18s}
+.wy-roleTab:hover{border-color:var(--teal);color:var(--teal2)}
+.wy-roleTab[aria-pressed="true"]{background:var(--teal2);border-color:var(--teal2);color:#fff}
+.wy-roleTab:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wy-rolePane[hidden]{display:none}
+.wy-roleLead{font-family:var(--f-head);font-weight:700;font-size:clamp(20px,2.4vw,27px);line-height:1.32;
+  letter-spacing:-.015em;color:var(--ink);max-width:36ch;margin:0 0 18px}
+.wy-roleQ{margin:0 0 22px;padding:0 0 0 20px;border-left:4px solid var(--brand-green);
+  font-size:17px;line-height:1.6;color:var(--muted);max-width:54ch;font-style:italic}
+
+/* -------- proof -------- */
+.wy-proofGrid{display:grid;grid-template-columns:1.35fr 1fr;gap:26px;margin-top:40px;align-items:start}
+.wy-feature{background:var(--deep);color:#fff;border-radius:20px;padding:34px 36px;box-shadow:var(--shadow)}
+.wy-feature .k{font:800 11px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:#8fd6ec;margin-bottom:16px}
+.wy-featFig{font-family:var(--f-head);font-weight:800;font-size:clamp(44px,5.2vw,64px);line-height:.88;letter-spacing:-.035em;
+  color:#a6ce42}
+.wy-featCap{font:700 13px/1.3 var(--f-sans);letter-spacing:.06em;text-transform:uppercase;color:#8fd6ec;margin:8px 0 18px}
+.wy-feature p{margin:0 0 20px;font-size:16px;line-height:1.62;color:#cfe3ec;max-width:52ch}
+.wy-feature blockquote{margin:0;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);
+  font-size:16px;line-height:1.6;color:#fff;font-style:italic}
+.wy-feature cite{display:block;margin-top:12px;font-style:normal;font:700 13px/1.4 var(--f-sans);color:#8fd6ec}
+.wy-sideCard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px;box-shadow:var(--soft)}
+/* darkened brand orange for legibility on white (WCAG AA); matches the
+   on-light variant the source used for the same hue */
+.wy-sideCard .k{font:800 11px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:#a34a12;margin-bottom:12px}
+.wy-sideCard h4{font-family:var(--f-head);font-weight:700;font-size:21px;color:var(--ink);margin:0 0 10px;letter-spacing:-.015em}
+.wy-sideCard p{margin:0;font-size:15px;line-height:1.6;color:var(--muted)}
+.wy-assures{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid var(--line)}
+.wy-assures>div{padding:22px 24px 8px;border-right:1px solid var(--line);font-size:15px;line-height:1.6;color:var(--muted)}
+.wy-assures>div:last-child{border-right:0}
+.wy-assures b{color:var(--ink);font-family:var(--f-head);font-weight:700}
+
+/* -------- report -------- */
+.wy-report{display:grid;grid-template-columns:1.15fr 1fr;gap:44px;align-items:center;
+  background:var(--mist);border:1px solid var(--line);border-radius:22px;padding:40px 42px}
+.wy-rlist{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.wy-rlist li{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 16px;font:600 13.5px/1 var(--f-sans);color:var(--teal2)}
+.wy-rform{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px;box-shadow:var(--soft)}
+
+@media(max-width:900px){
+  .wy-commits{grid-template-columns:1fr;gap:26px}
+  .wy-proofGrid{grid-template-columns:1fr}
+  .wy-assures{grid-template-columns:1fr}
+  .wy-assures>div{border-right:0;border-bottom:1px solid var(--line)}
+  .wy-report{grid-template-columns:1fr;gap:28px;padding:28px 22px}
+}
+</style>
+
+<script>
+/* =========================================================================
+   MODEL CONTROL INDEX — logic transcribed EXACTLY from Courtney's v2.
+   Contract: _source/displacement-v2/_QUIZ-SPEC-FROZEN.md
+   Only colors/typography differ from source. Do not alter thresholds,
+   point values, option keys, verdict bands, readouts or copy.
+   ========================================================================= */
+(function(){
+  var S={spend:120,share:65,govern:'msp',neutral:'exclusive',rate:'msp',step:1,reached:1,
+         tip:null,methodOpen:false,calMonth:0,selDate:'',selTime:'',submitted:false};
+
+  /* brand-mapped colors (see spec §8) */
+  var C={cyan:'#00aae5',green:'#79bb43',orange:'#f58220',teal:'#009fc7',red:'#f05523'};
+  var onLight={'#f05523':'#b4421a','#f58220':'#a34a12','#79bb43':'#4c8a2c','#009fc7':'#00718e','#00aae5':'#00718e'};
+
+  var tips={
+    high:{title:'High exposure · below 50',color:C.red,body:'Most of your workforce model moves only when your provider does. Supplier selection, who fills your roles and who sets your rates largely sit with the provider, so changing one component usually means replacing several.'},
+    mod:{title:'Moderate exposure · 50 to 74',color:C.orange,body:'You hold real authority, but parts of the model are coupled to one ecosystem, usually in who gets first shot at your roles and who sets the rate. Decision rights are shared rather than yours.'},
+    low:{title:'Low exposure · 75 and above',color:C.green,body:'Supply competes on equal terms and rate and supplier decisions answer to the health system, so the model can change on your terms rather than the provider’s.'}
+  };
+
+  function calc(){
+    var share=S.share;
+    var concPts = share<25?25 : share<50?19 : share<75?12 : share<90?6 : 0;
+    var concName= share<25?'Under 25% of spend with your largest supplier'
+                : share<50?'25–49% of spend with your largest supplier'
+                : share<75?'50–74% of spend with your largest supplier'
+                : share<90?'75–89% of spend with your largest supplier'
+                : '90%+ of spend with your largest supplier';
+    var govPts = S.govern==='us'?25 : S.govern==='joint'?12 : 0;
+    var govName= S.govern==='us'?'The health system selects and removes suppliers'
+               : S.govern==='joint'?'Supplier decisions are made jointly with your MSP'
+               : 'Your MSP decides which suppliers work in your program';
+    var neutPts= S.neutral==='open'?25 : S.neutral==='priority'?12 : 0;
+    var neutName=S.neutral==='open'?'Every supplier competes for each role on equal terms'
+               : S.neutral==='priority'?'Your MSP’s own agency gets first look before other suppliers'
+               : 'Your MSP fills roles from its own agency before others see them';
+    var ratePts= S.rate==='us'?25 : S.rate==='joint'?12 : 0;
+    var rateName=S.rate==='us'?'The health system sets and approves bill rates'
+               : S.rate==='joint'?'Bill rates are set jointly with your MSP'
+               : 'Your MSP sets the bill rates you pay';
+    var score=concPts+govPts+neutPts+ratePts;
+    var verdictOf=function(p,m){var r=p/m;return r>=0.99?'Yours':r>=0.6?'Mostly yours':r>=0.25?'Shared':'Not yours';};
+    var method=[
+      {dim:'Supplier concentration',pts:concPts,max:25,name:concName,bar:C.cyan},
+      {dim:'Supplier governance',   pts:govPts, max:25,name:govName, bar:C.green},
+      {dim:'Vendor neutrality',     pts:neutPts,max:25,name:neutName,bar:C.orange},
+      {dim:'Rate governance',       pts:ratePts,max:25,name:rateName,bar:C.teal}
+    ].map(function(d){d.total=d.pts+' / '+d.max;d.w=(d.pts/d.max*100)+'%';d.verdict=verdictOf(d.pts,d.max);return d;});
+    var tier = score<50?{label:'High exposure',color:C.red}
+             : score<75?{label:'Moderate exposure',color:C.orange}
+             : {label:'Low exposure',color:C.green};
+    var concentrated=Math.round(S.spend*S.share/100);
+    var flagColor=function(p,m){var r=p/m;return r>=0.6?C.green:r<=0?C.red:C.orange;};
+    var cats=[
+      {t:'Supplier governance',v:govPts,c:flagColor(govPts,25),label:verdictOf(govPts,25),
+       d:S.govern==='msp'?'Which agencies see your requisitions, and on what terms, is decided outside the health system.'
+        :S.govern==='joint'?'You are consulted on supplier decisions, but the shortlist is not yours to set.'
+        :'Supply can be added or removed on your terms, against one set of expectations.'},
+      {t:'Supplier concentration',v:concPts,c:flagColor(concPts,25),label:verdictOf(concPts,25),
+       d:S.share>=50?'With '+S.share+'% of spend behind one supplier, that relationship sets the pace of any change you want to make.'
+        :'No single supplier holds enough of your spend to dictate the terms of a change.'},
+      {t:'Vendor neutrality',v:neutPts,c:flagColor(neutPts,25),label:verdictOf(neutPts,25),
+       d:S.neutral==='exclusive'?'The company that manages your program also fills the work from its own agency before anyone else sees it, so the market never truly competes for your roles.'
+        :S.neutral==='priority'?'Your MSP’s own agency gets first look at each role, which quietly tilts fill and rate toward the provider rather than the best available supplier.'
+        :'Every supplier competes for each role on equal terms, so fill and price reflect the market, not the provider’s book of business.'},
+      {t:'Rate governance',v:ratePts,c:flagColor(ratePts,25),label:verdictOf(ratePts,25),
+       d:S.rate==='msp'?'The party you pay also sets the bill rates, so the number you are charged is defined by the provider rather than governed by the health system.'
+        :S.rate==='joint'?'You have a say in bill rates, but the provider still shapes them, the rate you pay is negotiated, not owned.'
+        :'The health system sets and approves bill rates, so pricing answers to you rather than to the provider selling the labor.'}
+    ].sort(function(a,b){return a.v-b.v;});
+    var readout = score<50
+      ? 'On these inputs, your provider decides most of what your model can do. Who fills your roles and what you pay for them sit with the provider rather than the health system, changing one component means renegotiating the program.'
+      : score<75
+        ? 'You hold real authority, but the model is coupled to one ecosystem, usually in who gets first shot at your roles and who sets the rate. Parts of it are decided for you.'
+        : 'Your model is governable: supply competes on equal terms, and rate and supplier decisions answer to the health system. The open question is whether the economics read as one picture.';
+    return {score:score,tier:tier,method:method,cats:cats,readout:readout,
+            concentratedLabel:'$'+concentrated+'M',flexLabel:(100-S.share)+'%'};
+  }
+
+  var $=function(id){return document.getElementById(id);};
+  var RM=window.matchMedia('(prefers-reduced-motion:reduce)');
+
+  function focusPane(id){
+    var el=$(id); if(!el) return;
+    el.setAttribute('tabindex','-1');
+    el.focus({preventScroll:true});
+    el.addEventListener('blur',function h(){el.removeAttribute('tabindex');el.removeEventListener('blur',h);});
+  }
+  function easeToCard(){
+    var card=document.querySelector('.wy-card'); if(!card) return;
+    var r=card.getBoundingClientRect();
+    if(r.top<0 || r.top>innerHeight*0.35)
+      card.scrollIntoView({behavior:RM.matches?'auto':'smooth',block:'start'});
+  }
+  var liveT=null;
+  function announce(score,tier){
+    clearTimeout(liveT);
+    liveT=setTimeout(function(){
+      var n=$('wyLive'); if(n) n.textContent='Model control index '+score+' out of 100. '+tier+'.';
+    },700);
+  }
+  function goTo(n){
+    S.step=n; renderStep();
+    if(n===3) renderCal();
+    focusPane('wyP'+n); easeToCard();
+  }
+
+  function renderOpts(wrapId,key){
+    var w=$(wrapId); if(!w) return;
+    [].forEach.call(w.querySelectorAll('.wy-opt'),function(b){
+      b.setAttribute('aria-checked', String(S[key]===b.dataset.k));
+    });
+  }
+
+  /* ---- control ledger ---- */
+  var LEDGERS=[], LAST=[0,0,0,0];
+  function buildLedger(id,labels){
+    var host=$(id); if(!host) return null;
+    var cols=[];
+    host.innerHTML=labels.map(function(l){
+      var rows='';
+      for(var r=0;r<5;r++){ rows+='<div class="wy-crow">'+Array(6).join('<i></i>')+'</div>'; }
+      return '<div class="wy-lcol"><div class="lh">'+l+'</div><div class="wy-cells">'+rows+'</div></div>';
+    }).join('');
+    [].forEach.call(host.querySelectorAll('.wy-lcol'),function(c){cols.push(c.querySelectorAll('.wy-cells i'));});
+    return cols;
+  }
+  function paintLedger(method){
+    LEDGERS.forEach(function(cols){
+      if(!cols) return;
+      method.forEach(function(d,ci){
+        var cells=cols[ci]; if(!cells) return;
+        for(var i=0;i<cells.length;i++){
+          var want = i<d.pts ? (d.pts===d.max?'full':'on') : '';
+          if(cells[i].className!==want){
+            cells[i].style.transitionDelay=(Math.abs(i-LAST[ci])*20)+'ms';
+            cells[i].className=want;
+          }
+        }
+      });
+      });
+    method.forEach(function(d,ci){LAST[ci]=d.pts;});
+  }
+
+  function renderScore(){
+    var r=calc();
+    $('wySpendLab').textContent='$'+S.spend+'M';
+    $('wyShareLab').textContent=S.share+'%';
+    $('wyScore').textContent=r.score;
+    $('wyScore').style.color=r.tier.color;
+    $('wyTier').textContent=r.tier.label;
+    $('wyTier').style.background=r.tier.color;
+    $('wyReadout').textContent=r.readout;
+    $('wyConc').textContent=r.concentratedLabel;
+    $('wyFlex').textContent=r.flexLabel;
+    var idx=$('wyIdx'); if(idx) idx.textContent=r.score;
+
+    $('wyDims').innerHTML=r.method.map(function(d){
+      return '<div class="wy-dim"><div class="wy-dimTop"><b>'+d.dim+'</b><i>'+d.verdict+' · '+d.total+'</i></div>'+
+             '<div class="wy-bar"><i style="width:'+d.w+';background:'+d.bar+'"></i></div>'+
+             '<div class="wy-dimName">'+d.name+'</div></div>';
+    }).join('');
+
+    $('wyGaps').innerHTML=r.cats.map(function(c){
+      var dark=onLight[c.c]||c.c;
+      return '<div class="wy-gap"><span class="hx" style="background:'+c.c+'"></span>'+
+             '<div><b>'+c.t+'<i style="color:'+dark+'">'+c.label+'</i></b><p>'+c.d+'</p></div></div>';
+    }).join('');
+
+    paintLedger(r.method);
+    $('wySpend').setAttribute('aria-valuetext','$'+S.spend+' million');
+    $('wyShare').setAttribute('aria-valuetext',S.share+' percent');
+
+    $('wyMethod').innerHTML=r.method.map(function(d){
+      return '<div class="wy-dim"><div class="wy-dimTop"><b>'+d.dim+'</b><i>'+d.total+'</i></div>'+
+             '<div class="wy-bar"><i style="width:'+d.w+';background:'+d.bar+'"></i></div>'+
+             '<div class="wy-dimName">'+d.name+' &middot; <b style="color:'+(onLight[d.bar]||d.bar)+'">'+d.verdict+'</b></div></div>';
+    }).join('');
+  }
+
+  function renderStep(){
+    [1,2,3].forEach(function(n){
+      var p=$('wyP'+n); if(p) p.hidden = (S.step!==n);
+    });
+    [].forEach.call(document.querySelectorAll('.wy-tab'),function(t){
+      var n=+t.dataset.goto;
+      var st = (S.step===n && !(n===3&&S.submitted)) ? 'active'
+             : (S.step>n || (n===3&&S.submitted)) ? 'done' : 'idle';
+      t.dataset.state=st;
+      t.setAttribute('aria-selected',String(st==='active'));
+      t.setAttribute('aria-disabled',String(n>S.reached));
+      t.tabIndex = (n>S.reached) ? -1 : 0;
+    });
+    if(S.step===3){ $('wyBookForm').hidden=S.submitted; $('wyBooked').hidden=!S.submitted; }
+  }
+
+  /* ---------- calendar ---------- */
+  function pad2(n){return (n<10?'0':'')+n;}
+  function isoOf(d){return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());}
+  var SLOTS=['8:00 AM','9:00 AM','10:30 AM','1:00 PM','2:30 PM','4:00 PM'];
+
+  function renderCal(){
+    var now=new Date();
+    var base=new Date(now.getFullYear(), now.getMonth()+S.calMonth, 1);
+    var cy=base.getFullYear(), cmo=base.getMonth();
+    $('wyMonth').textContent=base.toLocaleString('en-US',{month:'long',year:'numeric'});
+    $('wyPrev').disabled = S.calMonth<=0;
+    var firstDow=base.getDay();
+    var dim=new Date(cy,cmo+1,0).getDate();
+    var today0=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    var html='';
+    for(var i=0;i<firstDow;i++) html+='<span></span>';
+    for(var d=1;d<=dim;d++){
+      var date=new Date(cy,cmo,d), dow=date.getDay();
+      var bookable = dow>=1 && dow<=5 && date>=today0;
+      var key=isoOf(date), sel=(S.selDate===key);
+      html+='<button class="wy-day" data-d="'+key+'"'+(bookable?'':' disabled')+
+            ' aria-pressed="'+(sel?'true':'false')+'">'+d+'</button>';
+    }
+    $('wyGrid').innerHTML=html;
+
+    var dayLabel='';
+    if(S.selDate){
+      var p=S.selDate.split('-').map(Number);
+      dayLabel=new Date(p[0],p[1]-1,p[2]).toLocaleString('en-US',{weekday:'long',month:'long',day:'numeric'});
+    }
+    $('wySlotHead').textContent = dayLabel ? 'Times on '+dayLabel : 'Open times';
+    $('wySlots').innerHTML = S.selDate ? SLOTS.map(function(t){
+      return '<button class="wy-slot" data-t="'+t+'" aria-pressed="'+(S.selTime===t?'true':'false')+'">'+t+'</button>';
+    }).join('') : '';
+    $('wySlotNote').hidden = !!S.selDate;
+
+    var ready = !!S.selDate && !!S.selTime;
+    var btn=$('wyConfirm');
+    btn.dataset.ready = ready?'1':'0';
+    btn.setAttribute('aria-disabled',String(!ready));
+    btn.textContent = ready ? 'Confirm my time' : 'Pick a day & time';
+    $('wySelSum').textContent = ready ? (dayLabel+' · '+S.selTime+' Central Time')
+                              : S.selDate ? 'Now pick a time' : 'Select a day and time';
+  }
+
+  /* ---------- events ---------- */
+  $('wySpend').addEventListener('input',function(e){S.spend=+e.target.value;renderScore();});
+  $('wyShare').addEventListener('input',function(e){S.share=+e.target.value;renderScore();});
+  [['wyGovern','govern'],['wyNeutral','neutral'],['wyRate','rate']].forEach(function(pair){
+    $(pair[0]).addEventListener('click',function(e){
+      var b=e.target.closest('.wy-opt'); if(!b) return;
+      S[pair[1]]=b.dataset.k; renderOpts(pair[0],pair[1]); renderScore();
+    });
+  });
+  var revealed=false;
+  $('wyReveal').addEventListener('click',function(){
+    S.step=2; S.reached=Math.max(S.reached,2);
+    renderStep();
+    var r=calc();
+    var tierEl=$('wyTier');
+
+    if(RM.matches || revealed){
+      renderScore(); tierEl.classList.add('lit');
+      focusPane('wyP2'); easeToCard(); announce(r.score,r.tier.label);
+      revealed=true; return;
+    }
+    revealed=true;
+
+    /* paint everything except the ledger + numeral, then choreograph those */
+    renderScore();
+    var cols=LEDGERS[1];
+    if(!cols){ tierEl.classList.add('lit'); focusPane('wyP2'); easeToCard(); return; }
+
+    tierEl.classList.remove('lit');
+    $('wyScore').textContent='0';
+
+    /* force a style flush so the pane has a from-state now that it is visible */
+    void $('wyLedger2').offsetHeight;
+
+    /* phase 1: drain, top-down */
+    cols.forEach(function(cells){
+      for(var i=0;i<cells.length;i++){
+        cells[i].style.transitionDelay=((24-i)*9)+'ms';
+        cells[i].className='';
+      }
+    });
+
+    /* phase 2: fill, bottom-up, columns cascading */
+    setTimeout(function(){
+      var counted=0, target=r.score, done=false;
+      function finalise(){
+        if(done) return; done=true;
+        $('wyScore').textContent=target;
+        tierEl.classList.add('lit');
+        announce(target,r.tier.label);
+        claimHero(target);
+      }
+      $('wyLedger2').addEventListener('transitionend',function onT(e){
+        if(e.propertyName!=='background-color'||!e.target.className) return;
+        counted++;
+        if(counted<=target) $('wyScore').textContent=counted;
+        if(counted>=target){ $('wyLedger2').removeEventListener('transitionend',onT); finalise(); }
+      });
+      r.method.forEach(function(d,ci){
+        var cells=cols[ci]; if(!cells) return;
+        for(var i=0;i<cells.length;i++){
+          if(i>=d.pts) continue;
+          cells[i].style.transitionDelay=(Math.min(i*26,640)+ci*60)+'ms';
+          cells[i].className=(d.pts===d.max?'full':'on');
+        }
+      });
+      setTimeout(finalise,1500);
+      r.method.forEach(function(d,ci){LAST[ci]=d.pts;});
+    },300);
+
+    focusPane('wyP2'); easeToCard();
+  });
+  $('wyAdvance').addEventListener('click',function(){
+    S.reached=Math.max(S.reached,3); goTo(3);
+  });
+  $('wyBack1').addEventListener('click',function(){goTo(1);});
+  $('wyBack2').addEventListener('click',function(){goTo(2);});
+  [].forEach.call(document.querySelectorAll('.wy-tab'),function(t){
+    t.addEventListener('click',function(){var n=+t.dataset.goto;if(n<=S.reached){goTo(n);}});
+  });
+  [].forEach.call(document.querySelectorAll('.wy-lg'),function(b){
+    b.addEventListener('click',function(){
+      var k=b.dataset.tip;
+      S.tip = (S.tip===k)?null:k;
+      [].forEach.call(document.querySelectorAll('.wy-lg'),function(o){
+        o.setAttribute('aria-pressed',String(S.tip===o.dataset.tip));
+        o.setAttribute('aria-expanded',String(!!S.tip));
+        o.setAttribute('aria-controls','wyTip');
+      });
+      var box=$('wyTip');
+      if(!S.tip){box.hidden=true;return;}
+      box.hidden=false; box.style.borderLeftColor=tips[k].color;
+      $('wyTipT').textContent=tips[k].title; $('wyTipT').style.color=onLight[tips[k].color]||tips[k].color;
+      $('wyTipB').textContent=tips[k].body;
+    });
+  });
+  $('wyMethodBtn').addEventListener('click',function(){
+    S.methodOpen=!S.methodOpen;
+    $('wyMethodBody').hidden=!S.methodOpen;
+    this.setAttribute('aria-expanded',String(S.methodOpen));
+    this.innerHTML = S.methodOpen ? 'Hide the math &#9652;' : 'How this is scored &#9662;';
+  });
+  $('wyGrid').addEventListener('click',function(e){
+    var b=e.target.closest('.wy-day'); if(!b||b.disabled) return;
+    S.selDate=b.dataset.d; S.selTime=''; renderCal();
+    var again=$('wyGrid').querySelector('[data-d="'+S.selDate+'"]');
+    if(again) again.focus({preventScroll:true});
+  });
+  $('wySlots').addEventListener('click',function(e){
+    var b=e.target.closest('.wy-slot'); if(!b) return;
+    S.selTime=b.dataset.t; renderCal();
+    var again=$('wySlots').querySelector('[data-t="'+CSS.escape(S.selTime)+'"]');
+    if(again) again.focus({preventScroll:true});
+  });
+  $('wyPrev').addEventListener('click',function(){if(S.calMonth>0){S.calMonth--;renderCal();}});
+  $('wyNext').addEventListener('click',function(){S.calMonth++;renderCal();});
+  $('wyConfirm').addEventListener('click',function(){
+    if(!S.selDate||!S.selTime){ var t=$('wyGrid').querySelector('.wy-day:not([disabled])'); if(t)t.focus(); return; }
+    S.submitted=true;
+    var p=S.selDate.split('-').map(Number);
+    var dl=new Date(p[0],p[1]-1,p[2]).toLocaleString('en-US',{weekday:'long',month:'long',day:'numeric'});
+    $('wyBookedSum').textContent=dl+' · '+S.selTime+' Central Time';
+    renderStep(); easeToCard();
+    var h=document.querySelector('#wyBooked h3');
+    if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}
+  });
+
+  /* report form */
+  $('wyRForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=$('wyRf').value.trim(), l=$('wyRl').value.trim(), em=$('wyRe').value.trim();
+    if(!f||!l||!em) return;
+    $('wyREcho').textContent=em;
+    $('wyRForm').hidden=true; $('wyRDone').hidden=false;
+  });
+
+  /* role tabs */
+  $('wyRoleTabs').addEventListener('click',function(e){
+    var b=e.target.closest('.wy-roleTab'); if(!b) return;
+    [].forEach.call(document.querySelectorAll('.wy-roleTab'),function(t){t.setAttribute('aria-pressed',String(t===b));});
+    [].forEach.call(document.querySelectorAll('.wy-rolePane'),function(p){p.hidden = (p.dataset.r!==b.dataset.r);});
+  });
+
+  /* the hero admits their index: the gradient retreats to the share they own.
+     Discipline-native, used once, and they have to scroll back to find it. */
+  var heroClaimed=false;
+  function claimHero(score){
+    if(heroClaimed) return; heroClaimed=true;
+    var em=document.querySelector('.wy-h1 em'); if(!em) return;
+    var v=Math.max(score,4)+'%';
+    if(RM.matches){ em.style.setProperty('--own',v); return; }
+    requestAnimationFrame(function(){ em.style.setProperty('--own',v); });
+  }
+
+  /* init */
+  LEDGERS=[buildLedger('wyLedger1',['Supplier concentration','Supplier governance','Vendor neutrality','Rate governance']),
+           buildLedger('wyLedger2',['Supplier concentration','Supplier governance','Vendor neutrality','Rate governance'])];
+  ['wyGovern','wyNeutral','wyRate'].forEach(function(id,i){renderOpts(id,['govern','neutral','rate'][i]);});
+  renderScore(); renderStep();
+
+  /* FAQ accordion (shared .q/.a system from site.css) */
+  [].forEach.call(document.querySelectorAll('.faq-list .q button'),function(btn){
+    btn.addEventListener('click',function(){
+      var q=btn.parentElement, a=q.querySelector('.a'), open=q.classList.toggle('open');
+      a.style.maxHeight = open ? (a.scrollHeight+'px') : '';
+      btn.setAttribute('aria-expanded',String(open));
+    });
+    btn.setAttribute('aria-expanded','false');
+  });
+})();
+</script>
+<footer>
+  <div class="wrap">
+    <div class="fmain">
+      <div>
+        <div class="brand"><img class="brandmark brandmark--inv" src="../assets/trio-logo-stacked.png" alt="Trio Workforce Solutions"></div>
+        <div class="fnote"><b>E.</b> <a href="mailto:marketing@triowfs.com">marketing@triowfs.com</a><br><b>P.</b> <a href="tel:+18009305119">1.800.930.5119</a><br>7460 Warren Pkwy<br>Frisco, TX 75034</div>
+        <div class="fsocial"><a href="https://www.linkedin.com/company/american-health-technology-group" aria-label="Trio on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21H19v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg></a></div>
+      </div>
+      <div class="fcolgroup">
+        <div class="fcol">
+          <a class="fh" href="https://www.triowfs.com/solutions">Platform</a>
+          <a href="https://www.triowfs.com/solutions/trio-msp">Trio MSP</a>
+          <a href="https://www.triowfs.com/solutions/trio-vms-plus">Trio VMS+</a>
+          <a href="https://www.triowfs.com/solutions/trio-vms-saas">Trio VMS</a>
+          <a href="https://www.triowfs.com/solutions/enterprise-workforce-management">Enterprise Workforce Management</a>
+          <a href="https://www.triowfs.com/solutions/internal-resource-management">Internal Resource Management</a>
+          <a href="../mi/">Market Intelligence</a>
+          <a href="../digital-worker/">Digital Workers</a>
+          <a href="../applied-ai/">AI Approach</a>
+        </div>
+        <div class="fcol">
+          <a class="fh" href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a>
+          <a class="fh" href="https://www.triowfs.com/resources">Resources</a>
+          <a class="fh" href="https://www.triowfs.com/about">About Us</a>
+        </div>
+        <div class="fcol">
+          <a class="fh" href="https://www.triowfs.com/contact-us">Contact Us</a>
+          <a class="fh" href="https://trio.triovms.com/">Trio MSP Login</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal"><span>&copy; 2026 Trio Workforce Solutions</span><span><a href="https://www.triowfs.com/terms-of-service">Terms of Use</a> &nbsp;|&nbsp; <a href="https://www.triowfs.com/privacy-policy">Privacy Policy</a></span></div>
+  </div>
+</footer>
+
+<script>
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>10)});
+(function(){
+  document.querySelectorAll('.sec-head,.wy-proofin,.wy-pull,.wy-report').forEach(function(e){e.classList.add('reveal')});
+  document.querySelectorAll('.wy-sigs,.wy-flags,.wy-steps,.wy-commits,.wy-assures,.wy-rail').forEach(function(e){e.classList.add('stagger')});
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal,.stagger').forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal,.stagger').forEach(function(e){io.observe(e);});
+})();
+</script>
+<script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
+</body>
+</html>
