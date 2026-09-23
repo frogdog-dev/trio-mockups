@@ -1,0 +1,50 @@
+/* Trio Workforce Solutions — Spacing, radii, elevation, motion, layout */
+
+:root {
+  /* ----- Spacing scale (4px base) ----- */
+  --space-0:  0;
+  --space-1:  0.25rem;  /* 4 */
+  --space-2:  0.5rem;   /* 8 */
+  --space-3:  0.75rem;  /* 12 */
+  --space-4:  1rem;     /* 16 */
+  --space-5:  1.25rem;  /* 20 */
+  --space-6:  1.5rem;   /* 24 */
+  --space-8:  2rem;     /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 */
+  --space-20: 5rem;     /* 80 */
+
+  /* ----- Radii ----- */
+  --radius-sm:   4px;   /* inputs, small chips */
+  --radius-md:   6px;   /* buttons, badges */
+  --radius-lg:   8px;   /* cards, panels */
+  --radius-xl:   12px;  /* large surfaces, modals */
+  --radius-2xl:  16px;
+  --radius-pill: 999px; /* status pills, toggles */
+  --radius-circle: 50%; /* avatars, icon dots */
+
+  /* ----- Elevation (soft, cool-gray shadows — never black) ----- */
+  --shadow-xs: 0 1px 2px rgba(35, 45, 53, 0.06);
+  --shadow-sm: 0 1px 3px rgba(35, 45, 53, 0.08), 0 1px 2px rgba(35, 45, 53, 0.04);
+  --shadow-md: 0 4px 12px rgba(35, 45, 53, 0.08), 0 1px 3px rgba(35, 45, 53, 0.05);
+  --shadow-lg: 0 12px 28px rgba(35, 45, 53, 0.12), 0 2px 6px rgba(35, 45, 53, 0.06);
+  --shadow-xl: 0 24px 48px rgba(35, 45, 53, 0.18);
+  --shadow-focus: 0 0 0 3px rgba(0, 170, 229, 0.35); /* trio-blue-light focus ring */
+
+  /* ----- Motion ----- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1); /* @kind other */
+  --dur-fast:   120ms; /* @kind other */
+  --dur-base:   200ms; /* @kind other */
+  --dur-slow:   320ms; /* @kind other */
+
+  /* ----- Layout ----- */
+  --app-topbar-h:  56px;
+  --app-sidebar-w: 240px;
+  --container-max: 1280px;
+  --field-h:       36px;  /* default input / button height */
+  --field-h-sm:    30px;
+  --field-h-lg:    44px;
+}
