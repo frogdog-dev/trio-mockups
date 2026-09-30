@@ -55,7 +55,7 @@ input[type=range]{accent-color:#0081BB}
 </head>
 <body>
 <div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a href="../mi/">Market Intelligence</a><a href="../digital-worker/">Digital Workers</a><a href="../timecard-auditor/">Timecard Auditor</a><a href="../displacement/" class="on">Workforce Is Yours</a><a href="../brand/">Brand guide</a></div>
-<div class="concept-note">Courtney's Claude mockup (v6), built as-is &bull; sample data is illustrative</div>
+<div class="concept-note">Courtney's Claude mockup (v6) &bull; bottom button now opens a form, phone number removed &bull; sample data is illustrative</div>
 <div id="dc-root"></div>
 
 <template id="dc-tpl-main">
@@ -279,9 +279,9 @@ input[type=range]{accent-color:#0081BB}
 <sc-for list="{{ hsFields }}" as="f" hint-placeholder-count="0"><input type="hidden" name="{{ f.name }}" value="{{ f.value }}"></sc-for>
 <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
 <div>
-<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB;margin-bottom:10px">Your score is ready</div>
-<div style="font:700 22px/1.3 'Open Sans',sans-serif;color:#232d35">See where you have control</div>
-<p style="margin:6px 0 0;font:400 13.5px/1.55 'Open Sans',sans-serif;color:#6b7a84">Your score appears as soon as you submit.&nbsp;Enter your details to see how your workforce model measures up on supplier decisions, data access, and governance.</p>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB;margin-bottom:10px">{{ gateEyebrow }}</div>
+<div style="font:700 22px/1.3 'Open Sans',sans-serif;color:#232d35">{{ gateTitle }}</div>
+<p style="margin:6px 0 0;font:400 13.5px/1.55 'Open Sans',sans-serif;color:#6b7a84">{{ gateBody }}</p>
 </div>
 <button type="button" onClick="{{ onGateClose }}" aria-label="Close" style="flex:none;width:34px;height:34px;border:1px solid #e4e8ea;border-radius:999px;background:#fff;cursor:pointer;font:400 20px/1 'Open Sans',sans-serif;color:#6b7a84" style-hover="border-color:#0081BB;color:#0081BB">×</button>
 </div>
@@ -292,7 +292,7 @@ input[type=range]{accent-color:#0081BB}
 <div><label for="g-org" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#455560;margin-bottom:7px">Health system / organization</label><input id="g-org" name="company" type="text" required="true" autoComplete="organization" value="{{ leadOrg }}" onChange="{{ onLeadOrg }}" placeholder="Health system name" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #dfe3e6;border-radius:6px;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35;background:#fff"></div>
 </div>
 <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-<span style="font:400 12.5px/1.6 'Open Sans',sans-serif;color:#8b979f;max-width:60ch">We use this information to send your result and follow up on it. We won't share it outside of Trio.</span>
+<span style="font:400 12.5px/1.6 'Open Sans',sans-serif;color:#8b979f;max-width:60ch">{{ gateFine }}</span>
 <button type="submit" style="flex:none;padding:17px 34px;white-space:nowrap;border:none;border-radius:999px;background:#0081BB;color:#fff;font:700 15.5px/1 'Open Sans',sans-serif;cursor:pointer;box-shadow:0 8px 22px rgba(0,129,187,.26)" style-hover="background:#006a9b">{{ gateLabel }}</button>
 </div>
 </form>
@@ -411,7 +411,7 @@ input[type=range]{accent-color:#0081BB}
 <div style="flex:1;display:flex;flex-direction:column">
 <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:20px">
 <div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB">Step 3 of 3 · Book the full assessment</div>
-<div style="display:flex;align-items:center;gap:9px"><span style="font:600 12.5px/1 'Open Sans',sans-serif;color:#9aa6ad">Your index</span><span style="padding:6px 12px;border-radius:999px;font:800 13px/1 'Open Sans',sans-serif;color:#16242c;background:{{ tierColor }}">{{ score }}</span></div>
+<sc-if value="{{ hasScore }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:9px"><span style="font:600 12.5px/1 'Open Sans',sans-serif;color:#9aa6ad">Your index</span><span style="padding:6px 12px;border-radius:999px;font:800 13px/1 'Open Sans',sans-serif;color:#16242c;background:{{ tierColor }}">{{ score }}</span></div></sc-if>
 </div>
 <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:40px;align-items:start;flex:1">
 <div style="display:flex;flex-direction:column">
@@ -421,12 +421,12 @@ input[type=range]{accent-color:#0081BB}
 <div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#6b7a84;margin-bottom:14px">Booking for</div>
 <div style="font:700 16px/1.3 'Open Sans',sans-serif;color:#232d35">{{ leadName }}</div>
 <div style="margin-top:4px;font:400 14px/1.5 'Open Sans',sans-serif;color:#6b7a84">{{ leadOrg }} · {{ leadEmail }}</div>
-<div style="margin-top:16px;padding-top:14px;border-top:1px solid #eceef0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<sc-if value="{{ hasScore }}" hint-placeholder-val="{{ true }}"><div style="margin-top:16px;padding-top:14px;border-top:1px solid #eceef0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
 <span style="font:600 13.5px/1.3 'Open Sans',sans-serif;color:#455560">{{ modelType }}</span>
 <span style="padding:6px 12px;border-radius:999px;font:800 13px/1 'Open Sans',sans-serif;color:#16242c;background:{{ tierColor }}">{{ score }} / 100</span>
+</div></sc-if>
 </div>
-</div>
-<p style="margin:14px 0 0;font:400 12.5px/1.6 'Open Sans',sans-serif;color:#9aa6ad">Your result goes with the booking, so the architect arrives already knowing your answers.</p>
+<p style="margin:14px 0 0;font:400 12.5px/1.6 'Open Sans',sans-serif;color:#9aa6ad">{{ bookNote }}</p>
 </div>
 <div style="display:flex;flex-direction:column;background:#fff;border:1px solid #e4e8ea;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:22px 24px">
 <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #eceef0">
@@ -491,7 +491,6 @@ input[type=range]{accent-color:#0081BB}
 </div>
 <div style="display:flex;flex-direction:column;gap:14px">
 <div style="padding:16px 18px;background:#fff;border-radius:10px"><div style="font:700 13.5px/1.35 'Open Sans',sans-serif;color:#232d35;margin-bottom:5px">What happens first</div><div style="font:400 13px/1.55 'Open Sans',sans-serif;color:#6b7a84">We start with your real program data — rates, sourcing and utilization — not the estimates you provided.</div></div>
-<div style="padding:16px 18px;background:#fff;border-radius:10px"><div style="font:700 13.5px/1.35 'Open Sans',sans-serif;color:#232d35;margin-bottom:5px">Prefer to talk sooner?</div><div style="font:400 13px/1.55 'Open Sans',sans-serif;color:#6b7a84">Call <a href="tel:18005550142">(800) 555-0142</a> and ask for a workforce architect.</div></div>
 </div>
 </div>
 </div>
@@ -656,7 +655,7 @@ input[type=range]{accent-color:#0081BB}
 <div style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:16px">Before your next renewal</div>
 <h2 style="margin:0 0 14px;font:800 44px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#fff;text-wrap:balance">Before you renew, ask who really owns the model.</h2>
 <p style="margin:0 0 30px;font:400 17.5px/1.6 'Open Sans',sans-serif;color:#fff;max-width:52ch;text-wrap:pretty">Control, choice, economics and outcomes — not just features. Start with an in-depth 30-minute Workforce Architecture Assessment.</p>
-<a href="#assessment" style="display:inline-flex;align-items:center;padding:20px 38px;border-radius:999px;background:#fff;color:#005f8a;font:700 16px/1 'Open Sans',sans-serif;box-shadow:0 10px 26px rgba(27,35,42,.18)" style-hover="background:#f2f9fc">Book your free assessment</a>
+<button type="button" onClick="{{ onBookCta }}" style="display:inline-flex;align-items:center;padding:20px 38px;border:none;cursor:pointer;border-radius:999px;background:#fff;color:#005f8a;font:700 16px/1 'Open Sans',sans-serif;box-shadow:0 10px 26px rgba(27,35,42,.18)" style-hover="background:#f2f9fc">Book your free assessment</button>
 </div>
 </div>
 </div>
@@ -922,7 +921,7 @@ class Component extends DCLogic {
 }
 
 return Component; })(DC.DCLogic), "{\"$preview\":{\"width\":1240,\"height\":720},\"rows\":{\"editor\":null,\"tsType\":\"Array<{label:string,eco:string,yours:string}>\"},\"eyebrow\":{\"editor\":\"text\",\"default\":\"Two ways to run a workforce\",\"tsType\":\"string\"},\"heading\":{\"editor\":\"text\",\"default\":\"See the same decisions, either way.\",\"tsType\":\"string\"},\"intro\":{\"editor\":\"text\",\"default\":\"The same decisions, seen two ways. Not a feature comparison \u2014 a question of where authority sits when the model has to change.\",\"tsType\":\"string\"},\"ecoLabel\":{\"editor\":\"text\",\"default\":\"One supply ecosystem\",\"tsType\":\"string\"},\"yoursLabel\":{\"editor\":\"text\",\"default\":\"Your health system\",\"tsType\":\"string\"},\"ecoCaption\":{\"editor\":\"text\",\"default\":\"Talent, technology and managed services from a single provider.\",\"tsType\":\"string\"},\"yoursCaption\":{\"editor\":\"text\",\"default\":\"Trio VMS \u2014 technology and program services, governed by you.\",\"tsType\":\"string\"}}");
-/* Courtney's page logic, verbatim */
+/* Courtney's page logic, verbatim except her 2026-09-29 requests: bottom CTA opens the form then books; phone removed */
 DC.define('main', 'dc-tpl-main', (function (DCLogic) {
 class Component extends DCLogic {
   constructor(props) {
@@ -953,7 +952,7 @@ class Component extends DCLogic {
   reveal() {
     if (this.state.capturing) return;
     this.setState({ capturing: true });
-    const done = ip => this.setState(s => ({ gateOpen: false, step: 2, reached: Math.max(s.reached, 2), capturing: false, ip }));
+    const done = ip => this.setState(s => ({ quizDone: true, gateOpen: false, step: 2, reached: Math.max(s.reached, 2), capturing: false, ip }));
     const payload = {
       spend: this.state.spend, share: this.state.share,
       firstname: this.state.leadFirst, lastname: this.state.leadLast, email: this.state.leadEmail, company: this.state.leadOrg,
@@ -969,7 +968,13 @@ class Component extends DCLogic {
     } catch (e) { finish(null); }
   }
   advance() { this.setState(s => ({ step: 3, reached: Math.max(s.reached, 3), tip: null, methodOpen: false })); }
-  goStep(n) { if (n <= this.state.reached) this.setState({ step: n, tip: null }); }
+  goStep(n) { if (n <= this.state.reached && !(n === 2 && !this.state.quizDone)) this.setState({ step: n, tip: null }); }
+  bookDirect() {
+    const { leadFirst, leadLast, leadEmail, leadOrg } = this.state;
+    console.log('[CRM capture]', { firstname: leadFirst, lastname: leadLast, email: leadEmail, company: leadOrg, source: 'the-workforce-is-yours', path: 'book-cta', ts: new Date().toISOString() });
+    this.setState(s => ({ gateOpen: false, bookMode: false, step: 3, reached: Math.max(s.reached, 3), tip: null, methodOpen: false }));
+    const a = document.getElementById('assessment'); if (a) a.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
   clamp(n) { return Math.max(6, Math.min(97, Math.round(n))); }
   hsPayload(r) {
     const tierKey = { 'High exposure': 'high', 'Moderate exposure': 'moderate', 'Low exposure': 'low' };
@@ -1004,13 +1009,14 @@ class Component extends DCLogic {
     const reached = Math.max(this.state.reached || 1, step);
     const stepState = n => {
       const active = step === n && !(n === 3 && submitted);
-      const doneStep = step > n || (n === 3 && submitted);
+      const skipped = n === 2 && !this.state.quizDone;
+      const doneStep = (step > n && !skipped) || (n === 3 && submitted);
       return {
         bg: active ? '#e5f3fa' : doneStep ? '#f1f8ec' : '#f5f7f8',
         chip: active ? '#0081BB' : doneStep ? '#79BB43' : '#b9c2c8',
         text: active || doneStep ? '#232d35' : '#8b979f',
-        cursor: n <= reached ? 'pointer' : 'default',
-        op: n <= reached ? '1' : '.62'
+        cursor: n <= reached && !skipped ? 'pointer' : 'default',
+        op: n <= reached && !skipped ? '1' : '.62'
       };
     };
     const s1 = stepState(1), s2 = stepState(2), s3 = stepState(3);
@@ -1147,8 +1153,15 @@ class Component extends DCLogic {
       captureNote: ip ? 'Session saved · ' + ip : 'Session saved',
       onReveal: () => this.setState({ gateOpen: true }),
       gateOpen: !!this.state.gateOpen,
-      gateLabel: capturing ? 'Scoring your model…' : 'Show my results',
-      onGateClose: () => this.setState({ gateOpen: false }),
+      gateLabel: capturing ? 'Scoring your model…' : this.state.bookMode ? 'Continue to booking' : 'Show my results',
+      onGateClose: () => this.setState({ gateOpen: false, bookMode: false }),
+      onBookCta: () => (this.state.leadEmail && this.state.leadOrg && this.state.quizDone ? this.bookDirect() : this.setState({ gateOpen: true, bookMode: true })),
+      hasScore: !!this.state.quizDone,
+      gateEyebrow: this.state.bookMode ? 'Book your free assessment' : 'Your score is ready',
+      gateTitle: this.state.bookMode ? 'Pick a time with a workforce architect' : 'See where you have control',
+      gateBody: this.state.bookMode ? 'Enter your details and you’ll go straight to the calendar to choose a time.' : 'Your score appears as soon as you submit.\u00a0Enter your details to see how your workforce model measures up on supplier decisions, data access, and governance.',
+      gateFine: this.state.bookMode ? 'We use this information to set up your assessment. We won’t share it outside of Trio.' : 'We use this information to send your result and follow up on it. We won\x27t share it outside of Trio.',
+      bookNote: this.state.quizDone ? 'Your result goes with the booking, so the architect arrives already knowing your answers.' : 'Want to bring a score? Take the four-question assessment above first, it only takes a minute.',
       onGateScrim: e => { if (e.target === e.currentTarget) this.setState({ gateOpen: false }); },
       leadFirst: this.state.leadFirst, leadLast: this.state.leadLast, leadEmail: this.state.leadEmail, leadOrg: this.state.leadOrg,
       leadName: (this.state.leadFirst + ' ' + this.state.leadLast).trim(),
@@ -1161,7 +1174,7 @@ class Component extends DCLogic {
         const { leadFirst, leadLast, leadEmail, leadOrg } = this.state;
         if (![leadFirst, leadLast, leadEmail, leadOrg].every(v => v.trim())) return;
         this.setState(s => ({ reportFirst: s.reportFirst || leadFirst, reportLast: s.reportLast || leadLast, reportEmail: s.reportEmail || leadEmail }));
-        this.reveal();
+        if (this.state.bookMode) this.bookDirect(); else this.reveal();
       },
       atStep2: step === 2 && !submitted,
       onStep1: () => this.goStep(1),
