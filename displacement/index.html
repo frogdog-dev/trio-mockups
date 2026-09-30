@@ -52,10 +52,24 @@ input[type=range]{accent-color:#0081BB}
   #dc-root [style*="grid-template-columns:auto minmax(0,1fr) auto"] span[style*="text-align:right"]{text-align:left!important}
 }
 </style>
+<style>
+/* 2026-09-30: hexagon icons, hero signal bars animate once on load, callout on phones */
+#dc-root .wiy-ico{display:block;width:24px;height:24px;background:center/contain no-repeat}
+#dc-root .wiy-ico-cfo{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%202v20%22/%3E%3Cpath%20d%3D%22M17%205H9.5a3.5%203.5%200%200%200%200%207h5a3.5%203.5%200%200%201%200%207H6%22/%3E%3C/svg%3E")}
+#dc-root .wiy-ico-coo{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12.22%202h-.44a2%202%200%200%200-2%202v.18a2%202%200%200%201-1%201.73l-.43.25a2%202%200%200%201-2%200l-.15-.08a2%202%200%200%200-2.73.73l-.22.38a2%202%200%200%200%20.73%202.73l.15.1a2%202%200%200%201%201%201.72v.51a2%202%200%200%201-1%201.74l-.15.09a2%202%200%200%200-.73%202.73l.22.38a2%202%200%200%200%202.73.73l.15-.08a2%202%200%200%201%202%200l.43.25a2%202%200%200%201%201%201.73V20a2%202%200%200%200%202%202h.44a2%202%200%200%200%202-2v-.18a2%202%200%200%201%201-1.73l.43-.25a2%202%200%200%201%202%200l.15.08a2%202%200%200%200%202.73-.73l.22-.39a2%202%200%200%200-.73-2.73l-.15-.08a2%202%200%200%201-1-1.74v-.5a2%202%200%200%201%201-1.74l.15-.09a2%202%200%200%200%20.73-2.73l-.22-.38a2%202%200%200%200-2.73-.73l-.15.08a2%202%200%200%201-2%200l-.43-.25a2%202%200%200%201-1-1.73V4a2%202%200%200%200-2-2z%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%223%22/%3E%3C/svg%3E")}
+#dc-root .wiy-ico-cio{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%222%22%20y%3D%223%22%20width%3D%2220%22%20height%3D%2214%22%20rx%3D%222%22/%3E%3Cpath%20d%3D%22M8%2021h8%22/%3E%3Cpath%20d%3D%22M12%2017v4%22/%3E%3C/svg%3E")}
+@keyframes wiyBar{0%{transform:scaleX(0)}55%{transform:scaleX(1.12)}78%{transform:scaleX(.95)}100%{transform:scaleX(1)}}
+#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]>div{transform-origin:left center;animation:wiyBar 1.5s cubic-bezier(.22,.8,.3,1) .35s both}
+#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]:nth-child(2)>div{animation-delay:.5s}
+#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]:nth-child(3)>div{animation-delay:.65s}
+#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]:nth-child(4)>div{animation-delay:.8s}
+@media (prefers-reduced-motion:reduce){#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]>div{animation:none}}
+@media(max-width:760px){#dc-root [style*="padding:44px 48px"]{padding:28px 20px!important}}
+</style>
 </head>
 <body>
 <div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a href="../mi/">Market Intelligence</a><a href="../digital-worker/">Digital Workers</a><a href="../timecard-auditor/">Timecard Auditor</a><a href="../displacement/" class="on">Workforce Is Yours</a><a href="../brand/">Brand guide</a></div>
-<div class="concept-note">Courtney's Claude mockup (v6) &bull; bottom button now opens a form, phone number removed &bull; sample data is illustrative</div>
+<div class="concept-note">Courtney's Claude mockup (v6) &bull; 9/30 feedback round applied &bull; sample data is illustrative</div>
 <div id="dc-root"></div>
 
 <template id="dc-tpl-main">
@@ -79,7 +93,22 @@ input[type=range]{accent-color:#0081BB}
 </header>
 
 <section id="top" style="position:relative;overflow:hidden;background:linear-gradient(170deg,#ffffff 0%,#f2f9fc 48%,#eef6fa 100%);padding:76px 0 88px">
-<div aria-hidden="true" style="position:absolute;top:44px;right:-40px;width:520px;height:520px;pointer-events:none">
+<div style="position:relative;max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:48px;align-items:center">
+<div>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+
+
+</div>
+<h1 style="margin:0 0 26px;font:800 60px/1.04 'Open Sans',sans-serif;letter-spacing:-.03em;color:#232d35;text-wrap:balance">The Workforce Is Yours.<br><span style="color:#0081BB">One Workforce.<br>Your Terms.</span></h1>
+<p style="margin:0 0 22px;font:600 21px/1.5 'Open Sans',sans-serif;color:#3b4954;max-width:none">Your workforce strategy should be built around your organization — not around one staffing supplier, marketplace or technology ecosystem.</p>
+<p style="margin:0 0 32px;font:400 16.5px/1.7 'Open Sans',sans-serif;color:#5e6e78;max-width:52ch">Trio is a healthcare-built VMS for U.S. contingent workforce management. Internal, permanent and contingent labor come together in one connected workforce model, with managed, hybrid and self-managed options that can evolve without a rebuild. The health system keeps control of the data, governance and decisions that shape how the program runs.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px">
+<a href="#assessment" style="display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;background:#0081BB;color:#fff;font:700 15.5px/1 'Open Sans',sans-serif;box-shadow:0 6px 18px rgba(0,129,187,.24)" style-hover="background:#006a9b">Start a Workforce Architecture Assessment</a>
+
+</div>
+</div>
+<div style="position:relative;justify-self:end;width:100%;max-width:430px">
+<div aria-hidden="true" style="position:absolute;top:-210px;right:-350px;width:520px;height:520px;pointer-events:none">
 <div style="position:absolute;left:50px;top:70px;width:360px;height:360px;border-radius:50%;border:1.5px solid #d7e8f0"></div>
 <div style="position:absolute;left:105px;top:125px;width:250px;height:250px;border-radius:50%;border:1.5px solid #cfe6ef"></div>
 <div style="position:absolute;left:155px;top:175px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 42% 38%,#f4fbfe,#e6f2f8);border:1.5px solid #dcebf1"></div>
@@ -90,27 +119,7 @@ input[type=range]{accent-color:#0081BB}
 <div style="position:absolute;left:300px;top:150px;width:20px;height:20px;border-radius:50%;background:#00AAE5;border:3px solid #fff"></div>
 <div style="position:absolute;left:222px;top:164px;width:14px;height:14px;border-radius:50%;background:#79BB43"></div>
 </div>
-<div style="position:relative;max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center">
-<div>
-<div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
-
-
-</div>
-<h1 style="margin:0 0 26px;font:800 68px/1.02 'Open Sans',sans-serif;letter-spacing:-.03em;color:#232d35;text-wrap:balance">The Workforce<br>Is Yours. <span style="color:#0081BB">One workforce.<br>Your terms.</span></h1>
-<p style="margin:0 0 22px;font:600 21px/1.5 'Open Sans',sans-serif;color:#3b4954;max-width:31ch">Your workforce strategy should be built around your organization — not around one staffing supplier, marketplace or technology ecosystem.</p>
-<p style="margin:0 0 32px;font:400 16.5px/1.7 'Open Sans',sans-serif;color:#5e6e78;max-width:52ch">Trio is a healthcare-built VMS for U.S. contingent workforce management. Internal, permanent and contingent labor come together in one connected workforce model, with managed, hybrid and self-managed options that can evolve without a rebuild. The health system keeps control of the data, governance and decisions that shape how the program runs.</p>
-<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px">
-<a href="#assessment" style="display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;background:#0081BB;color:#fff;font:700 15.5px/1 'Open Sans',sans-serif;box-shadow:0 6px 18px rgba(0,129,187,.24)" style-hover="background:#006a9b">Start a Workforce Architecture Assessment</a>
-
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:10px">
-<span style="padding:9px 16px;border-radius:999px;border:1px solid #dfe3e6;background:#fff;font:600 13.5px/1 'Open Sans',sans-serif;color:#455560">Own the Model</span>
-<span style="padding:9px 16px;border-radius:999px;border:1px solid #dfe3e6;background:#fff;font:600 13.5px/1 'Open Sans',sans-serif;color:#455560">Choice Without Compromise</span>
-<span style="padding:9px 16px;border-radius:999px;border:1px solid #dfe3e6;background:#fff;font:600 13.5px/1 'Open Sans',sans-serif;color:#455560">A Model That Moves With You</span>
-<span style="padding:9px 16px;border-radius:999px;border:1px solid #dfe3e6;background:#fff;font:600 13.5px/1 'Open Sans',sans-serif;color:#455560">Better Managed Spend</span>
-</div>
-</div>
-<div style="position:relative;justify-self:end;width:100%;max-width:430px;background:#fff;border-radius:16px;box-shadow:0 24px 60px rgba(27,35,42,.16);padding:32px 30px">
+<div style="position:relative;background:#fff;border-radius:16px;box-shadow:0 24px 60px rgba(27,35,42,.16);padding:32px 30px">
 <h2 style="margin:0 0 10px;font:700 22px/1.28 'Open Sans',sans-serif;color:#232d35">Where does control<br>actually sit today?</h2>
 <p style="margin:0 0 24px;font:400 14.5px/1.6 'Open Sans',sans-serif;color:#6b7a84">Four signals we look at in every workforce architecture review — before anyone talks about rates or features.</p>
 <div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#6b7a84;margin-bottom:14px">Model control signal</div>
@@ -128,6 +137,7 @@ input[type=range]{accent-color:#0081BB}
 </div>
 </div>
 </div>
+</div>
 </section>
 
 <sc-if value="{{ showStatStrip }}" hint-placeholder-val="{{ true }}">
@@ -135,25 +145,25 @@ input[type=range]{accent-color:#0081BB}
 <div style="max-width:1240px;margin:0 auto;padding:34px 40px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:36px;align-items:center">
 <div style="display:flex;align-items:center;gap:12px">
 <span style="font:800 46px/1 'Open Sans',sans-serif;letter-spacing:-.02em;color:#79BB43">$1.4M</span>
-<span style="font:700 12px/1.3 'Open Sans',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#97a3ab">saved in <br>first year</span>
+<span style="font:700 12px/1.3 'Open Sans',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#fff">saved in <br>first year</span>
 </div>
-<p style="margin:0;font:400 16px/1.65 'Open Sans',sans-serif;color:#cdd3d7;max-width:78ch">A health system in Central Iowa was running a fragmented MSP with limited supplier visibility. After moving to Trio, they saved <strong style="color:#fff;font-weight:700">$1.4M in the first year</strong> — with every supplier governed in one place.</p>
+<p style="margin:0;font:400 16px/1.65 'Open Sans',sans-serif;color:#fff;max-width:78ch">A health system in Central Iowa was running a fragmented MSP with limited supplier visibility. After moving to Trio, they saved <strong style="color:#fff;font-weight:700">$1.4M in the first year</strong> — with every supplier governed in one place.</p>
 <button type="button" onClick="{{ onCase }}" style="flex:none;display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border:none;border-radius:999px;background:#F58220;color:#fff;font:700 14.5px/1 'Open Sans',sans-serif;cursor:pointer;box-shadow:0 6px 18px rgba(245,130,32,.35)" style-hover="background:#e06f10">{{ caseLabel }}</button>
 </div>
 <sc-if value="{{ caseOpen }}" hint-placeholder-val="{{ false }}">
 <div style="max-width:1240px;margin:0 auto;padding:0 40px 40px">
 <div style="padding-top:30px;border-top:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px">
 <div>
-<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#F58220;margin-bottom:12px">The challenge</div>
-<p style="margin:0;font:400 15px/1.65 'Open Sans',sans-serif;color:#cdd3d7">A fragmented MSP left the health system with limited visibility into which suppliers were working its roles, on what terms and at what cost.</p>
+<div style="font:700 14px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#F58220;margin-bottom:12px">The challenge</div>
+<p style="margin:0;font:400 15px/1.65 'Open Sans',sans-serif;color:#fff">A fragmented MSP left the health system with limited visibility into which suppliers were working its roles, on what terms and at what cost.</p>
 </div>
 <div>
-<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#00AAE5;margin-bottom:12px">What changed</div>
-<p style="margin:0;font:400 15px/1.65 'Open Sans',sans-serif;color:#cdd3d7">The program moved to Trio, bringing every supplier under one governance model and one view of spend owned by the health system.</p>
+<div style="font:700 14px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#00AAE5;margin-bottom:12px">What changed</div>
+<p style="margin:0;font:400 15px/1.65 'Open Sans',sans-serif;color:#fff">The program moved to Trio, bringing every supplier under one governance model and one view of spend owned by the health system.</p>
 </div>
 <div>
-<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#79BB43;margin-bottom:12px">The result</div>
-<p style="margin:0;font:400 15px/1.65 'Open Sans',sans-serif;color:#cdd3d7"><strong style="color:#fff;font-weight:700">$1.4M saved in the first year</strong>, with supplier access, rates and performance governed in one place.</p>
+<div style="font:700 14px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#79BB43;margin-bottom:12px">The result</div>
+<p style="margin:0;font:400 15px/1.65 'Open Sans',sans-serif;color:#fff"><strong style="color:#fff;font-weight:700">$1.4M saved in the first year</strong>, with supplier access, rates and performance governed in one place.</p>
 </div>
 </div>
 </div>
@@ -162,26 +172,26 @@ input[type=range]{accent-color:#0081BB}
 </sc-if>
 
 <section id="question" style="background:#f7fafb;padding:96px 0">
-<div style="max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:72px;align-items:start">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,590px);gap:32px;align-items:start">
 <div>
 <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
 
 
 <span style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0081BB">The core question</span>
 </div>
-<h2 style="margin:0 0 24px;font:800 46px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Who owns the model<br>your workforce runs on?</h2>
+<h2 style="margin:0 0 24px;font:800 44px/1.1 'Open Sans',sans-serif;letter-spacing:-.03em;color:#232d35">Who owns the model<br>your workforce runs on?</h2>
 <p style="margin:0 0 18px;font:400 17px/1.75 'Open Sans',sans-serif;color:#5e6e78">Scale matters. Supply matters. Technology and managed services matter. But when one company provides the talent, the technology and the operating model, a more important question emerges:</p>
 
 <p style="margin:0;font:600 17px/1.7 'Open Sans',sans-serif;color:#232d35">How much control do you have over how your workforce runs?</p><p style="margin:0 0 18px;font:400 17px/1.75 'Open Sans',sans-serif;color:#5e6e78">The issue is bigger than features. It is about who owns the decisions, the data and the rules that shape your workforce — and whether you can change the model as your needs evolve.</p><p style="margin:0;font:600 17px/1.7 'Open Sans',sans-serif;color:#232d35">The workforce is yours. The model should be too.</p>
 </div>
-<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 10px 34px rgba(27,35,42,.07);padding:32px 30px">
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 10px 34px rgba(27,35,42,.07);padding:32px 26px">
 <div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#b65e10;margin-bottom:18px">Signals the model may not be yours</div>
 <div style="display:flex;flex-direction:column;gap:0">
-<div style="display:flex;gap:14px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Changing suppliers means changing technology — or the reverse.</span></div>
-<div style="display:flex;gap:14px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Internal float pools, permanent hiring and contingent labor are managed as three separate strategies.</span></div>
-<div style="display:flex;gap:14px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Not every source of supply is measured against the same expectations.</span></div>
-<div style="display:flex;gap:14px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Rate reporting is available; total workforce economics are not.</span></div>
-<div style="display:flex;gap:14px;padding:16px 0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Your program data lives somewhere you cannot fully govern.</span></div>
+<div style="display:flex;gap:12px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Changing suppliers means changing technology — or the reverse.</span></div>
+<div style="display:flex;gap:12px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Internal float pools, permanent hiring and contingent labor are managed as three separate strategies.</span></div>
+<div style="display:flex;gap:12px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Not every source of supply is measured against the same expectations.</span></div>
+<div style="display:flex;gap:12px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Rate reporting is available; total workforce economics are not.</span></div>
+<div style="display:flex;gap:12px;padding:16px 0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Your program data lives somewhere you cannot fully govern.</span></div>
 </div>
 </div>
 </div>
@@ -313,37 +323,37 @@ input[type=range]{accent-color:#0081BB}
 <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px">
 <div>
 <div style="font:800 58px/1 'Open Sans',sans-serif;color:{{ tierColor }};letter-spacing:-.02em">{{ score }}</div>
-<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#97a3ab;margin-top:10px">Model control index · out of 100</div>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#fff;margin-top:10px">Model control index · out of 100</div>
 </div>
 <span style="flex:none;padding:7px 14px;border-radius:999px;font:700 12.5px/1 'Open Sans',sans-serif;color:#16242c;background:{{ tierColor }}">{{ tierLabel }}</span>
 </div>
 <div style="margin-top:22px;padding:18px 0 4px;border-top:1px solid rgba(255,255,255,.12)">
-<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#97a3ab;margin-bottom:10px">You are running a</div>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#fff;margin-bottom:10px">You are running a</div>
 <div style="font:800 26px/1.15 'Open Sans',sans-serif;color:#fff;letter-spacing:-.01em">{{ modelType }}</div>
-<sc-if value="{{ capped }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0;font:400 13px/1.5 'Open Sans',sans-serif;color:#cdd3d7">{{ capNote }}</p></sc-if>
+<sc-if value="{{ capped }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0;font:400 13px/1.5 'Open Sans',sans-serif;color:#fff">{{ capNote }}</p></sc-if>
 <div style="margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px">
 <sc-for list="{{ modelScale }}" as="m" hint-placeholder-count="3">
 <div style="display:flex;flex-direction:column;gap:7px">
 <div style="height:6px;border-radius:3px;background:{{ m.bar }}"></div>
 <div style="font:700 11.5px/1.3 'Open Sans',sans-serif;color:{{ m.text }}">{{ m.label }}</div>
-<div style="font:400 11px/1 'Open Sans',sans-serif;color:#8b979f">{{ m.range }}</div>
+<div style="font:400 11px/1 'Open Sans',sans-serif;color:#fff">{{ m.range }}</div>
 </div>
 </sc-for>
 </div>
 </div>
-<p style="margin:18px 0 22px;font:400 14.5px/1.6 'Open Sans',sans-serif;color:#cdd3d7">{{ readout }}</p>
+<p style="margin:18px 0 22px;font:400 14.5px/1.6 'Open Sans',sans-serif;color:#fff">{{ readout }}</p>
 <div style="display:flex;flex-direction:column;gap:14px">
 <sc-for list="{{ method }}" as="m" hint-placeholder-count="4">
-<div><div style="display:flex;justify-content:space-between;font:600 12.5px/1 'Open Sans',sans-serif;color:#97a3ab;margin-bottom:7px"><span>{{ m.dim }}</span><span>{{ m.total }}</span></div><div style="height:7px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden"><div style="height:100%;border-radius:4px;background:{{ m.bar }};width:{{ m.w }}"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font:600 12.5px/1 'Open Sans',sans-serif;color:#fff;margin-bottom:7px"><span>{{ m.dim }}</span><span>{{ m.total }}</span></div><div style="height:7px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden"><div style="height:100%;border-radius:4px;background:{{ m.bar }};width:{{ m.w }}"></div></div></div>
 </sc-for>
 </div>
 <div style="margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-<div><div style="font:800 22px/1 'Open Sans',sans-serif;color:#fff">{{ concentratedLabel }}</div><div style="font:400 13px/1.4 'Open Sans',sans-serif;color:#97a3ab;margin-top:6px">of annual spend governed inside one ecosystem</div></div>
-<div><div style="font:800 22px/1 'Open Sans',sans-serif;color:#fff">{{ flexLabel }}</div><div style="font:400 13px/1.4 'Open Sans',sans-serif;color:#97a3ab;margin-top:6px">of the model you could change independently</div></div>
+<div><div style="font:800 22px/1 'Open Sans',sans-serif;color:#fff">{{ concentratedLabel }}</div><div style="font:400 13px/1.4 'Open Sans',sans-serif;color:#fff;margin-top:6px">of annual spend governed inside one ecosystem</div></div>
+<div><div style="font:800 22px/1 'Open Sans',sans-serif;color:#fff">{{ flexLabel }}</div><div style="font:400 13px/1.4 'Open Sans',sans-serif;color:#fff;margin-top:6px">of the model you could change independently</div></div>
 </div>
 <div style="margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-<span style="font:400 13px/1.5 'Open Sans',sans-serif;color:#8b979f">Score updates live as you change your inputs.</span>
-<button type="button" onClick="{{ onStep1 }}" style="flex:none;padding:9px 16px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:none;cursor:pointer;font:700 13px/1 'Open Sans',sans-serif;color:#cdd3d7" style-hover="border-color:#00AAE5;color:#fff">← Adjust my inputs</button>
+<span style="font:400 13px/1.5 'Open Sans',sans-serif;color:#fff">Score updates live as you change your inputs.</span>
+<button type="button" onClick="{{ onStep1 }}" style="flex:none;padding:9px 16px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:none;cursor:pointer;font:700 13px/1 'Open Sans',sans-serif;color:#fff" style-hover="border-color:#00AAE5;color:#fff">← Adjust my inputs</button>
 </div>
 </div>
 
@@ -371,7 +381,7 @@ input[type=range]{accent-color:#0081BB}
 <sc-if value="{{ tipOpen }}" hint-placeholder-val="{{ false }}">
 <div style="padding:18px 20px;border-radius:12px;background:#16242c;box-shadow:0 14px 34px rgba(27,35,42,.18)">
 <div style="font:700 13.5px/1.3 'Open Sans',sans-serif;color:{{ tipColor }}">{{ tipTitle }}</div>
-<p style="margin:7px 0 0;font:400 13.5px/1.65 'Open Sans',sans-serif;color:#cdd3d7">{{ tipBody }}</p>
+<p style="margin:7px 0 0;font:400 13.5px/1.65 'Open Sans',sans-serif;color:#fff">{{ tipBody }}</p>
 </div>
 </sc-if>
 <div style="margin-top:auto;padding:24px 26px;border-radius:14px;background:#fdf0e1">
@@ -483,16 +493,6 @@ input[type=range]{accent-color:#0081BB}
 <h3 style="margin:0 0 14px;font:700 34px/1.2 'Open Sans',sans-serif;letter-spacing:-.02em;color:#232d35;max-width:24ch">We look forward to meeting with you.</h3>
 <p style="margin:0 0 20px;font:400 16.5px/1.7 'Open Sans',sans-serif;color:#5e6e78;max-width:70ch">Your time is locked in and a calendar invite is on its way — no callback required to schedule. A Trio workforce architect will meet you then. Everything we discuss is yours to keep, whether or not you ever run an evaluation.</p>
 <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:30px;padding:14px 20px;background:#f1f8ec;border:1px solid #d4e9c2;border-radius:10px;font:700 15.5px/1.3 'Open Sans',sans-serif;color:#232d35">{{ bookedSummary }}</div>
-<div style="padding:30px 32px;background:#fdf0e1;border-radius:14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:40px;align-items:center">
-<div>
-<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#b65e10;margin-bottom:12px">A token of our appreciation</div>
-<div style="font:700 23px/1.3 'Open Sans',sans-serif;color:#232d35;margin-bottom:10px">10 Questions to Ask Before Your Next Renewal</div>
-<p style="margin:0;font:400 15px/1.68 'Open Sans',sans-serif;color:#7a4a15">Our latest whitepaper is on its way to your inbox now — no forms, no follow-up required. Use it with any incumbent, including us.</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:14px">
-<div style="padding:16px 18px;background:#fff;border-radius:10px"><div style="font:700 13.5px/1.35 'Open Sans',sans-serif;color:#232d35;margin-bottom:5px">What happens first</div><div style="font:400 13px/1.55 'Open Sans',sans-serif;color:#6b7a84">We start with your real program data — rates, sourcing and utilization — not the estimates you provided.</div></div>
-</div>
-</div>
 </div>
 </sc-if>
 
@@ -534,29 +534,39 @@ input[type=range]{accent-color:#0081BB}
 
 <div id="models"><dc-import name="ModelComparison" hint-size="100%,720px"></dc-import></div>
 
+<section style="background:#f7fafb;padding:96px 0 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;background:linear-gradient(120deg,#0081BB 0%,#00AAE5 100%);border-radius:18px;box-shadow:0 18px 44px rgba(0,129,187,.2);padding:44px 48px">
+<div aria-hidden="true" style="position:absolute;top:-30px;right:-50px;width:220px;height:190px;background:rgba(255,255,255,.12);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);pointer-events:none"></div>
+<div style="position:relative">
+<div style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:12px">Workforce Architecture Assessment</div>
+<h2 style="margin:0 0 10px;font:800 32px/1.15 'Open Sans',sans-serif;letter-spacing:-.02em;color:#fff">How much of your workforce model is yours?</h2>
+<p style="margin:0;font:400 16.5px/1.6 'Open Sans',sans-serif;color:#fff;max-width:60ch">Four questions, about three minutes. See your model control index and where control sits today.</p>
+</div>
+<a href="#assessment" style="position:relative;display:inline-flex;align-items:center;padding:18px 34px;border-radius:999px;background:#fff;color:#005f8a;font:700 15.5px/1 'Open Sans',sans-serif;box-shadow:0 10px 26px rgba(27,35,42,.18);white-space:nowrap" style-hover="background:#f2f9fc">Take the assessment</a>
+</div>
+</div>
+</section>
 <section id="leaders" style="background:#f7fafb;padding:96px 0">
 <div style="max-width:1240px;margin:0 auto;padding:0 40px">
-<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.12em; color: rgb(0, 129, 187);"><br></span><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(0, 129, 187);">Who it's for</span></div>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(0, 129, 187);">Who it's for</span></div>
 <h2 style="margin:0 0 14px;font:800 46px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Built for the leaders who<br>carry the workforce decision.</h2>
-<p style="margin:0 0 44px;font:400 17px/1.7 'Open Sans',sans-serif;color:#5e6e78;max-width:60ch">The same architecture question, framed around the decisions each leader actually makes.</p>
+<p style="margin:0 0 44px;font:400 17px/1.7 'Open Sans',sans-serif;color:#5e6e78">The same architecture question, framed around the decisions each leader actually makes.</p>
 <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px">
-<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 28px;display:flex;flex-direction:column;gap:18px">
-<span style="width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Open Sans',sans-serif;color:#fff">$</span>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 28px;display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:18px">
+<span style="width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Open Sans',sans-serif;color:#fff"><span class="wiy-ico wiy-ico-cfo" aria-hidden="true"></span></span>
 <div><h3 style="margin:0 0 8px;font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">CFO</h3><p style="margin:0;font:400 15.5px/1.6 'Open Sans',sans-serif;color:#5e6e78">Look at the workforce as one economic system, not a stack of agency invoices.</p></div>
 <p style="margin:0;padding:16px 18px;background:#f5f7f8;border-radius:10px;font:600 15px/1.55 'Open Sans',sans-serif;color:#232d35">“I know what agency labor costs. Do I know what the current workforce model is costing us overall and where we can improve?”</p>
-<div style="margin-top:auto;padding-top:18px;border-top:1px solid #eceef0"><a href="#assessment" style="font:600 13.5px/1.6 'Open Sans',sans-serif">Start the assessment →</a></div>
 </div>
-<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 28px;display:flex;flex-direction:column;gap:18px">
-<span style="width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff">OPS</span>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 28px;display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:18px">
+<span style="width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff"><span class="wiy-ico wiy-ico-coo" aria-hidden="true"></span></span>
 <div><h3 style="margin:0 0 8px;font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">COO</h3><p style="margin:0;font:400 15.5px/1.6 'Open Sans',sans-serif;color:#5e6e78">Improve fill and speed by fixing how workforce decisions connect across the system.</p></div>
 <p style="margin:0;padding:16px 18px;background:#f5f7f8;border-radius:10px;font:600 15px/1.55 'Open Sans',sans-serif;color:#232d35">“Where are handoffs, approvals or disconnected processes slowing the system down?”</p>
-<div style="margin-top:auto;padding-top:18px;border-top:1px solid #eceef0"><a href="#assessment" style="font:600 13.5px/1.6 'Open Sans',sans-serif">Start the assessment →</a></div>
 </div>
-<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 28px;display:flex;flex-direction:column;gap:18px">
-<span style="width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff">IT</span>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 28px;display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:18px">
+<span style="width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff"><span class="wiy-ico wiy-ico-cio" aria-hidden="true"></span></span>
 <div><h3 style="margin:0 0 8px;font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">CIO / CTO</h3><p style="margin:0;font:400 15.5px/1.6 'Open Sans',sans-serif;color:#5e6e78">Keep control of architecture, integration and data as the workforce model evolves.</p></div>
 <p style="margin:0;padding:16px 18px;background:#f5f7f8;border-radius:10px;font:600 15px/1.55 'Open Sans',sans-serif;color:#232d35">“Can the workforce model evolve without being tied to one provider's ecosystem?”</p>
-<div style="margin-top:auto;padding-top:18px;border-top:1px solid #eceef0"><a href="#assessment" style="font:600 13.5px/1.6 'Open Sans',sans-serif">Start the assessment →</a></div>
 </div>
 </div>
 
@@ -565,15 +575,15 @@ input[type=range]{accent-color:#0081BB}
 
 <section style="background:#f7fafb;padding:96px 0">
 <div style="max-width:1240px;margin:0 auto;padding:0 40px">
-<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.12em; color: rgb(0, 129, 187);"><br></span><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(0, 129, 187);">Proof, not promises</span></div>
-<h2 style="margin:0 0 44px;font:800 44px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Delivered capabilities,<br>not roadmap promises.</h2>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(0, 129, 187);">Proof, not promises</span></div>
+<h2 style="margin:0 0 44px;font:800 44px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Delivered capabilities, not roadmap promises.</h2>
 <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:22px;margin-bottom:22px">
 <div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:34px 32px;box-shadow:0 8px 26px rgba(27,35,42,.06)">
 <div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB;margin-bottom:16px">2nd consecutive year</div>
 <div style="font:800 30px/1.2 'Open Sans',sans-serif;color:#232d35;letter-spacing:-.02em;margin-bottom:20px">Star Performer &amp; Major Contender</div>
-<div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:20px">
-<img src="img/peak-star-performer.png" alt="Everest Group PEAK Matrix 2026 — Vendor Management System, North America — Star Performer" style="height:112px;width:auto;flex:none">
-<img src="img/peak-major-contender.png" alt="Everest Group PEAK Matrix 2026 — Vendor Management System, North America — Major Contender" style="height:112px;width:auto;flex:none">
+<div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:20px">
+<img src="img/peak-star-performer.png" alt="Everest Group PEAK Matrix 2026 — Vendor Management System, North America — Star Performer" style="height:146px;width:auto;flex:none">
+<img src="img/peak-major-contender.png" alt="Everest Group PEAK Matrix 2026 — Vendor Management System, North America — Major Contender" style="height:146px;width:auto;flex:none">
 </div>
 <p style="margin:0;font:400 15.5px/1.65 'Open Sans',sans-serif;color:#5e6e78">Everest Group VMS PEAK Matrix® 2025 and 2026. Two consecutive years as a Star Performer and Major Contender—independent recognition of the market impact and capabilities Trio is delivering today.</p>
 </div>
@@ -581,29 +591,29 @@ input[type=range]{accent-color:#0081BB}
 <div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#79BB43;margin-bottom:16px">Client proof · North Memorial Health</div>
 <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:6px"><div style="font:800 46px/1 'Open Sans',sans-serif;color:#232d35;letter-spacing:-.02em">$2M</div><div style="font:700 15px/1.35 'Open Sans',sans-serif;color:#5e6e78">in cost savings,<br>first 8 months</div></div>
 <p style="margin:14px 0 20px;font:400 15px/1.65 'Open Sans',sans-serif;color:#5e6e78">Nursing, allied and locums consolidated under one vendor-neutral model — with seamless provider transitions, no service gaps, and real-time spend and utilization visibility.</p>
-<blockquote style="margin:0;padding:16px 18px;border-left:3px solid #79BB43;background:#f5f7f8;border-radius:0 8px 8px 0"><p style="margin:0 0 10px;font:600 14.5px/1.55 'Open Sans',sans-serif;color:#232d35">“Working with Trio has helped us streamline our staffing process, reduce costs, and ensure we have the right people in place to provide excellent patient care.”</p><cite style="font:400 13px/1.4 'Open Sans',sans-serif;color:#85939c;font-style:normal">Shannon Sloan · Chief Human Resources Officer, North Memorial Health</cite></blockquote>
+<blockquote style="margin:0;padding:16px 18px;border-left:3px solid #79BB43;background:#f5f7f8;border-radius:0 8px 8px 0"><p style="margin:0 0 10px;font:600 14.5px/1.55 'Open Sans',sans-serif;color:#232d35">“Working with Trio has helped us streamline our staffing process, reduce costs, and ensure we have the right people in place to provide excellent patient care.”</p><cite style="font:400 13px/1.4 'Open Sans',sans-serif;color:#85939c;font-style:normal">Shannon Sloan<br>Chief Human Resources Officer, North Memorial Health</cite></blockquote>
 </div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px">
-<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 26px"><div style="font:800 30px/1.1 'Open Sans',sans-serif;color:#232d35">Healthcare-first</div><p style="margin:10px 0 0;font:400 15px/1.6 'Open Sans',sans-serif;color:#5e6e78">Nursing, allied health, locums, per diem, float pools and credentialing — modeled as clinical work, not generic contingent labor.</p></div>
-<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 26px"><div style="font:800 30px/1.1 'Open Sans',sans-serif;color:#232d35">Your data</div><p style="margin:10px 0 0;font:400 15px/1.6 'Open Sans',sans-serif;color:#5e6e78">Program, supplier, rate and utilization data stays reportable and portable — governed by the health system, not rented back to it.</p></div>
-<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 26px"><div style="font:800 30px/1.1 'Open Sans',sans-serif;color:#232d35">Transition planned</div><p style="margin:10px 0 0;font:400 15px/1.6 'Open Sans',sans-serif;color:#5e6e78">Switching models is a project, not a leap. Every engagement starts with a transition roadmap and a named owner on both sides.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 26px"><div style="font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">Healthcare-first</div><p style="margin:10px 0 0;font:400 15px/1.6 'Open Sans',sans-serif;color:#5e6e78">Nursing, allied health, locums, per diem, float pools and credentialing — modeled as clinical work, not generic contingent labor.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 26px"><div style="font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">Your data</div><p style="margin:10px 0 0;font:400 15px/1.6 'Open Sans',sans-serif;color:#5e6e78">Program, supplier, rate and utilization data stays reportable and portable — governed by the health system, not rented back to it.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 26px"><div style="font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">Transition planned</div><p style="margin:10px 0 0;font:400 15px/1.6 'Open Sans',sans-serif;color:#5e6e78">Switching models is a project, not a leap. Every engagement starts with a transition roadmap and a named owner on both sides.</p></div>
 </div>
 </div>
 </section>
 
 <sc-if value="{{ showRenewalOffer }}" hint-placeholder-val="{{ true }}">
-<section style="background:#fff;padding:0 0 96px">
+<section style="background:#fff;padding:96px 0">
 <div style="max-width:1240px;margin:0 auto;padding:0 40px">
-<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:44px;align-items:center;background:#fdf0e1;border-radius:16px;padding:44px 44px">
+<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:44px;align-items:center;background:#e6f3fa;border-radius:16px;padding:44px 44px">
 <div>
-<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#b65e10;margin-bottom:14px">Free white paper · no meeting required</div>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB;margin-bottom:14px">Free white paper · no meeting required</div>
 <h2 style="margin:0 0 12px;font:800 34px/1.15 'Open Sans',sans-serif;letter-spacing:-.02em;color:#232d35">10 Questions to Ask Before Your Next MSP Renewal</h2>
 <p style="margin:0 0 18px;font:400 16.5px/1.7 'Open Sans',sans-serif;color:#5e6e78;max-width:62ch">The questions that show who actually controls your program — supplier access, rate setting, vendor neutrality and exit terms — before you sign another term. Bring them to your next renewal conversation.</p>
 <div style="display:flex;flex-wrap:wrap;gap:10px">
-<span style="padding:7px 13px;border-radius:999px;background:rgba(182,94,16,.1);color:#8a4a11;font:700 12px/1.35 'Open Sans',sans-serif">Who sets your bill rates</span>
-<span style="padding:7px 13px;border-radius:999px;background:rgba(182,94,16,.1);color:#8a4a11;font:700 12px/1.35 'Open Sans',sans-serif">Supplier access and neutrality</span>
-<span style="padding:7px 13px;border-radius:999px;background:rgba(182,94,16,.1);color:#8a4a11;font:700 12px/1.35 'Open Sans',sans-serif">Exit and transition terms</span>
+<span style="padding:7px 13px;border-radius:999px;background:rgba(0,129,187,.1);color:#005f8a;font:700 12px/1.35 'Open Sans',sans-serif">Who sets your bill rates</span>
+<span style="padding:7px 13px;border-radius:999px;background:rgba(0,129,187,.1);color:#005f8a;font:700 12px/1.35 'Open Sans',sans-serif">Supplier access and neutrality</span>
+<span style="padding:7px 13px;border-radius:999px;background:rgba(0,129,187,.1);color:#005f8a;font:700 12px/1.35 'Open Sans',sans-serif">Exit and transition terms</span>
 </div>
 </div>
 <div id="report" style="flex:none;width:360px">
@@ -611,17 +621,17 @@ input[type=range]{accent-color:#0081BB}
 <form onSubmit="{{ onReportSubmit }}" style="display:flex;flex-direction:column;gap:10px">
 <sc-for list="{{ hsFields }}" as="f" hint-placeholder-count="0"><input type="hidden" name="{{ f.name }}" value="{{ f.value }}"></sc-for>
 <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-<div><label for="report-first" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#8a4a11;margin-bottom:7px">First name</label><input id="report-first" type="text" required="true" value="{{ reportFirst }}" onChange="{{ onReportFirst }}" placeholder="Jordan" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #e4cfb4;border-radius:6px;background:#fff;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35"></div>
-<div><label for="report-last" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#8a4a11;margin-bottom:7px">Last name</label><input id="report-last" type="text" required="true" value="{{ reportLast }}" onChange="{{ onReportLast }}" placeholder="Reyes" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #e4cfb4;border-radius:6px;background:#fff;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35"></div>
+<div><label for="report-first" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#005f8a;margin-bottom:7px">First name</label><input id="report-first" type="text" required="true" value="{{ reportFirst }}" onChange="{{ onReportFirst }}" placeholder="Jordan" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #bcdbeb;border-radius:6px;background:#fff;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35"></div>
+<div><label for="report-last" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#005f8a;margin-bottom:7px">Last name</label><input id="report-last" type="text" required="true" value="{{ reportLast }}" onChange="{{ onReportLast }}" placeholder="Reyes" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #bcdbeb;border-radius:6px;background:#fff;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35"></div>
 </div>
-<label for="report-email" style="font:600 12.5px/1 'Open Sans',sans-serif;color:#8a4a11">Work email</label>
-<input id="report-email" type="email" required="true" value="{{ reportEmail }}" onChange="{{ onReportEmail }}" placeholder="you@healthsystem.org" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #e4cfb4;border-radius:6px;background:#fff;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35">
+<label for="report-email" style="font:600 12.5px/1 'Open Sans',sans-serif;color:#005f8a">Work email</label>
+<input id="report-email" type="email" required="true" value="{{ reportEmail }}" onChange="{{ onReportEmail }}" placeholder="you@healthsystem.org" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #bcdbeb;border-radius:6px;background:#fff;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35">
 <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;padding:15px 26px;border:none;border-radius:999px;background:#232d35;color:#fff;font:700 15px/1 'Open Sans',sans-serif;cursor:pointer" style-hover="background:#16242c">Send me the white paper</button>
-<span style="font:400 12px/1.5 'Open Sans',sans-serif;color:#6b5844">PDF · emailed instantly. No meeting required. Ins</span>
+<span style="font:400 12px/1.5 'Open Sans',sans-serif;color:#4f6b7a">PDF · emailed instantly. No meeting required.</span>
 </form>
 </sc-if>
 <sc-if value="{{ reportSent }}" hint-placeholder-val="{{ false }}">
-<div style="padding:22px 24px;background:#fff;border:1px solid #e4cfb4;border-radius:12px">
+<div style="padding:22px 24px;background:#fff;border:1px solid #bcdbeb;border-radius:12px">
 <div style="font:800 16px/1.3 'Open Sans',sans-serif;color:#232d35;margin-bottom:8px">On its way.</div>
 <p style="margin:0;font:400 13.5px/1.6 'Open Sans',sans-serif;color:#6b7a84">Check {{ reportEmail }} — the white paper should land within a minute. Nothing else follows it.</p>
 </div>
@@ -635,7 +645,7 @@ input[type=range]{accent-color:#0081BB}
 <section id="faq" style="background:#f7fafb;padding:96px 0">
 <div style="max-width:1240px;margin:0 auto;padding:0 40px">
 <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.12em; color: rgb(0, 129, 187);"><span style="letter-spacing: 0.14em; text-transform: uppercase;">Questions we get</span></span></div>
-<h2 style="margin:0 0 44px;font:800 44px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Healthcare workforce<br>management, answered plainly.</h2>
+<h2 style="margin:0 0 44px;font:800 42px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Healthcare workforce management, answered plainly.</h2>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
 <div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 28px"><h3 style="margin:0 0 10px;font:700 18.5px/1.35 'Open Sans',sans-serif;color:#232d35">What is a healthcare VMS?</h3><p style="margin:0;font:400 15.5px/1.7 'Open Sans',sans-serif;color:#5e6e78">A vendor management system is the technology a hospital or health system uses to manage contingent labor end to end — requisitions, submissions, credentialing, scheduling, timecards, billing and supplier performance. A healthcare VMS models clinical realities such as licensure, privileging, unit-level scheduling and float pools rather than treating clinicians as generic contractors.</p></div>
 <div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 28px"><h3 style="margin:0 0 10px;font:700 18.5px/1.35 'Open Sans',sans-serif;color:#232d35">What does it mean for a VMS to be independent of supply?</h3><p style="margin:0;font:400 15.5px/1.7 'Open Sans',sans-serif;color:#5e6e78">It means the platform you use to compare, award and govern work is not owned by a company competing to fill that work. Every supplier — including internal resources — is measured against the same expectations, and the health system decides where volume goes.</p></div>
@@ -674,11 +684,11 @@ input[type=range]{accent-color:#0081BB}
 </template>
 <template id="dc-tpl-ModelComparison">
 
-<section style="background:linear-gradient(155deg,#16242c 0%,#123a44 58%,#1b4438 100%);padding:96px 0">
+<section style="background:linear-gradient(155deg,#1c3a4a 0%,#1a5068 55%,#136b8c 100%);padding:96px 0">
 <div style="max-width:1240px;margin:0 auto;padding:0 40px">
-<div style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7fe3a0;margin-bottom:18px">{{ eyebrow }}</div>
+<div style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#00AAE5;margin-bottom:18px">{{ eyebrow }}</div>
 <h2 style="margin:0 0 16px;font:800 46px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#fff;text-wrap:balance">{{ heading }}</h2>
-<p style="margin:0 0 34px;font:400 17px/1.7 'Open Sans',sans-serif;color:#a7b1b8;max-width:62ch">{{ intro }}</p>
+<p style="margin:0 0 34px;font:400 17px/1.7 'Open Sans',sans-serif;color:#fff;max-width:62ch">{{ intro }}</p>
 <div style="display:inline-flex;padding:5px;background:rgba(255,255,255,.08);border-radius:999px;margin-bottom:34px">
 <button type="button" onClick="{{ showEco }}" style="border:none;cursor:pointer;padding:12px 22px;border-radius:999px;font:700 13.5px/1 'Open Sans',sans-serif;transition:background .18s ease;background:{{ ecoTabBg }};color:{{ ecoTabColor }}">{{ ecoLabel }}</button>
 <button type="button" onClick="{{ showYours }}" style="border:none;cursor:pointer;padding:12px 22px;border-radius:999px;font:700 13.5px/1 'Open Sans',sans-serif;transition:background .18s ease;background:{{ yoursTabBg }};color:{{ yoursTabColor }}">{{ yoursLabel }}</button>
@@ -687,7 +697,7 @@ input[type=range]{accent-color:#0081BB}
 <div style="display:flex;flex-direction:column;gap:0">
 <sc-for list="{{ activeRows }}" as="r" hint-placeholder-count="5">
 <div style="display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(255,255,255,.12)">
-<div style="font:700 12.5px/1.3 'Open Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#c3ccd2">{{ r.label }}</div>
+<div style="font:700 12.5px/1.3 'Open Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#fff">{{ r.label }}</div>
 <div style="font:500 16px/1.6 'Open Sans',sans-serif;color:{{ bodyColor }}">{{ r.text }}</div>
 </div>
 </sc-for>
@@ -907,15 +917,15 @@ class Component extends DCLogic {
       ecoCaption: p.ecoCaption ?? 'Talent, technology and managed services from a single provider.',
       yoursCaption: p.yoursCaption ?? 'Trio VMS — technology and program services, governed by you.',
       activeCaption: yours ? (p.yoursCaption ?? 'Trio VMS — technology and program services, governed by you.') : (p.ecoCaption ?? 'Talent, technology and managed services from a single provider.'),
-      captionColor: yours ? '#cfe6d6' : '#f0c39a',
+      captionColor: '#fff',
       activeRows: rows.map(r => ({ label: r.label, text: yours ? r.yours : r.eco })),
-      bodyColor: yours ? '#ffffff' : '#c3ccd2',
+      bodyColor: '#fff',
       showEco: () => this.setState({ model: 'eco' }),
       showYours: () => this.setState({ model: 'yours' }),
-      ecoTabBg: yours ? 'transparent' : '#F58220',
-      ecoTabColor: yours ? '#8ea0a9' : '#fff',
+      ecoTabBg: yours ? 'transparent' : '#0081BB',
+      ecoTabColor: yours ? '#d5e3ea' : '#fff',
       yoursTabBg: yours ? '#0081BB' : 'transparent',
-      yoursTabColor: yours ? '#fff' : '#8ea0a9'
+      yoursTabColor: yours ? '#fff' : '#d5e3ea'
     };
   }
 }
@@ -1213,7 +1223,7 @@ class Component extends DCLogic {
         { label: 'Supplier-led', range: '0–49', on: band === 'supplier_led', c: '#F58220' },
         { label: 'Partially governed', range: '50–74', on: band === 'partially_governed', c: '#F5C542' },
         { label: 'Client-governed', range: '75–100', on: band === 'client_governed', c: '#7fe3a0' }
-      ].map(m => ({ ...m, bar: m.on ? m.c : 'rgba(255,255,255,.14)', text: m.on ? '#fff' : '#8b979f' })),
+      ].map(m => ({ ...m, bar: m.on ? m.c : 'rgba(255,255,255,.14)', text: '#fff' })),
       readout,
       concentratedLabel: '$' + concentrated + 'M',
       flexLabel: (100 - share) + '%',
