@@ -3,7 +3,7 @@
 Cleaned exports of the approved Trio concept pages, generated from `_unified/` with all review-only chrome removed (concept chooser nav, "design draft" banner, Atarim script, and dead CSS). Real Trio nav/footer + content preserved.
 
 ## Pages
-- `home/`, `mi/` (Market Intelligence), `digital-worker/`, `applied-ai/` (AI Approach), `brand/` (internal reference)
+- `home/`, `mi/` (Market Intelligence), `digital-worker/`, `applied-ai/` (AI Approach), `timecard-auditor/` (approved 2026-10-02, see its README), `brand/` (internal reference)
 
 ## Notes for the HubSpot pass
 - Internal cross-links are relative (`../mi/`, `../home/`) — remap to real URLs on import.
