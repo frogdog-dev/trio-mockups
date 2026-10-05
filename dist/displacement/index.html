@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Workforce Is Yours | Trio Workforce Solutions</title>
+<!-- Faithful port of Courtney's Claude Design mockup (_source/displacement-v6/Workforce Is Yours Landing Page.dc.html).
+     Built by _render/port_src/build_port_v6.py - edit the build script, not this file. -->
+<link rel="stylesheet" href="ds/tokens/fonts.css">
+<link rel="stylesheet" href="ds/tokens/colors.css">
+<link rel="stylesheet" href="ds/tokens/typography.css">
+<link rel="stylesheet" href="ds/tokens/spacing.css">
+<link rel="stylesheet" href="ds/tokens/base.css">
+<link rel="stylesheet" href="ds/styles.css">
+<style>
+body{margin:0;background:#ffffff;font-family:'Open Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0081BB;text-decoration:none}
+a:hover{color:#006a9b}
+input[type=range]{accent-color:#0081BB}
+</style>
+<style>
+@media(max-width:760px){
+  #dc-root [style*="padding:0 40px"]{padding-left:16px!important;padding-right:16px!important}
+  #dc-root [style*="padding:34px 40px"]{padding-left:16px!important;padding-right:16px!important}
+  #dc-root [style*="grid-template-columns"]:not([style*="repeat(7,1fr)"]):not([style*="repeat(3,1fr)"]):not([style*="gap:8px"]){grid-template-columns:minmax(0,1fr)!important}
+  #dc-root [style*="grid-template-columns:repeat(2,minmax(0,1fr));gap:10px"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #dc-root header nav{display:none!important}
+  #dc-root header [style*="height:76px"]{gap:12px!important}
+  #dc-root header a[style*="flex:none"]{padding:9px 14px!important;font-size:13px!important}
+  #dc-root [aria-hidden="true"][style*="width:520px"]{display:none!important}
+  #dc-root h1{font-size:42px!important}
+  #dc-root h2[style*="font:800"]{font-size:32px!important}
+  #dc-root [style*="padding:44px 44px 36px"]{padding:24px 18px!important}
+  #dc-root [style*="padding:44px 44px"]{padding:28px 20px!important}
+  #dc-root [style*="padding:30px 32px"]{padding:22px 20px!important}
+  #dc-root #report{width:100%!important}
+  #dc-root [style*="justify-self:end"]{justify-self:stretch!important;max-width:none!important}
+  #dc-root [style*="display:inline-flex;padding:5px"]{flex-wrap:wrap;border-radius:22px!important}
+  #dc-root [style*="white-space:nowrap"]{white-space:normal!important}
+  #dc-root [style*="min-height:600px"]{min-height:0!important}
+  #dc-root [style*="column-gap"]{row-gap:16px!important}
+  #dc-root [style*="grid-template-columns:auto minmax(0,1fr) auto"] span[style*="text-align:right"]{text-align:left!important}
+}
+</style>
+<style>
+/* 2026-09-30: hexagon icons, hero signal bars animate once on load, callout on phones */
+#dc-root .wiy-ico{display:block;width:24px;height:24px;background:center/contain no-repeat}
+#dc-root .wiy-ico-cfo{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%202v20%22/%3E%3Cpath%20d%3D%22M17%205H9.5a3.5%203.5%200%200%200%200%207h5a3.5%203.5%200%200%201%200%207H6%22/%3E%3C/svg%3E")}
+#dc-root .wiy-ico-coo{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12.22%202h-.44a2%202%200%200%200-2%202v.18a2%202%200%200%201-1%201.73l-.43.25a2%202%200%200%201-2%200l-.15-.08a2%202%200%200%200-2.73.73l-.22.38a2%202%200%200%200%20.73%202.73l.15.1a2%202%200%200%201%201%201.72v.51a2%202%200%200%201-1%201.74l-.15.09a2%202%200%200%200-.73%202.73l.22.38a2%202%200%200%200%202.73.73l.15-.08a2%202%200%200%201%202%200l.43.25a2%202%200%200%201%201%201.73V20a2%202%200%200%200%202%202h.44a2%202%200%200%200%202-2v-.18a2%202%200%200%201%201-1.73l.43-.25a2%202%200%200%201%202%200l.15.08a2%202%200%200%200%202.73-.73l.22-.39a2%202%200%200%200-.73-2.73l-.15-.08a2%202%200%200%201-1-1.74v-.5a2%202%200%200%201%201-1.74l.15-.09a2%202%200%200%200%20.73-2.73l-.22-.38a2%202%200%200%200-2.73-.73l-.15.08a2%202%200%200%201-2%200l-.43-.25a2%202%200%200%201-1-1.73V4a2%202%200%200%200-2-2z%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%223%22/%3E%3C/svg%3E")}
+#dc-root .wiy-ico-cio{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%222%22%20y%3D%223%22%20width%3D%2220%22%20height%3D%2214%22%20rx%3D%222%22/%3E%3Cpath%20d%3D%22M8%2021h8%22/%3E%3Cpath%20d%3D%22M12%2017v4%22/%3E%3C/svg%3E")}
+@keyframes wiyBar{0%{transform:scaleX(0)}55%{transform:scaleX(1.12)}78%{transform:scaleX(.95)}100%{transform:scaleX(1)}}
+#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]>div{transform-origin:left center;animation:wiyBar 1.5s cubic-bezier(.22,.8,.3,1) .35s both}
+#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]:nth-child(2)>div{animation-delay:.5s}
+#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]:nth-child(3)>div{animation-delay:.65s}
+#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]:nth-child(4)>div{animation-delay:.8s}
+@media (prefers-reduced-motion:reduce){#dc-root [style*="height:9px;border-radius:5px;background:#eef1f2"]>div{animation:none}}
+@media(max-width:760px){#dc-root [style*="padding:44px 48px"]{padding:28px 20px!important}}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+
+<template id="dc-tpl-main">
+
+
+<div style="width:100%;background:#ffffff;color:#455560;font:400 16px/1.65 'Open Sans',system-ui,sans-serif">
+
+<header style="position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid #eceef0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+<a href="#top" style="display:flex;align-items:center"><img src="img/trio-logo-primary.png" alt="Trio Workforce Solutions" style="height:34px;width:auto;display:block"></a>
+<nav style="display:flex;align-items:center;gap:34px;font:600 14.5px/1 'Open Sans',sans-serif;color:#232d35">
+<a href="#question" style="color:#232d35">The question</a>
+<a href="#principles" style="color:#232d35">Own the model</a>
+<a href="#models" style="color:#232d35">Two models</a>
+<a href="#leaders" style="color:#232d35">For leaders</a>
+<a href="#assessment" style="color:#232d35">Assessment</a>
+<a href="#faq" style="color:#232d35">FAQ</a>
+</nav>
+<a href="#assessment" style="flex:none;padding:11px 20px;border:1.5px solid #0081BB;border-radius:999px;font:700 14px/1 'Open Sans',sans-serif;color:#0081BB;background:#fff" style-hover="background:#e5f3fa">Request an assessment</a>
+</div>
+</header>
+
+<section id="top" style="position:relative;overflow:hidden;background:linear-gradient(170deg,#ffffff 0%,#f2f9fc 48%,#eef6fa 100%);padding:76px 0 88px">
+<div style="position:relative;max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:48px;align-items:center">
+<div>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+
+
+</div>
+<h1 style="margin:0 0 26px;font:800 60px/1.04 'Open Sans',sans-serif;letter-spacing:-.03em;color:#232d35;text-wrap:balance">The Workforce Is Yours.<br><span style="color:#0081BB">One Workforce.<br>Your Terms.</span></h1>
+<p style="margin:0 0 22px;font:600 21px/1.5 'Open Sans',sans-serif;color:#3b4954;max-width:none">Your workforce strategy should be built around your organization — not around one staffing supplier, marketplace or technology ecosystem.</p>
+<p style="margin:0 0 32px;font:400 16.5px/1.7 'Open Sans',sans-serif;color:#5e6e78;max-width:52ch">Trio is a healthcare-built VMS for U.S. contingent workforce management. Internal, permanent and contingent labor come together in one connected workforce model, with managed, hybrid and self-managed options that can evolve without a rebuild. The health system keeps control of the data, governance and decisions that shape how the program runs.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px">
+<a href="#assessment" style="display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;background:#0081BB;color:#fff;font:700 15.5px/1 'Open Sans',sans-serif;box-shadow:0 6px 18px rgba(0,129,187,.24)" style-hover="background:#006a9b">Start a Workforce Architecture Assessment</a>
+
+</div>
+</div>
+<div style="position:relative;justify-self:end;width:100%;max-width:430px">
+<div aria-hidden="true" style="position:absolute;top:-210px;right:-350px;width:520px;height:520px;pointer-events:none">
+<div style="position:absolute;left:50px;top:70px;width:360px;height:360px;border-radius:50%;border:1.5px solid #d7e8f0"></div>
+<div style="position:absolute;left:105px;top:125px;width:250px;height:250px;border-radius:50%;border:1.5px solid #cfe6ef"></div>
+<div style="position:absolute;left:155px;top:175px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 42% 38%,#f4fbfe,#e6f2f8);border:1.5px solid #dcebf1"></div>
+<div style="position:absolute;left:196px;top:216px;width:68px;height:68px;border-radius:50%;background:#fff;box-shadow:0 10px 28px rgba(27,35,42,.12);display:flex;align-items:center;justify-content:center"><span style="width:34px;height:38px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:linear-gradient(150deg,#1d4b5c,#12303c)"></span></div>
+<div style="position:absolute;left:214px;top:54px;width:30px;height:30px;border-radius:50%;background:#79BB43;border:4px solid #fff;box-shadow:0 5px 14px rgba(121,187,67,.4)"></div>
+<div style="position:absolute;left:34px;top:236px;width:30px;height:30px;border-radius:50%;background:#0081BB;border:4px solid #fff;box-shadow:0 5px 14px rgba(0,129,187,.36)"></div>
+<div style="position:absolute;left:126px;top:322px;width:30px;height:30px;border-radius:50%;background:#F58220;border:4px solid #fff;box-shadow:0 5px 14px rgba(245,130,32,.36)"></div>
+<div style="position:absolute;left:300px;top:150px;width:20px;height:20px;border-radius:50%;background:#00AAE5;border:3px solid #fff"></div>
+<div style="position:absolute;left:222px;top:164px;width:14px;height:14px;border-radius:50%;background:#79BB43"></div>
+</div>
+<div style="position:relative;background:#fff;border-radius:16px;box-shadow:0 24px 60px rgba(27,35,42,.16);padding:32px 30px">
+<h2 style="margin:0 0 10px;font:700 22px/1.28 'Open Sans',sans-serif;color:#232d35">Where does control<br>actually sit today?</h2>
+<p style="margin:0 0 24px;font:400 14.5px/1.6 'Open Sans',sans-serif;color:#6b7a84">Four signals we look at in every workforce architecture review — before anyone talks about rates or features.</p>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#6b7a84;margin-bottom:14px">Model control signal</div>
+<div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px">
+<div style="height:9px;border-radius:5px;background:#eef1f2;overflow:hidden"><div style="height:100%;width:88%;border-radius:5px;background:linear-gradient(90deg,#00AAE5,#79BB43)"></div></div>
+<div style="height:9px;border-radius:5px;background:#eef1f2;overflow:hidden"><div style="height:100%;width:72%;border-radius:5px;background:linear-gradient(90deg,#0081BB,#00AAE5)"></div></div>
+<div style="height:9px;border-radius:5px;background:#eef1f2;overflow:hidden"><div style="height:100%;width:59%;border-radius:5px;background:linear-gradient(90deg,#F58220,#F5A623)"></div></div>
+<div style="height:9px;border-radius:5px;background:#eef1f2;overflow:hidden"><div style="height:100%;width:41%;border-radius:5px;background:linear-gradient(90deg,#455560,#232d35)"></div></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="display:flex;align-items:center;gap:9px;padding:13px 14px;border:1px solid #eceef0;border-radius:9px"><span style="width:10px;height:10px;border-radius:50%;background:#0081BB;flex:none"></span><span style="font:600 13px/1.3 'Open Sans',sans-serif;color:#232d35">Decision rights</span></div>
+<div style="display:flex;align-items:center;gap:9px;padding:13px 14px;border:1px solid #eceef0;border-radius:9px"><span style="width:10px;height:10px;border-radius:50%;background:#79BB43;flex:none"></span><span style="font:600 13px/1.3 'Open Sans',sans-serif;color:#232d35">Supplier choice</span></div>
+<div style="display:flex;align-items:center;gap:9px;padding:13px 14px;border:1px solid #eceef0;border-radius:9px"><span style="width:10px;height:10px;border-radius:50%;background:#F58220;flex:none"></span><span style="font:600 13px/1.3 'Open Sans',sans-serif;color:#232d35">Total spend view</span></div>
+<div style="display:flex;align-items:center;gap:9px;padding:13px 14px;border:1px solid #eceef0;border-radius:9px"><span style="width:10px;height:10px;border-radius:50%;background:#232d35;flex:none"></span><span style="font:600 13px/1.3 'Open Sans',sans-serif;color:#232d35">Data ownership</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<sc-if value="{{ showStatStrip }}" hint-placeholder-val="{{ true }}">
+<div style="background:#16242c">
+<div style="max-width:1240px;margin:0 auto;padding:34px 40px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:36px;align-items:center">
+<div style="display:flex;align-items:center;gap:12px">
+<span style="font:800 46px/1 'Open Sans',sans-serif;letter-spacing:-.02em;color:#79BB43">$1.4M</span>
+<span style="font:700 12px/1.3 'Open Sans',sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#fff">saved in <br>first year</span>
+</div>
+<p style="margin:0;font:400 16px/1.65 'Open Sans',sans-serif;color:#fff;max-width:78ch">A health system in Central Iowa was running a fragmented MSP with limited supplier visibility. After moving to Trio, they saved <strong style="color:#fff;font-weight:700">$1.4M in the first year</strong> — with every supplier governed in one place.</p>
+<button type="button" onClick="{{ onCase }}" style="flex:none;display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border:none;border-radius:999px;background:#F58220;color:#fff;font:700 14.5px/1 'Open Sans',sans-serif;cursor:pointer;box-shadow:0 6px 18px rgba(245,130,32,.35)" style-hover="background:#e06f10">{{ caseLabel }}</button>
+</div>
+<sc-if value="{{ caseOpen }}" hint-placeholder-val="{{ false }}">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px 40px">
+<div style="padding-top:30px;border-top:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px">
+<div>
+<div style="font:700 14px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#F58220;margin-bottom:12px">The challenge</div>
+<p style="margin:0;font:400 15px/1.65 'Open Sans',sans-serif;color:#fff">A fragmented MSP left the health system with limited visibility into which suppliers were working its roles, on what terms and at what cost.</p>
+</div>
+<div>
+<div style="font:700 14px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#00AAE5;margin-bottom:12px">What changed</div>
+<p style="margin:0;font:400 15px/1.65 'Open Sans',sans-serif;color:#fff">The program moved to Trio, bringing every supplier under one governance model and one view of spend owned by the health system.</p>
+</div>
+<div>
+<div style="font:700 14px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#79BB43;margin-bottom:12px">The result</div>
+<p style="margin:0;font:400 15px/1.65 'Open Sans',sans-serif;color:#fff"><strong style="color:#fff;font-weight:700">$1.4M saved in the first year</strong>, with supplier access, rates and performance governed in one place.</p>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<section id="question" style="background:#f7fafb;padding:72px 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,590px);gap:32px;align-items:start">
+<div>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+
+
+<span style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0081BB">The core question</span>
+</div>
+<h2 style="margin:0 0 24px;font:800 44px/1.1 'Open Sans',sans-serif;letter-spacing:-.03em;color:#232d35">Who owns the model<br>your workforce runs on?</h2>
+<p style="margin:0 0 18px;font:400 17px/1.75 'Open Sans',sans-serif;color:#5e6e78">Scale matters. Supply matters. Technology and managed services matter. But when one company provides the talent, the technology and the operating model, a more important question emerges:</p>
+
+<p style="margin:0;font:600 17px/1.7 'Open Sans',sans-serif;color:#232d35">How much control do you have over how your workforce runs?</p><p style="margin:0 0 18px;font:400 17px/1.75 'Open Sans',sans-serif;color:#5e6e78">The issue is bigger than features. It is about who owns the decisions, the data and the rules that shape your workforce — and whether you can change the model as your needs evolve.</p><p style="margin:0;font:600 17px/1.7 'Open Sans',sans-serif;color:#232d35">The workforce is yours. The model should be too.</p>
+</div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 10px 34px rgba(27,35,42,.07);padding:32px 26px">
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#b65e10;margin-bottom:18px">Signals the model may not be yours</div>
+<div style="display:flex;flex-direction:column;gap:0">
+<div style="display:flex;gap:12px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Changing suppliers means changing technology — or the reverse.</span></div>
+<div style="display:flex;gap:12px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Internal float pools, permanent hiring and contingent labor are managed as three separate strategies.</span></div>
+<div style="display:flex;gap:12px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Not every source of supply is measured against the same expectations.</span></div>
+<div style="display:flex;gap:12px;padding:16px 0;border-bottom:1px solid #eceef0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Rate reporting is available; total workforce economics are not.</span></div>
+<div style="display:flex;gap:12px;padding:16px 0"><span style="flex:none;width:22px;height:24px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB"></span><span style="font:400 15px/1.55 'Open Sans',sans-serif;color:#455560">Your program data lives somewhere you cannot fully govern.</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="assessment" style="background:#fff;padding:72px 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0081BB">The offer</span></div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);column-gap:64px;align-items:end;margin-bottom:40px">
+<h2 style="margin:0;font:800 44px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">The Workforce<br>Architecture Assessment</h2>
+<p style="margin:0;font:400 17px/1.7 'Open Sans',sans-serif;color:#5e6e78">Not a demo. Three steps: set four inputs, see where your model sits, and — if it is useful — book the full assessment. Three minutes end to end.</p>
+</div>
+
+<div style="border:1px solid #eceef0;border-radius:18px;box-shadow:0 18px 52px rgba(27,35,42,.1);background:#fff;overflow:hidden">
+
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#f5f7f8;border-bottom:1px solid #eceef0">
+<button type="button" onClick="{{ onStep1 }}" style="display:flex;align-items:center;gap:14px;padding:22px 26px;background:{{ s1Bg }};border:none;border-right:1px solid #eceef0;text-align:left;cursor:{{ s1Cursor }};opacity:{{ s1Op }}">
+<span style="flex:none;width:32px;height:36px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:{{ s1Chip }};display:flex;align-items:center;justify-content:center;font:800 13px/1 'Open Sans',sans-serif;color:#fff">1</span>
+<div><div style="font:700 14.5px/1.3 'Open Sans',sans-serif;color:{{ s1Text }}">Set your inputs</div><div style="font:400 13px/1.4 'Open Sans',sans-serif;color:#8b979f">Four inputs, no data pull</div></div>
+</button>
+<button type="button" onClick="{{ onStep2 }}" style="display:flex;align-items:center;gap:14px;padding:22px 26px;background:{{ s2Bg }};border:none;border-right:1px solid #eceef0;text-align:left;cursor:{{ s2Cursor }};opacity:{{ s2Op }}">
+<span style="flex:none;width:32px;height:36px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:{{ s2Chip }};display:flex;align-items:center;justify-content:center;font:800 13px/1 'Open Sans',sans-serif;color:#fff">2</span>
+<div><div style="font:700 14.5px/1.3 'Open Sans',sans-serif;color:{{ s2Text }}">See your score</div><div style="font:400 13px/1.4 'Open Sans',sans-serif;color:#8b979f">Model control index, instantly</div></div>
+</button>
+<button type="button" onClick="{{ onStep3 }}" style="display:flex;align-items:center;gap:14px;padding:22px 26px;background:{{ s3Bg }};border:none;text-align:left;cursor:{{ s3Cursor }};opacity:{{ s3Op }}">
+<span style="flex:none;width:32px;height:36px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:{{ s3Chip }};display:flex;align-items:center;justify-content:center;font:800 13px/1 'Open Sans',sans-serif;color:#fff">3</span>
+<div><div style="font:700 14.5px/1.3 'Open Sans',sans-serif;color:{{ s3Text }}">Book the full assessment</div><div style="font:400 13px/1.4 'Open Sans',sans-serif;color:#8b979f">Working session with an architect</div></div>
+</button>
+</div>
+
+<div style="padding:44px 44px 36px;min-height:600px;display:flex;flex-direction:column">
+
+<sc-if value="{{ atStep1 }}" hint-placeholder-val="{{ true }}">
+<div style="flex:1;display:flex;flex-direction:column">
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.68fr);column-gap:56px;align-items:start;flex:1">
+<div>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB;margin-bottom:12px">Step 1 of 3 · Your inputs</div>
+<h3 style="margin:0 0 8px;font:700 27px/1.25 'Open Sans',sans-serif;color:#232d35">Four questions decide how much of your model is yours.</h3>
+<p style="margin:0 0 30px;font:400 15px/1.7 'Open Sans',sans-serif;color:#6b7a84;max-width:52ch">Each is worth 25 points. Estimates are fine — your spend sizes the dollar figures, not the score. Nothing is submitted at this step and no email is required.</p>
+<div style="display:flex;flex-direction:column;gap:26px">
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px"><label for="spend" style="font:600 14.5px/1.3 'Open Sans',sans-serif;color:#455560">Annual contingent labor spend</label><span style="font:800 17px/1 'Open Sans',sans-serif;color:#232d35">{{ spendLabel }}</span></div>
+<input id="spend" type="range" min="10" max="400" step="5" value="{{ spend }}" onChange="{{ onSpend }}" style="width:100%;height:6px">
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:8px"><label for="share" style="font:600 14.5px/1.3 'Open Sans',sans-serif;color:#455560">What percentage of spend does your largest supplier govern?</label><span style="font:800 17px/1 'Open Sans',sans-serif;color:#232d35">{{ shareLabel }}</span></div>
+<input id="share" type="range" min="0" max="100" step="5" value="{{ share }}" onChange="{{ onShare }}" style="width:100%;height:6px">
+</div>
+<div>
+<div style="margin-bottom:9px;font:600 14.5px/1.3 'Open Sans',sans-serif;color:#455560">Who selects and removes suppliers in your program?</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<sc-for list="{{ govOpts }}" as="o" hint-placeholder-count="3">
+<button type="button" onClick="{{ o.on }}" style="padding:13px 10px;border:1.5px solid {{ o.bd }};border-radius:8px;background:{{ o.bg }};color:{{ o.col }};font:700 12.5px/1.35 'Open Sans',sans-serif;cursor:pointer;text-align:center">{{ o.label }}</button>
+</sc-for>
+</div>
+</div>
+<div>
+<div style="margin-bottom:9px;font:600 14.5px/1.3 'Open Sans',sans-serif;color:#455560">When a role opens, who gets to fill it?</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<sc-for list="{{ neutralOpts }}" as="o" hint-placeholder-count="3">
+<button type="button" onClick="{{ o.on }}" style="padding:13px 10px;border:1.5px solid {{ o.bd }};border-radius:8px;background:{{ o.bg }};color:{{ o.col }};font:700 12.5px/1.35 'Open Sans',sans-serif;cursor:pointer;text-align:center">{{ o.label }}</button>
+</sc-for>
+</div>
+</div>
+<div>
+<div style="margin-bottom:9px;font:600 14.5px/1.3 'Open Sans',sans-serif;color:#455560">Who sets and approves your bill rates?</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<sc-for list="{{ rateOpts }}" as="o" hint-placeholder-count="3">
+<button type="button" onClick="{{ o.on }}" style="padding:13px 10px;border:1.5px solid {{ o.bd }};border-radius:8px;background:{{ o.bg }};color:{{ o.col }};font:700 12.5px/1.35 'Open Sans',sans-serif;cursor:pointer;text-align:center">{{ o.label }}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+<div style="padding:26px 28px;background:#fbfcfc;border:1px solid #eceef0;border-radius:14px">
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#6b7a84;margin-bottom:14px">Why these four</div>
+<p style="margin:0 0 18px;font:400 14px/1.65 'Open Sans',sans-serif;color:#6b7a84">Concentration, who selects your suppliers, whether your MSP competes fairly with them, and who sets the rates you pay. Any one of them can stop a change on its own — so each is worth the same 25 points.</p>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#6b7a84;margin-bottom:14px">The full assessment adds</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;margin-top:6px;width:12px;height:14px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB"></span><span style="font:400 14px/1.5 'Open Sans',sans-serif;color:#455560">Mix of internal, permanent and contingent labor</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;margin-top:6px;width:12px;height:14px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43"></span><span style="font:400 14px/1.5 'Open Sans',sans-serif;color:#455560">Demand and workforce visibility</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;margin-top:6px;width:12px;height:14px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220"></span><span style="font:400 14px/1.5 'Open Sans',sans-serif;color:#455560">Contract, exit and renewal terms</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;margin-top:6px;width:12px;height:14px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB"></span><span style="font:400 14px/1.5 'Open Sans',sans-serif;color:#455560">Technology and integration model</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;margin-top:6px;width:12px;height:14px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#455560"></span><span style="font:400 14px/1.5 'Open Sans',sans-serif;color:#455560">Desired future-state engagement model</span></div>
+</div>
+</div>
+</div>
+<div style="margin-top:34px;padding-top:26px;border-top:1px solid #eceef0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center">
+<p style="margin:0;font:400 12.5px/1.6 'Open Sans',sans-serif;color:#9aa6ad;max-width:60ch">Your inputs are saved with your session so we can pick this up where you left it.</p>
+<button type="button" onClick="{{ onReveal }}" style="padding:17px 34px;white-space:nowrap;border:none;border-radius:999px;background:#0081BB;color:#fff;font:700 15.5px/1 'Open Sans',sans-serif;cursor:pointer;box-shadow:0 8px 22px rgba(0,129,187,.26)" style-hover="background:#006a9b">See my score</button>
+</div>
+<sc-if value="{{ gateOpen }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ onGateScrim }}" style="position:fixed;inset:0;z-index:100;background:rgba(27,35,42,.55);display:flex;align-items:center;justify-content:center;padding:24px">
+<form onSubmit="{{ onGateSubmit }}" style="width:100%;max-width:620px;max-height:calc(100vh - 48px);overflow:auto;box-sizing:border-box;padding:30px 32px;border-radius:12px;background:#fff;box-shadow:0 24px 60px rgba(27,35,42,.28);display:flex;flex-direction:column;gap:20px">
+<sc-for list="{{ hsFields }}" as="f" hint-placeholder-count="0"><input type="hidden" name="{{ f.name }}" value="{{ f.value }}"></sc-for>
+<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+<div>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB;margin-bottom:10px">{{ gateEyebrow }}</div>
+<div style="font:700 22px/1.3 'Open Sans',sans-serif;color:#232d35">{{ gateTitle }}</div>
+<p style="margin:6px 0 0;font:400 13.5px/1.55 'Open Sans',sans-serif;color:#6b7a84">{{ gateBody }}</p>
+</div>
+<button type="button" onClick="{{ onGateClose }}" aria-label="Close" style="flex:none;width:34px;height:34px;border:1px solid #e4e8ea;border-radius:999px;background:#fff;cursor:pointer;font:400 20px/1 'Open Sans',sans-serif;color:#6b7a84" style-hover="border-color:#0081BB;color:#0081BB">×</button>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px">
+<div><label for="g-first" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#455560;margin-bottom:7px">First name</label><input id="g-first" name="firstname" type="text" required="true" autoComplete="given-name" value="{{ leadFirst }}" onChange="{{ onLeadFirst }}" placeholder="Jordan" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #dfe3e6;border-radius:6px;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35;background:#fff"></div>
+<div><label for="g-last" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#455560;margin-bottom:7px">Last name</label><input id="g-last" name="lastname" type="text" required="true" autoComplete="family-name" value="{{ leadLast }}" onChange="{{ onLeadLast }}" placeholder="Reyes" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #dfe3e6;border-radius:6px;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35;background:#fff"></div>
+<div><label for="g-email" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#455560;margin-bottom:7px">Work email</label><input id="g-email" name="email" type="email" required="true" autoComplete="email" value="{{ leadEmail }}" onChange="{{ onLeadEmail }}" placeholder="you@healthsystem.org" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #dfe3e6;border-radius:6px;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35;background:#fff"></div>
+<div><label for="g-org" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#455560;margin-bottom:7px">Health system / organization</label><input id="g-org" name="company" type="text" required="true" autoComplete="organization" value="{{ leadOrg }}" onChange="{{ onLeadOrg }}" placeholder="Health system name" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #dfe3e6;border-radius:6px;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35;background:#fff"></div>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+<span style="font:400 12.5px/1.6 'Open Sans',sans-serif;color:#8b979f;max-width:60ch">{{ gateFine }}</span>
+<button type="submit" style="flex:none;padding:17px 34px;white-space:nowrap;border:none;border-radius:999px;background:#0081BB;color:#fff;font:700 15.5px/1 'Open Sans',sans-serif;cursor:pointer;box-shadow:0 8px 22px rgba(0,129,187,.26)" style-hover="background:#006a9b">{{ gateLabel }}</button>
+</div>
+</form>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ atStep2 }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:20px">
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB">Step 2 of 3 · Your score</div>
+<div style="font:600 12.5px/1 'Open Sans',sans-serif;color:#9aa6ad">{{ captureNote }}</div>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:32px;align-items:stretch">
+
+<div style="padding:28px;border-radius:14px;background:#16242c">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px">
+<div>
+<div style="font:800 58px/1 'Open Sans',sans-serif;color:{{ tierColor }};letter-spacing:-.02em">{{ score }}</div>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#fff;margin-top:10px">Model control index · out of 100</div>
+</div>
+<span style="flex:none;padding:7px 14px;border-radius:999px;font:700 12.5px/1 'Open Sans',sans-serif;color:#16242c;background:{{ tierColor }}">{{ tierLabel }}</span>
+</div>
+<div style="margin-top:22px;padding:18px 0 4px;border-top:1px solid rgba(255,255,255,.12)">
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#fff;margin-bottom:10px">You are running a</div>
+<div style="font:800 26px/1.15 'Open Sans',sans-serif;color:#fff;letter-spacing:-.01em">{{ modelType }}</div>
+<sc-if value="{{ capped }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0;font:400 13px/1.5 'Open Sans',sans-serif;color:#fff">{{ capNote }}</p></sc-if>
+<div style="margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px">
+<sc-for list="{{ modelScale }}" as="m" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:7px">
+<div style="height:6px;border-radius:3px;background:{{ m.bar }}"></div>
+<div style="font:700 11.5px/1.3 'Open Sans',sans-serif;color:{{ m.text }}">{{ m.label }}</div>
+<div style="font:400 11px/1 'Open Sans',sans-serif;color:#fff">{{ m.range }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+<p style="margin:18px 0 22px;font:400 14.5px/1.6 'Open Sans',sans-serif;color:#fff">{{ readout }}</p>
+<div style="display:flex;flex-direction:column;gap:14px">
+<sc-for list="{{ method }}" as="m" hint-placeholder-count="4">
+<div><div style="display:flex;justify-content:space-between;font:600 12.5px/1 'Open Sans',sans-serif;color:#fff;margin-bottom:7px"><span>{{ m.dim }}</span><span>{{ m.total }}</span></div><div style="height:7px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden"><div style="height:100%;border-radius:4px;background:{{ m.bar }};width:{{ m.w }}"></div></div></div>
+</sc-for>
+</div>
+<div style="margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+<div><div style="font:800 22px/1 'Open Sans',sans-serif;color:#fff">{{ concentratedLabel }}</div><div style="font:400 13px/1.4 'Open Sans',sans-serif;color:#fff;margin-top:6px">of annual spend governed inside one ecosystem</div></div>
+<div><div style="font:800 22px/1 'Open Sans',sans-serif;color:#fff">{{ flexLabel }}</div><div style="font:400 13px/1.4 'Open Sans',sans-serif;color:#fff;margin-top:6px">of the model you could change independently</div></div>
+</div>
+<div style="margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+<span style="font:400 13px/1.5 'Open Sans',sans-serif;color:#fff">Score updates live as you change your inputs.</span>
+<button type="button" onClick="{{ onStep1 }}" style="flex:none;padding:9px 16px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:none;cursor:pointer;font:700 13px/1 'Open Sans',sans-serif;color:#fff" style-hover="border-color:#00AAE5;color:#fff">← Adjust my inputs</button>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:18px">
+<div style="padding:24px 26px;border:1px solid #eceef0;border-radius:14px;background:#fff;box-shadow:0 6px 20px rgba(27,35,42,.05)">
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#6b7a84;margin-bottom:18px">Where control and governance sit today</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<sc-for list="{{ gaps }}" as="g" hint-placeholder-count="4">
+<div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start">
+<span style="margin-top:5px;width:14px;height:16px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:{{ g.c }}"></span>
+<div>
+<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px"><span style="font:700 14.5px/1.35 'Open Sans',sans-serif;color:#232d35">{{ g.t }}</span><span style="font:700 10.5px/1 'Open Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:{{ g.cDark }}">{{ g.label }}</span></div>
+<p style="margin:5px 0 0;font:400 13.5px/1.6 'Open Sans',sans-serif;color:#6b7a84">{{ g.d }}</p>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:9px">
+<span style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#8b979f;width:100%;margin-bottom:2px">What the flags mean</span>
+<button type="button" onMouseEnter="{{ onTipHigh }}" onMouseLeave="{{ onTipOut }}" onFocus="{{ onTipHigh }}" onClick="{{ onTipHigh }}" style="display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border:1px solid #eceef0;border-radius:999px;background:#fff;cursor:help;font:600 12.5px/1 'Open Sans',sans-serif;color:#455560" style-hover="border-color:#F58220"><span style="width:9px;height:10px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220"></span>High exposure</button>
+<button type="button" onMouseEnter="{{ onTipMod }}" onMouseLeave="{{ onTipOut }}" onFocus="{{ onTipMod }}" onClick="{{ onTipMod }}" style="display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border:1px solid #eceef0;border-radius:999px;background:#fff;cursor:help;font:600 12.5px/1 'Open Sans',sans-serif;color:#455560" style-hover="border-color:#d9ab21"><span style="width:9px;height:10px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F5C542"></span>Moderate exposure</button>
+<button type="button" onMouseEnter="{{ onTipLow }}" onMouseLeave="{{ onTipOut }}" onFocus="{{ onTipLow }}" onClick="{{ onTipLow }}" style="display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border:1px solid #eceef0;border-radius:999px;background:#fff;cursor:help;font:600 12.5px/1 'Open Sans',sans-serif;color:#455560" style-hover="border-color:#4fbf7d"><span style="width:9px;height:10px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#7fe3a0"></span>Low exposure</button>
+</div>
+<sc-if value="{{ tipOpen }}" hint-placeholder-val="{{ false }}">
+<div style="padding:18px 20px;border-radius:12px;background:#16242c;box-shadow:0 14px 34px rgba(27,35,42,.18)">
+<div style="font:700 13.5px/1.3 'Open Sans',sans-serif;color:{{ tipColor }}">{{ tipTitle }}</div>
+<p style="margin:7px 0 0;font:400 13.5px/1.65 'Open Sans',sans-serif;color:#fff">{{ tipBody }}</p>
+</div>
+</sc-if>
+<div style="margin-top:auto;padding:24px 26px;border-radius:14px;background:#fdf0e1">
+<p style="margin:0 0 16px;font:400 14.5px/1.65 'Open Sans',sans-serif;color:#7a4a15">A score is a starting point. The full assessment reads your actual program data.</p>
+<button type="button" onClick="{{ onAdvance }}" style="width:100%;padding:17px 30px;border:none;border-radius:999px;background:#F58220;color:#fff;font:700 15.5px/1 'Open Sans',sans-serif;cursor:pointer;box-shadow:0 8px 22px rgba(245,130,32,.26)" style-hover="background:#db6f12">Book your full assessment →</button>
+</div>
+</div>
+</div>
+
+<div style="margin-top:24px;padding:20px 22px;border:1px solid #eceef0;border-radius:12px;background:#fbfcfc">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+<div style="font:700 13.5px/1.35 'Open Sans',sans-serif;color:#232d35;max-width:56ch">How your score is calculated — four questions, 25 points each. Nothing else is weighted or inferred.</div>
+<button type="button" onClick="{{ onMethod }}" style="flex:none;padding:9px 16px;border:1px solid #d7dde1;border-radius:999px;background:#fff;cursor:pointer;font:700 12.5px/1 'Open Sans',sans-serif;color:#0081BB" style-hover="border-color:#0081BB">{{ methodLabel }}</button>
+</div>
+<sc-if value="{{ methodOpen }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
+<sc-for list="{{ method }}" as="d" hint-placeholder-count="4">
+<div style="padding:16px 18px;background:#fff;border:1px solid #eceef0;border-radius:10px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:1px solid #f2f4f5">
+<span style="font:700 13px/1.3 'Open Sans',sans-serif;color:#232d35">{{ d.dim }}</span>
+<span style="font:800 17px/1 'Open Sans',sans-serif;color:#455560">{{ d.total }}</span>
+</div>
+<p style="margin:10px 0 0;font:400 12.5px/1.5 'Open Sans',sans-serif;color:#6b7a84">{{ d.name }}</p>
+<div style="margin-top:10px;font:700 10.5px/1 'Open Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8b979f">{{ d.verdict }}</div>
+</div>
+</sc-for>
+</div>
+<p style="margin:16px 0 0;font:400 13px/1.65 'Open Sans',sans-serif;color:#6b7a84">Each is worth 25 points because each is separately capable of stopping a change: concentration decides whether an alternative source of supply exists, supplier governance decides whether you can act on it, vendor neutrality decides whether the market actually competes for your roles, and rate governance decides who sets the price you pay. Full points means that component is governed by the health system; zero means it is decided or held outside it. Annual spend sizes the dollar figures only — it does not affect the score.</p>
+</sc-if>
+<p style="margin:14px 0 0;padding-top:14px;border-top:1px solid #eceef0;font:400 12px/1.6 'Open Sans',sans-serif;color:#9aa6ad">This index is a directional conversation tool, not an audit, actuarial finding, or financial projection. It reflects only the four inputs above and does not account for contract terms, quality or fill performance, clinical outcomes, or your local labor market. Scores and savings figures are illustrative and are not a guarantee of results. A Trio workforce analysis reviews your actual program data.</p>
+</div>
+
+</div>
+</sc-if>
+
+<sc-if value="{{ showForm }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:20px">
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB">Step 3 of 3 · Book the full assessment</div>
+<sc-if value="{{ hasScore }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:9px"><span style="font:600 12.5px/1 'Open Sans',sans-serif;color:#9aa6ad">Your index</span><span style="padding:6px 12px;border-radius:999px;font:800 13px/1 'Open Sans',sans-serif;color:#16242c;background:{{ tierColor }}">{{ score }}</span></div></sc-if>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:40px;align-items:start;flex:1">
+<div style="display:flex;flex-direction:column">
+<h3 style="margin:0 0 10px;font:700 26px/1.25 'Open Sans',sans-serif;color:#232d35">Book your full assessment.</h3>
+<p style="margin:0 0 24px;font:400 15px/1.7 'Open Sans',sans-serif;color:#6b7a84">Pick a day and time that work for you. It goes straight onto a workforce architect's calendar when you confirm, so there's no callback to wait for.</p>
+<div style="padding:20px 22px;border:1px solid #eceef0;border-radius:12px;background:#fbfcfc">
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#6b7a84;margin-bottom:14px">Booking for</div>
+<div style="font:700 16px/1.3 'Open Sans',sans-serif;color:#232d35">{{ leadName }}</div>
+<div style="margin-top:4px;font:400 14px/1.5 'Open Sans',sans-serif;color:#6b7a84">{{ leadOrg }} · {{ leadEmail }}</div>
+<sc-if value="{{ hasScore }}" hint-placeholder-val="{{ true }}"><div style="margin-top:16px;padding-top:14px;border-top:1px solid #eceef0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<span style="font:600 13.5px/1.3 'Open Sans',sans-serif;color:#455560">{{ modelType }}</span>
+<span style="padding:6px 12px;border-radius:999px;font:800 13px/1 'Open Sans',sans-serif;color:#16242c;background:{{ tierColor }}">{{ score }} / 100</span>
+</div></sc-if>
+</div>
+<p style="margin:14px 0 0;font:400 12.5px/1.6 'Open Sans',sans-serif;color:#9aa6ad">{{ bookNote }}</p>
+</div>
+<div style="display:flex;flex-direction:column;background:#fff;border:1px solid #e4e8ea;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:22px 24px">
+<div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #eceef0">
+<div style="font:700 15px/1.3 'Open Sans',sans-serif;color:#232d35;margin-bottom:5px">Workforce assessment · 30 minutes</div>
+<div style="font:400 13px/1.5 'Open Sans',sans-serif;color:#8b979f">Video meeting · Central Time (GMT−6)</div>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+<button type="button" onClick="{{ onPrev }}" style="width:32px;height:32px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1px solid #e4e8ea;border-radius:999px;background:#fff;font:700 16px/1 'Open Sans',sans-serif;color:{{ prevCol }};cursor:{{ prevCursor }}">‹</button>
+<div style="font:700 15px/1 'Open Sans',sans-serif;color:#232d35">{{ monthLabel }}</div>
+<button type="button" onClick="{{ onNext }}" style="width:32px;height:32px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1px solid #e4e8ea;border-radius:999px;background:#fff;font:700 16px/1 'Open Sans',sans-serif;color:#455560;cursor:pointer">›</button>
+</div>
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px">
+<div style="text-align:center;font:700 11px/1 'Open Sans',sans-serif;color:#9aa6ad;padding:6px 0">S</div>
+<div style="text-align:center;font:700 11px/1 'Open Sans',sans-serif;color:#9aa6ad;padding:6px 0">M</div>
+<div style="text-align:center;font:700 11px/1 'Open Sans',sans-serif;color:#9aa6ad;padding:6px 0">T</div>
+<div style="text-align:center;font:700 11px/1 'Open Sans',sans-serif;color:#9aa6ad;padding:6px 0">W</div>
+<div style="text-align:center;font:700 11px/1 'Open Sans',sans-serif;color:#9aa6ad;padding:6px 0">T</div>
+<div style="text-align:center;font:700 11px/1 'Open Sans',sans-serif;color:#9aa6ad;padding:6px 0">F</div>
+<div style="text-align:center;font:700 11px/1 'Open Sans',sans-serif;color:#9aa6ad;padding:6px 0">S</div>
+<sc-for list="{{ calCells }}" as="c" hint-placeholder-count="35">
+<div onClick="{{ c.onClick }}" style="height:38px;display:flex;align-items:center;justify-content:center;border-radius:999px;font:600 14px/1 'Open Sans',sans-serif;background:{{ c.bg }};color:{{ c.col }};cursor:{{ c.cursor }}">{{ c.label }}</div>
+</sc-for>
+</div>
+<sc-if value="{{ hasDate }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:18px;padding-top:16px;border-top:1px solid #eceef0">
+<div style="font:600 12.5px/1 'Open Sans',sans-serif;color:#455560;margin-bottom:11px">{{ slotHeading }}</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+<sc-for list="{{ slots }}" as="t" hint-placeholder-count="6">
+<button type="button" onClick="{{ t.onClick }}" style="padding:11px 0;border:1px solid {{ t.bd }};border-radius:8px;background:{{ t.bg }};color:{{ t.col }};font:600 13.5px/1 'Open Sans',sans-serif;cursor:pointer">{{ t.label }}</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ noDate }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:18px;padding-top:16px;border-top:1px solid #eceef0;font:400 13px/1.5 'Open Sans',sans-serif;color:#9aa6ad">Select an available day to see open times.</div>
+</sc-if>
+</div>
+</div>
+<div style="margin-top:32px;padding-top:24px;border-top:1px solid #eceef0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center">
+<button type="button" onClick="{{ onStep2 }}" style="padding:14px 0;border:none;background:none;cursor:pointer;font:700 14px/1 'Open Sans',sans-serif;color:#6b7a84" style-hover="color:#0081BB">← Back to my score</button>
+<span style="font:600 13.5px/1.4 'Open Sans',sans-serif;color:#6b7a84;text-align:right">{{ selectionSummary }}</span>
+<div id="wiy-assessment-fields" style="display:none"><sc-for list="{{ hsFields }}" as="f" hint-placeholder-count="0"><input type="hidden" name="{{ f.name }}" value="{{ f.value }}"></sc-for></div>
+<button type="button" onClick="{{ onSubmit }}" style="padding:17px 34px;white-space:nowrap;border:none;border-radius:999px;background:{{ confirmBg }};color:#fff;font:700 15.5px/1 'Open Sans',sans-serif;cursor:{{ confirmCursor }};box-shadow:0 6px 18px rgba(245,130,32,.28)">{{ confirmLabel }}</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px 0">
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:22px">
+<span style="flex:none;display:inline-flex;width:44px;height:49px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43;align-items:center;justify-content:center;font:800 19px/1 'Open Sans',sans-serif;color:#fff">✓</span>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#79BB43">Your assessment is booked</div>
+</div>
+<h3 style="margin:0 0 14px;font:700 34px/1.2 'Open Sans',sans-serif;letter-spacing:-.02em;color:#232d35;max-width:24ch">We look forward to meeting with you.</h3>
+<p style="margin:0 0 20px;font:400 16.5px/1.7 'Open Sans',sans-serif;color:#5e6e78;max-width:70ch">Your time is locked in and a calendar invite is on its way — no callback required to schedule. A Trio workforce architect will meet you then. Everything we discuss is yours to keep, whether or not you ever run an evaluation.</p>
+<div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:30px;padding:14px 20px;background:#f1f8ec;border:1px solid #d4e9c2;border-radius:10px;font:700 15.5px/1.3 'Open Sans',sans-serif;color:#232d35">{{ bookedSummary }}</div>
+</div>
+</sc-if>
+
+</div>
+</div>
+</div>
+</section>
+<section id="principles" style="background:#fff;padding:72px 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+
+
+<span style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0081BB">What we stand for</span>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end;margin-bottom:44px">
+<h2 style="margin:0;font:800 46px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Four commitments<br>the model has to keep.</h2>
+<p style="margin:0;font:400 17px/1.7 'Open Sans',sans-serif;color:#5e6e78">Not aspirations. These are the standards a health system should hold any workforce operating model to — including ours.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px">
+<div style="display:flex;gap:20px;background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 30px" style-hover="box-shadow:0 14px 34px rgba(27,35,42,.11)">
+<span style="flex:none;width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff">01</span>
+<div><h3 style="margin:0 0 10px;font:700 21px/1.3 'Open Sans',sans-serif;color:#232d35">Own the Model.</h3><p style="margin:0;font:400 15.5px/1.65 'Open Sans',sans-serif;color:#5e6e78">The health system decides how the workforce runs, where decisions sit and how performance is governed. Not the supplier ecosystem around it.</p></div>
+</div>
+<div style="display:flex;gap:20px;background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 30px" style-hover="box-shadow:0 14px 34px rgba(27,35,42,.11)">
+<span style="flex:none;width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff">02</span>
+<div><h3 style="margin:0 0 10px;font:700 21px/1.3 'Open Sans',sans-serif;color:#232d35">Choice Without Compromise.</h3><p style="margin:0;font:400 15.5px/1.65 'Open Sans',sans-serif;color:#5e6e78">Change suppliers, technology or operating responsibility without rebuilding the program from the ground up.</p></div>
+</div>
+<div style="display:flex;gap:20px;background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 30px" style-hover="box-shadow:0 14px 34px rgba(27,35,42,.11)">
+<span style="flex:none;width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff">03</span>
+<div><h3 style="margin:0 0 10px;font:700 21px/1.3 'Open Sans',sans-serif;color:#232d35">A Model That Moves With You.</h3><p style="margin:0;font:400 15.5px/1.65 'Open Sans',sans-serif;color:#5e6e78">Internal, permanent and contingent labor planned and managed as parts of the same workforce strategy — as your team and capabilities change.</p></div>
+</div>
+<div style="display:flex;gap:20px;background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 30px" style-hover="box-shadow:0 14px 34px rgba(27,35,42,.11)">
+<span style="flex:none;width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#455560;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff">04</span>
+<div><h3 style="margin:0 0 10px;font:700 21px/1.3 'Open Sans',sans-serif;color:#232d35">A More Transparent, Managed, Workforce Spend.</h3><p style="margin:0;font:400 15.5px/1.65 'Open Sans',sans-serif;color:#5e6e78">See how sourcing, utilization, rates and supplier decisions affect total workforce spend — not just agency rates.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<div id="models"><dc-import name="ModelComparison" hint-size="100%,720px"></dc-import></div>
+
+<section style="background:#f7fafb;padding:72px 0 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;background:linear-gradient(120deg,#0081BB 0%,#00AAE5 100%);border-radius:18px;box-shadow:0 18px 44px rgba(0,129,187,.2);padding:44px 48px">
+<div aria-hidden="true" style="position:absolute;top:-30px;right:-50px;width:220px;height:190px;background:rgba(255,255,255,.12);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);pointer-events:none"></div>
+<div style="position:relative">
+<div style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:12px">Workforce Architecture Assessment</div>
+<h2 style="margin:0 0 10px;font:800 32px/1.15 'Open Sans',sans-serif;letter-spacing:-.02em;color:#fff">How much of your workforce model is yours?</h2>
+<p style="margin:0;font:400 16.5px/1.6 'Open Sans',sans-serif;color:#fff;max-width:60ch">Four questions, about three minutes. See your model control index and where control sits today.</p>
+</div>
+<a href="#assessment" style="position:relative;display:inline-flex;align-items:center;padding:18px 34px;border-radius:999px;background:#fff;color:#005f8a;font:700 15.5px/1 'Open Sans',sans-serif;box-shadow:0 10px 26px rgba(27,35,42,.18);white-space:nowrap" style-hover="background:#f2f9fc">Take the assessment</a>
+</div>
+</div>
+</section>
+<section id="leaders" style="background:#f7fafb;padding:72px 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(0, 129, 187);">Who it's for</span></div>
+<h2 style="margin:0 0 14px;font:800 46px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Built for the leaders who<br>carry the workforce decision.</h2>
+<p style="margin:0 0 44px;font:400 17px/1.7 'Open Sans',sans-serif;color:#5e6e78">The same architecture question, framed around the decisions each leader actually makes.</p>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px">
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 28px;display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:18px">
+<span style="width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#0081BB;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Open Sans',sans-serif;color:#fff"><span class="wiy-ico wiy-ico-cfo" aria-hidden="true"></span></span>
+<div><h3 style="margin:0 0 8px;font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">CFO</h3><p style="margin:0;font:400 15.5px/1.6 'Open Sans',sans-serif;color:#5e6e78">Look at the workforce as one economic system, not a stack of agency invoices.</p></div>
+<p style="margin:0;padding:16px 18px;background:#f5f7f8;border-radius:10px;font:600 15px/1.55 'Open Sans',sans-serif;color:#232d35">“I know what agency labor costs. Do I know what the current workforce model is costing us overall and where we can improve?”</p>
+</div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 28px;display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:18px">
+<span style="width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff"><span class="wiy-ico wiy-ico-coo" aria-hidden="true"></span></span>
+<div><h3 style="margin:0 0 8px;font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">COO</h3><p style="margin:0;font:400 15.5px/1.6 'Open Sans',sans-serif;color:#5e6e78">Improve fill and speed by fixing how workforce decisions connect across the system.</p></div>
+<p style="margin:0;padding:16px 18px;background:#f5f7f8;border-radius:10px;font:600 15px/1.55 'Open Sans',sans-serif;color:#232d35">“Where are handoffs, approvals or disconnected processes slowing the system down?”</p>
+</div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:30px 28px;display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:18px">
+<span style="width:46px;height:50px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#F58220;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Open Sans',sans-serif;color:#fff"><span class="wiy-ico wiy-ico-cio" aria-hidden="true"></span></span>
+<div><h3 style="margin:0 0 8px;font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">CIO / CTO</h3><p style="margin:0;font:400 15.5px/1.6 'Open Sans',sans-serif;color:#5e6e78">Keep control of architecture, integration and data as the workforce model evolves.</p></div>
+<p style="margin:0;padding:16px 18px;background:#f5f7f8;border-radius:10px;font:600 15px/1.55 'Open Sans',sans-serif;color:#232d35">“Can the workforce model evolve without being tied to one provider's ecosystem?”</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section style="background:#f7fafb;padding:72px 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(0, 129, 187);">Proof, not promises</span></div>
+<h2 style="margin:0 0 44px;font:800 44px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Delivered capabilities, not roadmap promises.</h2>
+<div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:22px;margin-bottom:22px">
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:34px 32px;box-shadow:0 8px 26px rgba(27,35,42,.06)">
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB;margin-bottom:16px">2nd consecutive year</div>
+<div style="font:800 30px/1.2 'Open Sans',sans-serif;color:#232d35;letter-spacing:-.02em;margin-bottom:20px">Star Performer &amp; Major Contender</div>
+<div style="display:grid;grid-template-columns:repeat(2,max-content);justify-content:center;align-items:center;gap:16px 24px;margin-bottom:20px">
+<img src="img/peak-vms-star-performer.png" alt="Everest Group PEAK Matrix 2026 — Vendor Management System, North America — Star Performer" style="height:146px;width:auto;flex:none">
+<img src="img/peak-vms-major-contender.png" alt="Everest Group PEAK Matrix 2026 — Vendor Management System, North America — Major Contender" style="height:146px;width:auto;flex:none">
+<img src="img/peak-msp-star-performer.png" alt="Everest Group PEAK Matrix 2026 — Contingent Workforce Management, Managed Service Provider — Star Performer" style="height:146px;width:auto;flex:none">
+<img src="img/peak-msp-major-contender.png" alt="Everest Group PEAK Matrix 2026 — Contingent Workforce Management, Managed Service Provider — Major Contender" style="height:146px;width:auto;flex:none">
+</div>
+<p style="margin:0;font:400 15.5px/1.65 'Open Sans',sans-serif;color:#5e6e78">Everest Group 2025 and 2026 VMS and MSP PEAK Matrix®. Two consecutive years as a Star Performer and Major Contender—independent recognition of the market impact and capabilities Trio is delivering today.</p>
+</div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:34px 32px;display:flex;flex-direction:column;justify-content:center">
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#79BB43;margin-bottom:16px">Client proof · North Memorial Health</div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:6px"><div style="font:800 46px/1 'Open Sans',sans-serif;color:#232d35;letter-spacing:-.02em">$2M</div><div style="font:700 15px/1.35 'Open Sans',sans-serif;color:#5e6e78">in cost savings,<br>first 8 months</div></div>
+<p style="margin:14px 0 20px;font:400 15px/1.65 'Open Sans',sans-serif;color:#5e6e78">Nursing, allied and locums consolidated under one vendor-neutral model — with seamless provider transitions, no service gaps, and real-time spend and utilization visibility.</p>
+<blockquote style="margin:0;padding:16px 18px;border-left:3px solid #79BB43;background:#f5f7f8;border-radius:0 8px 8px 0"><p style="margin:0 0 10px;font:600 14.5px/1.55 'Open Sans',sans-serif;color:#232d35">“Working with Trio has helped us streamline our staffing process, reduce costs, and ensure we have the right people in place to provide excellent patient care.”</p><cite style="font:400 13px/1.4 'Open Sans',sans-serif;color:#85939c;font-style:normal">Shannon Sloan<br>Chief Human Resources Officer, North Memorial Health</cite></blockquote>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px">
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 26px"><div style="font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">Healthcare-first</div><p style="margin:10px 0 0;font:400 15px/1.6 'Open Sans',sans-serif;color:#5e6e78">Nursing, allied health, locums, per diem, float pools and credentialing — modeled as clinical work, not generic contingent labor.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 26px"><div style="font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">Your data</div><p style="margin:10px 0 0;font:400 15px/1.6 'Open Sans',sans-serif;color:#5e6e78">Program, supplier, rate and utilization data stays reportable and portable — governed by the health system, not rented back to it.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 26px"><div style="font:700 20px/1.3 'Open Sans',sans-serif;color:#232d35">Transition planned</div><p style="margin:10px 0 0;font:400 15px/1.6 'Open Sans',sans-serif;color:#5e6e78">Switching models is a project, not a leap. Every engagement starts with a transition roadmap and a named owner on both sides.</p></div>
+</div>
+</div>
+</section>
+
+<sc-if value="{{ showRenewalOffer }}" hint-placeholder-val="{{ true }}">
+<section style="background:#fff;padding:72px 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:44px;align-items:center;background:#e6f3fa;border-radius:16px;padding:44px 44px">
+<div>
+<div style="font:700 11px/1 'Open Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0081BB;margin-bottom:14px">Free white paper · no meeting required</div>
+<h2 style="margin:0 0 12px;font:800 34px/1.15 'Open Sans',sans-serif;letter-spacing:-.02em;color:#232d35">10 Questions to Ask Before Your Next MSP Renewal</h2>
+<p style="margin:0 0 18px;font:400 16.5px/1.7 'Open Sans',sans-serif;color:#5e6e78;max-width:62ch">The questions that show who actually controls your program — supplier access, rate setting, vendor neutrality and exit terms — before you sign another term. Bring them to your next renewal conversation.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<span style="padding:7px 13px;border-radius:999px;background:rgba(0,129,187,.1);color:#005f8a;font:700 12px/1.35 'Open Sans',sans-serif">Who sets your bill rates</span>
+<span style="padding:7px 13px;border-radius:999px;background:rgba(0,129,187,.1);color:#005f8a;font:700 12px/1.35 'Open Sans',sans-serif">Supplier access and neutrality</span>
+<span style="padding:7px 13px;border-radius:999px;background:rgba(0,129,187,.1);color:#005f8a;font:700 12px/1.35 'Open Sans',sans-serif">Exit and transition terms</span>
+</div>
+</div>
+<div id="report" style="flex:none;width:360px">
+<sc-if value="{{ reportPending }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ onReportSubmit }}" style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ hsFields }}" as="f" hint-placeholder-count="0"><input type="hidden" name="{{ f.name }}" value="{{ f.value }}"></sc-for>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<div><label for="report-first" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#005f8a;margin-bottom:7px">First name</label><input id="report-first" type="text" required="true" value="{{ reportFirst }}" onChange="{{ onReportFirst }}" placeholder="Jordan" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #bcdbeb;border-radius:6px;background:#fff;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35"></div>
+<div><label for="report-last" style="display:block;font:600 12.5px/1 'Open Sans',sans-serif;color:#005f8a;margin-bottom:7px">Last name</label><input id="report-last" type="text" required="true" value="{{ reportLast }}" onChange="{{ onReportLast }}" placeholder="Reyes" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #bcdbeb;border-radius:6px;background:#fff;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35"></div>
+</div>
+<label for="report-email" style="font:600 12.5px/1 'Open Sans',sans-serif;color:#005f8a">Work email</label>
+<input id="report-email" type="email" required="true" value="{{ reportEmail }}" onChange="{{ onReportEmail }}" placeholder="you@healthsystem.org" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #bcdbeb;border-radius:6px;background:#fff;font:400 15px/1.3 'Open Sans',sans-serif;color:#232d35">
+<button type="submit" style="display:inline-flex;align-items:center;justify-content:center;padding:15px 26px;border:none;border-radius:999px;background:#232d35;color:#fff;font:700 15px/1 'Open Sans',sans-serif;cursor:pointer" style-hover="background:#16242c">Send me the white paper</button>
+<span style="font:400 12px/1.5 'Open Sans',sans-serif;color:#4f6b7a">PDF · emailed instantly. No meeting required.</span>
+</form>
+</sc-if>
+<sc-if value="{{ reportSent }}" hint-placeholder-val="{{ false }}">
+<div style="padding:22px 24px;background:#fff;border:1px solid #bcdbeb;border-radius:12px">
+<div style="font:800 16px/1.3 'Open Sans',sans-serif;color:#232d35;margin-bottom:8px">On its way.</div>
+<p style="margin:0;font:400 13.5px/1.6 'Open Sans',sans-serif;color:#6b7a84">Check {{ reportEmail }} — the white paper should land within a minute. Nothing else follows it.</p>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+</sc-if>
+
+<section id="faq" style="background:#f7fafb;padding:72px 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="font: 700 12px / 1 &quot;Open Sans&quot;, sans-serif; letter-spacing: 0.12em; color: rgb(0, 129, 187);"><span style="letter-spacing: 0.14em; text-transform: uppercase;">Questions we get</span></span></div>
+<h2 style="margin:0 0 44px;font:800 42px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#232d35">Healthcare workforce management, answered plainly.</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 28px"><h3 style="margin:0 0 10px;font:700 18.5px/1.35 'Open Sans',sans-serif;color:#232d35">What is a healthcare VMS?</h3><p style="margin:0;font:400 15.5px/1.7 'Open Sans',sans-serif;color:#5e6e78">A vendor management system is the technology a hospital or health system uses to manage contingent labor end to end — requisitions, submissions, credentialing, scheduling, timecards, billing and supplier performance. A healthcare VMS models clinical realities such as licensure, privileging, unit-level scheduling and float pools rather than treating clinicians as generic contractors.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 28px"><h3 style="margin:0 0 10px;font:700 18.5px/1.35 'Open Sans',sans-serif;color:#232d35">What does it mean for a VMS to be independent of supply?</h3><p style="margin:0;font:400 15.5px/1.7 'Open Sans',sans-serif;color:#5e6e78">It means the platform you use to compare, award and govern work is not owned by a company competing to fill that work. Every supplier — including internal resources — is measured against the same expectations, and the health system decides where volume goes.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 28px"><h3 style="margin:0 0 10px;font:700 18.5px/1.35 'Open Sans',sans-serif;color:#232d35">Can we change suppliers without replacing the technology?</h3><p style="margin:0;font:400 15.5px/1.7 'Open Sans',sans-serif;color:#5e6e78">Yes. Supplier changes, added specialties and shifts in operating responsibility are configuration decisions inside Trio VMS — not a program rebuild. Managed, hybrid and self-managed operating models are settings, so responsibility can move without the model being torn down.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 28px"><h3 style="margin:0 0 10px;font:700 18.5px/1.35 'Open Sans',sans-serif;color:#232d35">How do internal float pools fit a total workforce model?</h3><p style="margin:0;font:400 15.5px/1.7 'Open Sans',sans-serif;color:#5e6e78">Internal resource management sits alongside external supply in the same demand view, so open need is offered internally first and escalated outward on your rules. Permanent, internal and contingent labor are planned as one workforce strategy instead of three.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 28px"><h3 style="margin:0 0 10px;font:700 18.5px/1.35 'Open Sans',sans-serif;color:#232d35">How long does a transition take?</h3><p style="margin:0;font:400 15.5px/1.7 'Open Sans',sans-serif;color:#5e6e78">It depends on program size, integrations and how many facilities go live at once. The assessment produces a transition roadmap with sequencing, owners and the risks worth planning around — before any commitment.</p></div>
+<div style="background:#fff;border:1px solid #eceef0;border-radius:14px;padding:28px 28px"><h3 style="margin:0 0 10px;font:700 18.5px/1.35 'Open Sans',sans-serif;color:#232d35">Do you work with California health systems?</h3><p style="margin:0;font:400 15.5px/1.7 'Open Sans',sans-serif;color:#5e6e78">Yes. Trio Workforce Solutions supports health systems nationally and is actively working with California organizations on nursing, allied health and locums programs — including California-specific rate, ratio and compliance considerations.</p></div>
+</div>
+</div>
+</section>
+
+<section style="background:#fff;padding:72px 0 88px">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(120deg,#00AAE5 0%,#4fb3d6 45%,#79BB43 88%,#9cc84a 100%);box-shadow:0 18px 44px rgba(0,129,187,.18);padding:68px 40px;text-align:center">
+<div aria-hidden="true" style="position:absolute;top:0;right:-40px;width:260px;height:225px;background:rgba(255,255,255,.14);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);pointer-events:none"></div>
+<div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:0">
+<div style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:16px">Before your next renewal</div>
+<h2 style="margin:0 0 14px;font:800 44px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#fff;text-wrap:balance">Before you renew, ask who really owns the model.</h2>
+<p style="margin:0 0 30px;font:400 17.5px/1.6 'Open Sans',sans-serif;color:#fff;max-width:52ch;text-wrap:pretty">Control, choice, economics and outcomes — not just features. Start with an in-depth 30-minute Workforce Architecture Assessment.</p>
+<button type="button" onClick="{{ onBookCta }}" style="display:inline-flex;align-items:center;padding:20px 38px;border:none;cursor:pointer;border-radius:999px;background:#fff;color:#005f8a;font:700 16px/1 'Open Sans',sans-serif;box-shadow:0 10px 26px rgba(27,35,42,.18)" style-hover="background:#f2f9fc">Book your free assessment</button>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="background:#16242c;border-top:1px solid rgba(255,255,255,.08);padding:44px 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between">
+<img src="img/trio-logo-white.png" alt="Trio Workforce Solutions" style="height:32px;width:auto">
+<div style="display:flex;gap:26px;font:600 14px/1 'Open Sans',sans-serif"><a href="#top" style="color:#cdd3d7">Trio VMS</a><a href="#assessment" style="color:#cdd3d7">Assessment</a><a href="#faq" style="color:#cdd3d7">FAQ</a><a href="#top" style="color:#cdd3d7">Privacy</a></div>
+<div style="font:400 13px/1.6 'Open Sans',sans-serif;color:#7d8b94">Trio Workforce Solutions™, an American Health Staffing Group company. PEAK Matrix® is a registered mark of Everest Group.</div>
+</div>
+</footer>
+
+</div>
+
+</template>
+<template id="dc-tpl-ModelComparison">
+
+<section style="background:linear-gradient(155deg,#1c3a4a 0%,#1a5068 55%,#136b8c 100%);padding:72px 0">
+<div style="max-width:1240px;margin:0 auto;padding:0 40px">
+<div style="font:700 12px/1 'Open Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#00AAE5;margin-bottom:18px">{{ eyebrow }}</div>
+<h2 style="margin:0 0 16px;font:800 46px/1.1 'Open Sans',sans-serif;letter-spacing:-.025em;color:#fff;text-wrap:balance">{{ heading }}</h2>
+<p style="margin:0 0 34px;font:400 17px/1.7 'Open Sans',sans-serif;color:#fff;max-width:62ch">{{ intro }}</p>
+<div style="display:inline-flex;padding:5px;background:rgba(255,255,255,.08);border-radius:999px;margin-bottom:34px">
+<button type="button" onClick="{{ showEco }}" style="border:none;cursor:pointer;padding:12px 22px;border-radius:999px;font:700 13.5px/1 'Open Sans',sans-serif;transition:background .18s ease;background:{{ ecoTabBg }};color:{{ ecoTabColor }}">{{ ecoLabel }}</button>
+<button type="button" onClick="{{ showYours }}" style="border:none;cursor:pointer;padding:12px 22px;border-radius:999px;font:700 13.5px/1 'Open Sans',sans-serif;transition:background .18s ease;background:{{ yoursTabBg }};color:{{ yoursTabColor }}">{{ yoursLabel }}</button>
+</div>
+<p style="margin:-22px 0 26px;font:400 14.5px/1.6 'Open Sans',sans-serif;color:{{ captionColor }};max-width:60ch">{{ activeCaption }}</p>
+<div style="display:flex;flex-direction:column;gap:0">
+<sc-for list="{{ activeRows }}" as="r" hint-placeholder-count="5">
+<div style="display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(255,255,255,.12)">
+<div style="font:700 12.5px/1.3 'Open Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#fff">{{ r.label }}</div>
+<div style="font:500 16px/1.6 'Open Sans',sans-serif;color:{{ bodyColor }}">{{ r.text }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+</template>
+
+<script>
+/* Minimal vanilla runtime for Claude Design x-dc templates (Frogdog port, 2026-09-23).
+   Supports: {{ path }} in text + attributes, <sc-if value>, <sc-for list as>, <dc-import name>,
+   style-hover="..." (as a generated :hover class, like the original runtime), React-style event
+   attributes, a DCLogic base class with setState, and a positional DOM morph so live inputs are
+   patched in place (a range slider being dragged is never replaced). No dependencies. */
+(function () {
+  'use strict';
+  var EVENTS = { onclick: 'click', onchange: 'input', oninput: 'input', onsubmit: 'submit',
+    onmouseenter: 'mouseenter', onmouseleave: 'mouseleave', onfocus: 'focus', onblur: 'blur',
+    onkeydown: 'keydown', onkeyup: 'keyup' };
+  var FORM_VALUE = { input: 1, select: 1, textarea: 1 };
+
+  function resolve(vals, src) {
+    var e = String(src).trim();
+    if (!e) return undefined;
+    if (e[0] === '!') return !resolve(vals, e.slice(1));
+    if (e === 'true') return true;
+    if (e === 'false') return false;
+    if (e === 'null') return null;
+    if (e === 'undefined') return undefined;
+    if (/^-?\d+(\.\d+)?$/.test(e)) return Number(e);
+    if (e.length > 1 && (e[0] === '"' || e[0] === "'") && e[e.length - 1] === e[0]) return e.slice(1, -1);
+    var parts = e.split('.'), cur = vals;
+    for (var i = 0; i < parts.length; i++) { if (cur == null) return undefined; cur = cur[parts[i].trim()]; }
+    return cur;
+  }
+  function attrVal(raw, vals) {
+    if (raw == null) return undefined;
+    var whole = raw.match(/^\s*\{\{([\s\S]+?)\}\}\s*$/);
+    if (whole) return resolve(vals, whole[1]);
+    if (raw.indexOf('{{') < 0) return raw;
+    return raw.replace(/\{\{([\s\S]+?)\}\}/g, function (_, p) { var v = resolve(vals, p); return v == null ? '' : String(v); });
+  }
+
+  /* style-hover -> one generated class per distinct declaration block, rule ".dchN:hover{... !important}" */
+  var hoverSheet = null, hoverCache = {}, hoverN = 0;
+  function hoverClass(pseudo, css) {
+    var k = pseudo + '|' + css;
+    if (hoverCache[k]) return hoverCache[k];
+    if (!hoverSheet) { var s = document.createElement('style'); s.id = 'dc-hover'; document.head.appendChild(s); hoverSheet = s.sheet; }
+    var cls = 'dch' + (hoverN++).toString(36);
+    var decls = css.split(';').map(function (d) { return d.trim(); }).filter(Boolean)
+      .map(function (d) { return /!\s*important$/i.test(d) ? d : d + ' !important'; }).join(';');
+    hoverSheet.insertRule('.' + cls + ':' + pseudo + '{' + decls + '}', hoverSheet.cssRules.length);
+    return (hoverCache[k] = cls);
+  }
+
+  /* ---- template -> virtual tree ---- */
+  function kids(node, vals, out, host) { for (var c = node.firstChild; c; c = c.nextSibling) build(c, vals, out, host); }
+  function build(node, vals, out, host) {
+    if (node.nodeType === 3) {
+      var t = node.nodeValue;
+      if (t.indexOf('{{') < 0) { if (!t.trim() && t.indexOf(' ') < 0) return; out.push(t); return; }
+      /* like the original runtime: literal text stays text, each interpolation is its own <span class="sc-interp"> */
+      t.split(/\{\{([\s\S]+?)\}\}/g).forEach(function (part, i) {
+        if (!(i & 1)) { if (part) out.push(part); return; }
+        var v = resolve(vals, part);
+        if (v == null || typeof v === 'boolean') return;
+        out.push({ tag: 'span', attrs: { 'class': 'sc-interp' }, ev: {}, kids: [String(v)] });
+      });
+      return;
+    }
+    if (node.nodeType !== 1) return;
+    var tag = node.localName;
+    if (tag === 'sc-if') { if (attrVal(node.getAttribute('value'), vals)) kids(node, vals, out, host); return; }
+    if (tag === 'sc-for') {
+      var list = attrVal(node.getAttribute('list'), vals), as = node.getAttribute('as') || 'item';
+      if (!Array.isArray(list)) return;
+      list.forEach(function (item, i) { var sub = Object.assign({}, vals); sub[as] = item; sub.$index = i; kids(node, sub, out, host); });
+      return;
+    }
+    if (tag === 'dc-import') { out.push(host.child(node)); return; }
+    var v = { tag: tag, attrs: {}, ev: {}, kids: [] }, cls = [];
+    for (var i = 0; i < node.attributes.length; i++) {
+      var a = node.attributes[i], name = a.name;
+      if (name.indexOf('hint-') === 0) continue;
+      if (name.indexOf('style-') === 0) { cls.push(hoverClass(name.slice(6), a.value)); continue; }
+      if (name.slice(0, 2) === 'on' && EVENTS[name]) {
+        var fn = attrVal(a.value, vals);
+        if (typeof fn === 'function') v.ev[(name === 'onchange' && tag === 'select') ? 'change' : EVENTS[name]] = fn;
+        continue;
+      }
+      var val = attrVal(a.value, vals);
+      if (val == null || val === false) { if (name === 'value' && FORM_VALUE[tag]) v.attrs.value = ''; continue; }
+      v.attrs[name] = val === true ? '' : String(val);
+    }
+    if (cls.length) v.attrs['class'] = (v.attrs['class'] ? v.attrs['class'] + ' ' : '') + cls.join(' ');
+    kids(node, vals, v.kids, host);
+    out.push(v);
+  }
+
+  /* ---- positional morph: reuse same-tag (and same-id) nodes, update attrs/text in place ---- */
+  function bindEvents(el, ev) {
+    el.__dcEv = ev;
+    var bound = el.__dcBound || (el.__dcBound = {});
+    Object.keys(ev).forEach(function (type) {
+      if (bound[type]) return;
+      bound[type] = true;
+      el.addEventListener(type, function (e) { var f = el.__dcEv && el.__dcEv[type]; if (f) f(e); });
+    });
+  }
+  function patch(el, v) {
+    for (var j = el.attributes.length - 1; j >= 0; j--) {
+      var n = el.attributes[j].name; if (!(n in v.attrs)) el.removeAttribute(n);
+    }
+    for (var k in v.attrs) if (el.getAttribute(k) !== v.attrs[k]) el.setAttribute(k, v.attrs[k]);
+    if (FORM_VALUE[v.tag] && 'value' in v.attrs && el.value !== v.attrs.value) el.value = v.attrs.value;
+    bindEvents(el, v.ev);
+    morphKids(el, v.kids);
+  }
+  function create(v) { var el = document.createElement(v.tag); patch(el, v); return el; }
+  function morphKids(parent, vk) {
+    var nodes = parent.childNodes;
+    for (var i = 0; i < vk.length; i++) {
+      var v = vk[i], cur = nodes[i];
+      if (typeof v === 'string') {
+        if (cur && cur.nodeType === 3) { if (cur.nodeValue !== v) cur.nodeValue = v; }
+        else { var t = document.createTextNode(v); if (cur) parent.replaceChild(t, cur); else parent.appendChild(t); }
+      } else if (cur && cur.nodeType === 1 && cur.localName === v.tag && (cur.getAttribute('id') || '') === (v.attrs.id || '')) {
+        patch(cur, v);
+      } else {
+        var el = create(v); if (cur) parent.replaceChild(el, cur); else parent.appendChild(el);
+      }
+    }
+    while (nodes.length > vk.length) parent.removeChild(nodes[nodes.length - 1]);
+  }
+
+  /* ---- components ---- */
+  var registry = {}, roots = [], rendering = false, again = false;
+  class DCLogic {
+    constructor(props) { this.props = props || {}; this.state = {}; }
+    setState(update, cb) {
+      var p = typeof update === 'function' ? update(this.state, this.props) : update;
+      if (p) this.state = Object.assign({}, this.state, p);
+      renderAll();
+      if (cb) cb();
+    }
+    forceUpdate() { renderAll(); }
+    renderVals() { return {}; }
+  }
+  function defaultsOf(json) {
+    var d = {}, meta = {};
+    try { meta = JSON.parse(json || '{}'); } catch (e) { }
+    Object.keys(meta).forEach(function (k) { if (meta[k] && meta[k].default !== undefined) d[k] = meta[k].default; });
+    return d;
+  }
+  function Host(name) {
+    var def = registry[name];
+    this.name = name;
+    this.tpl = def.tpl;
+    var props = defaultsOf(def.props);
+    this.logic = new def.Logic(props);
+    if (!this.logic.props) this.logic.props = props;
+    this.children = new Map();
+  }
+  Host.prototype.child = function (node) {
+    var h = this.children.get(node);
+    if (!h) { h = new Host(node.getAttribute('name')); this.children.set(node, h); }
+    return { tag: 'div', attrs: { 'class': 'sc-host', 'data-sc-name': h.name }, ev: {}, kids: h.tree() };
+  };
+  Host.prototype.tree = function () {
+    var vals = Object.assign({}, this.logic.props, this.logic.renderVals()), out = [];
+    kids(this.tpl, vals, out, this);
+    return out;
+  };
+  function renderAll() {
+    if (rendering) { again = true; return; }
+    rendering = true;
+    try {
+      do { again = false; roots.forEach(function (r) { morphKids(r.el, [{ tag: 'div', attrs: { 'class': 'sc-host', 'data-sc-name': r.host.name }, ev: {}, kids: r.host.tree() }]); }); }
+      while (again);
+    } finally { rendering = false; }
+  }
+  window.DC = {
+    DCLogic: DCLogic,
+    define: function (name, tplId, Logic, propsJson) {
+      registry[name] = { tpl: document.getElementById(tplId).content, Logic: Logic, props: propsJson };
+    },
+    mount: function (name, el) { roots.push({ el: el, host: new Host(name) }); renderAll(); }
+  };
+})();
+
+</script>
+<script>
+/* Courtney's ModelComparison logic, verbatim */
+DC.define('ModelComparison', 'dc-tpl-ModelComparison', (function (DCLogic) {
+class Component extends DCLogic {
+  state = { model: 'yours' };
+  defaultRows() {
+    return [
+      { label: 'Decision rights', eco: "Program decisions follow the provider's operating playbook.", yours: 'Governance, escalation and approvals stay aligned to the health system.' },
+      { label: 'Supplier choice', eco: 'The largest talent pool is still one talent pool.', yours: 'Every source of supply compared and governed against the same expectations.' },
+      { label: 'Workforce scope', eco: 'Contingent labor is managed in its own lane.', yours: 'Internal float pools, per diem, travel, locums and allied in one view.' },
+      { label: 'Economics', eco: 'Rate performance is visible; total workforce cost is harder to see.', yours: 'Sourcing, utilization, demand and supplier decisions read as one cost picture.' },
+      { label: 'Changing course', eco: 'Switching one component often means replacing several.', yours: 'Managed, hybrid and self-managed are flexible models — not separate worlds.' }
+    ];
+  }
+  renderVals() {
+    const p = this.props;
+    const rows = Array.isArray(p.rows) && p.rows.length ? p.rows : this.defaultRows();
+    const yours = this.state.model === 'yours';
+    return {
+      eyebrow: p.eyebrow ?? 'Two ways to run a workforce',
+      heading: p.heading ?? 'See the same decisions, either way.',
+      intro: p.intro ?? 'The same decisions, seen two ways. Not a feature comparison — a question of where authority sits when the model has to change.',
+      ecoLabel: p.ecoLabel ?? 'One supply ecosystem',
+      yoursLabel: p.yoursLabel ?? 'Your health system',
+      ecoCaption: p.ecoCaption ?? 'Talent, technology and managed services from a single provider.',
+      yoursCaption: p.yoursCaption ?? 'Trio VMS — technology and program services, governed by you.',
+      activeCaption: yours ? (p.yoursCaption ?? 'Trio VMS — technology and program services, governed by you.') : (p.ecoCaption ?? 'Talent, technology and managed services from a single provider.'),
+      captionColor: '#fff',
+      activeRows: rows.map(r => ({ label: r.label, text: yours ? r.yours : r.eco })),
+      bodyColor: '#fff',
+      showEco: () => this.setState({ model: 'eco' }),
+      showYours: () => this.setState({ model: 'yours' }),
+      ecoTabBg: yours ? 'transparent' : '#0081BB',
+      ecoTabColor: yours ? '#d5e3ea' : '#fff',
+      yoursTabBg: yours ? '#0081BB' : 'transparent',
+      yoursTabColor: yours ? '#fff' : '#d5e3ea'
+    };
+  }
+}
+
+return Component; })(DC.DCLogic), "{\"$preview\":{\"width\":1240,\"height\":720},\"rows\":{\"editor\":null,\"tsType\":\"Array<{label:string,eco:string,yours:string}>\"},\"eyebrow\":{\"editor\":\"text\",\"default\":\"Two ways to run a workforce\",\"tsType\":\"string\"},\"heading\":{\"editor\":\"text\",\"default\":\"See the same decisions, either way.\",\"tsType\":\"string\"},\"intro\":{\"editor\":\"text\",\"default\":\"The same decisions, seen two ways. Not a feature comparison \u2014 a question of where authority sits when the model has to change.\",\"tsType\":\"string\"},\"ecoLabel\":{\"editor\":\"text\",\"default\":\"One supply ecosystem\",\"tsType\":\"string\"},\"yoursLabel\":{\"editor\":\"text\",\"default\":\"Your health system\",\"tsType\":\"string\"},\"ecoCaption\":{\"editor\":\"text\",\"default\":\"Talent, technology and managed services from a single provider.\",\"tsType\":\"string\"},\"yoursCaption\":{\"editor\":\"text\",\"default\":\"Trio VMS \u2014 technology and program services, governed by you.\",\"tsType\":\"string\"}}");
+/* Courtney's page logic, verbatim except her 2026-09-29 requests: bottom CTA opens the form then books; phone removed */
+DC.define('main', 'dc-tpl-main', (function (DCLogic) {
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      spend: props.assessmentDefaultSpend ?? 120,
+      share: 65,
+      govern: 'msp',
+      neutral: 'exclusive',
+      rate: 'msp',
+      leadFirst: '', leadLast: '', leadEmail: '', leadOrg: '',
+      reportFirst: '',
+      reportLast: '',
+      reportEmail: '',
+      reportSent: false,
+      step: 1,
+      capturing: false,
+      ip: null,
+      submitted: false,
+      tip: null,
+      methodOpen: false,
+      reached: 1,
+      calMonth: 0,
+      selDate: '',
+      selTime: ''
+    };
+  }
+  reveal() {
+    if (this.state.capturing) return;
+    this.setState({ capturing: true });
+    const done = ip => this.setState(s => ({ quizDone: true, gateOpen: false, step: 2, reached: Math.max(s.reached, 2), capturing: false, ip }));
+    const payload = {
+      spend: this.state.spend, share: this.state.share,
+      firstname: this.state.leadFirst, lastname: this.state.leadLast, email: this.state.leadEmail, company: this.state.leadOrg,
+      supplierGovernance: this.state.govern, vendorNeutrality: this.state.neutral, rateGovernance: this.state.rate,
+      source: 'the-workforce-is-yours', ts: new Date().toISOString()
+    };
+    let settled = false;
+    const finish = ip => { if (!settled) { settled = true; console.log('[CRM capture]', { ...payload, ip }); done(ip); } };
+    setTimeout(() => finish(null), 1400);
+    try {
+      fetch('https://api.ipify.org?format=json')
+        .then(r => r.json()).then(d => finish(d && d.ip)).catch(() => finish(null));
+    } catch (e) { finish(null); }
+  }
+  advance() { this.setState(s => ({ step: 3, reached: Math.max(s.reached, 3), tip: null, methodOpen: false })); }
+  goStep(n) { if (n <= this.state.reached && !(n === 2 && !this.state.quizDone)) this.setState({ step: n, tip: null }); }
+  bookDirect() {
+    const { leadFirst, leadLast, leadEmail, leadOrg } = this.state;
+    console.log('[CRM capture]', { firstname: leadFirst, lastname: leadLast, email: leadEmail, company: leadOrg, source: 'the-workforce-is-yours', path: 'book-cta', ts: new Date().toISOString() });
+    this.setState(s => ({ gateOpen: false, bookMode: false, step: 3, reached: Math.max(s.reached, 3), tip: null, methodOpen: false }));
+    const a = document.getElementById('assessment'); if (a) a.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  clamp(n) { return Math.max(6, Math.min(97, Math.round(n))); }
+  hsPayload(r) {
+    const tierKey = { 'High exposure': 'high', 'Moderate exposure': 'moderate', 'Low exposure': 'low' };
+    const slot = this.state.selDate && this.state.selTime ? this.state.selDate + ' ' + this.state.selTime : '';
+    const payload = {
+      wiy_model_type: r.band,
+      wiy_control_index: r.score,
+      wiy_exposure_tier: tierKey[r.tier.label],
+      wiy_band_capped: r.capped,
+      wiy_concentration_pct: r.share,
+      wiy_annual_spend: r.spend,
+      wiy_answer_governance: r.govern,
+      wiy_answer_neutrality: r.neutral,
+      wiy_answer_rates: r.rate,
+      wiy_pts_concentration: r.concPts,
+      wiy_pts_governance: r.govPts,
+      wiy_pts_neutrality: r.neutPts,
+      wiy_pts_rates: r.ratePts,
+      wiy_meeting_slot: slot,
+      wiy_assessment_date: new Date().toISOString().slice(0, 10)
+    };
+    window.wiyAssessment = payload;
+    return payload;
+  }
+  renderVals() {
+    const { spend, share, govern, neutral, rate, submitted, step, capturing, ip, tip } = this.state;
+    const tips = {
+      high: { title: 'High exposure · below 50', color: '#F58220', body: 'Most of your workforce model moves only when your provider does. Supplier selection, who fills your roles and who sets your rates largely sit with the provider, so changing one component usually means replacing several.' },
+      mod: { title: 'Moderate exposure · 50 to 74', color: '#F5C542', body: 'You hold real authority, but parts of the model are coupled to one ecosystem — usually in who gets first shot at your roles and who sets the rate. Decision rights are shared rather than yours.' },
+      low: { title: 'Low exposure · 75 and above', color: '#7fe3a0', body: 'Supply competes on equal terms and rate and supplier decisions answer to the health system, so the model can change on your terms rather than the provider’s.' }
+    };
+    const reached = Math.max(this.state.reached || 1, step);
+    const stepState = n => {
+      const active = step === n && !(n === 3 && submitted);
+      const skipped = n === 2 && !this.state.quizDone;
+      const doneStep = (step > n && !skipped) || (n === 3 && submitted);
+      return {
+        bg: active ? '#e5f3fa' : doneStep ? '#f1f8ec' : '#f5f7f8',
+        chip: active ? '#0081BB' : doneStep ? '#79BB43' : '#b9c2c8',
+        text: active || doneStep ? '#232d35' : '#8b979f',
+        cursor: n <= reached && !skipped ? 'pointer' : 'default',
+        op: n <= reached && !skipped ? '1' : '.62'
+      };
+    };
+    const s1 = stepState(1), s2 = stepState(2), s3 = stepState(3);
+    // Scoring: four inputs, 25 points each. Spend sizes the dollars, not the score.
+    const concMax = 25, govMax = 25, neutMax = 25, rateMax = 25;
+    const concPts = share < 25 ? 25 : share < 50 ? 19 : share < 75 ? 13 : share < 90 ? 6 : 0;
+    const concName = share < 25 ? 'Under 25% of spend with your largest supplier'
+      : share < 50 ? '25–49% of spend with your largest supplier'
+      : share < 75 ? '50–74% of spend with your largest supplier'
+      : share < 90 ? '75–89% of spend with your largest supplier'
+      : '90%+ of spend with your largest supplier';
+    const govPts = govern === 'us' ? 25 : govern === 'joint' ? 13 : 0;
+    const govName = govern === 'us' ? 'The health system selects and removes suppliers'
+      : govern === 'joint' ? 'Supplier decisions are made jointly with your MSP'
+      : 'Your MSP decides which suppliers work in your program';
+    const neutPts = neutral === 'open' ? 25 : neutral === 'priority' ? 13 : 0;
+    const neutName = neutral === 'open' ? 'Every supplier competes for each role on equal terms'
+      : neutral === 'priority' ? 'Your MSP’s own agency gets first look before other suppliers'
+      : 'Your MSP fills roles from its own agency before others see them';
+    const ratePts = rate === 'us' ? 25 : rate === 'joint' ? 13 : 0;
+    const rateName = rate === 'us' ? 'The health system sets and approves bill rates'
+      : rate === 'joint' ? 'Bill rates are set jointly with your MSP'
+      : 'Your MSP sets the bill rates you pay';
+    const score = concPts + govPts + neutPts + ratePts;
+    // Band: any decision right held fully by the MSP caps the result at Partially governed.
+    const capped = score >= 75 && (govPts === 0 || neutPts === 0 || ratePts === 0);
+    const band = score < 50 ? 'supplier_led' : (score < 75 || capped) ? 'partially_governed' : 'client_governed';
+    const verdictOf = (p, m) => { const r = p / m; return r >= 0.99 ? 'Yours' : r >= 0.6 ? 'Mostly yours' : r >= 0.25 ? 'Shared' : 'Not yours'; };
+    const method = [
+      { dim: 'Supplier concentration', pts: concPts, max: concMax, name: concName, bar: '#00AAE5' },
+      { dim: 'Supplier governance', pts: govPts, max: govMax, name: govName, bar: '#79BB43' },
+      { dim: 'Vendor neutrality', pts: neutPts, max: neutMax, name: neutName, bar: '#F58220' },
+      { dim: 'Rate governance', pts: ratePts, max: rateMax, name: rateName, bar: '#6FB6DE' }
+    ].map(d => ({ ...d, total: d.pts + ' / ' + d.max, w: (d.pts / d.max * 100) + '%', verdict: verdictOf(d.pts, d.max) }));
+    const tier = band === 'supplier_led'
+      ? { label: 'High exposure', color: '#F58220' }
+      : band === 'partially_governed'
+        ? { label: 'Moderate exposure', color: '#F5C542' }
+        : { label: 'Low exposure', color: '#7fe3a0' };
+    const concentrated = Math.round(spend * share / 100);
+    const flagColor = (p, m) => { const r = p / m; return r >= 0.99 ? '#7fe3a0' : r <= 0 ? '#F58220' : '#6FB6DE'; };
+    const cats = [
+      { t: 'Supplier governance', v: govPts, c: flagColor(govPts, govMax), label: verdictOf(govPts, govMax),
+        d: govern === 'msp'
+          ? 'Which agencies see your requisitions, and on what terms, is decided outside the health system.'
+          : govern === 'joint'
+            ? 'You are consulted on supplier decisions, but the shortlist is not yours to set.'
+            : 'Supply can be added or removed on your terms, against one set of expectations.' },
+      { t: 'Supplier concentration', v: concPts, c: flagColor(concPts, concMax), label: verdictOf(concPts, concMax),
+        d: share >= 50
+          ? 'With ' + share + '% of spend behind one supplier, that relationship sets the pace of any change you want to make.'
+          : 'No single supplier holds enough of your spend to dictate the terms of a change.' },
+      { t: 'Vendor neutrality', v: neutPts, c: flagColor(neutPts, neutMax), label: verdictOf(neutPts, neutMax),
+        d: neutral === 'exclusive'
+          ? 'The company that manages your program also fills the work from its own agency before anyone else sees it, so the market never truly competes for your roles.'
+          : neutral === 'priority'
+            ? 'Your MSP’s own agency gets first look at each role, which quietly tilts fill and rate toward the provider rather than the best available supplier.'
+            : 'Every supplier competes for each role on equal terms, so fill and price reflect the market, not the provider’s book of business.' },
+      { t: 'Rate governance', v: ratePts, c: flagColor(ratePts, rateMax), label: verdictOf(ratePts, rateMax),
+        d: rate === 'msp'
+          ? 'The party you pay also sets the bill rates, so the number you are charged is defined by the provider rather than governed by the health system.'
+          : rate === 'joint'
+            ? 'You have a say in bill rates, but the provider still shapes them — the rate you pay is negotiated, not owned.'
+            : 'The health system sets and approves bill rates, so pricing answers to you rather than to the provider selling the labor.' }
+    ].sort((a, b) => a.v - b.v);
+    // c = flag color (matches the legend); cDark = a legible variant of it on white for the label text
+    const onLight = { '#F58220': '#b65e10', '#6FB6DE': '#0081BB', '#7fe3a0': '#4c9a63' };
+    const gaps = cats.map(c => ({ t: c.t, label: c.label, d: c.d, c: c.c, cDark: onLight[c.c] }));
+    const readout = band === 'supplier_led'
+      ? 'On these inputs, your provider decides most of what your model can do. Who fills your roles and what you pay for them sit with the provider rather than the health system — changing one component means renegotiating the program.'
+      : band === 'partially_governed'
+        ? 'You hold real authority, but the model is coupled to one ecosystem — usually in who gets first shot at your roles and who sets the rate. Parts of it are decided for you.'
+        : 'Your model is governable: supply competes on equal terms, and rate and supplier decisions answer to the health system. The open question is whether the economics read as one picture.';
+    // Self-serve scheduler
+    const pad2 = n => (n < 10 ? '0' : '') + n;
+    const isoOf = d => d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+    const now = new Date();
+    const calBase = new Date(now.getFullYear(), now.getMonth() + this.state.calMonth, 1);
+    const cy = calBase.getFullYear(), cmo = calBase.getMonth();
+    const monthLabel = calBase.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+    const firstDow = calBase.getDay();
+    const dim = new Date(cy, cmo + 1, 0).getDate();
+    const today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const calCells = [];
+    for (let i = 0; i < firstDow; i++) calCells.push({ key: 'b' + i, label: '', bg: 'transparent', col: 'transparent', cursor: 'default', onClick: () => {} });
+    for (let d = 1; d <= dim; d++) {
+      const date = new Date(cy, cmo, d);
+      const dow = date.getDay();
+      const bookable = dow >= 1 && dow <= 5 && date >= today0;
+      const key = isoOf(date);
+      const selected = this.state.selDate === key;
+      calCells.push({
+        key, label: String(d),
+        bg: selected ? '#79BB43' : 'transparent',
+        col: selected ? '#fff' : bookable ? '#232d35' : '#c8d0d5',
+        cursor: bookable ? 'pointer' : 'default',
+        onClick: bookable ? () => this.setState({ selDate: key, selTime: '' }) : () => {}
+      });
+    }
+    let dayLabel = '';
+    if (this.state.selDate) {
+      const [yy, mm, dd] = this.state.selDate.split('-').map(Number);
+      dayLabel = new Date(yy, mm - 1, dd).toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    }
+    const slotTimes = ['8:00 AM', '9:00 AM', '10:30 AM', '1:00 PM', '2:30 PM', '4:00 PM'];
+    const slots = slotTimes.map(t => {
+      const sel = this.state.selTime === t;
+      return { key: t, label: t, bd: sel ? '#0081BB' : '#dde2e5', bg: sel ? '#e5f3fa' : '#fff', col: sel ? '#0081BB' : '#455560', onClick: () => this.setState({ selTime: t }) };
+    });
+    const bookReady = !!this.state.selDate && !!this.state.selTime;
+    const bookedSummary = bookReady ? dayLabel + ' · ' + this.state.selTime + ' Central Time' : '';
+    const optStyle = (sel, on) => ({ bd: sel ? '#0081BB' : '#dde2e5', bg: sel ? '#e5f3fa' : '#fff', col: sel ? '#0081BB' : '#6b7a84', on });
+    const govOpts = [
+      { k: 'us', label: 'We do' },
+      { k: 'joint', label: 'Jointly with our MSP' },
+      { k: 'msp', label: 'Our MSP decides' }
+    ].map(o => ({ label: o.label, ...optStyle(govern === o.k, () => this.setState({ govern: o.k })) }));
+    const neutralOpts = [
+      { k: 'open', label: 'All suppliers, equally' },
+      { k: 'priority', label: 'MSP’s agency first' },
+      { k: 'exclusive', label: 'MSP fills it first' }
+    ].map(o => ({ label: o.label, ...optStyle(neutral === o.k, () => this.setState({ neutral: o.k })) }));
+    const rateOpts = [
+      { k: 'us', label: 'We do' },
+      { k: 'joint', label: 'Jointly with our MSP' },
+      { k: 'msp', label: 'Our MSP decides' }
+    ].map(o => ({ label: o.label, ...optStyle(rate === o.k, () => this.setState({ rate: o.k })) }));
+    return {
+      spend, share, govOpts, neutralOpts, rateOpts, submitted, notSubmitted: !submitted,
+      atStep1: step === 1 && !submitted,
+      revealed: step >= 2,
+      showForm: step >= 3 && !submitted,
+      revealLabel: capturing ? 'Scoring your model…' : 'See your score',
+      captureNote: ip ? 'Session saved · ' + ip : 'Session saved',
+      onReveal: () => this.setState({ gateOpen: true }),
+      gateOpen: !!this.state.gateOpen,
+      gateLabel: capturing ? 'Scoring your model…' : this.state.bookMode ? 'Continue to booking' : 'Show my results',
+      onGateClose: () => this.setState({ gateOpen: false, bookMode: false }),
+      onBookCta: () => (this.state.leadEmail && this.state.leadOrg && this.state.quizDone ? this.bookDirect() : this.setState({ gateOpen: true, bookMode: true })),
+      hasScore: !!this.state.quizDone,
+      gateEyebrow: this.state.bookMode ? 'Book your free assessment' : 'Your score is ready',
+      gateTitle: this.state.bookMode ? 'Pick a time with a workforce architect' : 'See where you have control',
+      gateBody: this.state.bookMode ? 'Enter your details and you’ll go straight to the calendar to choose a time.' : 'Your score appears as soon as you submit.\u00a0Enter your details to see how your workforce model measures up on supplier decisions, data access, and governance.',
+      gateFine: this.state.bookMode ? 'We use this information to set up your assessment. We won’t share it outside of Trio.' : 'We use this information to send your result and follow up on it. We won\x27t share it outside of Trio.',
+      bookNote: this.state.quizDone ? 'Your result goes with the booking, so the architect arrives already knowing your answers.' : 'Want to bring a score? Take the four-question assessment above first, it only takes a minute.',
+      onGateScrim: e => { if (e.target === e.currentTarget) this.setState({ gateOpen: false }); },
+      leadFirst: this.state.leadFirst, leadLast: this.state.leadLast, leadEmail: this.state.leadEmail, leadOrg: this.state.leadOrg,
+      leadName: (this.state.leadFirst + ' ' + this.state.leadLast).trim(),
+      onLeadFirst: e => this.setState({ leadFirst: e.target.value }),
+      onLeadLast: e => this.setState({ leadLast: e.target.value }),
+      onLeadEmail: e => this.setState({ leadEmail: e.target.value }),
+      onLeadOrg: e => this.setState({ leadOrg: e.target.value }),
+      onGateSubmit: e => {
+        e.preventDefault();
+        const { leadFirst, leadLast, leadEmail, leadOrg } = this.state;
+        if (![leadFirst, leadLast, leadEmail, leadOrg].every(v => v.trim())) return;
+        this.setState(s => ({ reportFirst: s.reportFirst || leadFirst, reportLast: s.reportLast || leadLast, reportEmail: s.reportEmail || leadEmail }));
+        if (this.state.bookMode) this.bookDirect(); else this.reveal();
+      },
+      atStep2: step === 2 && !submitted,
+      onStep1: () => this.goStep(1),
+      onStep2: () => this.goStep(2),
+      onStep3: () => this.goStep(3),
+      method,
+      methodOpen: this.state.methodOpen,
+      methodLabel: this.state.methodOpen ? 'Hide the math ▴' : 'How this is scored ▾',
+      onMethod: () => this.setState(s => ({ methodOpen: !s.methodOpen })),
+      onAdvance: () => this.advance(),
+      gaps,
+      tipOpen: !!tip,
+      tipTitle: tip ? tips[tip].title : '',
+      tipBody: tip ? tips[tip].body : '',
+      tipColor: tip ? tips[tip].color : '#fff',
+      onTipHigh: () => this.setState({ tip: 'high' }),
+      onTipMod: () => this.setState({ tip: 'mod' }),
+      onTipLow: () => this.setState({ tip: 'low' }),
+      onTipOut: () => this.setState({ tip: null }),
+      s1Bg: s1.bg, s1Chip: s1.chip, s1Text: s1.text, s1Cursor: s1.cursor, s1Op: s1.op,
+      s2Bg: s2.bg, s2Chip: s2.chip, s2Text: s2.text, s2Cursor: s2.cursor, s2Op: s2.op,
+      s3Bg: s3.bg, s3Chip: s3.chip, s3Text: s3.text, s3Cursor: s3.cursor, s3Op: s3.op,
+      spendLabel: '$' + spend + 'M',
+      shareLabel: share + '%',
+      score,
+      tierLabel: tier.label,
+      tierColor: tier.color,
+      caseOpen: !!this.state.caseOpen,
+      caseLabel: this.state.caseOpen ? 'Hide details ▴' : 'See how ▾',
+      onCase: () => this.setState(s => ({ caseOpen: !s.caseOpen })),
+      modelType: band === 'supplier_led' ? 'Supplier-led system' : band === 'partially_governed' ? 'Partially governed system' : 'Client-governed system',
+      capped,
+      capNote: 'Scored ' + score + ', but ' + [govPts === 0 && 'supplier selection', neutPts === 0 && 'who fills your roles', ratePts === 0 && 'bill rates'].filter(Boolean).join(' and ') + ' sit fully with your MSP, so the model can’t be client-governed.',
+      hsFields: Object.entries(this.hsPayload({ band, score, tier, share, spend, govern, neutral, rate, concPts, govPts, neutPts, ratePts, capped })).map(([name, value]) => ({ name, value: String(value) })),
+      modelScale: [
+        { label: 'Supplier-led', range: '0–49', on: band === 'supplier_led', c: '#F58220' },
+        { label: 'Partially governed', range: '50–74', on: band === 'partially_governed', c: '#F5C542' },
+        { label: 'Client-governed', range: '75–100', on: band === 'client_governed', c: '#7fe3a0' }
+      ].map(m => ({ ...m, bar: m.on ? m.c : 'rgba(255,255,255,.14)', text: '#fff' })),
+      readout,
+      concentratedLabel: '$' + concentrated + 'M',
+      flexLabel: (100 - share) + '%',
+      reportSent: this.state.reportSent,
+      reportPending: !this.state.reportSent,
+      onReportEmail: e => this.setState({ reportEmail: e.target.value }),
+      onReportFirst: e => this.setState({ reportFirst: e.target.value }),
+      onReportLast: e => this.setState({ reportLast: e.target.value }),
+      reportEmail: this.state.reportEmail || '',
+      reportFirst: this.state.reportFirst || '',
+      reportLast: this.state.reportLast || '',
+      onReportSubmit: e => {
+        e.preventDefault();
+        const { reportFirst, reportLast, reportEmail } = this.state;
+        if (!reportFirst.trim() || !reportLast.trim() || !reportEmail.trim()) return;
+        this.setState({ reportSent: true });
+      },
+      onSpend: e => this.setState({ spend: +e.target.value }),
+      onShare: e => this.setState({ share: +e.target.value }),
+      monthLabel,
+      calCells,
+      hasDate: !!this.state.selDate,
+      noDate: !this.state.selDate,
+      slots,
+      slotHeading: dayLabel ? 'Times on ' + dayLabel : 'Open times',
+      onPrev: () => this.setState(s => ({ calMonth: Math.max(0, s.calMonth - 1) })),
+      onNext: () => this.setState(s => ({ calMonth: s.calMonth + 1 })),
+      prevCol: this.state.calMonth > 0 ? '#455560' : '#c8d0d5',
+      prevCursor: this.state.calMonth > 0 ? 'pointer' : 'default',
+      selectionSummary: bookReady ? bookedSummary : this.state.selDate ? 'Now pick a time' : 'Select a day and time',
+      confirmBg: bookReady ? '#F58220' : '#eab488',
+      confirmCursor: bookReady ? 'pointer' : 'not-allowed',
+      confirmLabel: bookReady ? 'Confirm my time' : 'Pick a day & time',
+      bookedSummary,
+      onSubmit: () => { if (this.state.selDate && this.state.selTime) this.setState({ submitted: true }); },
+      showRenewalOffer: this.props.showRenewalOffer ?? true,
+      showStatStrip: this.props.showStatStrip ?? true
+    };
+  }
+}
+
+
+return Component; })(DC.DCLogic), "{\"showRenewalOffer\":{\"editor\":\"boolean\",\"default\":true,\"tsType\":\"boolean\",\"section\":\"Page sections\"},\"showStatStrip\":{\"editor\":\"boolean\",\"default\":true,\"tsType\":\"boolean\",\"section\":\"Page sections\"},\"assessmentDefaultSpend\":{\"editor\":\"int\",\"default\":120,\"min\":10,\"max\":400,\"step\":5,\"unit\":\"$M\",\"tsType\":\"number\",\"section\":\"Assessment preview\"}}");
+DC.mount('main', document.getElementById('dc-root'));
+</script>
+</body>
+</html>
