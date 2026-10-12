@@ -88,6 +88,129 @@
   #dc-root [style*="white-space:nowrap"]{white-space:normal!important}
 }
 </style>
+<style>
+/* ---------- red team round 1 ---------- */
+#dc-root .se-eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0081BB;margin-bottom:16px}
+#dc-root .se-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7d8b94;margin-bottom:8px}
+#dc-root .se-label--on{color:#0081BB}
+#dc-root section h2:not(.se-statement){font-size:42px!important;line-height:1.12!important;letter-spacing:-.025em!important}
+#dc-root .se-h2{margin:0;font-size:42px;line-height:1.12;font-weight:800;color:#232d35;letter-spacing:-.025em}
+#dc-root .se-h3{margin:0 0 8px;font-size:20px;line-height:1.3;font-weight:700;color:#232d35;letter-spacing:-.01em}
+#dc-root #faq h3{font-size:20px!important;font-weight:700!important}
+#dc-root .se-body,#dc-root #faq p{margin:0;font-size:16px!important;line-height:1.65;color:#5e6e78}
+#dc-root .se-lede{margin:0;font-size:18px;line-height:1.6;color:#5e6e78}
+#dc-root button:focus-visible,#dc-root a:focus-visible{outline:2px solid #0081BB;outline-offset:2px;border-radius:6px}
+/* problem */
+#dc-root .se-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto;column-gap:40px;margin:40px 0 48px}
+#dc-root .se-point{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:0;align-content:start;border-top:2px solid #0081BB;padding-top:18px}
+#dc-root .se-wallgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:start}
+#dc-root .se-doc{position:relative;background:#fff;border:1px solid #dfe3e6;border-radius:12px;padding:28px 32px 30px}
+#dc-root .se-doctitle{font-size:15px;font-weight:700;color:#232d35;margin-bottom:14px}
+#dc-root .se-wall{margin:0;font-size:16px;line-height:1.85;color:#3b4954}
+#dc-root .se-m{color:#232d35;padding:1px 2px;border-radius:3px;background:linear-gradient(#e5f3fa,#e5f3fa) no-repeat 0 0/100% 100%;box-shadow:inset 0 -2px #00AAE5}
+#dc-root .se-m[data-v=partial]{background:none;box-shadow:none;text-decoration:underline dashed #F58220 2px;text-underline-offset:4px}
+#dc-root .se-caret{position:absolute;left:-1px;top:45%;width:3px;height:48px;border-radius:2px;background:#0081BB;opacity:0;pointer-events:none}
+#dc-root .se-sum{background:#fff;border:1px solid #b6dcee;border-radius:12px;box-shadow:var(--shadow-md);padding:26px 28px}
+#dc-root .se-sumhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px}
+#dc-root .se-score{display:flex;flex-direction:column;align-items:flex-end}
+#dc-root .se-score-n{font-size:44px;line-height:1;font-weight:300;letter-spacing:-.03em;color:#0081BB;font-variant-numeric:tabular-nums}
+#dc-root.se-motion .se-score-n{opacity:0;transition:opacity .12s ease 2.3s}#dc-root.se-motion.se-sum-go .se-score-n{opacity:1}
+#dc-root .se-track{display:block;width:96px;height:4px;border-radius:2px;background:#e5f3fa;margin-top:8px;overflow:hidden}
+#dc-root .se-track i{display:block;height:100%;width:85%;background:#0081BB;transform-origin:left}
+/* motion states live on #dc-root (the runtime re-renders inside it and would wipe classes added there) */
+#dc-root.se-motion .se-m{color:inherit;background-size:0% 100%;box-shadow:none;transition:background-size .28s cubic-bezier(.2,0,0,1) calc(var(--d) * .52s),box-shadow .2s ease calc(var(--d) * .52s + .2s),color .2s ease calc(var(--d) * .52s)}
+#dc-root.se-motion.se-read-go .se-m{color:#232d35;background-size:100% 100%;box-shadow:inset 0 -2px #00AAE5}
+#dc-root.se-motion .se-m[data-v=partial]{text-decoration-color:transparent;transition:color .2s ease calc(var(--d) * .52s),text-decoration-color .2s ease calc(var(--d) * .52s + .2s)}
+#dc-root.se-motion.se-read-go .se-m[data-v=partial]{box-shadow:none;text-decoration-color:#F58220}
+#dc-root.se-motion .se-wall{transition:color .32s cubic-bezier(.2,0,0,1) 2.6s}
+#dc-root.se-motion.se-read-go .se-wall{color:#7d8b94}
+#dc-root.se-motion.se-read-go .se-caret{animation:seCaret .52s cubic-bezier(.2,0,0,1) 1.04s 1 both}
+@keyframes seCaret{0%{opacity:0;top:45%}20%{opacity:1}100%{opacity:0;top:calc(100% - 60px)}}
+#dc-root.se-motion .se-row{opacity:0;transform:translateY(8px);transition:opacity .24s cubic-bezier(.2,0,0,1),transform .24s cubic-bezier(.2,0,0,1)}
+#dc-root.se-motion .se-row:nth-child(1){transition-delay:.16s}#dc-root.se-motion .se-row:nth-child(2){transition-delay:.68s}
+#dc-root.se-motion .se-row:nth-child(3){transition-delay:1.2s}#dc-root.se-motion .se-row:nth-child(4){transition-delay:1.72s}
+#dc-root.se-motion.se-sum-go .se-row{opacity:1;transform:none}
+#dc-root.se-motion .se-track i{transform:scaleX(0);transition:transform .32s cubic-bezier(.2,0,0,1) 2.3s}
+#dc-root.se-motion.se-sum-go .se-track i{transform:scaleX(1)}
+/* verdict */
+#dc-root .se-headrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;margin-bottom:48px}
+#dc-root .se-verdict{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:72px;align-items:start;padding:8px 0 0}
+#dc-root .se-num{font-size:200px;line-height:.85;font-weight:300;color:#0081BB;letter-spacing:-.05em;font-variant-numeric:tabular-nums;margin:8px 0 22px}
+#dc-root .se-num span{font-size:.4em;font-weight:400;letter-spacing:0;margin-left:6px;vertical-align:.95em}
+#dc-root .se-tabs{display:flex;gap:18px;margin-bottom:14px;border-bottom:1px solid #eceef0}
+#dc-root .se-tabs span{padding:0 0 8px;font-size:13px;font-weight:600;color:#7d8b94}
+#dc-root .se-tabs span.on{color:#0081BB;box-shadow:inset 0 -2px #0081BB}
+#dc-root .se-pills{display:flex;gap:8px;margin-bottom:14px}
+#dc-root .se-pills span{padding:6px 14px;border-radius:999px;background:#eef1f2;color:#455560;font-size:13px;font-weight:600}
+#dc-root .se-pills span.on{background:#e5f3fa;color:#0081BB}
+#dc-root .se-small{font-size:13px;color:#5e6e78}
+#dc-root .se-vlist{display:flex;flex-direction:column}
+#dc-root .se-v{padding:16px 0 18px;border-top:1px solid #dfe3e6}
+#dc-root .se-v:last-child{border-bottom:1px solid #dfe3e6}
+#dc-root .se-vw{display:inline-block;font-size:28px;line-height:1.15;font-weight:700;color:#232d35;letter-spacing:-.01em}
+#dc-root .se-vw i{display:block;height:4px;border-radius:2px;margin-top:8px;background:#79BB43;transform-origin:left}
+#dc-root .se-vw[data-v=partial] i{background:#F58220}
+#dc-root .se-vw[data-v=none]{font-weight:300;font-style:italic;color:#7d8b94}
+#dc-root.se-motion .se-vw i{transform:scaleX(0);transition:transform .32s cubic-bezier(.2,0,0,1)}
+#dc-root.se-motion .se-v:nth-child(2) .se-vw i{transition-delay:.12s}#dc-root.se-motion .se-v:nth-child(3) .se-vw i{transition-delay:.24s}
+#dc-root.se-motion.se-score-go .se-vw i{transform:scaleX(1)}
+#dc-root .se-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 32px;margin-top:40px}
+#dc-root .se-note{padding:0}
+/* zig-zag */
+#dc-root .se-zz{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:80px;row-gap:24px;align-items:center}
+#dc-root .se-zrow{padding:28px 0}
+#dc-root .se-zz>.se-zrow:nth-child(1){grid-area:1/1}#dc-root .se-zz>.se-zrow:nth-child(2){grid-area:2/2}#dc-root .se-zz>.se-zrow:nth-child(3){grid-area:3/1}
+#dc-root .se-snip-a{grid-area:1/2}#dc-root .se-snip-b{grid-area:2/1}#dc-root .se-snip-c{grid-area:3/2}
+#dc-root .se-h3--lg{font-size:20px}
+#dc-root .se-ticks{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+#dc-root .se-ticks div{position:relative;padding-left:26px;font-size:16px;line-height:1.55;color:#455560}
+#dc-root .se-ticks div:before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230081BB' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")}
+#dc-root .se-snip{background:linear-gradient(180deg,#e5f3fa,#f2f9fc);border-radius:16px;padding:22px}
+#dc-root .se-snip-in{background:#fff;border:1px solid #dfe3e6;border-radius:12px;box-shadow:var(--shadow-sm);padding:22px 24px}
+#dc-root .se-sq{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:6px 0;border-top:1px solid #eceef0}
+#dc-root .se-sq:first-of-type{border-top:none}
+#dc-root .se-sq-name{font-size:14px;font-weight:600;color:#0081BB}
+#dc-root .se-sq-n{line-height:1;font-weight:300;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+#dc-root .se-con{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #eceef0;font-size:16px;line-height:1.5;color:#455560}
+#dc-root .se-tag{flex:none;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:700;background:var(--color-warning-subtle);color:var(--color-warning-text)}
+#dc-root .se-tag[data-v=none]{background:var(--color-success-subtle);color:var(--color-success-text)}
+/* principles */
+#dc-root .se-statement{margin:0 0 40px;font-size:52px!important;line-height:1.1;font-weight:300;color:#3b4954;letter-spacing:-.02em}
+#dc-root .se-statement span{font-weight:800;color:#0081BB}
+#dc-root .se-spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto auto auto;background:#fff;border:1px solid #dfe3e6;border-radius:16px;box-shadow:var(--shadow-sm)}
+#dc-root .se-speccol{display:grid;grid-row:span 4;grid-template-rows:subgrid;justify-items:start;padding:32px;border-left:1px solid #dfe3e6}
+#dc-root .se-speccol:first-child{border-left:none}
+#dc-root .se-speccol .se-hx{margin-bottom:18px}
+/* hero swipe */
+#dc-root .se-swipe{position:relative;isolation:isolate;white-space:nowrap}
+#dc-root .se-swipe:before{content:"";position:absolute;z-index:-1;left:-.04em;right:.3em;bottom:.12em;height:.3em;border-radius:2px;background:#e5f3fa;transform-origin:left}
+#dc-root.se-motion .se-swipe:before{transform:scaleX(0);transition:transform .32s cubic-bezier(.2,0,0,1) .4s}
+#dc-root.se-motion.se-loaded .se-swipe:before{transform:scaleX(1)}
+/* form scores itself */
+#dc-root .se-q{visibility:hidden;opacity:0;transition:opacity .16s ease;display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:8px;background:#f5f7f8;font-size:13px;font-weight:600;color:#5e6e78}
+#dc-root[class*="sq"] .se-q{visibility:visible;opacity:1}
+#dc-root .se-qv b{display:none;font-weight:800;color:#0081BB;font-variant-numeric:tabular-nums}
+#dc-root.sq0 .se-qv .v0,#dc-root.sq1 .se-qv .v1,#dc-root.sq2 .se-qv .v2,#dc-root.sq3 .se-qv .v3,#dc-root.sq4 .se-qv .v4{display:inline}
+#dc-root.sq4 .se-q{background:var(--color-success-subtle)}#dc-root.sq4 .se-qv b{color:var(--color-success-text)}
+@media(max-width:760px){
+  #dc-root .se-h2,#dc-root section h2:not(.se-statement){font-size:30px!important}
+  #dc-root .se-statement{font-size:32px!important}
+  #dc-root .se-point,#dc-root .se-note{grid-row:auto!important;grid-template-rows:none!important;display:block}
+  #dc-root .se-points,#dc-root .se-wallgrid,#dc-root .se-headrow,#dc-root .se-verdict,#dc-root .se-notes{grid-template-columns:minmax(0,1fr)!important;gap:24px!important}
+  #dc-root .se-doc{padding:22px 20px}
+  #dc-root .se-num{font-size:128px}
+  #dc-root .se-verdict{display:flex!important;flex-direction:column}
+  #dc-root .se-big{display:contents}
+  #dc-root .se-big>*{order:1}#dc-root .se-vlist{order:2}#dc-root .se-big>.se-notes{order:3;margin-top:8px}
+  #dc-root .se-zz{grid-template-columns:minmax(0,1fr)!important}
+  #dc-root .se-zz>*{grid-area:auto!important}
+  #dc-root .se-zz>.se-zrow:nth-child(1){order:1}#dc-root .se-snip-a{order:2}#dc-root .se-zz>.se-zrow:nth-child(2){order:3}#dc-root .se-snip-b{order:4}#dc-root .se-zz>.se-zrow:nth-child(3){order:5}#dc-root .se-snip-c{order:6}
+  #dc-root .se-spec{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:none!important}
+  #dc-root .se-speccol{grid-row:auto!important;grid-template-rows:none!important;display:block;border-left:none;border-top:1px solid #dfe3e6;padding:24px}
+  #dc-root .se-speccol:first-child{border-top:none}
+  #dc-root .se-swipe{white-space:normal}
+}
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Submission Evaluator for Staffing Agencies", "description": "Trio’s Submission Evaluator shows your recruiters how every submission scores against the job’s requirements, and exactly what to fix before the next one.", "isPartOf": {"@type": "WebSite", "name": "Trio Workforce Solutions", "url": "https://www.triowfs.com/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "For Staffing Agencies", "item": "https://www.triowfs.com/staffing-agencies"}, {"@type": "ListItem", "position": 2, "name": "Submission Evaluator"}]}, {"@type": "SoftwareApplication", "name": "Trio Submission Evaluator", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "description": "Trio’s Submission Evaluator shows your recruiters how every submission scores against the job’s requirements, and exactly what to fix before the next one.", "publisher": {"@type": "Organization", "name": "Trio Workforce Solutions", "url": "https://www.triowfs.com/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the Submission Quality Score?", "acceptedAnswer": {"@type": "Answer", "text": "The share of a job’s assessed submission requirements a candidate meets, shown as a percentage in the Sub Quality column and on each submission."}}, {"@type": "Question", "name": "What does it score against?", "acceptedAnswer": {"@type": "Answer", "text": "The submission requirements written on each job — licensure, certifications, experience, availability, malpractice, location, and any job-specific items like case volume or EMR training."}}, {"@type": "Question", "name": "Can a low score reject my candidate automatically?", "acceptedAnswer": {"@type": "Answer", "text": "No. The score and feedback support the health system’s reviewers. People decide which submissions move forward."}}, {"@type": "Question", "name": "How do I raise a submission’s score?", "acceptedAnswer": {"@type": "Answer", "text": "Answer every requirement on the job explicitly rather than leaving the reviewer to infer it. Each con names the specific requirement that wasn’t met or documented — fill the gap and resubmit."}}, {"@type": "Question", "name": "Do I see the same feedback the reviewer sees?", "acceptedAnswer": {"@type": "Answer", "text": "The Summary, Pros, and Cons on your submission are the same ones the reviewer reads. There is no separate agency version."}}, {"@type": "Question", "name": "Does a higher score guarantee an interview?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Evaluator ranks and explains; the health system’s reviewers decide. But a complete submission is read first, and a partial fit is flagged with the reason before it is passed over."}}, {"@type": "Question", "name": "Which professions does it support?", "acceptedAnswer": {"@type": "Answer", "text": "It reads each job’s own requirements, so it works across nursing, allied, and locums — from X-ray technologists to interventional cardiologists."}}, {"@type": "Question", "name": "What if a score looks wrong?", "acceptedAnswer": {"@type": "Answer", "text": "Use “Let us know” next to the score to flag it. The Evaluator is labeled experimental, and those reports feed directly into improving it."}}]}]}</script>
 </head>
 <body>
@@ -113,12 +236,12 @@
   <!-- HERO: centered statement + live product -->
   <section id="top" style="background:#fff;padding:40px 0 0;">
     <div data-crumb style="max-width:1200px;margin:0 auto 44px;padding:0 40px;font-size:var(--text-sm);color:var(--text-muted);"><a href="https://www.triowfs.com/staffing-agencies" style="color:var(--text-muted);font-weight:var(--fw-semibold);" style-hover="color:var(--color-primary);">For Staffing Agencies</a><span style="margin:0 8px;color:var(--text-faint);">/</span><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">Submission Evaluator</span></div>
-    <div style="max-width:1000px;margin:0 auto;padding:0 40px;text-align:center;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;text-align:center;">
       <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);">
         <span style="width:10px;height:11px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--trio-green);"></span>
         Submission Evaluator · Trio Digital Worker
       </div>
-      <h1 style="margin:0 0 22px;font-size:62px;line-height:1.04;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.03em;text-wrap:balance;">Know How Your Submission Scores Before the Reviewer Opens It.</h1>
+      <h1 style="margin:0 0 22px;font-size:60px;line-height:1.06;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.03em;text-wrap:balance;">Know How Your Submission Scores Before the Reviewer <span class="se-swipe">Opens It.</span></h1>
       <p style="margin:0 auto 32px;max-width:48em;font-size:var(--text-lg);line-height:var(--leading-relaxed);color:var(--text-muted);text-wrap:pretty;">The Submission Evaluator reads every candidate you submit against the job's submission requirements and returns a Submission Quality Score — with a plain-language summary, pros, and cons. Reviewers see your strongest fits first. Your recruiters see exactly what to fix before the next one.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a href="#demo" style="display:inline-flex;align-items:center;padding:0 28px;height:52px;border-radius:999px;background:var(--color-primary);color:#fff;font-size:var(--text-md);font-weight:var(--fw-bold);box-shadow:0 6px 18px rgba(0,129,187,.22);" style-hover="background:var(--color-primary-hover);color:#fff;">Request a walkthrough</a>
@@ -188,50 +311,33 @@
   <!-- PROBLEM → SOLUTION: the wall of text -->
   <section id="read" style="background:#f2f9fc;padding:72px 0;">
     <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
-      <div style="margin-bottom:48px;">
-        <div>
-          <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">The problem</div>
-          <h2 style="margin:0;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;text-wrap:balance;">You wrote a strong submission. <br>The reviewer skimmed it.</h2>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:36px;">
-          <sc-for list="{{ problems }}" as="p" hint-placeholder-count="3">
-            <div data-point style="display:flex;flex-direction:column;gap:16px;">
-              <span class="se-hx se-hx--sm" data-i="{{ p.n }}" style="clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);" aria-hidden="true"><i></i></span>
-              <div>
-                <div style="font-size:var(--text-md);font-weight:var(--fw-semibold);color:var(--text-strong);margin-bottom:4px;">{{ p.t }}</div>
-                <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ p.b }}</p>
-              </div>
-            </div>
-          </sc-for>
-        </div>
+      <div class="se-eyebrow">The problem</div>
+      <h2 class="se-h2">You wrote a strong submission. <br>The reviewer skimmed it.</h2>
+      <div class="se-points">
+        <sc-for list="{{ problems }}" as="p" hint-placeholder-count="3">
+          <div class="se-point"><h3 class="se-h3">{{ p.t }}</h3><p class="se-body">{{ p.b }}</p></div>
+        </sc-for>
       </div>
-
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr);align-items:stretch;">
-        <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:26px 28px;position:relative;overflow:hidden;">
-          <div style="font-size:var(--text-2xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;">What you send today</div>
-          <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--text-strong);margin-bottom:14px;">Additional Submission Details · Interventional Cardiology</div>
-          <p style="margin:0;font-size:var(--text-xs);line-height:1.75;color:var(--text-muted);">Dr. A. Rahman is a board-certified interventional and structural cardiologist with fellowship training at two academic medical centers, where he also served on staff. He brings extensive experience in complex coronary intervention, STEMI care, cardiogenic shock management, high-risk PCI, mechanical circulatory support, and structural heart disease. He would be an excellent fit for the facility's STEMI and general cardiology call coverage needs. Submission Requirements: Yes Board Certified in Interventional Cardiology · Yes Active CO License or IMLC · Yes Active DEA, will transfer to CO for the duration of the assignment · Residency/Fellowship Completion – Yes · Minimum 2 years' experience – Yes, 13+ years · Candidates must disclose which stint they can cover to be considered for ongoing dates – Yes · Candidates must disclose the number of consecutive shifts per month – Yes · Must acknowledge EMR training requirements – Yes · Clean malpractice/background – Yes · Candidates that include a self-inquiry NPDB report at time of presentation will be considered with priority…</p>
-          <div style="position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff);"></div>
+      <div class="se-wallgrid">
+        <div class="se-doc" data-wall>
+          <div class="se-label">What you send today</div>
+          <div class="se-doctitle">Additional Submission Details · Interventional Cardiology</div>
+          <p class="se-wall">Dr. A. Rahman is a board-certified interventional and structural cardiologist with fellowship training at two academic medical centers, where he also served on staff. He brings extensive experience in complex coronary intervention, STEMI care, cardiogenic shock management, high-risk PCI, mechanical circulatory support, and structural heart disease. He would be an excellent fit for the facility's STEMI and general cardiology call coverage needs. Submission Requirements: Yes <mark class="se-m" data-v="met" style="--d:0">Board Certified in Interventional Cardiology</mark> · Yes <mark class="se-m" data-v="met" style="--d:0">Active CO License or IMLC</mark> · Yes <mark class="se-m" data-v="met" style="--d:0">Active DEA</mark>, will transfer to CO for the duration of the assignment · <mark class="se-m" data-v="met" style="--d:0">Residency/Fellowship Completion – Yes</mark> · <mark class="se-m" data-v="met" style="--d:0">Minimum 2 years' experience – Yes, 13+ years</mark> · Candidates must <mark class="se-m" data-v="partial" style="--d:3">disclose which stint they can cover</mark> to be considered for ongoing dates – Yes · Candidates must disclose the number of <mark class="se-m" data-v="met" style="--d:3">consecutive shifts per month</mark> – Yes · Must <mark class="se-m" data-v="met" style="--d:3">acknowledge EMR training requirements</mark> – Yes · <mark class="se-m" data-v="met" style="--d:1">Clean malpractice/background – Yes</mark> · Candidates that include a <mark class="se-m" data-v="partial" style="--d:1">self-inquiry NPDB report at time of presentation</mark> will be considered with priority…</p>
+          <span class="se-caret" aria-hidden="true"></span>
         </div>
-        <div style="display:flex;align-items:center;justify-content:center;">
-          <span class="se-hx se-arrow" style="clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);" aria-hidden="true"><i></i></span>
-        </div>
-        <div style="background:#fff;border:1px solid var(--color-primary-border);border-radius:12px;box-shadow:var(--shadow-md);padding:26px 28px;">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px;">
-            <div>
-              <div style="font-size:var(--text-2xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:6px;">What the reviewer sees instead</div>
-              <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--text-strong);">Submission Quality Summary</div>
-            </div>
-            <span style="font-size:var(--text-2xl);font-weight:var(--fw-extra);color:var(--color-primary);">85%</span>
+        <div class="se-sum" data-sum>
+          <div class="se-sumhead">
+            <div><div class="se-label se-label--on">What the reviewer sees instead</div><div class="se-doctitle">Submission Quality Summary</div></div>
+            <div class="se-score"><span class="se-score-n" data-count="85">85%</span><span class="se-track" aria-hidden="true"><i></i></span></div>
           </div>
-          <div style="display:flex;flex-direction:column;">
-            <sc-for list="{{ categories }}" as="c" hint-placeholder-count="4">
-              <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:12px 0;border-top:1px solid var(--border-subtle);">
+          <div class="se-rows">
+          <sc-for list="{{ categories }}" as="c" hint-placeholder-count="4">
+              <div class="se-row" style="display:grid;grid-template-columns:104px minmax(0,1fr);gap:16px;padding:14px 0;border-top:1px solid var(--border-subtle);">
                 <div>
-                  <div style="font-size:var(--text-xs);font-weight:var(--fw-semibold);color:var(--text-strong);margin-bottom:6px;">{{ c.name }}</div>
+                  <div style="font-size:14px;font-weight:var(--fw-bold);color:var(--text-strong);margin-bottom:6px;">{{ c.name }}</div>
                   <span style="display:inline-flex;padding:2px 8px;border-radius:999px;background:{{ c.bg }};color:{{ c.col }};font-size:10px;font-weight:var(--fw-bold);white-space:nowrap;">{{ c.verdict }}</span>
                 </div>
-                <p style="margin:0;font-size:var(--text-xs);line-height:1.6;color:var(--text-body);">{{ c.text }}</p>
+                <p style="margin:0;font-size:14px;line-height:1.6;color:var(--text-body);">{{ c.text }}</p>
               </div>
             </sc-for>
           </div>
@@ -243,70 +349,35 @@
   <!-- ANATOMY OF A SCORE -->
   <section id="score" style="background:#fff;padding:72px 0;">
     <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;margin-bottom:56px;"><div>
-        <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">Anatomy of a score</div>
-        <h2 style="margin:0;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;">One number to sort by. <br>Every reason behind it.</h2></div>
-        <p style="margin:0;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted);">The score tells reviewers where to look first. The feedback tells your recruiters exactly what to fix — so nobody has to guess why a submission stalled.</p>
+      <div class="se-headrow">
+        <div><div class="se-eyebrow">Anatomy of a score</div><h2 class="se-h2">One number to sort by. <br>Every reason behind it.</h2></div>
+        <p class="se-lede">The score tells reviewers where to look first. The feedback tells your recruiters exactly what to fix — so nobody has to guess why a submission stalled.</p>
       </div>
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center;">
-        <div style="display:flex;flex-direction:column;gap:36px;text-align:right;">
-          <sc-for list="{{ calloutsL }}" as="k" hint-placeholder-count="2">
-            <div>
-              <div style="display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:6px;">
-                <span style="font-size:var(--text-md);font-weight:var(--fw-semibold);color:var(--text-strong);">{{ k.t }}</span>
-                <span style="flex:none;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);">{{ k.n }}</span>
-              </div>
-              <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ k.b }}</p>
-            </div>
-          </sc-for>
-        </div>
-        <div style="background:#fff;border:1px solid var(--border-default);border-radius:12px;box-shadow:0 24px 56px rgba(27,35,42,.12);padding:22px;">
-          <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--text-strong);margin-bottom:12px;">P. Nguyen</div>
-          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:6px;background:var(--color-primary-subtle);margin-bottom:8px;">
-            <span style="position:absolute;left:-13px;top:50%;margin-top:-13px;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);box-shadow:0 0 0 3px #fff;">1</span>
-            <span style="font-size:var(--text-sm);color:var(--text-strong);">Submission Quality Score</span>
-            <span style="font-size:var(--text-2xl);font-weight:var(--fw-semibold);color:var(--color-primary);">75%</span>
-          </div>
-          <div style="position:relative;font-size:var(--text-2xs);color:var(--text-muted);margin-bottom:18px;">AI is experimental — see something unexpected? <span style="color:var(--text-link);">Let us know!</span>
-            <span style="position:absolute;right:-35px;top:50%;margin-top:-13px;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);box-shadow:0 0 0 3px #fff;">3</span>
-          </div>
-          <div style="position:relative;display:flex;gap:8px;margin-bottom:14px;">
-            <span style="position:absolute;left:-35px;top:50%;margin-top:-13px;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);box-shadow:0 0 0 3px #fff;">2</span>
-            <span style="padding:6px 14px;border-radius:999px;background:var(--color-primary-subtle);color:var(--color-primary);font-size:var(--text-xs);font-weight:var(--fw-semibold);">Summary</span>
-            <span style="padding:6px 14px;border-radius:999px;background:var(--surface-sunken);color:var(--text-body);font-size:var(--text-xs);font-weight:var(--fw-semibold);">Pros</span>
-            <span style="padding:6px 14px;border-radius:999px;background:var(--surface-sunken);color:var(--text-body);font-size:var(--text-xs);font-weight:var(--fw-semibold);">Cons</span>
-          </div>
-          <div style="position:relative;display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:1px solid var(--border-subtle);">
-            <span style="position:absolute;right:-35px;top:40px;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);box-shadow:0 0 0 3px #fff;">4</span>
-            <div style="display:flex;justify-content:space-between;gap:12px;font-size:var(--text-xs);"><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">general</span><span style="color:var(--color-success-text);font-weight:var(--fw-bold);">Satisfies</span></div>
-            <div style="display:flex;justify-content:space-between;gap:12px;font-size:var(--text-xs);"><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">certifications</span><span style="color:var(--color-success-text);font-weight:var(--fw-bold);">Satisfies</span></div>
-            <div style="display:flex;justify-content:space-between;gap:12px;font-size:var(--text-xs);"><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">availability</span><span style="color:var(--color-warning-text);font-weight:var(--fw-bold);">Partially satisfies</span></div>
-            <div style="display:flex;justify-content:space-between;gap:12px;font-size:var(--text-xs);"><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">location</span><span style="color:var(--text-muted);font-weight:var(--fw-bold);">No requirements listed</span></div>
+      <div class="se-verdict" data-verdict>
+        <div class="se-big">
+          <div class="se-label">P. Nguyen &middot; Submission Quality Score</div>
+          <div class="se-num">75<span>%</span></div>
+          <div class="se-small">AI is experimental — see something unexpected? <span style="color:var(--text-link);">Let us know!</span></div>
+          <div class="se-notes">
+            <sc-for list="{{ calloutsL }}" as="k" hint-placeholder-count="2"><div class="se-note"><h3 class="se-h3">{{ k.t }}</h3><p class="se-body">{{ k.b }}</p></div></sc-for>
+            <sc-for list="{{ calloutsR }}" as="k" hint-placeholder-count="2"><div class="se-note"><h3 class="se-h3">{{ k.t }}</h3><p class="se-body">{{ k.b }}</p></div></sc-for>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:36px;">
-          <sc-for list="{{ calloutsR }}" as="k" hint-placeholder-count="2">
-            <div>
-              <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-                <span style="flex:none;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);">{{ k.n }}</span>
-                <span style="font-size:var(--text-md);font-weight:var(--fw-semibold);color:var(--text-strong);">{{ k.t }}</span>
-              </div>
-              <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ k.b }}</p>
-            </div>
-          </sc-for>
+        <div class="se-vlist">
+          <div class="se-v"><div class="se-label">General</div><div class="se-vw" data-v="met">Satisfies<i></i></div></div>
+          <div class="se-v"><div class="se-label">Certifications</div><div class="se-vw" data-v="met">Satisfies<i></i></div></div>
+          <div class="se-v"><div class="se-label">Availability</div><div class="se-vw" data-v="partial">Partially satisfies<i></i></div></div>
+          <div class="se-v"><div class="se-label">Location</div><div class="se-vw" data-v="none">No requirements listed</div></div>
         </div>
       </div>
-
     </div>
   </section>
 
   <sc-if value="{{ showMidCta }}" hint-placeholder-val="{{ true }}">
-  <section style="background:#fff;padding:0 0 72px;">
-    <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
-      <div data-callout style="position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;background:linear-gradient(120deg,#0081BB 0%,#00AAE5 100%);border-radius:18px;box-shadow:0 18px 44px rgba(0,129,187,.2);padding:40px 48px;">
-        <div style="position:relative;font-size:28px;line-height:1.25;font-weight:var(--fw-extra);letter-spacing:-.02em;color:#fff;">See how your submissions score on a live job.</div>
-        <a href="#demo" style="position:relative;display:inline-flex;align-items:center;padding:0 32px;height:52px;border-radius:999px;background:#fff;color:#005f8a;font-size:var(--text-md);font-weight:var(--fw-bold);box-shadow:0 10px 26px rgba(27,35,42,.18);white-space:nowrap;" style-hover="background:#f2f9fc;color:#005f8a;">Request a walkthrough</a>
-      </div>
+  <section class="se-band" style="background:#0081BB;padding:56px 0;">
+    <div data-callout style="max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;">
+      <div style="font-size:32px;line-height:1.2;font-weight:var(--fw-extra);letter-spacing:-.02em;color:#fff;">See how your submissions score on a live job.</div>
+      <a href="#demo" style="display:inline-flex;align-items:center;padding:0 32px;height:52px;border-radius:999px;background:#fff;color:#0081BB;font-size:var(--text-md);font-weight:var(--fw-bold);white-space:nowrap;" style-hover="background:#f2f9fc;color:#0081BB;">Request a walkthrough</a>
     </div>
   </section>
   </sc-if>
@@ -349,26 +420,21 @@
   <!-- AUDIENCE -->
   <section id="value" style="background:#fff;padding:72px 0;">
     <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
-      <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">For your recruiters</div>
-      <h2 style="margin:0 0 40px;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;">No more guessing <span style="color:var(--color-primary);">what the reviewer wanted.</span></h2>
-      <div data-cards style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto auto;gap:0 20px;">
-        <sc-for list="{{ audiences }}" as="au" hint-placeholder-count="2">
-          <div style="border:1px solid var(--border-subtle);border-radius:14px;padding:28px;box-shadow:var(--shadow-sm);display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:0;">
-            <div style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin-bottom:12px;">
-              <span class="se-hx" data-i="{{ au.tag }}" style="clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:{{ au.color }};" aria-hidden="true"><i></i></span>
-              <h3 style="margin:0;font-size:var(--text-lg);line-height:1.3;font-weight:var(--fw-extra);color:var(--text-strong);">{{ au.who }}</h3>
-            </div>
-            <p style="margin:0 0 20px;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ au.lead }}</p>
-            <div style="display:flex;flex-direction:column;gap:10px;align-self:start;padding-top:16px;border-top:1px solid var(--border-subtle);">
-              <sc-for list="{{ au.points }}" as="pt" hint-placeholder-count="3">
-                <div style="display:flex;gap:10px;align-items:flex-start;">
-                  <span style="flex:none;margin-top:7px;width:7px;height:7px;border-radius:999px;background:{{ au.color }};"></span>
-                  <span style="font-size:var(--text-sm);line-height:1.55;color:var(--text-body);">{{ pt }}</span>
-                </div>
-              </sc-for>
-            </div>
-          </div>
+      <div class="se-eyebrow">For your recruiters</div>
+      <h2 class="se-h2" style="margin-bottom:16px;">No more guessing <span style="color:var(--color-primary);">what the reviewer wanted.</span></h2>
+      <div class="se-zz">
+        <sc-for list="{{ audiences }}" as="au" hint-placeholder-count="3">
+          <div class="se-zrow"><h3 class="se-h3 se-h3--lg">{{ au.who }}</h3><p class="se-body">{{ au.lead }}</p>
+            <div class="se-ticks"><sc-for list="{{ au.points }}" as="pt" hint-placeholder-count="2"><div>{{ pt }}</div></sc-for></div></div>
         </sc-for>
+        <div class="se-snip se-snip-a" aria-hidden="true"><div class="se-snip-in"><div class="se-label">{{ subs.2.name }} &middot; Cons</div>
+          <div class="se-con"><span class="se-tag" data-v="partial">Partially</span><span>{{ subs.2.cons.0 }}</span></div>
+          <div class="se-con"><span class="se-tag" data-v="none">Preferred</span><span>{{ subs.2.cons.1 }}</span></div></div></div>
+        <div class="se-snip se-snip-b" aria-hidden="true"><div class="se-snip-in"><div class="se-label">Sub Quality &middot; sorted</div>
+          <sc-for list="{{ subs }}" as="s" hint-placeholder-count="5"><div class="se-sq"><span class="se-sq-name">{{ s.name }}</span><span class="se-sq-n" style="font-size:calc(14px + {{ s.score }} * .34px);color:{{ s.scoreCol }};">{{ s.score }}%</span></div></sc-for></div></div>
+        <div class="se-snip se-snip-c" aria-hidden="true"><div class="se-snip-in"><div class="se-label">{{ subs.1.name }} &middot; {{ subs.1.score }}%</div>
+          <div class="se-tabs"><span class="on">Summary</span><span>Pros</span><span>Cons</span></div>
+          <p class="se-body" style="margin:0;color:var(--text-body);">{{ subs.1.summary }}</p></div></div>
       </div>
     </div>
   </section>
@@ -376,16 +442,12 @@
   <!-- PRINCIPLES -->
   <section id="principles" style="background:#f2f9fc;padding:72px 0;">
     <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
-      <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">How it works with your team</div>
-      <h2 style="margin:0;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;margin:0 0 40px;">The Evaluator ranks and explains. <span style="color:var(--color-primary);">People decide who moves forward.</span></h2>
-      <div data-cards style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto auto auto;gap:0 20px;">
+      <div class="se-eyebrow">How it works with your team</div>
+      <h2 class="se-statement">The Evaluator ranks and explains. <br><span>People decide who moves forward.</span></h2>
+      <div class="se-spec">
         <sc-for list="{{ trust }}" as="tr" hint-placeholder-count="3">
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:28px;box-shadow:var(--shadow-sm);display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:0;justify-items:start;">
-            <span class="se-hx" data-i="{{ tr.tag }}" style="clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:{{ tr.color }};margin-bottom:18px;" aria-hidden="true"><i></i></span>
-            <div style="font-size:var(--text-2xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:10px;">{{ tr.tag }}</div>
-            <h3 style="margin:0 0 8px;font-size:var(--text-lg);line-height:1.3;font-weight:var(--fw-extra);color:var(--text-strong);">{{ tr.t }}</h3>
-            <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ tr.b }}</p>
-          </div>
+          <div class="se-speccol"><span class="se-hx" data-i="{{ tr.tag }}" style="clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:{{ tr.color }};" aria-hidden="true"><i></i></span>
+            <div class="se-label se-label--on">{{ tr.tag }}</div><h3 class="se-h3">{{ tr.t }}</h3><p class="se-body">{{ tr.b }}</p></div>
         </sc-for>
       </div>
     </div>
@@ -433,6 +495,7 @@
             </div>
             <label style="display:flex;flex-direction:column;gap:6px;font-size:var(--text-xs);font-weight:var(--fw-semibold);color:var(--text-body);">Work email<input type="email" required="true" value="{{ email }}" onChange="{{ onEmail }}" placeholder="you@agency.com" style="box-sizing:border-box;width:100%;padding:12px 14px;border:1px solid var(--border-default);border-radius:4px;background:#fff;font:inherit;font-size:var(--text-sm);font-weight:var(--fw-regular);color:var(--text-strong);"></label>
             <label style="display:flex;flex-direction:column;gap:6px;font-size:var(--text-xs);font-weight:var(--fw-semibold);color:var(--text-body);">Agency<input required="true" value="{{ org }}" onChange="{{ onOrg }}" style="box-sizing:border-box;width:100%;padding:12px 14px;border:1px solid var(--border-default);border-radius:4px;background:#fff;font:inherit;font-size:var(--text-sm);font-weight:var(--fw-regular);color:var(--text-strong);"></label>
+            <div class="se-q" aria-hidden="true"><span>Request quality</span><span class="se-qv"><b class="v0">0%</b><b class="v1">25%</b><b class="v2">50%</b><b class="v3">75%</b><b class="v4">100% &middot; Satisfies</b></span></div>
             <button type="submit" style="margin-top:6px;height:52px;border:none;border-radius:999px;background:var(--color-primary);color:#fff;font:inherit;font-size:var(--text-md);font-weight:var(--fw-bold);cursor:pointer;box-shadow:0 6px 18px rgba(0,129,187,.22);" style-hover="background:var(--color-primary-hover);">Request my walkthrough</button>
             <span style="font-size:var(--text-2xs);color:var(--text-muted);">We'll reply within one business day to schedule. No commitment.</span>
           </form>
@@ -638,6 +701,8 @@
 </script>
 <script>
 /* Courtney's page logic, verbatim */
+var SE_PROPS = JSON.parse("{\"autoCycle\":{\"editor\":\"boolean\",\"default\":true,\"tsType\":\"boolean\",\"section\":\"Hero demo\"},\"showMidCta\":{\"editor\":\"boolean\",\"default\":true,\"tsType\":\"boolean\",\"section\":\"Page sections\"}}");
+if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) SE_PROPS.autoCycle.default = false; /* hero demo holds still */
 DC.define('main', 'dc-tpl-main', (function (DCLogic) {
 const SUBS = [
   { name: 'Avery Whitfield', agency: 'Northline Healthcare Staffing', rate: '$78.00', score: 100,
@@ -801,8 +866,37 @@ class Component extends DCLogic {
   }
 }
 
-return Component; })(DC.DCLogic), "{\"autoCycle\":{\"editor\":\"boolean\",\"default\":true,\"tsType\":\"boolean\",\"section\":\"Hero demo\"},\"showMidCta\":{\"editor\":\"boolean\",\"default\":true,\"tsType\":\"boolean\",\"section\":\"Page sections\"}}");
+return Component; })(DC.DCLogic), JSON.stringify(SE_PROPS));
 DC.mount('main', document.getElementById('dc-root'));
+</script>
+<script>
+(function () {
+  var root = document.getElementById('dc-root');
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still || !('IntersectionObserver' in window)) return;          /* no motion: final state is the default */
+  root.classList.add('se-motion');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('se-loaded'); }); });
+  function once(sel, cls, th, cb) {
+    var el = root.querySelector(sel); if (!el) return;
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { root.classList.add(cls); io.disconnect(); if (cb) cb(); } }); }, { threshold: th });
+    io.observe(el);
+  }
+  once('[data-wall]', 'se-read-go', .35);
+  once('[data-sum]', 'se-sum-go', .35, function () {
+    setTimeout(function () {                                          /* score counts up as the bar fills */
+      var n = root.querySelector('.se-score-n'); if (!n) return; var to = +n.getAttribute('data-count'), t0 = performance.now();
+      (function f(t) { var k = Math.min(1, (t - t0) / 320); n.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))) + '%'; if (k < 1) requestAnimationFrame(f); })(t0);
+    }, 2300);
+  });
+  once('[data-verdict]', 'se-score-go', .4);
+})();
+/* the request form scores itself: one requirement per field */
+document.addEventListener('input', function (e) {
+  var f = e.target.closest && e.target.closest('#demo form'); if (!f) return;
+  var root = document.getElementById('dc-root');
+  var n = [].filter.call(f.querySelectorAll('input[required]'), function (i) { return i.value.trim() && i.checkValidity(); }).length;
+  root.className = root.className.replace(/\bsq\d\b/g, '').trim() + ' sq' + n;
+});
 </script>
 <script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
 </body>
