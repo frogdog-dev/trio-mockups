@@ -1,0 +1,10 @@
+/* Trio Workforce Solutions — Web fonts
+ *
+ * Brand typeface: OPEN SANS. Both source decks (PEAK VMS Executive Summary,
+ * "What Is a PMM") set Open Sans / Open Sans Semibold as the theme font.
+ * No binaries were provided, so we serve Open Sans from the Google Fonts CDN.
+ * If you have licensed/self-hosted Open Sans .woff2 files, drop them in
+ * assets/fonts/ and replace this @import with local @font-face rules.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');

@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submission Evaluator for Staffing Agencies | Trio Workforce Solutions</title>
+<meta name="description" content="Trio’s Submission Evaluator shows your recruiters how every submission scores against the job’s requirements, and exactly what to fix before the next one.">
+<meta name="robots" content="noindex,nofollow">
+<!-- Concept page built from Courtney's Claude Design mockup (_source/submission-evaluator/Submission Evaluator - Agencies.dc.html).
+     Built by _render/port_src/build_se.py - edit the build script, not this file. -->
+<link rel="stylesheet" href="ds/tokens/fonts.css">
+  <link rel="stylesheet" href="ds/tokens/colors.css">
+  <link rel="stylesheet" href="ds/tokens/typography.css">
+  <link rel="stylesheet" href="ds/tokens/spacing.css">
+  <link rel="stylesheet" href="ds/tokens/base.css">
+  <link rel="stylesheet" href="ds/styles.css">
+  <style>
+    body { margin: 0; background: #fff; -webkit-font-smoothing: antialiased; }
+    a { color: var(--text-link); text-decoration: none; }
+    a:hover { color: var(--color-primary-hover); }
+    input:focus { outline: none; border-color: var(--color-primary) !important; box-shadow: var(--shadow-focus); }
+  </style>
+<style>
+/* Frogdog review chrome + PREVIEW-ONLY global header/footer (HubSpot's global header and footer replace these) */
+.reviewnav,.concept-note{font-family:Inter,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
+.concept-note{background:#152d38;color:#bcd6e2;font-size:12.5px;text-align:center;padding:8px 16px;letter-spacing:.02em}
+.reviewnav{background:#0c2230;color:#9fc2d2;display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;padding:8px 16px;font-size:12.5px}
+.reviewnav .lbl{font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6f97a8;margin-right:4px;font-size:11px}
+.reviewnav a{color:#cfe4ee;font-weight:700;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:4px 13px;text-decoration:none}
+.reviewnav a:hover{border-color:#009fc7;color:#fff;background:rgba(0,159,199,.18)}
+.reviewnav a.on{background:#009fc7;border-color:#009fc7;color:#fff}
+.sx-gh{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eceef0;font-family:'Open Sans',system-ui,sans-serif}
+.sx-gh .in{max-width:1200px;margin:0 auto;padding:0 40px;height:72px;display:flex;align-items:center;gap:32px}
+.sx-gh img{height:30px;width:auto;display:block}
+.sx-gh nav{display:flex;gap:26px;flex:1}
+.sx-gh nav a,.sx-gh .lg{font-size:14.5px;font-weight:600;color:#232d35;text-decoration:none}
+.sx-gh nav a:hover,.sx-gh .lg:hover{color:#0081BB}
+.sx-gh .cta{display:inline-flex;align-items:center;height:42px;padding:0 20px;border-radius:999px;background:#0081BB;color:#fff;font-size:14px;font-weight:700;text-decoration:none}
+.sx-gh .cta:hover{background:#006a9b}
+.sx-gf{background:#455560;color:#fff;font-family:'Open Sans',system-ui,sans-serif;padding:44px 0}
+.sx-gf .in{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:space-between}
+.sx-gf img{height:26px;width:auto;display:block}
+.sx-gf nav{display:flex;flex-wrap:wrap;gap:22px}
+.sx-gf a,.sx-gf span{color:#fff;font-size:14px;text-decoration:none}
+.sx-gf a:hover{text-decoration:underline}
+@media(max-width:900px){.sx-gh nav,.sx-gh .lg{display:none}.sx-gh .in{padding:0 16px;justify-content:space-between}.sx-gf .in{padding:0 16px}}
+</style>
+<style>
+/* Frogdog pass on Courtney's mockup: icon hexagons (her DS: 2px line icons, brand colors) */
+#dc-root .se-hx{flex:none;width:44px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:var(--color-primary)}
+#dc-root .se-hx i{display:block;width:22px;height:22px;background:center/contain no-repeat}
+#dc-root .se-hx--sm{width:36px;height:40px}#dc-root .se-hx--sm i{width:18px;height:18px}
+#dc-root .se-arrow{width:44px;height:48px}
+#dc-root a{transition:color .15s ease,background .15s ease}
+#dc-root #value .se-hx[data-i="01"] i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2211%22 cy=%2211%22 r=%228%22/%3E%3Cpath d=%22m21 21-4.3-4.3%22/%3E%3C/svg%3E")}
+#dc-root #value .se-hx[data-i="02"] i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8%22/%3E%3Cpath d=%22M21 3v5h-5%22/%3E%3C/svg%3E")}
+#dc-root #value .se-hx[data-i="03"] i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%228%22 y=%222%22 width=%228%22 height=%224%22 rx=%221%22/%3E%3Cpath d=%22M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2%22/%3E%3Cpath d=%22m9 14 2 2 4-4%22/%3E%3C/svg%3E")}
+#dc-root #read .se-hx[data-i="01"] i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22/%3E%3C/svg%3E")}
+#dc-root #read .se-hx[data-i="02"] i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22m15 9-6 6%22/%3E%3Cpath d=%22m9 9 6 6%22/%3E%3C/svg%3E")}
+#dc-root #read .se-hx[data-i="03"] i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3%22/%3E%3Cpath d=%22M12 17h.01%22/%3E%3C/svg%3E")}
+#dc-root .se-hx[data-i="Human in the loop"] i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2%22/%3E%3Ccircle cx=%229%22 cy=%227%22 r=%224%22/%3E%3Cpath d=%22m16 11 2 2 4-4%22/%3E%3C/svg%3E")}
+#dc-root .se-hx[data-i="Explainable"] i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22/%3E%3C/svg%3E")}
+#dc-root .se-hx[data-i="Secure"] i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z%22/%3E%3Cpath d=%22m9 12 2 2 4-4%22/%3E%3C/svg%3E")}
+#dc-root .se-arrow i{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M5 12h14%22/%3E%3Cpath d=%22m12 5 7 7-7 7%22/%3E%3C/svg%3E")}
+@media(max-width:760px){
+  #dc-root [style*="padding:0 40px"]{padding-left:16px!important;padding-right:16px!important}
+  #dc-root [style*="grid-template-columns"]:not([style*=") auto"]):not([style*="96px minmax"]){grid-template-columns:minmax(0,1fr)!important}
+  #dc-root h1 + p{font-size:16px!important}
+  #dc-root [data-cards]{grid-template-rows:none!important;gap:16px!important}
+  #dc-root [data-cards]>div{grid-row:auto!important;grid-template-rows:none!important;display:flex!important;flex-direction:column}
+  #dc-root h1{font-size:38px!important}
+  #dc-root h2{font-size:30px!important}
+  #dc-root h2 br{display:none}
+  #dc-root section{padding-top:56px!important;padding-bottom:56px!important}
+  #dc-root section#top{padding-top:24px!important;padding-bottom:0!important}
+  #dc-root [data-callout]{grid-template-columns:minmax(0,1fr)!important;padding:28px 22px!important;gap:20px!important}
+  #dc-root #top [style*="clip-path"][style*="width:10px"]{display:none}
+  #dc-root [data-callout] a{justify-self:start}
+  #dc-root [style*="padding:32px 32px 0"]{padding:12px 12px 0!important}
+  #dc-root [style*="grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr) 64px 80px"]{grid-template-columns:minmax(0,1fr) 56px!important}
+  #dc-root [style*="grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr) 64px 80px"]>span:nth-child(2),#dc-root [style*="grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr) 64px 80px"]>span:nth-child(3){display:none}
+  #dc-root [style*="grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr)"]>div:nth-child(2){padding:12px 0;transform:rotate(90deg)}
+  #dc-root #score [style*="text-align:right"]{text-align:left!important}
+  #dc-root #score [style*="justify-content:flex-end"]{justify-content:flex-end!important;flex-direction:row-reverse}
+  #dc-root #score [style*="position:absolute"][style*="border-radius:999px"]{display:none!important}
+  #dc-root [style*="padding:0 32px;border-left"]{padding:0!important;border:none!important}
+  #dc-root [style*="padding:36px"]{padding:22px 18px!important}
+  #dc-root [style*="white-space:nowrap"]{white-space:normal!important}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Submission Evaluator for Staffing Agencies", "description": "Trio’s Submission Evaluator shows your recruiters how every submission scores against the job’s requirements, and exactly what to fix before the next one.", "isPartOf": {"@type": "WebSite", "name": "Trio Workforce Solutions", "url": "https://www.triowfs.com/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "For Staffing Agencies", "item": "https://www.triowfs.com/staffing-agencies"}, {"@type": "ListItem", "position": 2, "name": "Submission Evaluator"}]}, {"@type": "SoftwareApplication", "name": "Trio Submission Evaluator", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "description": "Trio’s Submission Evaluator shows your recruiters how every submission scores against the job’s requirements, and exactly what to fix before the next one.", "publisher": {"@type": "Organization", "name": "Trio Workforce Solutions", "url": "https://www.triowfs.com/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the Submission Quality Score?", "acceptedAnswer": {"@type": "Answer", "text": "The share of a job’s assessed submission requirements a candidate meets, shown as a percentage in the Sub Quality column and on each submission."}}, {"@type": "Question", "name": "What does it score against?", "acceptedAnswer": {"@type": "Answer", "text": "The submission requirements written on each job — licensure, certifications, experience, availability, malpractice, location, and any job-specific items like case volume or EMR training."}}, {"@type": "Question", "name": "Can a low score reject my candidate automatically?", "acceptedAnswer": {"@type": "Answer", "text": "No. The score and feedback support the health system’s reviewers. People decide which submissions move forward."}}, {"@type": "Question", "name": "How do I raise a submission’s score?", "acceptedAnswer": {"@type": "Answer", "text": "Answer every requirement on the job explicitly rather than leaving the reviewer to infer it. Each con names the specific requirement that wasn’t met or documented — fill the gap and resubmit."}}, {"@type": "Question", "name": "Do I see the same feedback the reviewer sees?", "acceptedAnswer": {"@type": "Answer", "text": "The Summary, Pros, and Cons on your submission are the same ones the reviewer reads. There is no separate agency version."}}, {"@type": "Question", "name": "Does a higher score guarantee an interview?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Evaluator ranks and explains; the health system’s reviewers decide. But a complete submission is read first, and a partial fit is flagged with the reason before it is passed over."}}, {"@type": "Question", "name": "Which professions does it support?", "acceptedAnswer": {"@type": "Answer", "text": "It reads each job’s own requirements, so it works across nursing, allied, and locums — from X-ray technologists to interventional cardiologists."}}, {"@type": "Question", "name": "What if a score looks wrong?", "acceptedAnswer": {"@type": "Answer", "text": "Use “Let us know” next to the score to flag it. The Evaluator is labeled experimental, and those reports feed directly into improving it."}}]}]}</script>
+</head>
+<body>
+<div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a href="../mi/">Market Intelligence</a><a href="../digital-worker/">Digital Workers</a><a href="../timecard-auditor/">Timecard Auditor</a><a href="../displacement/">Workforce Is Yours</a><a href="../submission-evaluator/">Submission Evaluator</a><a href="../submission-evaluator-agencies/" class="on">SE for Agencies</a><a href="../brand/">Brand guide</a></div>
+<div class="concept-note">Submission Evaluator first draft &bull; Courtney's demo animation and Built for Healthcare section kept as-is &bull; site header/footer are placeholders for HubSpot's &bull; sample data is illustrative</div>
+<header class="sx-gh" data-preview-chrome><div class="in">
+<a href="https://www.triowfs.com/"><img src="img/trio-logo-primary.png" alt="Trio Workforce Solutions"></a>
+<nav><a href="https://www.triowfs.com/solutions">Platform</a><a href="https://www.triowfs.com/digital-workers/">Digital Workers</a><a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a><a href="https://www.triowfs.com/resources">Resources</a><a href="https://www.triowfs.com/about">About Us</a></nav>
+<a class="lg" href="https://trio.triovms.com/">Trio MSP Login</a><a class="cta" href="https://www.triowfs.com/request-a-demo">Request a demo</a>
+</div></header>
+<div id="dc-root"></div>
+<footer class="sx-gf" data-preview-chrome><div class="in">
+<img src="img/trio-logo-white.png" alt="Trio Workforce Solutions">
+<nav><a href="https://www.triowfs.com/solutions">Platform</a><a href="https://www.triowfs.com/digital-workers/">Digital Workers</a><a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a><a href="https://www.triowfs.com/resources">Resources</a><a href="https://www.triowfs.com/about">About Us</a></nav>
+<span>&copy; 2026 Trio Workforce Solutions&trade;, an American Health Staffing Group company</span>
+</div></footer>
+<template id="dc-tpl-main">
+
+
+<div style="font-family:var(--font-sans);color:var(--text-body);background:#fff;">
+
+
+  <!-- HERO: centered statement + live product -->
+  <section id="top" style="background:#fff;padding:40px 0 0;">
+    <div data-crumb style="max-width:1200px;margin:0 auto 44px;padding:0 40px;font-size:var(--text-sm);color:var(--text-muted);"><a href="https://www.triowfs.com/staffing-agencies" style="color:var(--text-muted);font-weight:var(--fw-semibold);" style-hover="color:var(--color-primary);">For Staffing Agencies</a><span style="margin:0 8px;color:var(--text-faint);">/</span><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">Submission Evaluator</span></div>
+    <div style="max-width:1000px;margin:0 auto;padding:0 40px;text-align:center;">
+      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);">
+        <span style="width:10px;height:11px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--trio-green);"></span>
+        Submission Evaluator · Trio Digital Worker
+      </div>
+      <h1 style="margin:0 0 22px;font-size:62px;line-height:1.04;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.03em;text-wrap:balance;">Know How Your Submission Scores Before the Reviewer Opens It.</h1>
+      <p style="margin:0 auto 32px;max-width:48em;font-size:var(--text-lg);line-height:var(--leading-relaxed);color:var(--text-muted);text-wrap:pretty;">The Submission Evaluator reads every candidate you submit against the job's submission requirements and returns a Submission Quality Score — with a plain-language summary, pros, and cons. Reviewers see your strongest fits first. Your recruiters see exactly what to fix before the next one.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="#demo" style="display:inline-flex;align-items:center;padding:0 28px;height:52px;border-radius:999px;background:var(--color-primary);color:#fff;font-size:var(--text-md);font-weight:var(--fw-bold);box-shadow:0 6px 18px rgba(0,129,187,.22);" style-hover="background:var(--color-primary-hover);color:#fff;">Request a walkthrough</a>
+      </div>
+    </div>
+
+    <div style="max-width:1200px;margin:64px auto 0;padding:0 40px;">
+      <div style="background:linear-gradient(180deg,#e5f3fa 0%,#f2f9fc 100%);border-radius:20px 20px 0 0;padding:32px 32px 0;">
+        <div style="background:#fff;border:1px solid var(--border-subtle);border-bottom:none;border-radius:12px 12px 0 0;box-shadow:0 -4px 40px rgba(27,35,42,.06);overflow:hidden;">
+          <div style="padding:18px 24px;border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:14px;min-width:0;">
+              <span style="flex:none;padding:6px 12px;border-radius:6px;background:var(--color-primary);color:#fff;font-size:var(--text-xs);font-weight:var(--fw-bold);">Open</span>
+              <div style="min-width:0;">
+                <div style="font-size:var(--text-md);font-weight:var(--fw-semibold);color:var(--text-strong);">Temp – Technologist – X-Ray (Afternoons) · Cleveland, OH</div>
+                <div style="font-size:var(--text-xs);color:var(--text-muted);">Job 67199 · Your submissions on this job</div>
+              </div>
+            </div>
+            <span style="font-size:var(--text-xs);color:var(--text-muted);">{{ demoHint }}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);">
+            <div style="border-right:1px solid var(--border-subtle);">
+              <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr) 64px 80px;gap:12px;padding:12px 24px;border-bottom:1px solid var(--border-subtle);font-size:var(--text-2xs);font-weight:var(--fw-bold);text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--text-faint);">
+                <span>Name</span><span>Agency</span><span>Rate</span><span style="text-align:right;">Sub Quality</span>
+              </div>
+              <sc-for list="{{ subs }}" as="s" hint-placeholder-count="5">
+                <button onClick="{{ s.select }}" style="all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr) 64px 80px;gap:12px;align-items:center;padding:15px 24px;border-bottom:1px solid var(--border-subtle);border-left:3px solid {{ s.edge }};background:{{ s.bg }};transition:background .2s ease;" style-hover="background:var(--color-primary-subtle);">
+                  <span style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--color-primary);">{{ s.name }}</span>
+                  <span style="font-size:var(--text-sm);color:var(--text-body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ s.agency }}</span>
+                  <span style="font-size:var(--text-sm);color:var(--text-body);">{{ s.rate }}</span>
+                  <span style="text-align:right;font-size:var(--text-sm);font-weight:var(--fw-bold);color:{{ s.scoreCol }};">{{ s.score }}%</span>
+                </button>
+              </sc-for>
+            </div>
+            <div style="padding:20px 24px 24px;min-height:420px;">
+              <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--text-strong);margin-bottom:12px;">{{ cur.name }}</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:6px;background:var(--color-primary-subtle);margin-bottom:8px;">
+                <span style="font-size:var(--text-sm);color:var(--text-strong);">Submission Quality Score</span>
+                <span style="font-size:var(--text-2xl);font-weight:var(--fw-semibold);color:{{ cur.scoreCol }};">{{ cur.score }}%</span>
+              </div>
+              <div style="font-size:var(--text-2xs);color:var(--text-muted);margin-bottom:18px;">AI is experimental — see something unexpected? <a href="#faq">Let us know!</a></div>
+              <div style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:10px;">Submission Feedback</div>
+              <div style="display:flex;gap:8px;margin-bottom:16px;">
+                <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+                  <button onClick="{{ t.select }}" style="all:unset;cursor:pointer;padding:6px 14px;border-radius:999px;font-size:var(--text-xs);font-weight:var(--fw-semibold);background:{{ t.bg }};color:{{ t.col }};" style-hover="background:var(--color-primary-subtle);">{{ t.label }}</button>
+                </sc-for>
+              </div>
+              <sc-if value="{{ onSummary }}" hint-placeholder-val="{{ true }}">
+                <p style="margin:0;font-size:var(--text-sm);line-height:1.65;color:var(--text-body);">{{ cur.summary }}</p>
+              </sc-if>
+              <sc-if value="{{ onList }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                  <sc-for list="{{ listItems }}" as="li" hint-placeholder-count="3">
+                    <div style="display:flex;gap:10px;align-items:flex-start;">
+                      <span style="flex:none;margin-top:6px;width:7px;height:7px;border-radius:999px;background:{{ listDot }};"></span>
+                      <span style="font-size:var(--text-sm);line-height:1.55;color:var(--text-body);">{{ li }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM → SOLUTION: the wall of text -->
+  <section id="read" style="background:#f2f9fc;padding:72px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+      <div style="margin-bottom:48px;">
+        <div>
+          <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">The problem</div>
+          <h2 style="margin:0;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;text-wrap:balance;">You wrote a strong submission. <br>The reviewer skimmed it.</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:36px;">
+          <sc-for list="{{ problems }}" as="p" hint-placeholder-count="3">
+            <div data-point style="display:flex;flex-direction:column;gap:16px;">
+              <span class="se-hx se-hx--sm" data-i="{{ p.n }}" style="clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);" aria-hidden="true"><i></i></span>
+              <div>
+                <div style="font-size:var(--text-md);font-weight:var(--fw-semibold);color:var(--text-strong);margin-bottom:4px;">{{ p.t }}</div>
+                <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ p.b }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr);align-items:stretch;">
+        <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:26px 28px;position:relative;overflow:hidden;">
+          <div style="font-size:var(--text-2xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;">What you send today</div>
+          <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--text-strong);margin-bottom:14px;">Additional Submission Details · Interventional Cardiology</div>
+          <p style="margin:0;font-size:var(--text-xs);line-height:1.75;color:var(--text-muted);">Dr. A. Rahman is a board-certified interventional and structural cardiologist with fellowship training at two academic medical centers, where he also served on staff. He brings extensive experience in complex coronary intervention, STEMI care, cardiogenic shock management, high-risk PCI, mechanical circulatory support, and structural heart disease. He would be an excellent fit for the facility's STEMI and general cardiology call coverage needs. Submission Requirements: Yes Board Certified in Interventional Cardiology · Yes Active CO License or IMLC · Yes Active DEA, will transfer to CO for the duration of the assignment · Residency/Fellowship Completion – Yes · Minimum 2 years' experience – Yes, 13+ years · Candidates must disclose which stint they can cover to be considered for ongoing dates – Yes · Candidates must disclose the number of consecutive shifts per month – Yes · Must acknowledge EMR training requirements – Yes · Clean malpractice/background – Yes · Candidates that include a self-inquiry NPDB report at time of presentation will be considered with priority…</p>
+          <div style="position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff);"></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;">
+          <span class="se-hx se-arrow" style="clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);" aria-hidden="true"><i></i></span>
+        </div>
+        <div style="background:#fff;border:1px solid var(--color-primary-border);border-radius:12px;box-shadow:var(--shadow-md);padding:26px 28px;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px;">
+            <div>
+              <div style="font-size:var(--text-2xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:6px;">What the reviewer sees instead</div>
+              <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--text-strong);">Submission Quality Summary</div>
+            </div>
+            <span style="font-size:var(--text-2xl);font-weight:var(--fw-extra);color:var(--color-primary);">85%</span>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <sc-for list="{{ categories }}" as="c" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:12px 0;border-top:1px solid var(--border-subtle);">
+                <div>
+                  <div style="font-size:var(--text-xs);font-weight:var(--fw-semibold);color:var(--text-strong);margin-bottom:6px;">{{ c.name }}</div>
+                  <span style="display:inline-flex;padding:2px 8px;border-radius:999px;background:{{ c.bg }};color:{{ c.col }};font-size:10px;font-weight:var(--fw-bold);white-space:nowrap;">{{ c.verdict }}</span>
+                </div>
+                <p style="margin:0;font-size:var(--text-xs);line-height:1.6;color:var(--text-body);">{{ c.text }}</p>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANATOMY OF A SCORE -->
+  <section id="score" style="background:#fff;padding:72px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;margin-bottom:56px;"><div>
+        <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">Anatomy of a score</div>
+        <h2 style="margin:0;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;">One number to sort by. <br>Every reason behind it.</h2></div>
+        <p style="margin:0;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted);">The score tells reviewers where to look first. The feedback tells your recruiters exactly what to fix — so nobody has to guess why a submission stalled.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center;">
+        <div style="display:flex;flex-direction:column;gap:36px;text-align:right;">
+          <sc-for list="{{ calloutsL }}" as="k" hint-placeholder-count="2">
+            <div>
+              <div style="display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:6px;">
+                <span style="font-size:var(--text-md);font-weight:var(--fw-semibold);color:var(--text-strong);">{{ k.t }}</span>
+                <span style="flex:none;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);">{{ k.n }}</span>
+              </div>
+              <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ k.b }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:12px;box-shadow:0 24px 56px rgba(27,35,42,.12);padding:22px;">
+          <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--text-strong);margin-bottom:12px;">P. Nguyen</div>
+          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:6px;background:var(--color-primary-subtle);margin-bottom:8px;">
+            <span style="position:absolute;left:-13px;top:50%;margin-top:-13px;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);box-shadow:0 0 0 3px #fff;">1</span>
+            <span style="font-size:var(--text-sm);color:var(--text-strong);">Submission Quality Score</span>
+            <span style="font-size:var(--text-2xl);font-weight:var(--fw-semibold);color:var(--color-primary);">75%</span>
+          </div>
+          <div style="position:relative;font-size:var(--text-2xs);color:var(--text-muted);margin-bottom:18px;">AI is experimental — see something unexpected? <span style="color:var(--text-link);">Let us know!</span>
+            <span style="position:absolute;right:-35px;top:50%;margin-top:-13px;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);box-shadow:0 0 0 3px #fff;">3</span>
+          </div>
+          <div style="position:relative;display:flex;gap:8px;margin-bottom:14px;">
+            <span style="position:absolute;left:-35px;top:50%;margin-top:-13px;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);box-shadow:0 0 0 3px #fff;">2</span>
+            <span style="padding:6px 14px;border-radius:999px;background:var(--color-primary-subtle);color:var(--color-primary);font-size:var(--text-xs);font-weight:var(--fw-semibold);">Summary</span>
+            <span style="padding:6px 14px;border-radius:999px;background:var(--surface-sunken);color:var(--text-body);font-size:var(--text-xs);font-weight:var(--fw-semibold);">Pros</span>
+            <span style="padding:6px 14px;border-radius:999px;background:var(--surface-sunken);color:var(--text-body);font-size:var(--text-xs);font-weight:var(--fw-semibold);">Cons</span>
+          </div>
+          <div style="position:relative;display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:1px solid var(--border-subtle);">
+            <span style="position:absolute;right:-35px;top:40px;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);box-shadow:0 0 0 3px #fff;">4</span>
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:var(--text-xs);"><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">general</span><span style="color:var(--color-success-text);font-weight:var(--fw-bold);">Satisfies</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:var(--text-xs);"><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">certifications</span><span style="color:var(--color-success-text);font-weight:var(--fw-bold);">Satisfies</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:var(--text-xs);"><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">availability</span><span style="color:var(--color-warning-text);font-weight:var(--fw-bold);">Partially satisfies</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:var(--text-xs);"><span style="color:var(--text-strong);font-weight:var(--fw-semibold);">location</span><span style="color:var(--text-muted);font-weight:var(--fw-bold);">No requirements listed</span></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:36px;">
+          <sc-for list="{{ calloutsR }}" as="k" hint-placeholder-count="2">
+            <div>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                <span style="flex:none;width:26px;height:26px;border-radius:999px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--fw-bold);">{{ k.n }}</span>
+                <span style="font-size:var(--text-md);font-weight:var(--fw-semibold);color:var(--text-strong);">{{ k.t }}</span>
+              </div>
+              <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ k.b }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <sc-if value="{{ showMidCta }}" hint-placeholder-val="{{ true }}">
+  <section style="background:#fff;padding:0 0 72px;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+      <div data-callout style="position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;background:linear-gradient(120deg,#0081BB 0%,#00AAE5 100%);border-radius:18px;box-shadow:0 18px 44px rgba(0,129,187,.2);padding:40px 48px;">
+        <div style="position:relative;font-size:28px;line-height:1.25;font-weight:var(--fw-extra);letter-spacing:-.02em;color:#fff;">See how your submissions score on a live job.</div>
+        <a href="#demo" style="position:relative;display:inline-flex;align-items:center;padding:0 32px;height:52px;border-radius:999px;background:#fff;color:#005f8a;font-size:var(--text-md);font-weight:var(--fw-bold);box-shadow:0 10px 26px rgba(27,35,42,.18);white-space:nowrap;" style-hover="background:#f2f9fc;color:#005f8a;">Request a walkthrough</a>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- PROFESSIONS -->
+  <section id="professions" style="background:#f2f9fc;padding:72px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:stretch;">
+      <div style="display:flex;flex-direction:column;">
+        <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">Built for healthcare</div>
+        <h2 style="margin:0 0 16px;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;">Every job has its own requirements. It reads them all.</h2>
+        <p style="margin:0 0 28px;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted);">The Evaluator scores against the requirements written on each job, not a generic checklist, so your recruiters answer the same list the reviewer is grading — for nursing, allied, and locums alike.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <sc-for list="{{ profTabs }}" as="pt" hint-placeholder-count="3">
+            <button onClick="{{ pt.select }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-radius:10px;border:1px solid {{ pt.bd }};background:{{ pt.bg }};" style-hover="border-color:var(--color-primary);">
+              <span>
+                <span style="display:block;font-size:var(--text-md);font-weight:var(--fw-semibold);color:{{ pt.col }};">{{ pt.label }}</span>
+                <span style="display:block;font-size:var(--text-xs);color:var(--text-muted);margin-top:2px;">{{ pt.role }}</span>
+              </span>
+              <span style="font-size:var(--text-md);color:{{ pt.col }};">→</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:32px;display:flex;flex-direction:column;align-self:stretch;">
+        <div style="font-size:var(--text-2xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;">Requirements on this job</div>
+        <div style="font-size:var(--text-xl);font-weight:var(--fw-extra);color:var(--text-strong);margin-bottom:24px;">{{ prof.job }}</div>
+        <div style="display:flex;flex-direction:column;">
+          <sc-for list="{{ prof.reqs }}" as="r" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 0;border-top:1px solid var(--border-subtle);">
+              <span style="font-size:var(--text-sm);color:var(--text-body);">{{ r.t }}</span>
+              <span style="font-size:var(--text-2xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:{{ r.col }};">{{ r.kind }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:auto 0 0;padding-top:18px;border-top:1px solid var(--border-subtle);font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ prof.note }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section id="value" style="background:#fff;padding:72px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+      <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">For your recruiters</div>
+      <h2 style="margin:0 0 40px;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;">No more guessing <span style="color:var(--color-primary);">what the reviewer wanted.</span></h2>
+      <div data-cards style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto auto;gap:0 20px;">
+        <sc-for list="{{ audiences }}" as="au" hint-placeholder-count="2">
+          <div style="border:1px solid var(--border-subtle);border-radius:14px;padding:28px;box-shadow:var(--shadow-sm);display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:0;">
+            <div style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin-bottom:12px;">
+              <span class="se-hx" data-i="{{ au.tag }}" style="clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:{{ au.color }};" aria-hidden="true"><i></i></span>
+              <h3 style="margin:0;font-size:var(--text-lg);line-height:1.3;font-weight:var(--fw-extra);color:var(--text-strong);">{{ au.who }}</h3>
+            </div>
+            <p style="margin:0 0 20px;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ au.lead }}</p>
+            <div style="display:flex;flex-direction:column;gap:10px;align-self:start;padding-top:16px;border-top:1px solid var(--border-subtle);">
+              <sc-for list="{{ au.points }}" as="pt" hint-placeholder-count="3">
+                <div style="display:flex;gap:10px;align-items:flex-start;">
+                  <span style="flex:none;margin-top:7px;width:7px;height:7px;border-radius:999px;background:{{ au.color }};"></span>
+                  <span style="font-size:var(--text-sm);line-height:1.55;color:var(--text-body);">{{ pt }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section id="principles" style="background:#f2f9fc;padding:72px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+      <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">How it works with your team</div>
+      <h2 style="margin:0;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;margin:0 0 40px;">The Evaluator ranks and explains. <span style="color:var(--color-primary);">People decide who moves forward.</span></h2>
+      <div data-cards style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto auto auto;gap:0 20px;">
+        <sc-for list="{{ trust }}" as="tr" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:28px;box-shadow:var(--shadow-sm);display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:0;justify-items:start;">
+            <span class="se-hx" data-i="{{ tr.tag }}" style="clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:{{ tr.color }};margin-bottom:18px;" aria-hidden="true"><i></i></span>
+            <div style="font-size:var(--text-2xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:10px;">{{ tr.tag }}</div>
+            <h3 style="margin:0 0 8px;font-size:var(--text-lg);line-height:1.3;font-weight:var(--fw-extra);color:var(--text-strong);">{{ tr.t }}</h3>
+            <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">{{ tr.b }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:#fff;padding:72px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+      <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">Questions</div>
+      <h2 style="margin:0;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;margin:0 0 36px;">Asked and answered.</h2>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+          <div style="background:#fff;border:1px solid var(--border-default);border-radius:14px;padding:28px;">
+            <h3 style="margin:0 0 10px;font-size:var(--text-lg);line-height:1.35;font-weight:var(--fw-bold);color:var(--text-strong);">{{ f.q }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.7;color:var(--text-muted);">{{ f.a }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA + FORM -->
+  <section id="demo" style="background:#f2f9fc;padding:72px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+        <div style="font-size:var(--text-xs);font-weight:var(--fw-bold);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);margin-bottom:16px;">See it on your submissions</div>
+        <h2 style="margin:0 0 16px;font-size:var(--text-4xl);line-height:1.12;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.025em;text-wrap:balance;">Bring one recent submission. <br>Leave knowing exactly how it scored.</h2>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start;margin-top:40px;">
+      <div>
+        <p style="margin:0 0 28px;font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-muted);">In a 30-minute walkthrough, we run the Submission Evaluator on submissions from a job you've worked and show your team each score, summary, pro, and con — and what would have raised it.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;padding-top:24px;border-top:1px solid var(--border-subtle);">
+          <div style="font-size:var(--text-sm);color:var(--text-muted);">Also in the Digital Worker catalog</div>
+          <a href="../timecard-auditor/" style="display:flex;align-items:center;gap:12px;font-size:var(--text-md);font-weight:var(--fw-semibold);color:var(--text-strong);" style-hover="color:var(--color-primary);">Timecard Auditor <span style="color:var(--color-primary);">→</span></a>
+          <div style="margin-top:12px;font-size:var(--text-sm);color:var(--text-muted);">For health systems</div>
+          <a href="../submission-evaluator/" style="display:flex;align-items:center;gap:12px;font-size:var(--text-md);font-weight:var(--fw-semibold);color:var(--text-strong);" style-hover="color:var(--color-primary);">See how the Evaluator works for health systems <span style="color:var(--color-primary);">→</span></a>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-md);padding:36px;">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;">
+            <div style="font-size:var(--text-lg);font-weight:var(--fw-semibold);color:var(--text-strong);">Request a walkthrough</div>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;">
+              <label style="display:flex;flex-direction:column;gap:6px;font-size:var(--text-xs);font-weight:var(--fw-semibold);color:var(--text-body);">First name<input required="true" value="{{ first }}" onChange="{{ onFirst }}" style="box-sizing:border-box;width:100%;padding:12px 14px;border:1px solid var(--border-default);border-radius:4px;background:#fff;font:inherit;font-size:var(--text-sm);font-weight:var(--fw-regular);color:var(--text-strong);"></label>
+              <label style="display:flex;flex-direction:column;gap:6px;font-size:var(--text-xs);font-weight:var(--fw-semibold);color:var(--text-body);">Last name<input required="true" value="{{ last }}" onChange="{{ onLast }}" style="box-sizing:border-box;width:100%;padding:12px 14px;border:1px solid var(--border-default);border-radius:4px;background:#fff;font:inherit;font-size:var(--text-sm);font-weight:var(--fw-regular);color:var(--text-strong);"></label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:var(--text-xs);font-weight:var(--fw-semibold);color:var(--text-body);">Work email<input type="email" required="true" value="{{ email }}" onChange="{{ onEmail }}" placeholder="you@agency.com" style="box-sizing:border-box;width:100%;padding:12px 14px;border:1px solid var(--border-default);border-radius:4px;background:#fff;font:inherit;font-size:var(--text-sm);font-weight:var(--fw-regular);color:var(--text-strong);"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:var(--text-xs);font-weight:var(--fw-semibold);color:var(--text-body);">Agency<input required="true" value="{{ org }}" onChange="{{ onOrg }}" style="box-sizing:border-box;width:100%;padding:12px 14px;border:1px solid var(--border-default);border-radius:4px;background:#fff;font:inherit;font-size:var(--text-sm);font-weight:var(--fw-regular);color:var(--text-strong);"></label>
+            <button type="submit" style="margin-top:6px;height:52px;border:none;border-radius:999px;background:var(--color-primary);color:#fff;font:inherit;font-size:var(--text-md);font-weight:var(--fw-bold);cursor:pointer;box-shadow:0 6px 18px rgba(0,129,187,.22);" style-hover="background:var(--color-primary-hover);">Request my walkthrough</button>
+            <span style="font-size:var(--text-2xs);color:var(--text-muted);">We'll reply within one business day to schedule. No commitment.</span>
+          </form>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:12px 0;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:49px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--trio-green);color:#fff;font-size:var(--text-lg);font-weight:var(--fw-extra);margin-bottom:18px;">✓</span>
+            <div style="font-size:var(--text-xl);font-weight:var(--fw-extra);color:var(--text-strong);margin-bottom:8px;">Thanks, {{ first }}. We'll be in touch.</div>
+            <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-muted);">Someone from our team will email {{ email }} within one business day to set a time. Have a recent submission in mind to bring along.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+</div>
+</template>
+<script>
+/* Minimal vanilla runtime for Claude Design x-dc templates (Frogdog port, 2026-09-23).
+   Supports: componentDidMount, {{ path }} in text + attributes, <sc-if value>, <sc-for list as>, <dc-import name>,
+   style-hover="..." (as a generated :hover class, like the original runtime), React-style event
+   attributes, a DCLogic base class with setState, and a positional DOM morph so live inputs are
+   patched in place (a range slider being dragged is never replaced). No dependencies. */
+(function () {
+  'use strict';
+  var EVENTS = { onclick: 'click', onchange: 'input', oninput: 'input', onsubmit: 'submit',
+    onmouseenter: 'mouseenter', onmouseleave: 'mouseleave', onfocus: 'focus', onblur: 'blur',
+    onkeydown: 'keydown', onkeyup: 'keyup' };
+  var FORM_VALUE = { input: 1, select: 1, textarea: 1 };
+
+  function resolve(vals, src) {
+    var e = String(src).trim();
+    if (!e) return undefined;
+    if (e[0] === '!') return !resolve(vals, e.slice(1));
+    if (e === 'true') return true;
+    if (e === 'false') return false;
+    if (e === 'null') return null;
+    if (e === 'undefined') return undefined;
+    if (/^-?\d+(\.\d+)?$/.test(e)) return Number(e);
+    if (e.length > 1 && (e[0] === '"' || e[0] === "'") && e[e.length - 1] === e[0]) return e.slice(1, -1);
+    var parts = e.split('.'), cur = vals;
+    for (var i = 0; i < parts.length; i++) { if (cur == null) return undefined; cur = cur[parts[i].trim()]; }
+    return cur;
+  }
+  function attrVal(raw, vals) {
+    if (raw == null) return undefined;
+    var whole = raw.match(/^\s*\{\{([\s\S]+?)\}\}\s*$/);
+    if (whole) return resolve(vals, whole[1]);
+    if (raw.indexOf('{{') < 0) return raw;
+    return raw.replace(/\{\{([\s\S]+?)\}\}/g, function (_, p) { var v = resolve(vals, p); return v == null ? '' : String(v); });
+  }
+
+  /* style-hover -> one generated class per distinct declaration block, rule ".dchN:hover{... !important}" */
+  var hoverSheet = null, hoverCache = {}, hoverN = 0;
+  function hoverClass(pseudo, css) {
+    var k = pseudo + '|' + css;
+    if (hoverCache[k]) return hoverCache[k];
+    if (!hoverSheet) { var s = document.createElement('style'); s.id = 'dc-hover'; document.head.appendChild(s); hoverSheet = s.sheet; }
+    var cls = 'dch' + (hoverN++).toString(36);
+    var decls = css.split(';').map(function (d) { return d.trim(); }).filter(Boolean)
+      .map(function (d) { return /!\s*important$/i.test(d) ? d : d + ' !important'; }).join(';');
+    hoverSheet.insertRule('.' + cls + ':' + pseudo + '{' + decls + '}', hoverSheet.cssRules.length);
+    return (hoverCache[k] = cls);
+  }
+
+  /* ---- template -> virtual tree ---- */
+  function kids(node, vals, out, host) { for (var c = node.firstChild; c; c = c.nextSibling) build(c, vals, out, host); }
+  function build(node, vals, out, host) {
+    if (node.nodeType === 3) {
+      var t = node.nodeValue;
+      if (t.indexOf('{{') < 0) { if (!t.trim() && t.indexOf(' ') < 0) return; out.push(t); return; }
+      /* like the original runtime: literal text stays text, each interpolation is its own <span class="sc-interp"> */
+      t.split(/\{\{([\s\S]+?)\}\}/g).forEach(function (part, i) {
+        if (!(i & 1)) { if (part) out.push(part); return; }
+        var v = resolve(vals, part);
+        if (v == null || typeof v === 'boolean') return;
+        out.push({ tag: 'span', attrs: { 'class': 'sc-interp' }, ev: {}, kids: [String(v)] });
+      });
+      return;
+    }
+    if (node.nodeType !== 1) return;
+    var tag = node.localName;
+    if (tag === 'sc-if') { if (attrVal(node.getAttribute('value'), vals)) kids(node, vals, out, host); return; }
+    if (tag === 'sc-for') {
+      var list = attrVal(node.getAttribute('list'), vals), as = node.getAttribute('as') || 'item';
+      if (!Array.isArray(list)) return;
+      list.forEach(function (item, i) { var sub = Object.assign({}, vals); sub[as] = item; sub.$index = i; kids(node, sub, out, host); });
+      return;
+    }
+    if (tag === 'dc-import') { out.push(host.child(node)); return; }
+    var v = { tag: tag, attrs: {}, ev: {}, kids: [] }, cls = [];
+    for (var i = 0; i < node.attributes.length; i++) {
+      var a = node.attributes[i], name = a.name;
+      if (name.indexOf('hint-') === 0) continue;
+      if (name.indexOf('style-') === 0) { cls.push(hoverClass(name.slice(6), a.value)); continue; }
+      if (name.slice(0, 2) === 'on' && EVENTS[name]) {
+        var fn = attrVal(a.value, vals);
+        if (typeof fn === 'function') v.ev[(name === 'onchange' && tag === 'select') ? 'change' : EVENTS[name]] = fn;
+        continue;
+      }
+      var val = attrVal(a.value, vals);
+      if (val == null || val === false) { if (name === 'value' && FORM_VALUE[tag]) v.attrs.value = ''; continue; }
+      v.attrs[name] = val === true ? '' : String(val);
+    }
+    if (cls.length) v.attrs['class'] = (v.attrs['class'] ? v.attrs['class'] + ' ' : '') + cls.join(' ');
+    kids(node, vals, v.kids, host);
+    out.push(v);
+  }
+
+  /* ---- positional morph: reuse same-tag (and same-id) nodes, update attrs/text in place ---- */
+  function bindEvents(el, ev) {
+    el.__dcEv = ev;
+    var bound = el.__dcBound || (el.__dcBound = {});
+    Object.keys(ev).forEach(function (type) {
+      if (bound[type]) return;
+      bound[type] = true;
+      el.addEventListener(type, function (e) { var f = el.__dcEv && el.__dcEv[type]; if (f) f(e); });
+    });
+  }
+  function patch(el, v) {
+    for (var j = el.attributes.length - 1; j >= 0; j--) {
+      var n = el.attributes[j].name; if (!(n in v.attrs)) el.removeAttribute(n);
+    }
+    for (var k in v.attrs) if (el.getAttribute(k) !== v.attrs[k]) el.setAttribute(k, v.attrs[k]);
+    if (FORM_VALUE[v.tag] && 'value' in v.attrs && el.value !== v.attrs.value) el.value = v.attrs.value;
+    bindEvents(el, v.ev);
+    morphKids(el, v.kids);
+  }
+  function create(v) { var el = document.createElement(v.tag); patch(el, v); return el; }
+  function morphKids(parent, vk) {
+    var nodes = parent.childNodes;
+    for (var i = 0; i < vk.length; i++) {
+      var v = vk[i], cur = nodes[i];
+      if (typeof v === 'string') {
+        if (cur && cur.nodeType === 3) { if (cur.nodeValue !== v) cur.nodeValue = v; }
+        else { var t = document.createTextNode(v); if (cur) parent.replaceChild(t, cur); else parent.appendChild(t); }
+      } else if (cur && cur.nodeType === 1 && cur.localName === v.tag && (cur.getAttribute('id') || '') === (v.attrs.id || '')) {
+        patch(cur, v);
+      } else {
+        var el = create(v); if (cur) parent.replaceChild(el, cur); else parent.appendChild(el);
+      }
+    }
+    while (nodes.length > vk.length) parent.removeChild(nodes[nodes.length - 1]);
+  }
+
+  /* ---- components ---- */
+  var registry = {}, roots = [], rendering = false, again = false;
+  class DCLogic {
+    constructor(props) { this.props = props || {}; this.state = {}; }
+    setState(update, cb) {
+      var p = typeof update === 'function' ? update(this.state, this.props) : update;
+      if (p) this.state = Object.assign({}, this.state, p);
+      renderAll();
+      if (cb) cb();
+    }
+    forceUpdate() { renderAll(); }
+    renderVals() { return {}; }
+  }
+  function defaultsOf(json) {
+    var d = {}, meta = {};
+    try { meta = JSON.parse(json || '{}'); } catch (e) { }
+    Object.keys(meta).forEach(function (k) { if (meta[k] && meta[k].default !== undefined) d[k] = meta[k].default; });
+    return d;
+  }
+  function Host(name) {
+    var def = registry[name];
+    this.name = name;
+    this.tpl = def.tpl;
+    var props = defaultsOf(def.props);
+    this.logic = new def.Logic(props);
+    if (!this.logic.props) this.logic.props = props;
+    this.children = new Map();
+    /* lifecycle (added 2026-10-12 for the Submission Evaluator hero auto-cycle): componentDidMount after first render */
+    var lg = this.logic; if (typeof lg.componentDidMount === 'function') setTimeout(function () { lg.componentDidMount(); }, 0);
+  }
+  Host.prototype.child = function (node) {
+    var h = this.children.get(node);
+    if (!h) { h = new Host(node.getAttribute('name')); this.children.set(node, h); }
+    return { tag: 'div', attrs: { 'class': 'sc-host', 'data-sc-name': h.name }, ev: {}, kids: h.tree() };
+  };
+  Host.prototype.tree = function () {
+    var vals = Object.assign({}, this.logic.props, this.logic.renderVals()), out = [];
+    kids(this.tpl, vals, out, this);
+    return out;
+  };
+  function renderAll() {
+    if (rendering) { again = true; return; }
+    rendering = true;
+    try {
+      do { again = false; roots.forEach(function (r) { morphKids(r.el, [{ tag: 'div', attrs: { 'class': 'sc-host', 'data-sc-name': r.host.name }, ev: {}, kids: r.host.tree() }]); }); }
+      while (again);
+    } finally { rendering = false; }
+  }
+  window.DC = {
+    DCLogic: DCLogic,
+    define: function (name, tplId, Logic, propsJson) {
+      registry[name] = { tpl: document.getElementById(tplId).content, Logic: Logic, props: propsJson };
+    },
+    mount: function (name, el) { roots.push({ el: el, host: new Host(name) }); renderAll(); }
+  };
+})();
+
+</script>
+<script>
+/* Courtney's page logic, verbatim */
+DC.define('main', 'dc-tpl-main', (function (DCLogic) {
+const SUBS = [
+  { name: 'Avery Whitfield', agency: 'Northline Healthcare Staffing', rate: '$78.00', score: 100,
+    summary: 'The candidate meets all assessed requirements. They exceed the 2+ years of X-ray/OR experience with 5 years as a radiologic technologist, hold ARRT (R) certification, and document portable X-ray and C-arm experience across inpatient and outpatient settings at 25+ cases per day. They also meet the preferred traveler requirement, with prior assignments at Level I trauma centers and Magnet facilities.',
+    pros: ['ARRT (R) certified, active', '5 years radiologic tech experience vs. 2-year minimum', 'Portable X-ray and C-arm documented', 'Experienced traveler — meets preferred requirement'],
+    cons: ['No gaps against assessed requirements'] },
+  { name: 'Rosa Delgado', agency: 'Northline Healthcare Staffing', rate: '$78.00', score: 92,
+    summary: 'The candidate satisfies the core requirements, including ARRT (R) certification, 3 years of X-ray experience, and portable and C-arm work in inpatient and outpatient settings. Case volume is documented at roughly 20 per day, slightly below the 25 cases per day the job describes.',
+    pros: ['ARRT (R) certified', '3 years X-ray experience', 'Inpatient and outpatient settings'],
+    cons: ['Documented case volume (~20/day) below the 25/day stated on the job'] },
+  { name: 'Priya Nguyen', agency: 'Northline Healthcare Staffing', rate: '$75.00', score: 75,
+    summary: 'The candidate meets general and certification requirements but only partially satisfies availability. They can start on the requested date but have not disclosed afternoon-shift availability for the final three weeks of the assignment.',
+    pros: ['ARRT (R) certified', '4 years radiology experience', 'Rate below the posted bill rate'],
+    cons: ['Afternoon availability not disclosed for weeks 11–13', 'No traveler history listed (preferred)'] },
+  { name: 'Theo Sloane', agency: 'Northline Healthcare Staffing', rate: '$78.00', score: 50,
+    summary: 'The candidate holds ARRT (R) certification and meets the experience minimum, but the submission does not document portable X-ray or C-arm experience, and outpatient experience is not addressed.',
+    pros: ['ARRT (R) certified', 'Meets the 2-year experience minimum'],
+    cons: ['Portable X-ray / C-arm experience not documented', 'Outpatient setting experience not addressed'] },
+  { name: 'Lena Carver', agency: 'Northline Healthcare Staffing', rate: '$75.00', score: 25,
+    summary: 'The candidate does not meet several assessed requirements. ARRT certification is listed as pending, documented X-ray experience is 14 months against a 2-year minimum, and portable and C-arm experience are not mentioned.',
+    pros: ['Available on the requested start date'],
+    cons: ['ARRT (R) certification pending', '14 months experience vs. 2-year minimum', 'No portable X-ray or C-arm experience documented'] },
+];
+
+const scoreCol = s => s >= 90 ? 'var(--color-success-text)' : s >= 70 ? 'var(--color-primary)' : s >= 50 ? 'var(--color-warning-text)' : 'var(--color-danger-text)';
+
+const PROBLEMS = [
+  { n: '01', t: 'Narratives get skimmed, not read', b: 'Your recruiter’s careful write-up competes with a dozen others. Reviewers scan for requirements and move on.' },
+  { n: '02', t: 'One missed line costs the candidate', b: 'Stint coverage, shift disclosures, an NPDB self-inquiry — leave one requirement unanswered and a qualified candidate reads as a partial fit.' },
+  { n: '03', t: 'Declines come without a reason', b: 'A submission stalls or is passed over and nobody tells you which requirement was the problem. The next submission repeats it.' },
+];
+
+const V = {
+  met: { verdict: 'Satisfies', bg: 'var(--color-success-subtle)', col: 'var(--color-success-text)' },
+  partial: { verdict: 'Partially', bg: 'var(--color-warning-subtle)', col: 'var(--color-warning-text)' },
+  none: { verdict: 'None listed', bg: 'var(--surface-sunken)', col: 'var(--text-muted)' },
+};
+const CATEGORIES = [
+  { name: 'General', v: 'met', text: 'Board certified in Interventional Cardiology with 13+ years of experience, well above the 2-year minimum. Holds an active CO license and DEA, and has committed to maintaining both for the assignment.' },
+  { name: 'Malpractice', v: 'partial', text: 'Clean background and no malpractice history. Did not include a self-inquiry NPDB report at presentation, which the job lists for priority consideration.' },
+  { name: 'Location', v: 'none', text: 'No location requirements listed on this job.' },
+  { name: 'Availability', v: 'partial', text: 'Disclosed ongoing availability and 7–14 shifts per month, but has a gap covering the October stint on the job.' },
+];
+
+const CALLOUTS_L = [
+  { n: '1', t: 'Submission Quality Score', b: 'A percentage of assessed requirements met. It appears as the Sub Quality column in the Submissions tab, where reviewers sort the list — so your strongest submissions rise.' },
+  { n: '2', t: 'Summary, Pros, and Cons', b: 'A plain-language read of your candidate, then exactly what they bring and what the submission is missing.' },
+];
+const CALLOUTS_R = [
+  { n: '3', t: 'Built-in feedback loop', b: 'See something unexpected? Flag it right from the score. Every report helps tune the Evaluator on real submissions.' },
+  { n: '4', t: 'Requirement-by-requirement detail', b: 'On the submission itself, each requirement category is marked satisfies, partially satisfies, or not listed — with the reasoning written out.' },
+];
+
+const PROFS = [
+  { label: 'Allied', role: 'Technologist – X-Ray', job: 'Temp – Technologist – X-Ray (Afternoons)',
+    reqs: [
+      { t: '2+ years X-ray / OR experience', kind: 'Required' },
+      { t: 'ARRT (R) certification', kind: 'Required' },
+      { t: 'Portable X-ray and C-arm experience', kind: 'Required' },
+      { t: 'Inpatient and outpatient, ~25 cases per day', kind: 'Required' },
+      { t: 'Experienced traveler', kind: 'Preferred' },
+    ],
+    note: 'Preferred requirements add to the score without disqualifying candidates who don’t meet them.' },
+  { label: 'Locums', role: 'Physician – Interventional Cardiology', job: 'Locums – Interventional Cardiology · STEMI call coverage',
+    reqs: [
+      { t: 'Board certified in Interventional Cardiology', kind: 'Required' },
+      { t: 'Active state license or IMLC', kind: 'Required' },
+      { t: 'Active DEA, transferred for the assignment', kind: 'Required' },
+      { t: 'Disclose stint coverage and shifts per month', kind: 'Required' },
+      { t: 'Self-inquiry NPDB report at presentation', kind: 'Priority' },
+    ],
+    note: 'Locums requirements such as licensure, DEA, malpractice, and stint coverage are assessed separately, so a strong clinician with a coverage gap is flagged as a partial fit, not a full one.' },
+  { label: 'Nursing', role: 'Registered Nurse – ICU', job: 'Travel – RN – ICU (Nights)',
+    reqs: [
+      { t: 'Active RN license or compact license', kind: 'Required' },
+      { t: 'BLS and ACLS current', kind: 'Required' },
+      { t: '2+ years ICU experience', kind: 'Required' },
+      { t: 'Available for 12-hour night shifts', kind: 'Required' },
+      { t: 'Level I trauma experience', kind: 'Preferred' },
+    ],
+    note: 'The same Summary, Pros, and Cons format appears on every job, whatever the profession, so your recruiters never have to relearn it.' },
+];
+const kindCol = k => k === 'Required' ? 'var(--color-primary)' : k === 'Priority' ? 'var(--trio-orange-deep)' : 'var(--color-success-text)';
+
+const AUDIENCES = [
+  { tag: '01', color: 'var(--color-primary)', who: 'Know exactly why a submission stalled', lead: 'Every con names the specific requirement that wasn’t met or documented. No more reading between the lines of a decline.',
+    points: ['The same Summary, Pros, and Cons the reviewer reads', 'Requirement-by-requirement detail on the submission'] },
+  { tag: '02', color: 'var(--color-primary)', who: 'Fix the gap and resubmit', lead: 'Missing a shift disclosure or a C-arm mention? Add it and the candidate goes back in with a higher score and a better chance of moving forward.',
+    points: ['Specific, fixable gaps — not vague feedback', 'Strong candidates aren’t lost to a thin write-up'] },
+  { tag: '03', color: 'var(--color-primary)', who: 'Coach recruiters with the job’s own checklist', lead: 'Answer every requirement on the job explicitly and the score follows. Over time your submissions land higher in every program you supply.',
+    points: ['Works the same for nursing, allied, and locums', 'A complete submission stands out against the rest of the panel'] },
+];
+
+const TRUST = [
+  { tag: 'Human in the loop', color: 'var(--color-primary)', t: 'It recommends. It doesn’t decide.', b: 'Scores inform the review; they never auto-reject a candidate. The health system’s team chooses who is presented and placed.' },
+  { tag: 'Explainable', color: 'var(--color-success-text)', t: 'Every score shows its reasoning', b: 'Summary, pros, cons, and requirement-level detail sit beside every number, so reviewers can check the work.' },
+  { tag: 'Secure', color: 'var(--trio-slate)', t: 'Runs inside Trio VMS', b: 'No separate tool or login. Submission and candidate data stays in the platform you already submit through.' },
+];
+
+const FAQS = [
+  { q: 'What is the Submission Quality Score?', a: 'The share of a job’s assessed submission requirements a candidate meets, shown as a percentage in the Sub Quality column and on each submission.' },
+  { q: 'What does it score against?', a: 'The submission requirements written on each job — licensure, certifications, experience, availability, malpractice, location, and any job-specific items like case volume or EMR training.' },
+  { q: 'Can a low score reject my candidate automatically?', a: 'No. The score and feedback support the health system’s reviewers. People decide which submissions move forward.' },
+  { q: 'How do I raise a submission’s score?', a: 'Answer every requirement on the job explicitly rather than leaving the reviewer to infer it. Each con names the specific requirement that wasn’t met or documented — fill the gap and resubmit.' },
+  { q: 'Do I see the same feedback the reviewer sees?', a: 'The Summary, Pros, and Cons on your submission are the same ones the reviewer reads. There is no separate agency version.' },
+  { q: 'Does a higher score guarantee an interview?', a: 'No. The Evaluator ranks and explains; the health system’s reviewers decide. But a complete submission is read first, and a partial fit is flagged with the reason before it is passed over.' },
+  { q: 'Which professions does it support?', a: 'It reads each job’s own requirements, so it works across nursing, allied, and locums — from X-ray technologists to interventional cardiologists.' },
+  { q: 'What if a score looks wrong?', a: 'Use “Let us know” next to the score to flag it. The Evaluator is labeled experimental, and those reports feed directly into improving it.' },
+  
+];
+
+class Component extends DCLogic {
+  state = { sel: 0, tab: 'summary', prof: 0, touched: false, first: '', last: '', email: '', org: '', sent: false };
+
+  componentDidMount() {
+    if (this.props.autoCycle ?? true) {
+      this._t = setInterval(() => {
+        if (this.state.touched) return clearInterval(this._t);
+        this.setState(s => ({ sel: (s.sel + 1) % SUBS.length, tab: 'summary' }));
+      }, 4200);
+    }
+  }
+  componentWillUnmount() { clearInterval(this._t); }
+
+  renderVals() {
+    const { sel, tab, prof } = this.state;
+    const cur = SUBS[sel];
+    const subs = SUBS.map((s, i) => ({
+      ...s, scoreCol: scoreCol(s.score),
+      bg: i === sel ? 'var(--color-primary-subtle)' : '#fff',
+      edge: i === sel ? 'var(--color-primary)' : 'transparent',
+      select: () => this.setState({ sel: i, tab: 'summary', touched: true }),
+    }));
+    const tabs = [['summary', 'Summary'], ['pros', 'Pros'], ['cons', 'Cons']].map(([k, label]) => ({
+      label, bg: tab === k ? 'var(--color-primary-subtle)' : 'var(--surface-sunken)', col: tab === k ? 'var(--color-primary)' : 'var(--text-body)',
+      select: () => this.setState({ tab: k, touched: true }),
+    }));
+    const p = PROFS[prof];
+    const set = k => e => this.setState({ [k]: e.target.value });
+    return {
+      subs, tabs, cur: { ...cur, scoreCol: scoreCol(cur.score) },
+      onSummary: tab === 'summary', onList: tab !== 'summary',
+      listItems: tab === 'pros' ? cur.pros : cur.cons,
+      listDot: tab === 'pros' ? 'var(--trio-green)' : 'var(--trio-orange)',
+      demoHint: this.state.touched ? 'Select any submission' : 'Click a submission to see its score',
+      problems: PROBLEMS,
+      categories: CATEGORIES.map(c => ({ ...c, ...V[c.v] })),
+      calloutsL: CALLOUTS_L, calloutsR: CALLOUTS_R,
+      profTabs: PROFS.map((x, i) => ({ label: x.label, role: x.role,
+        bg: i === prof ? '#fff' : 'transparent', bd: i === prof ? 'var(--color-primary)' : 'var(--border-subtle)',
+        col: i === prof ? 'var(--color-primary)' : 'var(--text-strong)',
+        select: () => this.setState({ prof: i }) })),
+      prof: { ...p, reqs: p.reqs.map(r => ({ ...r, col: kindCol(r.kind) })) },
+      audiences: AUDIENCES, trust: TRUST, faqs: FAQS,
+      showMidCta: this.props.showMidCta ?? true,
+      first: this.state.first, last: this.state.last, email: this.state.email, org: this.state.org,
+      onFirst: set('first'), onLast: set('last'), onEmail: set('email'), onOrg: set('org'),
+      sent: this.state.sent, notSent: !this.state.sent,
+      onSubmit: e => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+
+return Component; })(DC.DCLogic), "{\"autoCycle\":{\"editor\":\"boolean\",\"default\":true,\"tsType\":\"boolean\",\"section\":\"Hero demo\"},\"showMidCta\":{\"editor\":\"boolean\",\"default\":true,\"tsType\":\"boolean\",\"section\":\"Page sections\"}}");
+DC.mount('main', document.getElementById('dc-root'));
+</script>
+<script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
+</body>
+</html>
