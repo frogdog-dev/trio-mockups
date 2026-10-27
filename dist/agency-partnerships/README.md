@@ -50,7 +50,7 @@ The script at the bottom of `index.html` runs the pop-up. You can use it as is.
 - **Manual trigger:** "Register for the webinar" in the Upcoming webinars section.
 - **After Nov 17:** Courtney plans to switch the pop-up and the webinar section to the on-demand recording link. In HubSpot, make the pop-up's link, button label and the switch-over date editable module fields so she can do that herself. On staging the script just hides the pop-up and the register button from 2026-11-18 06:00 UTC (end of the 17th, Central).
 - **Zoom link** (opens in a new tab): https://events.zoom.us/ev/ArrVz58pnM4X66rVYWUpWRECSXPVmrrYLpLgVLDBNnMCLtknEU-A~AvtqtF37xJU3y3DjZUmmzFg8d_5iCEL40US9zlMhKem_3UmB2gKPsd0BMTAIaZwdiHNINROJRUU9cXV-Z40XGZKPWA
-- **Testing the after-date state:** add `?ae_now=2026-11-18` to the URL.
+- **Testing the after-date state:** add `?ae_now=2026-11-18T12:00Z` to the URL (a bare date reads as midnight UTC, which is still the 17th in Central).
 
 ## 4. Links
 

@@ -66,7 +66,7 @@ a:hover { color: #006a9b; }
 .ae-hex{display:block;width:100%;max-width:470px;height:auto;margin:0 auto;overflow:visible}
 .ae-vl{position:absolute;margin:0;transform:translate(-50%,-50%);font-size:16px;font-weight:700;white-space:nowrap}
 .ae-vlogo{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:center;background:#fff;padding:7px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(35,45,53,0.12),0 1px 3px rgba(35,45,53,0.06)}
-.ae-vlogo img{display:block;height:30px;width:auto}
+.ae-vlogo img{display:block;height:40px;width:auto}
 @media(max-width:760px){.ae-nav{grid-template-columns:minmax(0,1fr);justify-items:center}.ae-nav>img{justify-self:center}}
 @media(max-width:460px){[aria-label^="Three overlapping circles"]{zoom:.76;max-width:none!important;flex:none}}
 .ae-page a:focus-visible,.ae-page button:focus-visible,.ae-page summary:focus-visible{outline:3px solid rgba(0,170,229,.55);outline-offset:2px;border-radius:4px}
@@ -75,7 +75,7 @@ a:hover { color: #006a9b; }
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
-.tw-ft{background:#031a34;color:#fff;font-family:Archivo,ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.43;padding:48px 0 16px;text-align:left}
+.tw-ft{background:#031a34;color:#fff;font-family:Archivo,ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.43;padding:32px 0 16px;text-align:left}
 .tw-ft *{box-sizing:border-box}
 .tw-ft a{color:#fff;text-decoration:none;font-weight:500}
 .tw-ft a:hover{text-decoration:underline;color:#fff}
@@ -88,14 +88,14 @@ a:hover { color: #006a9b; }
 .tw-ft address{font-style:normal;font-weight:500;margin-top:31px;line-height:20px}
 .tw-ft .nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;max-width:680px;margin:0 auto;width:100%}
 .tw-ft .nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.tw-ft .nav .top{font-weight:700}
+.tw-ft .nav .top,.tw-ft .nav .top a{font-weight:700}
 .tw-ft .nav .sub{padding-left:16px}
 .tw-ft .nav .login{color:#00AAE5}
 .tw-ft .soc p{margin:0 0 20px;font-size:16px;font-weight:600}
 .tw-ft .soc svg{display:block;width:40px;height:46px;fill:#fff}
 .tw-ft .bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.85);padding-top:24px}
 .tw-ft .bot span a{font-weight:500}
-@media(max-width:1023px){.tw-ft .main{grid-template-columns:minmax(0,1fr);gap:36px}.tw-ft .nav{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}.tw-ft .in{padding:0 20px}}
+@media(max-width:1023px){.tw-ft{padding-top:48px}.tw-ft .main{grid-template-columns:minmax(0,1fr);gap:40px}.tw-ft .nav{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}.tw-ft .in{padding:0 32px}.tw-ft .bot{flex-direction:column;align-items:center;text-align:center}}
 @media(max-width:480px){.tw-ft .nav{grid-template-columns:minmax(0,1fr)}}
 </style>
 <style>.reviewnav,.concept-note{font-family:Inter,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
@@ -197,9 +197,9 @@ a:hover { color: #006a9b; }
           <div style="position: absolute; left: 0; top: 0; width: 250px; height: 250px; border-radius: 999px; background: rgba(0,129,187,0.10); border: 2px solid #0081BB;"></div>
           <div style="position: absolute; left: 175px; top: 0; width: 250px; height: 250px; border-radius: 999px; background: rgba(121,187,67,0.12); border: 2px solid #79BB43;"></div>
           <div style="position: absolute; left: 87.5px; top: 150px; width: 250px; height: 250px; border-radius: 999px; background: rgba(245,130,32,0.18); border: 2px solid #F58220;"></div>
-          <p class="ae-vl" style="left: 92px; top: 100px; color: #006a9b;">Client</p>
-          <p class="ae-vl" style="left: 333px; top: 100px; color: #4e8a1f;">MSP</p>
-          <p class="ae-vl" style="left: 212.5px; top: 318px; color: #b65e10;">Agency</p>
+          <p class="ae-vl" style="left: 125px; top: 125px; color: #006a9b;">Client</p>
+          <p class="ae-vl" style="left: 300px; top: 125px; color: #4e8a1f;">MSP</p>
+          <p class="ae-vl" style="left: 212.5px; top: 296px; color: #b65e10;">Agency</p>
           <span class="ae-vlogo" style="left: 212.5px; top: 178px;"><img src="img/trio-logo-primary.png" alt="Trio"></span>
         </div>
       </div>
@@ -373,7 +373,7 @@ a:hover { color: #006a9b; }
 
       <div style="margin: 32px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(24px, 3vw, 40px);">
         <div style="flex: 0 1 640px; min-width: 0; text-align: center;">
-          <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #0081BB;">Tuesday, November 17, 2026 &nbsp;|&nbsp; 10:00–10:45 a.m. CST</p>
+          <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #0081BB;">Tuesday, November 17, 2026 &nbsp;|&nbsp; <span style="white-space: nowrap;">10:00–10:45 a.m. CST</span></p>
           <h3 style="margin: 0 0 8px; font-size: 20px; line-height: 1.3; font-weight: 600; color: #232d35;">Your Seat at the Table: What's Next for Agencies in Trio</h3>
           <p style="margin: 0 auto; font-size: 15.5px; line-height: 1.6; color: #455560; max-width: 520px;">You're invited for a live look at the latest agency capabilities in Trio, a preview of what's ahead, and time to ask your most pressing questions.</p>
           <button class="btn btn-primary" type="button" data-ae-open style="margin: 16px 0 0; padding: 11px 18px; font-size: 15px;">Register for the webinar</button>
@@ -542,7 +542,7 @@ a:hover { color: #006a9b; }
 <ul><li class="top"><a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a></li><li class="top"><a href="https://www.triowfs.com/resources">Resources</a></li><li class="top"><a href="https://www.triowfs.com/about">About Us</a></li></ul>
 <ul><li class="top"><a href="https://www.triowfs.com/contact-us">Contact Us</a></li><li><a class="login" href="https://trio.triovms.com/">Trio MSP Login</a></li></ul>
 </nav>
-<div class="soc"><p>Connect With Us</p><a href="https://www.linkedin.com/company/american-health-technology-group" aria-label="Trio on LinkedIn"><svg viewBox="0 0 448 512" role="img" aria-label="LinkedIn"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a></div>
+<div class="soc"><p>Connect With Us</p><a href="https://www.linkedin.com/company/american-health-technology-group" aria-label="Trio on LinkedIn"><svg viewBox="0 0 448 512" role="img" aria-label="LinkedIn icon"><title>LinkedIn icon</title><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a></div>
 </div>
 <div class="bot"><span>&copy; 2026 Trio Workforce Solutions</span><span><a href="https://www.triowfs.com/terms-of-service">Terms of Use</a> | <a href="https://www.triowfs.com/privacy-policy">Privacy Policy</a></span></div>
 </div></footer>
@@ -563,7 +563,7 @@ a:hover { color: #006a9b; }
         </div>
         <div style="padding: 26px 30px 30px;">
           <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #455560;">You're invited for a live look at the latest agency capabilities in Trio. The product team gives you an exclusive peek at the latest agency capabilities, a preview of what's ahead, and time to ask your most pressing questions.</p>
-          <p style="margin: 18px 0 0; font-size: 15px; font-weight: 600; color: #232d35;">Tuesday, November 17, 2026 &nbsp;|&nbsp; 10:00–10:45 a.m. CST</p>
+          <p style="margin: 18px 0 0; font-size: 15px; font-weight: 600; color: #232d35;">Tuesday, November 17, 2026 &nbsp;|&nbsp; <span style="white-space: nowrap;">10:00–10:45 a.m. CST</span></p>
           <div style="margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px;">
             <div style="display: flex; gap: 10px; align-items: center;"><span style="flex: 0 0 auto; width: 7px; height: 7px; border-radius: 999px; background: #0081BB;"></span><span style="font-size: 14.5px; color: #455560;">Prioritizing opportunities in Trio</span></div>
             <div style="display: flex; gap: 10px; align-items: center;"><span style="flex: 0 0 auto; width: 7px; height: 7px; border-radius: 999px; background: #79BB43;"></span><span style="font-size: 14.5px; color: #455560;">The latest releases for agencies</span></div>

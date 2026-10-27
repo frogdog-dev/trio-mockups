@@ -232,11 +232,11 @@ body{background:#fff;color:var(--text-body)}
 .sa-close h2{color:#fff;font-size:36px;margin:0 0 16px}
 .sa-close p{color:#fff;font-size:17px;line-height:1.65;max-width:720px;margin:0 auto}
 .sa-close p+p{margin-top:12px}
-@media(max-width:600px){.sa-close .card{padding:44px 22px;border-radius:24px}.sa-close h2{font-size:28px}}
+@media(max-width:600px){.sa-close .card{padding:44px 22px;border-radius:24px}.sa-close h2{font-size:28px}.sa-close .card::after{width:120px;height:104px;right:-48px;top:-44px}}
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
-.tw-ft{background:#031a34;color:#fff;font-family:Archivo,ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.43;padding:48px 0 16px;text-align:left}
+.tw-ft{background:#031a34;color:#fff;font-family:Archivo,ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.43;padding:32px 0 16px;text-align:left}
 .tw-ft *{box-sizing:border-box}
 .tw-ft a{color:#fff;text-decoration:none;font-weight:500}
 .tw-ft a:hover{text-decoration:underline;color:#fff}
@@ -249,14 +249,14 @@ body{background:#fff;color:var(--text-body)}
 .tw-ft address{font-style:normal;font-weight:500;margin-top:31px;line-height:20px}
 .tw-ft .nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;max-width:680px;margin:0 auto;width:100%}
 .tw-ft .nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.tw-ft .nav .top{font-weight:700}
+.tw-ft .nav .top,.tw-ft .nav .top a{font-weight:700}
 .tw-ft .nav .sub{padding-left:16px}
 .tw-ft .nav .login{color:#00AAE5}
 .tw-ft .soc p{margin:0 0 20px;font-size:16px;font-weight:600}
 .tw-ft .soc svg{display:block;width:40px;height:46px;fill:#fff}
 .tw-ft .bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.85);padding-top:24px}
 .tw-ft .bot span a{font-weight:500}
-@media(max-width:1023px){.tw-ft .main{grid-template-columns:minmax(0,1fr);gap:36px}.tw-ft .nav{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}.tw-ft .in{padding:0 20px}}
+@media(max-width:1023px){.tw-ft{padding-top:48px}.tw-ft .main{grid-template-columns:minmax(0,1fr);gap:40px}.tw-ft .nav{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}.tw-ft .in{padding:0 32px}.tw-ft .bot{flex-direction:column;align-items:center;text-align:center}}
 @media(max-width:480px){.tw-ft .nav{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
@@ -265,7 +265,7 @@ body{background:#fff;color:var(--text-body)}
 <div class="concept-note">Staffing Agencies page built to Chris's 10/23 mockup &bull; FAQ answers 2&ndash;14 are draft copy for approval &bull; site header/footer are placeholders for HubSpot's &bull; product graphics from Courtney's Agency Experience page (10/26) &bull; card data is illustrative</div>
 <header class="sx-gh" data-preview-chrome><div class="in">
 <a class="logo" href="https://www.triowfs.com/"><img src="img/trio-logo-primary.png" alt="Trio Workforce Solutions"></a>
-<nav><a href="https://www.triowfs.com/solutions">Platform</a><a class="on" href="https://www.triowfs.com/staffing-agencies" aria-current="page">For Staffing Agencies</a><a href="https://www.triowfs.com/resources">Resources</a><a href="https://www.triowfs.com/about">About Us</a></nav>
+<nav><a href="https://www.triowfs.com/platform">Platform</a><a class="on" href="https://www.triowfs.com/staffing-agencies" aria-current="page">For Staffing Agencies</a><a href="https://www.triowfs.com/resources">Resources</a><a href="https://www.triowfs.com/about">About Us</a></nav>
 <div class="right"><a class="lg" href="https://trio.triovms.com/">Trio MSP Login</a><a class="cta" href="https://www.triowfs.com/request-a-demo">Request a demo</a></div>
 </div></header>
 
@@ -541,7 +541,7 @@ body{background:#fff;color:var(--text-body)}
 <ul><li class="top"><a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a></li><li class="top"><a href="https://www.triowfs.com/resources">Resources</a></li><li class="top"><a href="https://www.triowfs.com/about">About Us</a></li></ul>
 <ul><li class="top"><a href="https://www.triowfs.com/contact-us">Contact Us</a></li><li><a class="login" href="https://trio.triovms.com/">Trio MSP Login</a></li></ul>
 </nav>
-<div class="soc"><p>Connect With Us</p><a href="https://www.linkedin.com/company/american-health-technology-group" aria-label="Trio on LinkedIn"><svg viewBox="0 0 448 512" role="img" aria-label="LinkedIn"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a></div>
+<div class="soc"><p>Connect With Us</p><a href="https://www.linkedin.com/company/american-health-technology-group" aria-label="Trio on LinkedIn"><svg viewBox="0 0 448 512" role="img" aria-label="LinkedIn icon"><title>LinkedIn icon</title><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a></div>
 </div>
 <div class="bot"><span>&copy; 2026 Trio Workforce Solutions</span><span><a href="https://www.triowfs.com/terms-of-service">Terms of Use</a> | <a href="https://www.triowfs.com/privacy-policy">Privacy Policy</a></span></div>
 </div></footer>
