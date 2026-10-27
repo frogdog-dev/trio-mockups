@@ -107,6 +107,10 @@ body{background:#fff;color:var(--text-body)}
 .sa-demo p{text-wrap:wrap}
 .sa-demo>div{line-height:normal}
 .sa-demo figcaption{font-size:12px;color:#5e6e78;margin-top:12px}
+/* Courtney #124 (10/26): button to the Submission Evaluator for agencies page */
+.sa-more{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 22px;margin-top:22px;border-radius:6px;background:var(--color-primary);color:#fff;font-size:16px;font-weight:700;text-decoration:none;transition:background .15s ease}
+.sa-more:hover{background:var(--color-primary-hover);color:#fff;text-decoration:none}
+.sa-more svg{width:16px;height:16px}
 @media(max-width:600px){.sa-demo>div>div:first-child{flex-wrap:wrap;row-gap:2px}.sa-demo>div>div:first-child>span:first-child{white-space:nowrap}}
 
 /* Dark */
@@ -301,6 +305,7 @@ body{background:#fff;color:var(--text-body)}
           </div>
         </div>
         <figcaption>Illustrative example</figcaption>
+        <a class="sa-more" href="../submission-evaluator-agencies/">See how Submission Evaluator works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </figure>
     </div>
 
