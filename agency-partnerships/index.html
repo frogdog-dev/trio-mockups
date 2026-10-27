@@ -59,9 +59,44 @@ a:hover { color: #006a9b; }
 .state-opt:has(input:checked) { background: #e5f3fa; border-color: #0081BB; color: #006a9b; }
 .state-opt:has(input:focus-visible) { box-shadow: 0 0 0 3px rgba(0,170,229,0.35); }
 [hidden]{display:none!important}
+.eyebrow{color:#0081BB}
+.ae-nav{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.ae-nav>img{justify-self:start}
+.ae-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(14px,2.6vw,30px)}
+.ae-hex{display:block;width:100%;max-width:470px;height:auto;margin:0 auto;overflow:visible}
+.ae-vl{position:absolute;margin:0;transform:translate(-50%,-50%);font-size:16px;font-weight:700;white-space:nowrap}
+.ae-vlogo{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:center;background:#fff;padding:7px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(35,45,53,0.12),0 1px 3px rgba(35,45,53,0.06)}
+.ae-vlogo img{display:block;height:30px;width:auto}
+@media(max-width:760px){.ae-nav{grid-template-columns:minmax(0,1fr);justify-items:center}.ae-nav>img{justify-self:center}}
+@media(max-width:460px){[aria-label^="Three overlapping circles"]{zoom:.76;max-width:none!important;flex:none}}
 .ae-page a:focus-visible,.ae-page button:focus-visible,.ae-page summary:focus-visible{outline:3px solid rgba(0,170,229,.55);outline-offset:2px;border-radius:4px}
 #ae-next:focus{outline:none}
 .faq summary{text-align:left}
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
+.tw-ft{background:#031a34;color:#fff;font-family:Archivo,ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.43;padding:48px 0 16px;text-align:left}
+.tw-ft *{box-sizing:border-box}
+.tw-ft a{color:#fff;text-decoration:none;font-weight:500}
+.tw-ft a:hover{text-decoration:underline;color:#fff}
+.tw-ft .in{max-width:1440px;margin:0 auto;padding:0 16px}
+.tw-ft .main{display:grid;grid-template-columns:200px minmax(0,1fr) 200px;gap:48px;margin-bottom:32px}
+.tw-ft .logo{display:block;width:132px;margin-bottom:24px}
+.tw-ft .logo img{display:block;width:132px;height:auto}
+.tw-ft .ct{display:flex;gap:10px;margin:0 0 9px;font-weight:600}
+.tw-ft .ct b{font-weight:600;min-width:14px}
+.tw-ft address{font-style:normal;font-weight:500;margin-top:31px;line-height:20px}
+.tw-ft .nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;max-width:680px;margin:0 auto;width:100%}
+.tw-ft .nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.tw-ft .nav .top{font-weight:700}
+.tw-ft .nav .sub{padding-left:16px}
+.tw-ft .nav .login{color:#00AAE5}
+.tw-ft .soc p{margin:0 0 20px;font-size:16px;font-weight:600}
+.tw-ft .soc svg{display:block;width:40px;height:46px;fill:#fff}
+.tw-ft .bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.85);padding-top:24px}
+.tw-ft .bot span a{font-weight:500}
+@media(max-width:1023px){.tw-ft .main{grid-template-columns:minmax(0,1fr);gap:36px}.tw-ft .nav{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}.tw-ft .in{padding:0 20px}}
+@media(max-width:480px){.tw-ft .nav{grid-template-columns:minmax(0,1fr)}}
 </style>
 <style>.reviewnav,.concept-note{font-family:Inter,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
 .concept-note{background:#152d38;color:#bcd6e2;font-size:12.5px;text-align:center;padding:8px 16px;letter-spacing:.02em}
@@ -79,9 +114,9 @@ a:hover { color: #006a9b; }
 
   <!-- NAV -->
   <header style="border-bottom: 1px solid #eceef0; background: #ffffff;">
-    <nav style="max-width: 1160px; margin: 0 auto; padding: 18px clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+    <nav class="ae-nav" style="max-width: 1160px; margin: 0 auto; padding: 18px clamp(20px, 5vw, 40px);">
       <img src="img/trio-logo-primary.png" alt="Trio Workforce Solutions" style="height: 34px; width: auto; display: block;">
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(14px, 2.6vw, 26px);">
+      <div class="ae-links">
         <a class="nav-link" href="#whats-new">What's new</a>
         <a class="nav-link" href="#get-more">Get more from Trio</a>
         <a class="nav-link" href="#events">Events</a>
@@ -96,38 +131,38 @@ a:hover { color: #006a9b; }
     <div style="max-width: 1160px; margin: 0 auto; padding: clamp(48px, 7vw, 88px) clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 64px); align-items: center;">
       <div style="flex: 999 1 460px; min-width: 0;">
         <p class="eyebrow">The Trio Agency Experience</p>
-        <h1 style="margin: 18px 0 0; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; color: #232d35; max-width: 660px;">More opportunity. More momentum. More from Trio.</h1>
+        <h1 style="margin: 18px 0 0; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; color: #232d35; max-width: 660px;">More opportunity.<br>More momentum.<br><span style="color: #0081BB;">More from Trio.</span></h1>
         <p style="margin: 22px 0 0; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.6; color: #455560; max-width: 600px;">Your agency is already part of Trio. Now discover more ways to make the platform work for your business. Explore new capabilities, connect with our team, and find new ways to compete for the opportunities that matter to you.</p>
         <div style="margin: 30px 0 0; display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
           <a class="btn btn-primary" href="#whats-new">Explore what's new in Trio</a>
         </div>
       </div>
       <div style="flex: 1 1 380px; min-width: 0;">
-        <img src="img/hero-clinicians.jpg" alt="Two clinicians reviewing a schedule on a tablet and laptop" style="width: 100%; height: auto; max-height: 460px; object-fit: cover; display: block; border-radius: 12px; box-shadow: 0 12px 28px rgba(35,45,53,0.12), 0 2px 6px rgba(35,45,53,0.06);">
+        <svg class="ae-hex" viewBox="10 8 440 384" role="img" aria-label="Two clinicians reviewing a schedule on a tablet and laptop"><defs><clipPath id="aeHx"><polygon points="50,200 140,44.2 320,44.2 410,200 320,355.8 140,355.8"/></clipPath><filter id="aeSh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#232d35" flood-opacity=".16"/></filter></defs><g fill="none" stroke-width="18" stroke-linejoin="miter" stroke-linecap="butt"><polyline stroke="#A6CE42" points="230,23.7 331.7,23.7 382.6,111.9"/><polyline stroke="#F58220" points="230,376.3 331.7,376.3 382.6,288.1"/><polyline stroke="#00AAE5" points="77.5,111.9 26.6,200 77.5,288.1"/></g><g filter="url(#aeSh)"><image href="img/hero-clinicians.jpg" x="50" y="44.2" width="360" height="311.6" preserveAspectRatio="xMidYMid slice" clip-path="url(#aeHx)"/></g></svg>
       </div>
     </div>
   </section>
 
   <!-- VALUE PILLARS -->
-  <section style="background: #ffffff; border-top: 1px solid #eceef0;">
-    <div style="max-width: 1160px; margin: 0 auto; padding: clamp(32px, 4.5vw, 48px) clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; gap: 0;">
-      <div style="flex: 1 1 300px; min-width: 0; padding: 12px 28px 12px 0;">
-        <div style="width: 44px; height: 44px; border-radius: 999px; background: #e5f3fa; display: flex; align-items: center; justify-content: center; margin: 0 0 14px;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0081BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+  <section style="background: #f2f9fc;">
+    <div style="max-width: 1160px; margin: 0 auto; padding: clamp(40px, 5vw, 64px) clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; gap: 24px;">
+      <div style="flex: 1 1 300px; min-width: 0; padding: 28px; background: #ffffff; border-radius: 12px; box-shadow: 0 1px 3px rgba(35,45,53,0.08), 0 1px 2px rgba(35,45,53,0.04);">
+        <div style="width: 44px; height: 48px; clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background: #0081BB; display: flex; align-items: center; justify-content: center; margin: 0 0 14px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
         </div>
         <p style="margin: 0 0 8px; font-size: 17px; font-weight: 600; color: #232d35;">Find the right opportunities</p>
         <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #455560;">Get more visibility into available opportunities and where your team can focus its efforts.</p>
       </div>
-      <div style="flex: 1 1 300px; min-width: 0; padding: 12px 28px; border-left: 1px solid #eceef0;">
-        <div style="width: 44px; height: 44px; border-radius: 999px; background: #eef6e3; display: flex; align-items: center; justify-content: center; margin: 0 0 14px;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5a9e2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      <div style="flex: 1 1 300px; min-width: 0; padding: 28px; background: #ffffff; border-radius: 12px; box-shadow: 0 1px 3px rgba(35,45,53,0.08), 0 1px 2px rgba(35,45,53,0.04);">
+        <div style="width: 44px; height: 48px; clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background: #79BB43; display: flex; align-items: center; justify-content: center; margin: 0 0 14px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         </div>
         <p style="margin: 0 0 8px; font-size: 17px; font-weight: 600; color: #232d35;">Work smarter in Trio</p>
         <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #455560;">Discover tools designed to simplify workflows, improve submissions, and help your recruiters work more efficiently.</p>
       </div>
-      <div style="flex: 1 1 300px; min-width: 0; padding: 12px 0 12px 28px; border-left: 1px solid #eceef0;">
-        <div style="width: 44px; height: 44px; border-radius: 999px; background: #fdeede; display: flex; align-items: center; justify-content: center; margin: 0 0 14px;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F58220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      <div style="flex: 1 1 300px; min-width: 0; padding: 28px; background: #ffffff; border-radius: 12px; box-shadow: 0 1px 3px rgba(35,45,53,0.08), 0 1px 2px rgba(35,45,53,0.04);">
+        <div style="width: 44px; height: 48px; clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background: #F58220; display: flex; align-items: center; justify-content: center; margin: 0 0 14px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         </div>
         <p style="margin: 0 0 8px; font-size: 17px; font-weight: 600; color: #232d35;">Grow with a partner</p>
         <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #455560;">Connect with a team invested in helping agencies get more value from Trio, with product developments shaped by agency needs.</p>
@@ -158,21 +193,21 @@ a:hover { color: #006a9b; }
         </div>
       </div>
       <div style="flex: 1 1 340px; min-width: 0; display: flex; justify-content: center;">
-        <div role="img" aria-label="Three overlapping circles labeled Client, MSP and Agency, meeting at Trio in the center" style="position: relative; width: 340px; height: 320px; max-width: 100%;">
-          <div style="position: absolute; left: 0; top: 0; width: 200px; height: 200px; border-radius: 999px; background: rgba(0,129,187,0.10); border: 2px solid #0081BB;"></div>
-          <div style="position: absolute; left: 140px; top: 0; width: 200px; height: 200px; border-radius: 999px; background: rgba(121,187,67,0.12); border: 2px solid #79BB43;"></div>
-          <div style="position: absolute; left: 70px; top: 120px; width: 200px; height: 200px; border-radius: 999px; background: rgba(245,130,32,0.18); border: 2px solid #F58220;"></div>
-          <p style="position: absolute; left: 34px; top: 74px; margin: 0; font-size: 15px; font-weight: 700; color: #006a9b;">Client</p>
-          <p style="position: absolute; right: 44px; top: 74px; margin: 0; font-size: 15px; font-weight: 700; color: #4e8a1f;">MSP</p>
-          <p style="position: absolute; left: 170px; top: 262px; transform: translateX(-50%); margin: 0; font-size: 16px; font-weight: 700; color: #b65e10;">Agency</p>
-          <span style="position: absolute; left: 170px; top: 142px; transform: translate(-50%, -50%); display: inline-block; background: #ffffff; color: #232d35; font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 999px; box-shadow: 0 4px 12px rgba(35,45,53,0.12), 0 1px 3px rgba(35,45,53,0.06);">Trio</span>
+        <div role="img" aria-label="Three overlapping circles labeled Client, MSP and Agency, meeting at Trio in the center" style="position: relative; width: 425px; height: 400px; max-width: 100%;">
+          <div style="position: absolute; left: 0; top: 0; width: 250px; height: 250px; border-radius: 999px; background: rgba(0,129,187,0.10); border: 2px solid #0081BB;"></div>
+          <div style="position: absolute; left: 175px; top: 0; width: 250px; height: 250px; border-radius: 999px; background: rgba(121,187,67,0.12); border: 2px solid #79BB43;"></div>
+          <div style="position: absolute; left: 87.5px; top: 150px; width: 250px; height: 250px; border-radius: 999px; background: rgba(245,130,32,0.18); border: 2px solid #F58220;"></div>
+          <p class="ae-vl" style="left: 92px; top: 100px; color: #006a9b;">Client</p>
+          <p class="ae-vl" style="left: 333px; top: 100px; color: #4e8a1f;">MSP</p>
+          <p class="ae-vl" style="left: 212.5px; top: 318px; color: #b65e10;">Agency</p>
+          <span class="ae-vlogo" style="left: 212.5px; top: 178px;"><img src="img/trio-logo-primary.png" alt="Trio"></span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- POSITIONING -->
-  <section style="background: #f5f7f8; border-top: 1px solid #eceef0; border-bottom: 1px solid #eceef0;">
+  <section style="background: #f2f9fc;">
     <div style="max-width: 1160px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 56px); align-items: flex-start;">
       <p style="flex: 1 1 420px; min-width: 0; margin: 0; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.35; font-weight: 600; color: #232d35; letter-spacing: -0.01em;">Your next opportunity starts with making more of what's already available.</p>
       <p style="flex: 1 1 380px; min-width: 0; margin: 0; font-size: 17px; line-height: 1.65; color: #455560;">Whether you're looking to reach more opportunities, improve submission quality, or make your recruiting team more efficient, Trio is continually evolving to support how agencies work. And you have a dedicated team to help you make the most of it.</p>
@@ -182,9 +217,8 @@ a:hover { color: #006a9b; }
   <!-- WHAT'S NEW -->
   <section id="whats-new" style="background: #ffffff;">
     <div style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 40px) clamp(24px, 4vw, 40px);">
-      <h2 style="margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.01em; font-weight: 700; color: #232d35;">What's new in Trio for agencies</h2>
-      <div style="display: flex; gap: 4px; margin: 16px 0 0;"><div style="width: 36px; height: 3px; background: #0081BB; border-radius: 999px;"></div><div style="width: 12px; height: 3px; background: #F58220; border-radius: 999px;"></div></div>
-      <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.6; color: #455560; max-width: 640px;">Three capabilities, available now, built to help your team put stronger submissions forward, focus its effort, and move with more clarity.</p>
+      <h2 style="margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.01em; font-weight: 700; color: #232d35; text-align: center;">What's new in Trio for agencies</h2>
+      <p style="margin: 18px auto 0; font-size: 17px; line-height: 1.6; color: #455560; max-width: 640px; text-align: center;">Three capabilities, available now, built to help your team put stronger submissions forward, focus its effort, and move with more clarity.</p>
     </div>
 
     <!-- Feature A: Submission Evaluator -->
@@ -220,7 +254,7 @@ a:hover { color: #006a9b; }
     </div>
 
     <!-- Feature B: Job Competition Scorer -->
-    <div style="background: #f5f7f8; border-top: 1px solid #eceef0; border-bottom: 1px solid #eceef0;">
+    <div style="background: #ffffff;">
       <div style="max-width: 1160px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap-reverse; gap: clamp(32px, 5vw, 72px); align-items: center;">
         <div style="flex: 1 1 400px; min-width: 0;">
           <div style="background: #ffffff; border: 1px solid #dfe3e6; border-radius: 8px; box-shadow: 0 12px 28px rgba(35,45,53,0.10), 0 2px 6px rgba(35,45,53,0.05); overflow: hidden;">
@@ -255,7 +289,7 @@ a:hover { color: #006a9b; }
                   <p style="margin: 0; font-size: 14.5px; font-weight: 600; color: #232d35;">RN · ER · Rotating</p>
                   <p style="margin: 3px 0 0; font-size: 13px; color: #6b7a84;">[Facility] · 8 weeks · Starts [date]</p>
                 </div>
-                <span style="display: inline-block; background: #eef1f2; color: #455560; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; white-space: nowrap;">High competition</span>
+                <span style="display: inline-block; background: #fce9ea; color: #b2343e; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; white-space: nowrap;">High competition</span>
               </div>
             </div>
           </div>
@@ -307,25 +341,24 @@ a:hover { color: #006a9b; }
   </section>
 
   <!-- GET MORE FROM TRIO -->
-  <section id="get-more" style="background: #f5f7f8; border-top: 1px solid #eceef0;">
+  <section id="get-more" style="background: #f2f9fc;">
     <div style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 40px);">
-      <h2 style="margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.01em; font-weight: 700; color: #232d35;">Make more of Trio, starting today</h2>
-      <div style="display: flex; gap: 4px; margin: 16px 0 0;"><div style="width: 36px; height: 3px; background: #0081BB; border-radius: 999px;"></div><div style="width: 12px; height: 3px; background: #F58220; border-radius: 999px;"></div></div>
-      <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.6; color: #455560; max-width: 620px;">Practical ways to put more of the platform to work for your team.</p>
+      <h2 style="margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.01em; font-weight: 700; color: #232d35; text-align: center;">Make more of Trio, starting today</h2>
+      <p style="margin: 18px auto 0; font-size: 17px; line-height: 1.6; color: #455560; max-width: 620px; text-align: center;">Practical ways to put more of the platform to work for your team.</p>
 
       <div style="margin: 40px 0 0; display: flex; flex-wrap: wrap; gap: clamp(24px, 3vw, 40px);">
-        <div style="flex: 1 1 300px; min-width: 0; padding-top: 20px; border-top: 2px solid #0081BB;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0081BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <div style="flex: 1 1 300px; min-width: 0;">
+          <div style="width: 44px; height: 48px; clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background: #0081BB; display: flex; align-items: center; justify-content: center; margin: 0 0 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
           <h3 style="margin: 14px 0 8px; font-size: 19px; line-height: 1.3; font-weight: 600; color: #232d35;">Bring your whole team into Trio</h3>
           <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #455560;">Recruiters with their own login see new opportunities, competition insight and Q&amp;A answers as they post. Make sure everyone who should be in Trio has access.</p>
         </div>
-        <div style="flex: 1 1 300px; min-width: 0; padding-top: 20px; border-top: 2px solid #79BB43;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5a9e2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+        <div style="flex: 1 1 300px; min-width: 0;">
+          <div style="width: 44px; height: 48px; clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background: #79BB43; display: flex; align-items: center; justify-content: center; margin: 0 0 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></div>
           <h3 style="margin: 14px 0 8px; font-size: 19px; line-height: 1.3; font-weight: 600; color: #232d35;">Review submissions with Submission Evaluator</h3>
           <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #455560;">Spot gaps before a submission goes out, and lead with the candidates who are ready to move forward.</p>
         </div>
-        <div style="flex: 1 1 300px; min-width: 0; padding-top: 20px; border-top: 2px solid #F58220;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F58220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+        <div style="flex: 1 1 300px; min-width: 0;">
+          <div style="width: 44px; height: 48px; clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background: #F58220; display: flex; align-items: center; justify-content: center; margin: 0 0 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
           <h3 style="margin: 14px 0 8px; font-size: 19px; line-height: 1.3; font-weight: 600; color: #232d35;">Prioritize where your team spends its time</h3>
           <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #455560;">Check the competition picture on open opportunities, and use Job Q&amp;A to clear up requirements before you submit.</p>
         </div>
@@ -336,14 +369,13 @@ a:hover { color: #006a9b; }
   <!-- EVENTS -->
   <section id="events" style="background: #ffffff; border-top: 1px solid #eceef0;">
     <div style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 40px);">
-      <h2 style="margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.01em; font-weight: 700; color: #232d35;">What's coming up</h2>
-      <div style="display: flex; gap: 4px; margin: 16px 0 0;"><div style="width: 36px; height: 3px; background: #0081BB; border-radius: 999px;"></div><div style="width: 12px; height: 3px; background: #F58220; border-radius: 999px;"></div></div>
+      <h2 style="margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.01em; font-weight: 700; color: #232d35; text-align: center;">Upcoming webinars</h2>
 
-      <div style="margin: 44px 0 0; display: flex; flex-wrap: wrap; gap: clamp(24px, 3vw, 40px);">
-        <div style="flex: 1 1 320px; min-width: 0; padding-top: 20px; border-top: 1px solid #dfe3e6;">
+      <div style="margin: 32px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(24px, 3vw, 40px);">
+        <div style="flex: 0 1 640px; min-width: 0; text-align: center;">
           <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: #0081BB;">Tuesday, November 17, 2026 &nbsp;|&nbsp; 10:00–10:45 a.m. CST</p>
           <h3 style="margin: 0 0 8px; font-size: 20px; line-height: 1.3; font-weight: 600; color: #232d35;">Your Seat at the Table: What's Next for Agencies in Trio</h3>
-          <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #455560; max-width: 520px;">You're invited for a live look at the latest agency capabilities in Trio, a preview of what's ahead, and time to ask your most pressing questions.</p>
+          <p style="margin: 0 auto; font-size: 15.5px; line-height: 1.6; color: #455560; max-width: 520px;">You're invited for a live look at the latest agency capabilities in Trio, a preview of what's ahead, and time to ask your most pressing questions.</p>
           <button class="btn btn-primary" type="button" data-ae-open style="margin: 16px 0 0; padding: 11px 18px; font-size: 15px;">Register for the webinar</button>
         </div>
       </div>
@@ -351,7 +383,7 @@ a:hover { color: #006a9b; }
   </section>
 
   <!-- AGENCY EXPERIENCE -->
-  <section id="agency-experience" style="background: #f5f7f8; border-top: 1px solid #eceef0;">
+  <section id="agency-experience" style="background: #f2f9fc;">
     <div style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 64px); align-items: flex-start;">
       <div style="flex: 1 1 400px; min-width: 0;">
         <p class="eyebrow">Agency growth &amp; engagement</p>
@@ -464,7 +496,6 @@ a:hover { color: #006a9b; }
     <div style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 64px); align-items: flex-start;">
       <div style="flex: 1 1 280px; min-width: 0;">
         <h2 style="margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.01em; font-weight: 700; color: #232d35;">Questions agencies ask</h2>
-        <div style="display: flex; gap: 4px; margin: 16px 0 0;"><div style="width: 36px; height: 3px; background: #0081BB; border-radius: 999px;"></div><div style="width: 12px; height: 3px; background: #F58220; border-radius: 999px;"></div></div>
         <p style="margin: 18px 0 0; font-size: 16px; line-height: 1.6; color: #455560; max-width: 360px;">Something not covered here? The Agency Experience team is a message away.</p>
       </div>
       <div style="flex: 2 1 520px; min-width: 0; border-top: 1px solid #eceef0;">
@@ -489,51 +520,32 @@ a:hover { color: #006a9b; }
   </section>
 
   <!-- FINAL CTA -->
-  <section style="position: relative; overflow: hidden; background: #455560; color: #ffffff;">
-    <img src="img/trio-hex-mark.png" alt="" aria-hidden="true" style="position: absolute; left: -90px; top: 50%; transform: translateY(-50%); width: 380px; height: auto; opacity: 0.09; pointer-events: none;">
-    <div style="position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: clamp(56px, 8vw, 88px) clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: space-between;">
-      <div style="flex: 1 1 420px; min-width: 0;">
+  <section style="position: relative; overflow: hidden; background: linear-gradient(120deg,#00AAE5 0%,#4fb3d6 45%,#79BB43 88%,#9cc84a 100%); color: #ffffff;">
+    <img src="img/trio-hex-mark.png" alt="" aria-hidden="true" style="position: absolute; left: -90px; top: 50%; transform: translateY(-50%); width: 380px; height: auto; opacity: 0.14; pointer-events: none;">
+    <div style="position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: clamp(56px, 8vw, 88px) clamp(20px, 5vw, 40px); display: flex; justify-content: center; text-align: center;">
+      <div style="flex: 0 1 760px; min-width: 0;">
         <h2 style="margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.12; letter-spacing: -0.01em; font-weight: 700; color: #ffffff;">There's more opportunity in Trio. Let's help you make the most of it.</h2>
-        <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.84); max-width: 560px;">Connect with the Agency Experience team to find where there's more to get from the platform for your agency.</p>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
-        <a class="btn btn-white" href="#connect">Connect with Agency Experience</a>
+        <p style="margin: 14px auto 0; font-size: 17px; line-height: 1.6; color: #ffffff; max-width: 560px;">Connect with the Agency Experience team to find where there's more to get from the platform for your agency.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer style="background: #2f3a43; color: rgba(255,255,255,0.7);">
-    <div style="max-width: 1160px; margin: 0 auto; padding: clamp(40px, 5vw, 56px) clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; gap: clamp(28px, 5vw, 64px); align-items: flex-start; justify-content: space-between;">
-      <div style="flex: 1 1 260px; min-width: 0;">
-        <img src="img/trio-logo-white.png" alt="Trio Workforce Solutions" style="height: 32px; width: auto; display: block;">
-        <p style="margin: 16px 0 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.7); max-width: 320px;">Purpose-built for healthcare contingent staffing.</p>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: clamp(28px, 5vw, 64px);">
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <p style="margin: 0 0 4px; font-size: 13px; font-weight: 700; color: #ffffff;">In Trio</p>
-          <a class="foot-link" href="#whats-new">What's new</a>
-          <a class="foot-link" href="#get-more">Get more from Trio</a>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <p style="margin: 0 0 4px; font-size: 13px; font-weight: 700; color: #ffffff;">Events</p>
-          <button class="foot-link" type="button" data-ae-open>Agency product webinar</button>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <p style="margin: 0 0 4px; font-size: 13px; font-weight: 700; color: #ffffff;">Agency Experience</p>
-          <a class="foot-link" href="#connect">Connect with the team</a>
-          <a class="foot-link" href="#faq">FAQ</a>
-          <a class="foot-link" href="#connect">Contact</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top: 1px solid #3b4954;">
-      <div style="max-width: 1160px; margin: 0 auto; padding: 18px clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.55);">
-        <span>© 2026 Trio Workforce Solutions</span>
-        <span>Part of American Health Staffing Group</span>
-      </div>
-    </div>
-  </footer>
+  <!-- FOOTER: main triowfs.com global footer (Courtney #182). HubSpot renders the real one. -->
+  <footer class="tw-ft" role="contentinfo"><div class="in">
+<div class="main">
+<div class="brand"><a class="logo" href="https://www.triowfs.com/"><img src="img/trio-ws-logo-wht.png" alt="Trio Workforce Solutions logo" width="132" height="60"></a>
+<p class="ct"><b>E.</b><a href="mailto:marketing@triowfs.com">marketing@triowfs.com</a></p>
+<p class="ct"><b>P.</b><a href="tel:+18009305119">1.800.930.5119</a></p>
+<address>7460 Warren Pkwy<br>Frisco, TX 75034</address></div>
+<nav class="nav" aria-label="Footer">
+<ul><li class="top"><a href="https://www.triowfs.com/platform">Platform</a></li><li class="sub"><a href="https://www.triowfs.com/platform/trio-msp">Trio MSP</a></li><li class="sub"><a href="https://www.triowfs.com/platform/trio-vms-plus">Trio VMS+</a></li><li class="sub"><a href="https://www.triowfs.com/platform/trio-vms-saas">Trio VMS</a></li><li class="sub"><a href="https://www.triowfs.com/platform/enterprise-workforce-management">Enterprise Workforce Management</a></li><li class="sub"><a href="https://www.triowfs.com/platform/internal-resource-management">Internal Resource Management</a></li><li class="sub"><a href="https://www.triowfs.com/platform/market-intelligence">Market Intelligence</a></li><li class="sub"><a href="https://www.triowfs.com/platform/ai-approach">AI Approach</a></li></ul>
+<ul><li class="top"><a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a></li><li class="top"><a href="https://www.triowfs.com/resources">Resources</a></li><li class="top"><a href="https://www.triowfs.com/about">About Us</a></li></ul>
+<ul><li class="top"><a href="https://www.triowfs.com/contact-us">Contact Us</a></li><li><a class="login" href="https://trio.triovms.com/">Trio MSP Login</a></li></ul>
+</nav>
+<div class="soc"><p>Connect With Us</p><a href="https://www.linkedin.com/company/american-health-technology-group" aria-label="Trio on LinkedIn"><svg viewBox="0 0 448 512" role="img" aria-label="LinkedIn"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a></div>
+</div>
+<div class="bot"><span>&copy; 2026 Trio Workforce Solutions</span><span><a href="https://www.triowfs.com/terms-of-service">Terms of Use</a> | <a href="https://www.triowfs.com/privacy-policy">Privacy Policy</a></span></div>
+</div></footer>
 
   <!-- WEBINAR POPUP -->
   <div class="modal-backdrop" id="ae-webinar" hidden>

@@ -10,7 +10,7 @@ This folder holds the page and its images:
 
 ## 1. Template
 
-1. Use a landing page template with **no global header and no global footer**. The page has its own anchor-nav header and its own footer.
+1. Use a landing page template with **no global header** but **with the global footer** (Courtney 10/27). The page has its own anchor-nav header: logo left, links centred, no button. The footer in `index.html` is a preview copy of the live triowfs.com footer; drop it and let the global footer render.
 2. Load Open Sans 400, 600, 700 and 800. The Google Fonts `<link>` is in the `<head>`.
 3. Move the `<style>` block into the template's stylesheet, or into the page's head HTML.
 4. Keep the title, meta description, canonical link and FAQPage JSON-LD from the `<head>`.
@@ -47,15 +47,15 @@ The script at the bottom of `index.html` runs the pop-up. You can use it as is.
 - **How often:** once per browser tab session (sessionStorage key `trio_ae_webinar_seen`).
 - **Closes on:** the X, "Maybe later", the Esc key, or a click on the dark backdrop.
 - **Focus:** moves to the X when the pop-up opens and stays inside the pop-up.
-- **Manual triggers:** "Register for the webinar" in the Events section and "Agency product webinar" in the footer.
-- **After Nov 17:** the script removes the pop-up and hides both triggers from 2026-11-18 06:00 UTC (end of the 17th, Central). Nothing to do on the day.
+- **Manual trigger:** "Register for the webinar" in the Upcoming webinars section.
+- **After Nov 17:** Courtney plans to switch the pop-up and the webinar section to the on-demand recording link. In HubSpot, make the pop-up's link, button label and the switch-over date editable module fields so she can do that herself. On staging the script just hides the pop-up and the register button from 2026-11-18 06:00 UTC (end of the 17th, Central).
 - **Zoom link** (opens in a new tab): https://events.zoom.us/ev/ArrVz58pnM4X66rVYWUpWRECSXPVmrrYLpLgVLDBNnMCLtknEU-A~AvtqtF37xJU3y3DjZUmmzFg8d_5iCEL40US9zlMhKem_3UmB2gKPsd0BMTAIaZwdiHNINROJRUU9cXV-Z40XGZKPWA
 - **Testing the after-date state:** add `?ae_now=2026-11-18` to the URL.
 
 ## 4. Links
 
-- Header nav and footer "What's new", "Get more from Trio" and "FAQ" are in-page anchors.
-- "Connect with Agency Experience" (closing band), footer "Connect with the team" and footer "Contact" all go to `#connect`.
+- Header nav links are in-page anchors (What's new, Get more from Trio, Events, Agency Experience, FAQ).
+- The closing gradient band has no button (Courtney 10/27). The form column keeps `id="connect"`.
 - FAQ answer email: info@triowfs.com.
 - The "Let us know!" text in the product card is not a link (Courtney 10/26).
 
