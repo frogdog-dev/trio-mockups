@@ -311,9 +311,6 @@
       </div>
       <h1 style="margin:0 0 22px;font-size:60px;line-height:1.06;font-weight:var(--fw-extra);color:var(--text-strong);letter-spacing:-.03em;text-wrap:balance;">Know How Your Submission Scores Before the Reviewer Opens It.</h1>
       <p style="margin:0 auto 32px;max-width:48em;font-size:var(--text-lg);line-height:var(--leading-relaxed);color:var(--text-muted);text-wrap:pretty;">The Submission Evaluator reads every candidate you submit against the job's submission requirements and returns a Submission Quality Score — with a plain-language summary, pros, and cons. Reviewers see your strongest fits first. Your recruiters see exactly what to fix before the next one.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://www.triowfs.com/request-a-demo" style="display:inline-flex;align-items:center;padding:0 28px;height:52px;border-radius:999px;background:var(--color-primary);color:#fff;font-size:var(--text-md);font-weight:var(--fw-bold);box-shadow:0 6px 18px rgba(0,129,187,.22);" style-hover="background:var(--color-primary-hover);color:#fff;">Book a platform demo</a>
-      </div>
     </div>
 
     <div style="max-width:1200px;margin:64px auto 0;padding:0 40px;">
@@ -476,10 +473,9 @@
   </section>
 
   <sc-if value="{{ showMidCta }}" hint-placeholder-val="{{ true }}">
-  <section class="se-band" style="background:linear-gradient(120deg,#00AAE5 0%,#4fb3d6 45%,#79BB43 88%,#9cc84a 100%);padding:56px 0;">
-    <div data-callout style="max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;">
-      <div style="font-size:32px;line-height:1.2;font-weight:var(--fw-extra);letter-spacing:-.02em;color:#fff;">See how your submissions score on a live job.</div>
-      <a href="https://www.triowfs.com/request-a-demo" style="display:inline-flex;align-items:center;padding:0 32px;height:52px;border-radius:999px;background:#fff;color:#0081BB;font-size:var(--text-md);font-weight:var(--fw-bold);white-space:nowrap;" style-hover="background:#f2f9fc;color:#0081BB;">Book a platform demo</a>
+  <section class="se-band" style="background:linear-gradient(120deg,#0077AF 0%,#1C7EA8 45%,#44842B 88%,#4C8424 100%);padding:56px 0;">
+    <div data-callout style="max-width:1200px;margin:0 auto;padding:0 40px;text-align:center;">
+      <div style="font-size:32px;line-height:1.2;font-weight:var(--fw-extra);letter-spacing:-.02em;color:#fff;">Submission Evaluator: Live in production today.</div>
     </div>
   </section>
   </sc-if>
@@ -980,7 +976,7 @@ document.addEventListener('input', function (e) {
     })();
   }
   function tick() { var b = tabs(); if (stopped || busy || b.length < 2) return; i = (i + 1) % b.length; b[i].click(); }
-  function run(on) { if (stopped) return; if (on && !timer) timer = setInterval(tick, 4500); if (!on && timer) { clearInterval(timer); timer = null; } }
+  function run(on) { if (stopped) return; if (on && !timer) timer = setInterval(tick, 3600); if (!on && timer) { clearInterval(timer); timer = null; } }
   lock(); var rw; addEventListener('resize', function () { clearTimeout(rw); rw = setTimeout(lock, 250); });
   if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { run(e[0].isIntersecting); }, { threshold: 0.35 }).observe(sec);
   else run(true);
