@@ -174,8 +174,8 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .wk2 .who .hx{width:36px;height:40px}.wk2 .who .hx svg{width:17px;height:17px}
 .wk2 .who b{display:block;font-size:13.5px;color:var(--text-strong)}
 .wk2 .who small{display:block;font-size:11.5px;color:var(--text-muted)}
-.wk2 ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
-.wk2 li{display:flex;align-items:center;gap:8px;height:30px;padding:0 10px;border-radius:7px;background:#fff;border:1px solid var(--slate-150);font-size:12.5px;font-weight:600;color:var(--text-body);transition:background .25s,border-color .25s,color .25s}
+.wk2 ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.wk2 li{display:flex;align-items:center;gap:8px;min-height:30px;padding:5px 10px;line-height:1.3;border-radius:7px;background:#fff;border:1px solid var(--slate-150);font-size:12.5px;font-weight:600;color:var(--text-body);transition:background .25s,border-color .25s,color .25s}
 .wk2 li i{flex:none;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--slate-300);display:grid;place-items:center;font-style:normal;font-size:10px;font-weight:800;color:#fff}
 .wk2 li.ok{border-color:#cdd3d7;color:var(--text-strong)}
 .wk2 li.ok i{background:var(--trio-green);border-color:var(--trio-green)}
@@ -265,7 +265,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 /* How it works: a fork */
 .p-how{background:linear-gradient(180deg,#e8f4fa 0%,#f2f9fc 100%);border-top:1px solid var(--color-primary-border);border-bottom:1px solid var(--color-primary-border)}
 .fork{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr) 92px minmax(0,1.15fr);align-items:center;margin-top:48px}
-.st{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--slate-150);border-radius:14px;padding:20px;font:inherit;color:inherit;cursor:pointer}
+.st{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--slate-150);border-radius:14px;padding:20px;font:inherit;color:inherit}
 .st .hd{display:flex;align-items:center;gap:12px}
 .st .hx{width:44px;height:50px;color:var(--color-primary)}
 .st .hx::before{background:var(--surface-sunken);transition:background .3s}
@@ -754,12 +754,11 @@ body{margin:0;background:#fff;color:var(--text-body)}
   // ---- How it works: one pass through the fork, then stop ----
   var sts = document.querySelectorAll('#fork .st'), lnk = document.querySelector('#fork .lnk'), pA = $('pA'), pE = $('pE'), forkT = [], picked = false;
   function setStep(i){
-    sts.forEach(function(s, j){ var on = j === i; s.classList.toggle('on', on); s.classList.toggle('done', j < i && !(i === 3 && j === 2)); s.toggleAttribute('aria-current', on); });
+    sts.forEach(function(s, j){ var on = j === i; s.classList.toggle('on', on); s.classList.toggle('done', j < i && !(i === 3 && j === 2)); on ? s.setAttribute('aria-current', 'step') : s.removeAttribute('aria-current'); });
     if (lnk) lnk.classList.toggle('on', i >= 1);
     pA.classList.toggle('on', i === 2); pE.classList.toggle('on', i === 3);
   }
   function play(){ forkT.forEach(clearTimeout); forkT = []; [0,1,2,3].forEach(function(i){ forkT.push(setTimeout(function(){ setStep(i); }, i * 1800)); }); }
-  sts.forEach(function(s, i){ s.addEventListener('click', function(){ picked = true; forkT.forEach(clearTimeout); setStep(i); }); });
   $('howReplay').addEventListener('click', function(){ picked = false; rm ? setStep(3) : play(); });
   setStep(rm ? 3 : 0);
   if (!rm && 'IntersectionObserver' in window) new IntersectionObserver(function(es, o){ if (es[0].isIntersecting && !picked) { play(); o.disconnect(); } }, {threshold:.5}).observe($('fork'));
