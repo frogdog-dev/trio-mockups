@@ -161,7 +161,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--text-muted);pointer-events:none}
 .search input{width:100%;height:58px;border-radius:12px;border:0;padding:0 18px 0 52px;font:inherit;font-size:16.5px;color:var(--text-strong);background:#fff;box-shadow:0 18px 40px rgba(0,0,0,.25)}
 .search input::placeholder{color:var(--text-muted)}
-.search input:focus{outline:3px solid var(--trio-blue-light);outline-offset:2px}
+.search input:focus{outline:3px solid #fff;outline-offset:2px}
 
 /* Stage strip */
 .strip{position:sticky;top:72px;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--slate-150)}
@@ -188,8 +188,8 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .rail input[type=checkbox]{appearance:none;width:18px;height:18px;border:1.5px solid var(--slate-300);border-radius:4px;display:grid;place-items:center;margin:0;flex:none;cursor:pointer;background:#fff}
 .rail input[type=checkbox]:checked{background:var(--color-primary);border-color:var(--color-primary)}
 .rail input[type=checkbox]:checked::after{content:"";width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:translateY(-1px) rotate(-45deg)}
-.rail input[type=checkbox]:focus-visible{outline:3px solid var(--trio-blue-light);outline-offset:2px}
-.rail .clear{margin-top:16px;background:none;border:0;padding:0;font:inherit;font-size:13.5px;font-weight:700;color:var(--color-primary);cursor:pointer}
+.rail input[type=checkbox]:focus-visible{outline:3px solid #0081BB;outline-offset:2px}
+.rail .clear{margin-top:8px;min-height:44px;background:none;border:0;padding:0;font:inherit;font-size:13.5px;font-weight:700;color:var(--color-primary);cursor:pointer}
 .rail .clear[hidden]{display:none}
 .ftoggle{display:none}
 
@@ -310,7 +310,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
         <p id="count" aria-live="polite"></p>
         <div style="display:flex;gap:12px;align-items:center">
           <button class="ftoggle" type="button" id="ftoggle" aria-controls="rail" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filters</button>
-          <label>Sort <select id="sort"><option value="stage">By program stage</option><option value="name">A to Z</option></select></label>
+          <label>Sort <select id="sort"><option value="stage">By program stage</option><option value="name">A to Z</option><option value="zname">Z to A</option></select></label>
         </div>
       </div>
       <div class="list" id="list"></div>
@@ -417,7 +417,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
     render();
   });
   $('clear').addEventListener('click', function(){ $('filters').reset(); state.status = []; state.checks = []; state.q = ''; $('q').value = ''; state.stage = 'all'; history.replaceState(null, '', location.pathname); render(); });
-  $('q').addEventListener('input', function(){ state.q = this.value.trim().toLowerCase(); render(); });
+  var qT; $('q').addEventListener('input', function(){ var v = this.value; clearTimeout(qT); qT = setTimeout(function(){ state.q = v.trim().toLowerCase(); render(); }, 150); });
   $('sort').addEventListener('change', function(){ state.sort = this.value; render(); });
   var mq = window.matchMedia('(max-width:1080px)'), railHome = $('rail').parentNode;
   function placeRail(){ if (mq.matches) document.querySelector('.res .bar').after($('rail')); else railHome.insertBefore($('rail'), railHome.firstChild); }
@@ -450,7 +450,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
         if (!state.q.split(/[^a-z0-9]+/).filter(Boolean).every(function(t){ t = t.length > 3 ? t.replace(/(es|s)$/, '') : t; return hay.indexOf(t) > -1; })) return false; }
       return true;
     });
-    rows.sort(state.sort === 'name' ? function(a, b){ return a.name.localeCompare(b.name); } : function(a, b){ return order[a.stages[0]] - order[b.stages[0]]; });
+    rows.sort(state.sort === 'name' ? function(a, b){ return a.name.localeCompare(b.name); } : state.sort === 'zname' ? function(a, b){ return b.name.localeCompare(a.name); } : function(a, b){ return order[a.stages[0]] - order[b.stages[0]]; });
     var L = $('list'); L.innerHTML = rows.map(card).join('');
     if (!rm) { L.style.transition = 'none'; L.style.opacity = 0; requestAnimationFrame(function(){ L.style.transition = 'opacity .18s'; L.style.opacity = 1; }); }
     $('reqStage').textContent = state.stage === 'all' ? 'Next in the catalog' : stageName[state.stage];

@@ -164,12 +164,12 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .flow .pp:hover{border-color:var(--color-primary);color:var(--color-primary)}
 .flow .body{display:grid;grid-template-columns:170px minmax(0,1fr) 160px;gap:16px;padding:20px;align-items:stretch}
 .flow .col h4{margin:0 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
-.queue{position:relative;height:234px;overflow:hidden}
-.qi{position:absolute;left:0;right:0;height:72px;border:1px solid var(--slate-150);border-radius:10px;background:var(--surface-page);padding:10px 12px;transition:transform .5s var(--ease-out),opacity .5s var(--ease-out)}
+.queue{position:relative;height:240px;overflow:hidden}
+.qi{position:absolute;left:0;right:0;height:76px;border:1px solid var(--slate-150);border-radius:10px;background:var(--surface-page);padding:10px 12px;transition:transform .5s var(--ease-out),opacity .5s var(--ease-out)}
 .qi b{display:block;font-size:12.5px;color:var(--text-strong)}
 .qi span{display:block;font-size:11px;color:var(--text-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .qi .ty{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--color-primary);margin-bottom:3px}
-.wk2{border-radius:12px;background:linear-gradient(170deg,#e8f4fa,#f3f8fa);border:1px solid var(--color-primary-border);padding:14px;height:234px;display:flex;flex-direction:column}
+.wk2{border-radius:12px;background:linear-gradient(170deg,#e8f4fa,#f3f8fa);border:1px solid var(--color-primary-border);padding:14px;height:240px;display:flex;flex-direction:column}
 .wk2 .who{display:flex;align-items:center;gap:10px}
 .wk2 .who .hx{width:36px;height:40px}.wk2 .who .hx svg{width:17px;height:17px}
 .wk2 .who b{display:block;font-size:13.5px;color:var(--text-strong)}
@@ -185,7 +185,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .wk2 li.miss i::after{content:"!"}
 .wk2 .why{margin-top:auto;font-size:12px;line-height:1.4;color:var(--text-body);min-height:34px}
 .wk2 .why b{color:var(--text-strong)}
-.outs{display:flex;flex-direction:column;gap:12px;height:234px}
+.outs{display:flex;flex-direction:column;gap:12px;height:240px}
 .tile{flex:1;border-radius:10px;padding:10px 12px;border:1px solid #cdd3d7;transition:transform .35s var(--ease-out),box-shadow .35s}
 .tile.c{background:var(--color-success-subtle)}
 .tile.e{background:var(--color-warning-subtle)}
@@ -271,7 +271,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .st .hx::before{background:var(--surface-sunken);transition:background .3s}
 .st h3{margin:0}
 .st p{margin:10px 0 0;font-size:14.5px;line-height:1.55}
-.st .ex{display:block;margin-top:14px;font-size:12px;font-weight:700;color:var(--text-muted);background:var(--surface-page);border:1px solid var(--slate-150);border-radius:8px;padding:7px 10px;}
+.st .ex{display:block;margin-top:14px;font-size:12px;font-weight:700;color:#455560;background:var(--surface-page);border:1px solid var(--slate-150);border-radius:8px;padding:7px 10px;}
 .st.on{border-color:var(--color-primary);box-shadow:0 0 0 1px var(--color-primary),var(--shadow-md)}
 .st.on .hx{color:#fff}.st.on .hx::before{background:var(--color-primary)}
 .st.on .ex,.st.done .ex{color:var(--color-primary);border-color:var(--color-primary-border);background:#fff}
@@ -284,7 +284,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .split path{fill:none;stroke:var(--color-primary-border);stroke-width:3}
 .split path.on{stroke:var(--color-primary)}
 .split em{position:absolute;left:50%;transform:translateX(-50%);font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);background:#f2f9fc;padding:2px 6px;white-space:nowrap}
-.split em.a{top:16%}.split em.b{bottom:16%}
+.split em.a{top:14%;left:38%}.split em.b{bottom:14%;left:38%}
 .outs2{display:flex;flex-direction:column;gap:20px}
 .how-ctl{display:flex;justify-content:flex-end;margin-top:20px}
 .how-ctl button{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:8px;border:1px solid var(--color-primary-border);background:#fff;font:inherit;font-size:14px;font-weight:700;color:var(--color-primary);cursor:pointer}
@@ -407,7 +407,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 @media (max-width:400px){ .p-hero h1{font-size:34px}
  .p-hero .sub{font-size:17px}
  .flow .body{grid-template-columns:minmax(0,1fr);padding:16px}
- .queue{height:156px}
+ .queue{height:158px}
  .p-hero h1{font-size:36px}
  .wk2,.outs{height:auto}
  .outs{flex-direction:row}
@@ -679,7 +679,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
     {k:'sb', id:'#SB-20932', s:'Med-Surg · Req 4480', ok:'cleared. Meets every requisition requirement.'}
   ];
   var q = $('queue'), ul = $('wChecks'), nC = $('nC'), nE = $('nE'), tC = $('tileC'), tE = $('tileE');
-  var c = 41, e = 3, nxt = 0, timers = [], heroTimer = null, paused = false, inView = false, cycles = 0, MAXC = ITEMS.length * 2, STEP = 81;
+  var c = 41, e = 3, nxt = 0, timers = [], heroTimer = null, paused = false, inView = false, cycles = 0, MAXC = ITEMS.length * 2, STEP = 82;
   var ICON = {tc:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', sb:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'};
   function take(){ var it = ITEMS[nxt % ITEMS.length]; nxt++; return it; }
   function card(it){ var d = document.createElement('div'); d.className = 'qi'; d.it = it; d.innerHTML = '<span class="ty">' + CHECKS[it.k].ty + '</span><b>' + it.id + '</b><span>' + it.s + '</span>'; return d; }
@@ -709,21 +709,22 @@ body{margin:0;background:#fff;color:var(--text-body)}
     }, 500 + 3 * 380 + 150);
     if (cycles >= MAXC) stopHero(true);
   }
-  function startHero(){ if (heroTimer || paused || rm) return; cycle(); heroTimer = setInterval(cycle, 3800); }
+  var userGo = false;
+  function startHero(){ if (heroTimer || paused || (rm && !userGo)) return; cycle(); heroTimer = setInterval(cycle, 3800); }
   function stopHero(final){ clearInterval(heroTimer); heroTimer = null; if (final) { paused = true; setPP($('flowPP'), true); } }
   // initial state: a finished frame
   var first0 = take(); for (var i = 0; i < 4; i++) q.appendChild(card(take())); layout();
   showWorker(first0, true); tC.classList.add('hit');
   window.addEventListener('resize', layout);
   if (rm) { paused = true; setPP($('flowPP'), true); }
-  $('flowPP').addEventListener('click', function(){ paused = !paused; setPP(this, paused); if (paused) stopHero(); else { cycles = 0; if (inView) startHero(); } });
+  $('flowPP').addEventListener('click', function(){ paused = !paused; setPP(this, paused); if (paused) stopHero(); else { cycles = 0; userGo = true; startHero(); } });
   var flow = $('flow');
   flow.addEventListener('mouseenter', function(){ stopHero(); }); flow.addEventListener('mouseleave', function(){ if (inView) startHero(); });
   flow.addEventListener('focusin', function(){ stopHero(); });
   if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ es.forEach(function(en){ inView = en.isIntersecting; inView ? later(startHero, 1200) : stopHero(); }); }, {threshold:.35}).observe(flow);
 
   // ---- Video: her animation, our controls + chapter tracking ----
-  var frame = $('vidFrame'), loaded = false, chs = document.querySelectorAll('#chapters li[data-t]'), clk = null, f = null;
+  var lastT = -1, vEnd = false, frame = $('vidFrame'), loaded = false, chs = document.querySelectorAll('#chapters li[data-t]'), clk = null, f = null;
   function vdoc(){ try { return f && f.contentDocument; } catch (x) { return null; } }
   function vbtn(label){ var d = vdoc(); return d && d.querySelector('button[aria-label^="' + label + '"],button[title^="' + label + '"]'); }
   function loadVid(){
@@ -741,11 +742,12 @@ body{margin:0;background:#fff;color:var(--text-body)}
       if (!el || !el.isConnected) { d = vdoc(); el = clk = d && [].find.call(d.querySelectorAll('div'), function(x){ return !x.children.length && /^\d+:\d\d\.\d\d$/.test(x.textContent.trim()); }); }
       if (!el) return;
       var m = el.textContent.trim().split(':'); t = +m[0] * 60 + parseFloat(m[1]);
+      var moving = t !== lastT; lastT = t; vEnd = t >= 57; var vb = $('vPlay'); if ((vb.getAttribute('aria-pressed') === 'true') === moving) setPP(vb, !moving);
       chs.forEach(function(li, i){ if (t >= parseFloat(li.getAttribute('data-t'))) on = i; });
       chs.forEach(function(li, i){ li.classList.toggle('on', i === on); });
     }, 400);
   }
-  $('vPlay').addEventListener('click', function(){ var b = vbtn('Play/pause'); if (b) { b.click(); setPP(this, this.getAttribute('aria-pressed') !== 'true'); } });
+  $('vPlay').addEventListener('click', function(){ if (vEnd) { var r0 = vbtn('Return to start'); if (r0) r0.click(); } var b = vbtn('Play/pause'); if (b) { b.click(); setPP(this, this.getAttribute('aria-pressed') !== 'true'); } });
   $('vRestart').addEventListener('click', function(){ var b = vbtn('Return to start'); if (b) b.click(); });
   if ('IntersectionObserver' in window) new IntersectionObserver(function(es, o){ if (es.some(function(x){ return x.isIntersecting; })) { loadVid(); o.disconnect(); } }, {threshold:.35}).observe(frame); else loadVid();
 
