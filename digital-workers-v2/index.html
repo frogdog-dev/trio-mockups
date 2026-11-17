@@ -164,12 +164,12 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .flow .pp:hover{border-color:var(--color-primary);color:var(--color-primary)}
 .flow .body{display:grid;grid-template-columns:150px minmax(0,1fr) 150px;gap:16px;padding:20px;align-items:stretch}
 .flow .col h4{margin:0 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
-.queue{position:relative;height:222px;overflow:hidden}
-.qi{position:absolute;left:0;right:0;height:66px;border:1px solid var(--slate-150);border-radius:10px;background:var(--surface-page);padding:10px 12px;transition:transform .5s var(--ease-out),opacity .5s var(--ease-out)}
+.queue{position:relative;height:234px;overflow:hidden}
+.qi{position:absolute;left:0;right:0;height:72px;border:1px solid var(--slate-150);border-radius:10px;background:var(--surface-page);padding:10px 12px;transition:transform .5s var(--ease-out),opacity .5s var(--ease-out)}
 .qi b{display:block;font-size:12.5px;color:var(--text-strong)}
 .qi span{display:block;font-size:11.5px;color:var(--text-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .qi .ty{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--color-primary);margin-bottom:3px}
-.wk2{border-radius:12px;background:linear-gradient(170deg,#e8f4fa,#f3f8fa);border:1px solid var(--color-primary-border);padding:14px;height:222px;display:flex;flex-direction:column}
+.wk2{border-radius:12px;background:linear-gradient(170deg,#e8f4fa,#f3f8fa);border:1px solid var(--color-primary-border);padding:14px;height:234px;display:flex;flex-direction:column}
 .wk2 .who{display:flex;align-items:center;gap:10px}
 .wk2 .who .hx{width:36px;height:40px}.wk2 .who .hx svg{width:17px;height:17px}
 .wk2 .who b{display:block;font-size:13.5px;color:var(--text-strong)}
@@ -185,7 +185,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .wk2 li.miss i::after{content:"!"}
 .wk2 .why{margin-top:auto;font-size:12px;line-height:1.4;color:var(--text-body);min-height:34px}
 .wk2 .why b{color:var(--text-strong)}
-.outs{display:flex;flex-direction:column;gap:12px;height:222px}
+.outs{display:flex;flex-direction:column;gap:12px;height:234px}
 .tile{flex:1;border-radius:10px;padding:12px;border:1px solid #cdd3d7;transition:transform .35s var(--ease-out),box-shadow .35s}
 .tile.c{background:var(--color-success-subtle)}
 .tile.e{background:var(--color-warning-subtle)}
@@ -676,7 +676,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
   var c = 41, e = 3, k = 0, timers = [], heroTimer = null, paused = false, inView = false, cycles = 0, MAXC = ITEMS.length * 2;
   var H = function(){ return q.clientHeight > 180 ? 76 : 0; };
   function card(it){ var d = document.createElement('div'); d.className = 'qi'; d.innerHTML = '<span class="ty">' + CHECKS[it.k].ty + '</span><b>' + it.id + '</b><span>' + it.s + '</span>'; return d; }
-  function layout(){ var step = q.clientHeight > 180 ? 76 : 0; [].forEach.call(q.children, function(el, i){ el.style.transform = 'translateY(' + (step ? i * step : 0) + 'px)'; el.style.opacity = step ? (i < 3 ? 1 : 0) : (i === 0 ? 1 : 0); }); }
+  function layout(){ var step = q.clientHeight > 180 ? 81 : 0; [].forEach.call(q.children, function(el, i){ el.style.transform = 'translateY(' + (step ? i * step : 0) + 'px)'; el.style.opacity = step ? (i < 3 ? 1 : 0) : (i === 0 ? 1 : 0); }); }
   function showWorker(it, done){
     var C = CHECKS[it.k];
     $('wName').textContent = C.w; $('wItem').textContent = it.id + ' · ' + C.ty.toLowerCase();
