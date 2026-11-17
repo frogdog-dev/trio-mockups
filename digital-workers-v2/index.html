@@ -162,12 +162,12 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .flow .pp{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 14px;border-radius:8px;border:1px solid var(--slate-200);background:#fff;font:inherit;font-size:13px;font-weight:700;color:var(--text-strong);cursor:pointer}
 .flow .pp svg{width:14px;height:14px}
 .flow .pp:hover{border-color:var(--color-primary);color:var(--color-primary)}
-.flow .body{display:grid;grid-template-columns:150px minmax(0,1fr) 150px;gap:16px;padding:20px;align-items:stretch}
+.flow .body{display:grid;grid-template-columns:170px minmax(0,1fr) 160px;gap:16px;padding:20px;align-items:stretch}
 .flow .col h4{margin:0 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
 .queue{position:relative;height:234px;overflow:hidden}
 .qi{position:absolute;left:0;right:0;height:72px;border:1px solid var(--slate-150);border-radius:10px;background:var(--surface-page);padding:10px 12px;transition:transform .5s var(--ease-out),opacity .5s var(--ease-out)}
 .qi b{display:block;font-size:12.5px;color:var(--text-strong)}
-.qi span{display:block;font-size:11.5px;color:var(--text-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qi span{display:block;font-size:11px;color:var(--text-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .qi .ty{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--color-primary);margin-bottom:3px}
 .wk2{border-radius:12px;background:linear-gradient(170deg,#e8f4fa,#f3f8fa);border:1px solid var(--color-primary-border);padding:14px;height:234px;display:flex;flex-direction:column}
 .wk2 .who{display:flex;align-items:center;gap:10px}
@@ -186,12 +186,12 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .wk2 .why{margin-top:auto;font-size:12px;line-height:1.4;color:var(--text-body);min-height:34px}
 .wk2 .why b{color:var(--text-strong)}
 .outs{display:flex;flex-direction:column;gap:12px;height:234px}
-.tile{flex:1;border-radius:10px;padding:12px;border:1px solid #cdd3d7;transition:transform .35s var(--ease-out),box-shadow .35s}
+.tile{flex:1;border-radius:10px;padding:10px 12px;border:1px solid #cdd3d7;transition:transform .35s var(--ease-out),box-shadow .35s}
 .tile.c{background:var(--color-success-subtle)}
 .tile.e{background:var(--color-warning-subtle)}
 .tile .h{display:flex;align-items:baseline;justify-content:space-between;gap:6px;font-size:12.5px;font-weight:800;color:var(--text-strong)}
 .tile .n{font-size:24px;font-variant-numeric:tabular-nums;color:var(--text-strong)}
-.tile p{margin:4px 0 0;font-size:11px;line-height:1.4;color:var(--text-body)}
+.tile p{margin:4px 0 0;font-size:10.5px;line-height:1.35;color:var(--text-body)}
 .tile.hit{transform:scale(1.04);box-shadow:0 8px 20px rgba(35,45,53,.14)}
 .flow .rec{display:flex;gap:10px;align-items:flex-start;padding:12px 20px;background:var(--surface-page);border-top:1px solid var(--slate-150);font-size:12px;line-height:1.45;min-height:58px}
 .flow .rec svg{width:16px;height:16px;flex:none;color:var(--text-muted);margin-top:1px}
@@ -215,7 +215,8 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .p-vid .frame{position:relative;aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:#1b232a;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 80px rgba(0,0,0,.45)}
 .p-vid .frame iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0;display:block}
 .p-vid .frame .poster{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-weight:700;font-size:15px}
-.p-vid .ctl2{display:flex;gap:10px;margin-top:14px}
+.p-vid .ctl2{display:none;gap:10px;margin-top:14px}
+@media(max-width:760px){.p-vid .ctl2{display:flex}}
 .p-vid .ctl2 button{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:8px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
 .p-vid .ctl2 button:hover{background:rgba(255,255,255,.1)}
 .p-vid .ctl2 svg{width:15px;height:15px}
@@ -238,7 +239,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .card .hd .t small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
 .card .hd .t b{display:block;font-size:15.5px;font-weight:800;color:var(--text-strong);margin-top:2px}
 .card .hd .pill{margin-left:auto}
-.card .row{position:relative;display:grid;grid-template-columns:86px minmax(0,1fr);gap:14px;padding:14px 20px;border-bottom:1px solid var(--slate-75)}
+.card .row{position:relative;display:grid;grid-template-columns:86px minmax(0,1fr);gap:14px;padding:14px 56px 14px 20px;border-bottom:1px solid var(--slate-75)}
 .card .row .k{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--color-primary);padding-top:3px}
 .card .row .v b{display:block;font-size:14px;color:var(--text-strong)}
 .card .row .v small{display:block;font-size:12.5px;color:var(--text-muted);margin-top:3px}
@@ -248,10 +249,13 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .card .dec span{border-radius:10px;padding:10px 12px;border:1px solid #cdd3d7;font-size:11.5px;line-height:1.45}
 .card .dec span b{display:block;font-size:13px;color:var(--text-strong)}
 .card .dec .c{background:var(--color-success-subtle)}.card .dec .e{background:var(--color-warning-subtle)}
-.card .rec{display:flex;gap:10px;padding:12px 20px;background:var(--surface-page);border-radius:0 0 18px 18px;font-size:12px;line-height:1.45}
+.card .rec{display:flex;gap:10px;padding:12px 56px 12px 20px;background:var(--surface-page);border-radius:0 0 18px 18px;font-size:12px;line-height:1.45}
 .card .rec svg{width:16px;height:16px;flex:none;color:var(--text-muted);margin-top:1px}
 .card .rec b{color:var(--text-strong)}
-.mk{position:absolute;right:-15px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:var(--color-primary);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center;box-shadow:0 0 0 4px #fff}
+.mk{position:absolute;right:14px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--color-primary);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center;box-shadow:0 0 0 3px #fff}
+.src2{position:relative;display:flex;align-items:center;gap:12px;margin:0 0 12px}
+.src2 .lb{display:inline-flex;align-items:center;height:32px;font-size:12px;font-weight:700;color:var(--text-muted);background:#fff;border:1px solid var(--slate-150);border-radius:999px;padding:0 14px}
+.src2 .mk{position:static;box-shadow:none}
 .notes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:28px}
 .notes li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:16px;align-items:start}
 .notes .n{width:30px;height:30px;border-radius:50%;background:var(--color-primary);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center}
@@ -399,9 +403,12 @@ body{margin:0;background:#fff;color:var(--text-body)}
  .dw section{padding:56px 0}
  .dw h2{font-size:30px}
  .p-hero h1{font-size:40px;margin-bottom:20px}
+}
+@media (max-width:400px){ .p-hero h1{font-size:34px}
  .p-hero .sub{font-size:17px}
  .flow .body{grid-template-columns:minmax(0,1fr);padding:16px}
- .queue{height:150px}
+ .queue{height:156px}
+ .p-hero h1{font-size:36px}
  .wk2,.outs{height:auto}
  .outs{flex-direction:row}
  .bnd .cols{grid-template-columns:1fr 1fr}
@@ -417,7 +424,6 @@ body{margin:0;background:#fff;color:var(--text-body)}
  .dw .band .box{padding:48px 22px}
  .dw .band h2{font-size:28px}
  .card .row{grid-template-columns:minmax(0,1fr);gap:6px}
- .mk{right:-12px}
 }
 </style>
 </head>
@@ -451,7 +457,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
       <div class="body" aria-hidden="true">
         <div class="col"><h4>Incoming</h4><div class="queue" id="queue"></div></div>
         <div class="col"><h4>Digital worker</h4><div class="wk2"><div class="who"><span class="hx"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span><span><b id="wName">Timecard Auditor</b><small id="wItem">#TC-88214</small></span></div><ul id="wChecks"></ul><p class="why" id="wWhy"></p></div></div>
-        <div class="col"><h4>Decision</h4><div class="outs"><div class="tile c" id="tileC"><span class="h">Cleared <span class="n" id="nC">41</span></span><p>Moves forward automatically.</p></div><div class="tile e" id="tileE"><span class="h">Escalated <span class="n" id="nE">3</span></span><p>Routed to a named reviewer.</p></div></div></div>
+        <div class="col"><h4>Decision</h4><div class="outs"><div class="tile c" id="tileC"><span class="h">Cleared <span class="n" id="nC">41</span></span><p>Meets every policy. Moves forward automatically.</p></div><div class="tile e" id="tileE"><span class="h">Escalated <span class="n" id="nE">3</span></span><p>Needs judgment. Routed to a named reviewer with the rule attached.</p></div></div></div>
       </div>
       <div class="rec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="m9 15 2 2 4-4"/></svg><span id="flowRec"><b>Decision record</b> <span class="id">#TC-88214</span>: cleared. Pay rules applied per confirmation letter.</span></div>
       <p class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Illustration: timecards and candidate submissions arrive in Trio VMS. A digital worker checks each against your policies, clears the routine ones and escalates the rest to a named reviewer, with a decision record for every item.</p>
@@ -502,14 +508,14 @@ body{margin:0;background:#fff;color:var(--text-body)}
       <p class="lede">A digital worker doesn't answer questions. It completes a task: scoped to one responsibility, configured to your program and accountable for every outcome. Every worker in the catalog is built the same way, so each one you add is as predictable as the last.</p>
     </div>
     <div class="anat">
+      <div><div class="src2"><span class="lb">Work arrives in Trio VMS</span><span class="mk" aria-hidden="true">4</span></div>
       <div class="card" aria-label="Anatomy of a digital worker">
         <div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span><span class="t"><small>Anatomy of a digital worker</small><b>Every worker. Same build.</b></span><span class="pill prod">Governed</span></div>
         <div class="row"><span class="k">Job</span><span class="v"><b>One defined task, every time</b><small>e.g. audit a timecard, screen a submission, verify a credential</small></span><span class="mk" aria-hidden="true">1</span></div>
         <div class="row"><span class="k">Policies</span><span class="v"><b>Your program's rules, set by your team</b><span class="pols"><span class="pol">Confirmation letter terms</span><span class="pol">Pay rules</span><span class="pol">Credential requirements</span></span></span><span class="mk" aria-hidden="true">2</span></div>
         <div class="row" style="border-bottom:0"><span class="k">Decision</span><span class="v"><span class="dec"><span class="c"><b>Cleared</b>Meets every policy. Moves forward automatically.</span><span class="e"><b>Escalated</b>Needs judgment. Routed to a named reviewer with the rule attached.</span></span></span></div>
-        <div class="rec" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="m9 15 2 2 4-4"/></svg><span><b>Decision record</b>: the policy applied, the reasoning, the timestamp. Kept for every item.</span><span class="mk" aria-hidden="true">3</span></div>
-        <span class="mk" aria-hidden="true" style="top:auto;bottom:-15px;right:50%;transform:translateX(50%)">4</span>
-      </div>
+        <div class="rec" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="m9 15 2 2 4-4"/></svg><span><b>Decision record</b>: the policy applied, the reasoning, the timestamp. Kept for every item.</span><span class="mk" aria-hidden="true" style="top:10px">3</span></div>
+      </div></div>
       <ol class="notes">
         <li><span class="n" aria-hidden="true">1</span><div><h3>One defined job</h3><p>Each worker owns a single task, like auditing timecards or screening submissions, and does it the same way every time. No drift between reviewers.</p></div></li>
         <li><span class="n" aria-hidden="true">2</span><div><h3>Your policies, applied</h3><p>Configured to your confirmation letters, pay rules and credential requirements. Not generic defaults.</p></div></li>
@@ -526,13 +532,13 @@ body{margin:0;background:#fff;color:var(--text-body)}
     <p class="eyebrow">How every digital worker works</p>
     <h2>Four steps. Every job.</h2>
     <div class="fork" id="fork">
-      <button class="st" type="button" data-i="0"><span class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg></span><h3>Intake</h3></span><p>Picks up new work the moment it lands in Trio VMS. No queue, no handoff.</p><span class="ex">Timecard #TC-88214 received</span></button>
+      <div class="st" data-i="0"><div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg></span><h3>Intake</h3></div><p>Picks up new work the moment it lands in Trio VMS. No queue, no handoff.</p><span class="ex">Timecard #TC-88214 received</span></div>
       <div class="lnk" aria-hidden="true"><i></i></div>
-      <button class="st" type="button" data-i="1"><span class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11l2 2 4-4"/></svg></span><h3>Evaluate</h3></span><p>Checks every item against your program's policies. Nothing is sampled or skimmed.</p><span class="ex">3 of 3 policies checked</span></button>
+      <div class="st" data-i="1"><div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11l2 2 4-4"/></svg></span><h3>Evaluate</h3></div><p>Checks every item against your program's policies. Nothing is sampled or skimmed.</p><span class="ex">3 of 3 policies checked</span></div>
       <div class="split" aria-hidden="true"><svg viewBox="0 0 92 300" preserveAspectRatio="none"><path id="pA" d="M0 150 C46 150 46 70 92 70"/><path id="pE" d="M0 150 C46 150 46 230 92 230"/></svg><em class="a">Passes</em><em class="b">Needs judgment</em></div>
       <div class="outs2">
-        <button class="st" type="button" data-i="2"><span class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><h3>Act</h3></span><p>Moves clean work forward right away, so pay and starts aren't held up behind review.</p><span class="ex">#TC-88214 cleared and sent to payroll</span></button>
-        <button class="st" type="button" data-i="3"><span class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><h3>Escalate</h3></span><p>Routes anything that needs judgment to a named reviewer, with the rule that triggered it.</p><span class="ex">#TC-88216 bill rate variance to T. Okafor</span></button>
+        <div class="st" data-i="2"><div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><h3>Act</h3></div><p>Moves clean work forward right away, so pay and starts aren't held up behind review.</p><span class="ex">#TC-88214 cleared and sent to payroll</span></div>
+        <div class="st" data-i="3"><div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><h3>Escalate</h3></div><p>Routes anything that needs judgment to a named reviewer, with the rule that triggered it.</p><span class="ex">#TC-88216 bill rate variance to T. Okafor</span></div>
       </div>
     </div>
     <div class="how-ctl"><button type="button" id="howReplay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Replay the steps</button></div>
@@ -594,9 +600,9 @@ body{margin:0;background:#fff;color:var(--text-body)}
         <h2>Built on Trio's Applied AI principles</h2>
         <p class="lede gov-l" style="color:#fff">Every digital worker, today's and the next, answers to the same three principles.</p>
         <div class="pr">
-          <div><span class="hx w" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span><h3>Governance</h3><p>Every decision is logged with its reasoning and policy. Fully auditable, always traceable.</p></span></div>
-          <div><span class="hx w" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span><h3>Human oversight</h3><p>Clean work moves forward. Anything that needs judgment goes to your team with the reasoning attached.</p></span></div>
-          <div><span class="hx w" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></span><span><h3>Healthcare expertise</h3><p>Credentialing, privileging, differentials, float pools: encoded the way clinical staffing actually works.</p></span></div>
+          <div><span class="hx w" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h3>Governance</h3><p>Every decision is logged with its reasoning and policy. Fully auditable, always traceable.</p></div></div>
+          <div><span class="hx w" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><h3>Human oversight</h3><p>Clean work moves forward. Anything that needs judgment goes to your team with the reasoning attached.</p></div></div>
+          <div><span class="hx w" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></span><div><h3>Healthcare expertise</h3><p>Credentialing, privileging, differentials, float pools: encoded the way clinical staffing actually works.</p></div></div>
         </div>
         <a class="tlink" href="https://www.triowfs.com/platform/ai-approach">Learn about our Applied AI approach <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       </div>
@@ -670,16 +676,19 @@ body{margin:0;background:#fff;color:var(--text-body)}
     {k:'sb', id:'#SB-20933', s:'ICU RN · Req 4471', miss:1, why:'ACLS certification not on file', to:'the hiring manager'},
     {k:'tc', id:'#TC-88215', s:'M. Chen · 41.0 hrs', ok:'cleared. Overtime applied per confirmation letter.'},
     {k:'tc', id:'#TC-88216', s:'T. Banks · 38.5 hrs', miss:1, why:'Bill rate above confirmation letter', to:'T. Okafor'},
-    {k:'sb', id:'#SB-20932', s:'Med-Surg RN · Req 4480', ok:'cleared. Meets every requisition requirement.'}
+    {k:'sb', id:'#SB-20932', s:'Med-Surg · Req 4480', ok:'cleared. Meets every requisition requirement.'}
   ];
   var q = $('queue'), ul = $('wChecks'), nC = $('nC'), nE = $('nE'), tC = $('tileC'), tE = $('tileE');
-  var c = 41, e = 3, k = 0, timers = [], heroTimer = null, paused = false, inView = false, cycles = 0, MAXC = ITEMS.length * 2;
-  var H = function(){ return q.clientHeight > 180 ? 76 : 0; };
-  function card(it){ var d = document.createElement('div'); d.className = 'qi'; d.innerHTML = '<span class="ty">' + CHECKS[it.k].ty + '</span><b>' + it.id + '</b><span>' + it.s + '</span>'; return d; }
-  function layout(){ var step = q.clientHeight > 180 ? 81 : 0; [].forEach.call(q.children, function(el, i){ el.style.transform = 'translateY(' + (step ? i * step : 0) + 'px)'; el.style.opacity = step ? (i < 3 ? 1 : 0) : (i === 0 ? 1 : 0); }); }
+  var c = 41, e = 3, nxt = 0, timers = [], heroTimer = null, paused = false, inView = false, cycles = 0, MAXC = ITEMS.length * 2, STEP = 81;
+  var ICON = {tc:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', sb:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'};
+  function take(){ var it = ITEMS[nxt % ITEMS.length]; nxt++; return it; }
+  function card(it){ var d = document.createElement('div'); d.className = 'qi'; d.it = it; d.innerHTML = '<span class="ty">' + CHECKS[it.k].ty + '</span><b>' + it.id + '</b><span>' + it.s + '</span>'; return d; }
+  function vis(){ return Math.max(1, Math.floor((q.clientHeight + 6) / STEP)); }
+  function layout(){ var n = vis(); [].forEach.call(q.children, function(el, i){ el.style.transform = 'translateY(' + i * STEP + 'px)'; el.style.opacity = i < n ? 1 : 0; }); }
   function showWorker(it, done){
     var C = CHECKS[it.k];
-    $('wName').textContent = C.w; $('wItem').textContent = it.id + ' · ' + C.ty.toLowerCase();
+    document.querySelector('.wk2 .who .hx svg').innerHTML = ICON[it.k];
+    $('wName').textContent = C.w; $('wItem').textContent = it.id + ' \u00b7 ' + C.ty.toLowerCase();
     ul.innerHTML = C.c.map(function(x){ return '<li><i></i>' + x + '</li>'; }).join('');
     $('wWhy').innerHTML = '';
     if (done) { [].forEach.call(ul.children, function(li, i){ li.className = it.miss === i ? 'miss' : 'ok'; }); why(it); }
@@ -687,9 +696,9 @@ body{margin:0;background:#fff;color:var(--text-body)}
   function why(it){ $('wWhy').innerHTML = it.miss != null ? '<b>Escalated to ' + it.to + ':</b> ' + it.why + '.' : '<b>Cleared.</b> All three checks pass.'; }
   function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
   function cycle(){
-    var it = ITEMS[k % ITEMS.length]; k++; cycles++;
-    var first = q.firstElementChild;
-    if (first) { first.style.transform = 'translateX(60px)'; first.style.opacity = 0; later(function(){ first.remove(); q.appendChild(card(ITEMS[(k + 2) % ITEMS.length])); layout(); }, 450); }
+    var first = q.firstElementChild, it = first.it; cycles++;
+    first.style.transform = 'translateX(60px)'; first.style.opacity = 0;
+    later(function(){ first.remove(); q.appendChild(card(take())); layout(); }, 450);
     tC.classList.remove('hit'); tE.classList.remove('hit');
     showWorker(it);
     [].forEach.call(ul.children, function(li, i){ later(function(){ li.className = it.miss === i ? 'miss' : 'ok'; }, 500 + i * 380); });
@@ -703,8 +712,8 @@ body{margin:0;background:#fff;color:var(--text-body)}
   function startHero(){ if (heroTimer || paused || rm) return; cycle(); heroTimer = setInterval(cycle, 3800); }
   function stopHero(final){ clearInterval(heroTimer); heroTimer = null; if (final) { paused = true; setPP($('flowPP'), true); } }
   // initial state: a finished frame
-  for (var i = 0; i < 4; i++) q.appendChild(card(ITEMS[(i + 1) % ITEMS.length])); layout();
-  showWorker(ITEMS[0], true); tC.classList.add('hit'); k = 1;
+  var first0 = take(); for (var i = 0; i < 4; i++) q.appendChild(card(take())); layout();
+  showWorker(first0, true); tC.classList.add('hit');
   window.addEventListener('resize', layout);
   if (rm) { paused = true; setPP($('flowPP'), true); }
   $('flowPP').addEventListener('click', function(){ paused = !paused; setPP(this, paused); if (paused) stopHero(); else { cycles = 0; if (inView) startHero(); } });
@@ -743,7 +752,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
   // ---- How it works: one pass through the fork, then stop ----
   var sts = document.querySelectorAll('#fork .st'), lnk = document.querySelector('#fork .lnk'), pA = $('pA'), pE = $('pE'), forkT = [], picked = false;
   function setStep(i){
-    sts.forEach(function(s, j){ var on = j === i; s.classList.toggle('on', on); s.classList.toggle('done', j < i && !(i === 3 && j === 2)); s.setAttribute('aria-pressed', on); });
+    sts.forEach(function(s, j){ var on = j === i; s.classList.toggle('on', on); s.classList.toggle('done', j < i && !(i === 3 && j === 2)); s.toggleAttribute('aria-current', on); });
     if (lnk) lnk.classList.toggle('on', i >= 1);
     pA.classList.toggle('on', i === 2); pE.classList.toggle('on', i === 3);
   }
