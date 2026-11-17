@@ -86,6 +86,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .dw .btn{display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 22px;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-size:15.5px;font-weight:700;border:0;cursor:pointer;font-family:inherit;transition:background var(--dur-base) var(--ease-standard),transform var(--dur-base) var(--ease-standard)}
 .dw .btn:hover{background:var(--color-primary-hover);color:#fff;transform:translateY(-1px)}
 .dw .btn svg{width:17px;height:17px}
+.dw .band .btn.white{border-radius:999px;height:54px;padding:0 30px}
 .dw .btn.white{background:#fff;color:#006a9b;box-shadow:0 10px 26px rgba(0,60,100,.18)}
 .dw .btn.white:hover{background:#f2f9fc;color:#00567e}
 .dw .tlink{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:15px}
@@ -115,6 +116,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 /* CTA band (WIY callout pattern) */
 .dw .band{padding:72px 0}
 .dw .band .box{position:relative;overflow:hidden;border-radius:24px;padding:64px 48px;text-align:center;color:#fff;background:linear-gradient(115deg,#0077AF 0%,#1C7EA8 38%,#44842B 78%,#4C8424 100%);box-shadow:0 24px 60px rgba(0,80,120,.18)}
+.dw .band .box::after{content:"";position:absolute;right:-40px;top:0;width:300px;height:100%;background:rgba(255,255,255,.12);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);pointer-events:none}
 .dw .band .eyebrow{color:#fff;position:relative}
 .dw .band h2{color:#fff;font-size:42px;margin:14px auto 0;max-width:760px;position:relative}
 .dw .band p{color:#fff;font-size:18px;line-height:1.6;max-width:600px;margin:16px auto 30px;position:relative}
@@ -275,7 +277,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
       <div>
         <p class="eyebrow">The Catalog</p>
         <h1><span class="ln">Every Digital Worker,</span> <span class="ln">by the Job It Does.</span></h1>
-        <p class="sub">Each worker owns one task in your program. Filter by where it works and what it checks, then see it run.</p>
+        <p class="sub">Each worker has one job in your program, runs to your policies inside Trio VMS, and hands exceptions to a named person. Filter by where the work sits in the lifecycle.</p>
       </div>
       <div class="tally" aria-label="Catalog at a glance">
         <div><b id="tLive">2</b><span>In production</span></div>
@@ -311,8 +313,8 @@ body{margin:0;background:#fff;color:var(--text-body)}
         </div>
       </div>
       <div class="list" id="list"></div>
-      <div class="empty" id="empty" hidden><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><h3>No Worker Here Yet</h3><p>Nothing in the catalog matches that. Tell us the task and we'll look at building a worker for it.</p><button class="btn" type="button" data-req>Request a Digital Worker</button></div>
-      <div class="req" style="margin-top:18px"><span class="hx g" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span><div><h3>Don't See the Job You Need?</h3><p>Tell us which manual task is slowing your program down. We'll tell you whether a worker for it is on the roadmap.</p></div><button class="btn" type="button" data-req>Request a Digital Worker</button></div>
+      <div class="empty" id="empty" hidden><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><h3>No Worker Here Yet</h3><p>Nothing in the catalog matches that yet. Tell us what you'd staff next.</p><button class="btn" type="button" data-req>Request a Worker</button></div>
+      <div class="req" style="margin-top:18px"><span class="hx g" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span><div><h3>Request a Digital Worker</h3><p>Every worker here started as a routine task a program team asked us to take. Tell us what you'd staff next.</p></div><button class="btn" type="button" data-req>Request a Worker</button></div>
     </div>
   </div>
 </section>
@@ -320,9 +322,9 @@ body{margin:0;background:#fff;color:var(--text-body)}
 <section class="band" style="background:#fff">
   <div class="wrap"><div class="box rv">
     <p class="eyebrow">See It Run</p>
-    <h2>See a Worker Run Against Your Own Data</h2>
-    <p>Bring a week of timecards or submissions. We'll show you what a worker clears, what it escalates and why.</p>
-    <a class="btn white" href="https://www.triowfs.com/request-a-demo">Talk to an Expert <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    <h2>See a Worker Run Against Your Own Data.</h2>
+    <p>Bring a week of real items. We'll show you what clears, what escalates, and why.</p>
+    <a class="btn white" href="https://www.triowfs.com/request-a-demo">Request a Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
   </div></div>
 </section>
 
@@ -332,18 +334,18 @@ body{margin:0;background:#fff;color:var(--text-body)}
   <div class="dlg">
     <button class="x" type="button" id="mClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     <form id="mForm">
-      <p class="eyebrow" style="margin:0;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary)">Request a Digital Worker</p>
-      <h3 id="mTitle">What Should a Worker Take Off Your Plate?</h3>
+      <p class="eyebrow" style="margin:0;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary)">Request a Worker</p>
+      <h3 id="mTitle">What Routine Work Should We Take Next?</h3>
       <label>Where it happens<select id="mStage" required></select></label>
       <label>Describe the task<textarea id="mTask" rows="4" required placeholder="e.g. We check every float-pool shift against unit assignment rules before payroll."></textarea></label>
       <label>Work email<input id="mEmail" type="email" required placeholder="you@yourhealthsystem.org" autocomplete="email"></label>
-      <button class="btn" type="submit" style="width:100%;justify-content:center">Send Request</button>
+      <button class="btn" type="submit" style="width:100%;justify-content:center">Send Suggestion</button>
     </form>
     <div class="sent" aria-live="polite">
       <span class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
       <h3 style="margin-top:14px">Thanks, It's Logged.</h3>
-      <p>Our team reviews every request. We'll reach out if a worker for that task is on the roadmap, or if we need a few more details.</p>
-      <button class="btn" type="button" id="mDone">Back to the Catalog</button>
+      <p>Your suggestion goes straight to the team planning the next workers.</p>
+      <button class="btn" type="button" id="mDone">Done</button>
     </div>
   </div>
 </div>

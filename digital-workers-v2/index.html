@@ -86,6 +86,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 .dw .btn{display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 22px;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-size:15.5px;font-weight:700;border:0;cursor:pointer;font-family:inherit;transition:background var(--dur-base) var(--ease-standard),transform var(--dur-base) var(--ease-standard)}
 .dw .btn:hover{background:var(--color-primary-hover);color:#fff;transform:translateY(-1px)}
 .dw .btn svg{width:17px;height:17px}
+.dw .band .btn.white{border-radius:999px;height:54px;padding:0 30px}
 .dw .btn.white{background:#fff;color:#006a9b;box-shadow:0 10px 26px rgba(0,60,100,.18)}
 .dw .btn.white:hover{background:#f2f9fc;color:#00567e}
 .dw .tlink{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:15px}
@@ -115,6 +116,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 /* CTA band (WIY callout pattern) */
 .dw .band{padding:72px 0}
 .dw .band .box{position:relative;overflow:hidden;border-radius:24px;padding:64px 48px;text-align:center;color:#fff;background:linear-gradient(115deg,#0077AF 0%,#1C7EA8 38%,#44842B 78%,#4C8424 100%);box-shadow:0 24px 60px rgba(0,80,120,.18)}
+.dw .band .box::after{content:"";position:absolute;right:-40px;top:0;width:300px;height:100%;background:rgba(255,255,255,.12);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);pointer-events:none}
 .dw .band .eyebrow{color:#fff;position:relative}
 .dw .band h2{color:#fff;font-size:42px;margin:14px auto 0;max-width:760px;position:relative}
 .dw .band p{color:#fff;font-size:18px;line-height:1.6;max-width:600px;margin:16px auto 30px;position:relative}
@@ -290,10 +292,10 @@ body{margin:0;background:#fff;color:var(--text-body)}
 /* Boundaries (dark) */
 .p-bound{background:var(--slate-950);color:#fff;position:relative;overflow:hidden}
 .p-bound .hexbg{position:absolute;left:-120px;bottom:-140px;width:520px;opacity:.5;pointer-events:none}
-.p-bound .head{text-align:center;position:relative}
+.p-bound .head{position:relative}
 .p-bound .eyebrow{color:#fff}
-.p-bound h2{color:#fff;max-width:640px;margin-left:auto;margin-right:auto}
-.bnd{position:relative;max-width:1000px;margin:48px auto 0}
+.p-bound h2{color:#fff;max-width:760px}
+.bnd{position:relative;max-width:1000px;margin:48px 0 0}
 .bnd .cols{display:grid;grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);align-items:center;margin-bottom:10px}
 .bnd .cols .a{text-align:right;font-size:30px;font-weight:800;color:#A6CE42;display:flex;justify-content:flex-end;align-items:center;gap:10px}
 .bnd .cols .n{font-size:30px;font-weight:800;color:#F58220;display:flex;align-items:center;gap:10px}
