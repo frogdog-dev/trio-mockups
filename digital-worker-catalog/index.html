@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Worker Catalog | Trio Workforce Solutions</title>
+<meta name="description" content="Every Trio digital worker, by the job it does. Filter by where it works in your program and what it checks, or request a worker for a task you need covered.">
+<meta name="robots" content="noindex,nofollow">
+<!-- Digital Worker Catalog: Frogdog design pass on Courtney's 11/17/2026 mockup (_source/dw-parent-1117/Digital Worker Catalog.dc.html). Worker data and copy are hers. -->
+<link rel="stylesheet" href="ds/styles.css">
+<style>
+
+/* Frogdog review chrome + PREVIEW-ONLY global header/footer (HubSpot's global header and footer replace these) */
+.reviewnav,.concept-note{font-family:Inter,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
+.concept-note{background:#152d38;color:#bcd6e2;font-size:12.5px;text-align:center;padding:8px 16px;letter-spacing:.02em}
+.reviewnav{background:#0c2230;color:#9fc2d2;display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;padding:8px 16px;font-size:12.5px}
+.reviewnav .lbl{font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6f97a8;margin-right:4px;font-size:11px}
+.reviewnav a{color:#cfe4ee;font-weight:700;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:4px 13px;text-decoration:none}
+.reviewnav a:hover{border-color:#009fc7;color:#fff;background:rgba(0,159,199,.18)}
+.reviewnav a.on{background:#009fc7;border-color:#009fc7;color:#fff}
+.sx-gh{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eceef0;font-family:var(--font-sans)}
+.sx-gh .in{max-width:1240px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:32px}
+.sx-gh .logo img{height:41px;width:auto;display:block}
+.sx-gh nav{flex:1;display:flex;justify-content:center;gap:24px;padding-right:21px}
+.sx-gh nav a{font-size:15px;font-weight:600;color:#3b4954;text-decoration:none;padding:4px 0 1px;border-bottom:2px solid transparent}
+.sx-gh nav a.on{color:var(--color-primary);border-bottom-color:var(--color-primary)}
+.sx-gh nav a:hover{color:var(--color-primary)}
+.sx-gh .right{display:flex;align-items:center;gap:28px}
+.sx-gh .lg{font-size:14px;font-weight:600;color:var(--color-primary);text-decoration:none}
+.sx-gh .cta{display:inline-flex;align-items:center;height:36px;padding:0 15px;border-radius:6px;background:var(--color-primary);color:#fff;font-size:14px;font-weight:700;text-decoration:none}
+.sx-gh .cta:hover{background:var(--color-primary-hover);text-decoration:none}
+.sx-gf{background:#232d35;color:#fff;font-family:var(--font-sans)}
+.sx-gf .in{max-width:1240px;margin:0 auto;padding:0 24px}
+.sx-gf .top{display:flex;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;padding:51px 0 51px}
+.sx-gf img{height:40px;width:auto;display:block;margin-bottom:14px}
+.sx-gf .addr{font-size:14px;color:#cdd3d7}
+.sx-gf nav{display:flex;flex-wrap:wrap;gap:24px}
+.sx-gf nav a{color:#fff;font-size:14px;font-weight:600;text-decoration:none}
+.sx-gf nav a:hover{text-decoration:underline}
+.sx-gf .bot{border-top:1px solid #38444e;margin:0 -24px;padding:14px 24px 33px;font-size:13px;color:#a7b1b8}
+.sx-gf .bot a{color:#a7b1b8}
+@media(max-width:600px){.sx-gf .addr>span:not(.sep),.sx-gf .bot>span:not(.sep){display:block}.sx-gf .sep{display:none}}
+@media(max-width:960px){.sx-gh nav,.sx-gh .lg{display:none}.sx-gh .in{justify-content:space-between;padding:0 16px}.sx-gf .in{padding:0 16px}.sx-gf .bot{margin:0 -16px;padding:20px 16px 28px}}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
+.tw-ft{background:#031a34;color:#fff;font-family:Archivo,ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.43;padding:32px 0 16px;text-align:left}
+.tw-ft *{box-sizing:border-box}
+.tw-ft a{color:#fff;text-decoration:none;font-weight:500}
+.tw-ft a:hover{text-decoration:underline;color:#fff}
+.tw-ft .in{max-width:1440px;margin:0 auto;padding:0 16px}
+.tw-ft .main{display:grid;grid-template-columns:200px minmax(0,1fr) 200px;gap:48px;margin-bottom:32px}
+.tw-ft .logo{display:block;width:132px;margin-bottom:24px}
+.tw-ft .logo img{display:block;width:132px;height:auto}
+.tw-ft .ct{display:flex;gap:10px;margin:0 0 9px;font-weight:600}
+.tw-ft .ct b{font-weight:600;min-width:14px}
+.tw-ft address{font-style:normal;font-weight:500;margin-top:31px;line-height:20px}
+.tw-ft .nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;max-width:680px;margin:0 auto;width:100%}
+.tw-ft .nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.tw-ft .nav .top,.tw-ft .nav .top a{font-weight:700}
+.tw-ft .nav .sub{padding-left:16px}
+.tw-ft .nav .login{color:#00AAE5}
+.tw-ft .soc p{margin:0 0 20px;font-size:16px;font-weight:600}
+.tw-ft .soc svg{display:block;width:40px;height:46px;fill:#fff}
+.tw-ft .bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.85);padding-top:24px}
+.tw-ft .bot span a{font-weight:500}
+@media(max-width:1023px){.tw-ft{padding-top:48px}.tw-ft .main{grid-template-columns:minmax(0,1fr);gap:40px}.tw-ft .nav{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}.tw-ft .in{padding:0 32px}.tw-ft .bot{flex-direction:column;align-items:center;text-align:center}}
+@media(max-width:480px){.tw-ft .nav{grid-template-columns:minmax(0,1fr)}}
+
+</style>
+<style>
+/* ---- Digital Workers pages (parent + catalog). Courtney's DS tokens, Open Sans. ---- */
+body{margin:0;background:#fff;color:var(--text-body)}
+.dw{font-family:var(--font-sans);color:var(--text-body);-webkit-font-smoothing:antialiased}
+.dw *,.dw *::before,.dw *::after{box-sizing:border-box}
+.dw a{color:var(--color-primary);text-decoration:none}
+.dw a:hover{color:var(--color-primary-hover)}
+.dw img{max-width:100%;display:block}
+.dw .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.dw section{padding:72px 0}
+.dw .eyebrow{margin:0;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary)}
+.dw h1,.dw h2,.dw h3{color:var(--text-strong);margin:0;font-weight:800;letter-spacing:-.02em}
+.dw h2{font-size:40px;line-height:1.12;margin-top:14px;text-wrap:balance}
+.dw .lede{font-size:18px;line-height:1.6;margin:16px 0 0;max-width:620px;text-wrap:pretty}
+.dw p{text-wrap:pretty}
+.dw .btn{display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 22px;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-size:15.5px;font-weight:700;border:0;cursor:pointer;font-family:inherit;transition:background var(--dur-base) var(--ease-standard),transform var(--dur-base) var(--ease-standard)}
+.dw .btn:hover{background:var(--color-primary-hover);color:#fff;transform:translateY(-1px)}
+.dw .btn svg{width:17px;height:17px}
+.dw .btn.white{background:#fff;color:#006a9b;box-shadow:0 10px 26px rgba(0,60,100,.18)}
+.dw .btn.white:hover{background:#f2f9fc;color:#00567e}
+.dw .tlink{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:15px}
+.dw .tlink svg{width:16px;height:16px;transition:transform var(--dur-base) var(--ease-standard)}
+.dw .tlink:hover svg{transform:translateX(3px)}
+.dw .hx{flex:none;position:relative;width:46px;height:52px;display:grid;place-items:center;color:var(--color-primary)}
+.dw .hx::before{content:"";position:absolute;inset:0;background:var(--color-primary-subtle);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.dw .hx svg{position:relative;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dw .hx.g{color:var(--color-success-text)}.dw .hx.g::before{background:var(--color-success-subtle)}
+.dw .hx.o{color:var(--color-warning-text)}.dw .hx.o::before{background:var(--color-warning-subtle)}
+.dw .hx.w{color:#fff}.dw .hx.w::before{background:rgba(255,255,255,.14)}
+.dw .crumb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;font-weight:600;color:var(--text-muted);margin:0 0 22px}
+.dw .crumb a{color:var(--text-muted)}.dw .crumb a:hover{color:var(--color-primary)}
+.dw .crumb span[aria-current]{color:var(--text-strong)}
+.dw .crumb i{font-style:normal;color:var(--text-faint)}
+.dw .pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.dw .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.dw .pill.prod{color:var(--color-success-text);background:var(--color-success-subtle)}
+.dw .pill.dev{color:var(--color-warning-text);background:var(--color-warning-subtle)}
+.dw .chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--text-body);background:var(--surface-page);border:1px solid var(--border-default,#dfe3e6);border-radius:6px;padding:4px 10px}
+
+/* Reveal */
+.dw .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.dw .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.dw .rv{opacity:1;transform:none;transition:none}}
+
+/* CTA band (WIY callout pattern) */
+.dw .band{padding:72px 0}
+.dw .band .box{position:relative;overflow:hidden;border-radius:24px;padding:64px 48px;text-align:center;color:#fff;background:linear-gradient(115deg,#0077AF 0%,#1C7EA8 38%,#44842B 78%,#4C8424 100%);box-shadow:0 24px 60px rgba(0,80,120,.18)}
+.dw .band .eyebrow{color:#fff;position:relative}
+.dw .band h2{color:#fff;font-size:42px;margin:14px auto 0;max-width:760px;position:relative}
+.dw .band p{color:#fff;font-size:18px;line-height:1.6;max-width:600px;margin:16px auto 30px;position:relative}
+.dw .band .btn{position:relative}
+
+/* Modal (request form) */
+.dw-modal{position:fixed;inset:0;z-index:200;background:var(--surface-overlay);display:flex;align-items:center;justify-content:center;padding:24px;font-family:var(--font-sans)}
+.dw-modal[hidden]{display:none}
+.dw-modal .dlg{position:relative;width:100%;max-width:560px;max-height:calc(100vh - 48px);overflow:auto;background:#fff;border-radius:16px;box-shadow:var(--shadow-xl);padding:36px}
+.dw-modal .x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--surface-page);color:var(--text-body);cursor:pointer;display:grid;place-items:center}
+.dw-modal .x svg{width:16px;height:16px}
+.dw-modal h3{font-size:24px;font-weight:800;color:var(--text-strong);margin:8px 0 22px;letter-spacing:-.01em}
+.dw-modal label{display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:700;color:var(--text-strong);margin-bottom:16px}
+.dw-modal select,.dw-modal textarea,.dw-modal input{font:inherit;font-weight:400;font-size:15px;color:var(--text-body);border:1px solid var(--slate-200);border-radius:var(--radius-md);padding:0 12px;height:44px;background:#fff}
+.dw-modal textarea{height:auto;padding:12px;resize:vertical}
+.dw-modal select:focus,.dw-modal textarea:focus,.dw-modal input:focus{outline:none;border-color:var(--color-primary);box-shadow:var(--shadow-focus)}
+.dw-modal .sent{display:none}
+.dw-modal.done form{display:none}.dw-modal.done .sent{display:block}
+.dw-modal .ok{width:48px;height:48px;border-radius:50%;background:var(--color-success-subtle);display:grid;place-items:center;color:var(--trio-green)}
+.dw-modal .ok svg{width:22px;height:22px}
+.dw-modal .sent p{font-size:15px;line-height:1.55;margin:10px 0 20px}
+.dw :focus-visible,.dw-modal :focus-visible{outline:3px solid var(--trio-blue-light);outline-offset:2px}
+
+/* ---- Catalog page ---- */
+.c-hero{position:relative;overflow:hidden;background:var(--slate-950);color:#fff;padding:56px 0 64px!important}
+.c-hero::before{content:"";position:absolute;right:-160px;top:-200px;width:640px;height:640px;background:radial-gradient(closest-side,rgba(0,129,187,.42),transparent);pointer-events:none}
+.c-hero::after{content:"";position:absolute;left:-120px;bottom:-260px;width:520px;height:520px;background:radial-gradient(closest-side,rgba(121,187,67,.22),transparent);pointer-events:none}
+.c-hero .wrap{position:relative;z-index:1}
+.c-hero .crumb a,.c-hero .crumb i{color:#fff}.c-hero .crumb span[aria-current]{color:#fff}
+.c-hero .eyebrow{color:#fff}
+.c-hero .top{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:end}
+.c-hero h1{color:#fff;font-size:54px;line-height:1.05;letter-spacing:-.03em;margin-top:14px}
+.c-hero h1 .ln{display:block}
+.c-hero .sub{color:#fff;font-size:18px;line-height:1.6;margin:18px 0 0;max-width:560px}
+.c-hero .tally{display:flex;gap:12px;justify-content:flex-end}
+.c-hero .tally div{min-width:132px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);border-radius:14px;padding:16px 18px}
+.c-hero .tally b{display:block;font-size:34px;line-height:1;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.c-hero .tally span{display:block;font-size:12.5px;font-weight:600;color:#fff;margin-top:8px}
+.search{position:relative;margin-top:36px;max-width:760px}
+.search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--text-muted);pointer-events:none}
+.search input{width:100%;height:58px;border-radius:12px;border:0;padding:0 18px 0 52px;font:inherit;font-size:16.5px;color:var(--text-strong);background:#fff;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.search input::placeholder{color:var(--text-muted)}
+.search input:focus{outline:3px solid var(--trio-blue-light);outline-offset:2px}
+
+/* Stage strip */
+.strip{position:sticky;top:72px;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--slate-150)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:8px;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
+.strip .wrap::-webkit-scrollbar{display:none}
+.strip button{flex:none;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:8px;border:1px solid var(--slate-150);background:#fff;font:inherit;font-size:14px;font-weight:700;color:var(--text-body);cursor:pointer;transition:all var(--dur-base) var(--ease-standard)}
+.strip button .n{font-size:12px;font-weight:800;min-width:22px;height:22px;border-radius:6px;display:inline-grid;place-items:center;background:var(--surface-page);color:var(--text-muted);font-variant-numeric:tabular-nums}
+.strip button:hover{border-color:var(--color-primary-border);color:var(--color-primary)}
+.strip button[aria-pressed="true"]{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
+.strip button[aria-pressed="true"] .n{background:rgba(255,255,255,.2);color:#fff}
+
+/* Layout */
+.c-body{background:var(--surface-page);padding:40px 0 72px!important}
+.c-grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:36px;align-items:start}
+.rail{position:sticky;top:148px;background:#fff;border:1px solid var(--slate-150);border-radius:14px;padding:6px 20px 20px}
+.rail h2{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin:18px 0 10px}
+.rail fieldset{border:0;margin:0;padding:0 0 14px;border-bottom:1px solid var(--slate-150)}
+.rail fieldset:last-of-type{border-bottom:0}
+.rail legend{padding:0}
+.rail label{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:14px;color:var(--text-body);cursor:pointer}
+.rail label span.c{margin-left:auto;font-size:12px;font-weight:700;color:var(--text-faint);font-variant-numeric:tabular-nums}
+.rail input[type=checkbox]{appearance:none;width:18px;height:18px;border:1.5px solid var(--slate-300);border-radius:4px;display:grid;place-items:center;margin:0;flex:none;cursor:pointer;background:#fff}
+.rail input[type=checkbox]:checked{background:var(--color-primary);border-color:var(--color-primary)}
+.rail input[type=checkbox]:checked::after{content:"";width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:translateY(-1px) rotate(-45deg)}
+.rail input[type=checkbox]:focus-visible{outline:3px solid var(--trio-blue-light);outline-offset:2px}
+.rail .clear{margin-top:16px;background:none;border:0;padding:0;font:inherit;font-size:13.5px;font-weight:700;color:var(--color-primary);cursor:pointer}
+.rail .clear[hidden]{display:none}
+.ftoggle{display:none}
+
+.res{min-width:0}
+.res .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.res .bar p{margin:0;font-size:15px;color:var(--text-body)}
+.res .bar p b{color:var(--text-strong)}
+.res .bar label{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;color:var(--text-muted)}
+.res .bar select{font:inherit;font-size:14px;font-weight:600;color:var(--text-strong);height:40px;border:1px solid var(--slate-200);border-radius:8px;padding:0 34px 0 12px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7a84' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 10px center/16px no-repeat;appearance:none}
+.list{display:flex;flex-direction:column;gap:18px}
+
+/* Worker sheet */
+.wk{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);background:#fff;border:1px solid var(--slate-150);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow .25s var(--ease-standard),border-color .25s}
+.wk:hover{box-shadow:var(--shadow-lg);border-color:var(--color-primary-border)}
+.wk[hidden]{display:none}
+.wk .id{padding:28px 30px;display:flex;flex-direction:column}
+.wk .meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.wk .stg{font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--color-primary)}
+.wk .hd{display:flex;gap:16px;align-items:center;margin-top:16px}
+.wk .hd .hx{width:52px;height:58px}.wk .hd .hx svg{width:24px;height:24px}
+.wk h3{font-size:26px;letter-spacing:-.02em}
+.wk .job{margin:14px 0 0;font-size:15.5px;line-height:1.6}
+.wk .proof{display:flex;align-items:center;gap:10px;margin:20px 0 0;font-size:14px;font-weight:700;color:var(--text-strong)}
+.wk .proof svg{width:18px;height:18px;color:var(--trio-green);flex:none}
+.wk .go{margin-top:auto;padding-top:24px}
+.wk .run{background:linear-gradient(160deg,#f3f8fa,#e7ecef);border-left:1px solid var(--slate-150);padding:26px 28px;display:flex;flex-direction:column;gap:16px}
+.wk .run h4{margin:0;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}
+.wk .checks{list-style:none;margin:10px 0 0;padding:0;background:#fff;border:1px solid var(--slate-150);border-radius:12px;overflow:hidden}
+.wk .checks li{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--slate-75);font-size:14px;font-weight:600;color:var(--text-strong)}
+.wk .checks li:last-child{border-bottom:0}
+.wk .checks li svg{width:16px;height:16px;flex:none;color:var(--color-success-text)}
+.wk .checks li.hit{background:var(--color-primary-subtle)}
+.wk .esc{display:flex;gap:12px;align-items:flex-start;background:var(--color-warning-subtle);border:1px solid #cdd3d7;border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.5}
+.wk .esc svg{width:18px;height:18px;flex:none;color:var(--color-warning-text);margin-top:1px}
+.wk .esc b{color:var(--color-warning-text)}
+
+/* Request sheet */
+.req{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;border:2px dashed var(--color-primary-border);border-radius:16px;padding:26px 30px;background:#fff}
+.req .hx{width:52px;height:58px}.req .hx svg{width:24px;height:24px}
+.req h3{font-size:21px;letter-spacing:-.01em}
+.req p{margin:6px 0 0;font-size:15px;line-height:1.55}
+.empty{border-radius:16px;background:#fff;border:1px solid var(--slate-150);padding:36px 30px;text-align:center}
+.empty[hidden]{display:none}
+.empty h3{font-size:21px;margin-top:6px}
+.empty p{margin:8px auto 18px;max-width:460px;font-size:15px;line-height:1.55}
+.empty .hx{margin:0 auto}
+
+@media (max-width:1080px){
+ .c-hero .top{grid-template-columns:minmax(0,1fr);gap:28px}
+ .c-hero .tally{justify-content:flex-start}
+ .c-grid{grid-template-columns:minmax(0,1fr)}
+ .rail{position:static;display:none}
+ .rail.open{display:block}
+ .ftoggle{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:8px;border:1px solid var(--slate-200);background:#fff;font:inherit;font-size:14px;font-weight:700;color:var(--text-strong);cursor:pointer}
+ .ftoggle svg{width:16px;height:16px}
+ .wk{grid-template-columns:minmax(0,1fr)}
+ .wk .run{border-left:0;border-top:1px solid var(--slate-150)}
+}
+@media (max-width:760px){
+ .dw .wrap{padding:0 20px}
+ .c-hero h1{font-size:38px}
+ .c-hero .sub{font-size:16.5px}
+ .c-hero .tally div{min-width:0;flex:1}
+ .strip{top:72px}
+ .strip .wrap{flex-wrap:nowrap;overflow-x:auto;padding:12px 20px}
+ .wk .id,.wk .run{padding:22px}
+ .wk h3{font-size:22px}
+ .req{grid-template-columns:minmax(0,1fr);text-align:left;padding:22px}
+ .dw .band .box{padding:48px 22px}
+ .dw .band h2{font-size:30px}
+}
+</style>
+</head>
+<body>
+<div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a href="../digital-workers-v2/">Digital Workers</a><a class="on" href="../digital-worker-catalog/">DW Catalog</a><a href="../submission-evaluator/">Submission Evaluator</a><a href="../staffing-agencies/">Staffing Agencies</a><a href="../brand/">Brand guide</a></div>
+<div class="concept-note">Digital Worker Catalog: Frogdog design pass on Courtney's 11/17 mockup &bull; worker data and copy are hers &bull; request form is a front-end demo (not wired to HubSpot yet) &bull; site header/footer are placeholders for HubSpot's</div>
+<header class="sx-gh" data-preview-chrome><div class="in">
+<a class="logo" href="https://www.triowfs.com/"><img src="img/trio-logo-primary.png" alt="Trio Workforce Solutions"></a>
+<nav><a class="on" href="https://www.triowfs.com/platform" aria-current="page">Platform</a><a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a><a href="https://www.triowfs.com/resources">Resources</a><a href="https://www.triowfs.com/about">About Us</a></nav>
+<div class="right"><a class="lg" href="https://trio.triovms.com/">Trio MSP Login</a><a class="cta" href="https://www.triowfs.com/request-a-demo">Request a demo</a></div>
+</div></header>
+
+<main class="dw">
+
+<section class="c-hero">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="https://www.triowfs.com/platform">Platform</a><i>/</i><a href="../digital-workers-v2/">Digital Workers</a><i>/</i><span aria-current="page">Catalog</span></nav>
+    <div class="top">
+      <div>
+        <p class="eyebrow">The Catalog</p>
+        <h1><span class="ln">Every Digital Worker,</span> <span class="ln">by the Job It Does.</span></h1>
+        <p class="sub">Each worker owns one task in your program. Filter by where it works and what it checks, then see it run.</p>
+      </div>
+      <div class="tally" aria-label="Catalog at a glance">
+        <div><b id="tLive">2</b><span>In production</span></div>
+        <div><b id="tStages">3</b><span>Program stages covered</span></div>
+      </div>
+    </div>
+    <div class="search" role="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <label for="q" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search the catalog</label>
+      <input id="q" type="search" placeholder="Search by task, like timecards, licensure or overtime" autocomplete="off">
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-label="Filter by program stage"><div class="wrap" id="strip"></div></div>
+
+<section class="c-body">
+  <div class="wrap c-grid">
+    <aside class="rail" id="rail" aria-label="Filters">
+      <form id="filters">
+        <fieldset><legend><h2>Status</h2></legend><div id="fStatus"></div></fieldset>
+        <fieldset><legend><h2>Checks For</h2></legend><div id="fChecks"></div></fieldset>
+      </form>
+      <button class="clear" type="button" id="clear" hidden>Clear filters</button>
+    </aside>
+
+    <div class="res">
+      <div class="bar">
+        <p id="count" aria-live="polite"></p>
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="ftoggle" type="button" id="ftoggle" aria-controls="rail" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filters</button>
+          <label>Sort <select id="sort"><option value="stage">By program stage</option><option value="name">A to Z</option></select></label>
+        </div>
+      </div>
+      <div class="list" id="list"></div>
+      <div class="empty" id="empty" hidden><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><h3>No Worker Here Yet</h3><p>Nothing in the catalog matches that. Tell us the task and we'll look at building a worker for it.</p><button class="btn" type="button" data-req>Request a Digital Worker</button></div>
+      <div class="req" style="margin-top:18px"><span class="hx g" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span><div><h3>Don't See the Job You Need?</h3><p>Tell us which manual task is slowing your program down. We'll tell you whether a worker for it is on the roadmap.</p></div><button class="btn" type="button" data-req>Request a Digital Worker</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" style="background:#fff">
+  <div class="wrap"><div class="box rv">
+    <p class="eyebrow">See It Run</p>
+    <h2>See a Worker Run Against Your Own Data</h2>
+    <p>Bring a week of timecards or submissions. We'll show you what a worker clears, what it escalates and why.</p>
+    <a class="btn white" href="https://www.triowfs.com/request-a-demo">Talk to an Expert <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+  </div></div>
+</section>
+
+</main>
+
+<div class="dw-modal dw" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="dlg">
+    <button class="x" type="button" id="mClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <form id="mForm">
+      <p class="eyebrow" style="margin:0;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary)">Request a Digital Worker</p>
+      <h3 id="mTitle">What Should a Worker Take Off Your Plate?</h3>
+      <label>Where it happens<select id="mStage" required></select></label>
+      <label>Describe the task<textarea id="mTask" rows="4" required placeholder="e.g. We check every float-pool shift against unit assignment rules before payroll."></textarea></label>
+      <label>Work email<input id="mEmail" type="email" required placeholder="you@yourhealthsystem.org" autocomplete="email"></label>
+      <button class="btn" type="submit" style="width:100%;justify-content:center">Send Request</button>
+    </form>
+    <div class="sent" aria-live="polite">
+      <span class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <h3 style="margin-top:14px">Thanks, It's Logged.</h3>
+      <p>Our team reviews every request. We'll reach out if a worker for that task is on the roadmap, or if we need a few more details.</p>
+      <button class="btn" type="button" id="mDone">Back to the Catalog</button>
+    </div>
+  </div>
+</div>
+
+<footer class="tw-ft" role="contentinfo" data-preview-chrome><div class="in">
+<div class="main">
+<div class="brand"><a class="logo" href="https://www.triowfs.com/"><img src="img/trio-ws-logo-wht.png" alt="Trio Workforce Solutions logo" width="132" height="60"></a>
+<p class="ct"><b>E.</b><a href="mailto:marketing@triowfs.com">marketing@triowfs.com</a></p>
+<p class="ct"><b>P.</b><a href="tel:+18009305119">1.800.930.5119</a></p>
+<address>7460 Warren Pkwy<br>Frisco, TX 75034</address></div>
+<nav class="nav" aria-label="Footer">
+<ul><li class="top"><a href="https://www.triowfs.com/platform">Platform</a></li><li class="sub"><a href="https://www.triowfs.com/platform/trio-msp">Trio MSP</a></li><li class="sub"><a href="https://www.triowfs.com/platform/trio-vms-plus">Trio VMS+</a></li><li class="sub"><a href="https://www.triowfs.com/platform/trio-vms-saas">Trio VMS</a></li><li class="sub"><a href="https://www.triowfs.com/platform/enterprise-workforce-management">Enterprise Workforce Management</a></li><li class="sub"><a href="https://www.triowfs.com/platform/internal-resource-management">Internal Resource Management</a></li><li class="sub"><a href="https://www.triowfs.com/platform/market-intelligence">Market Intelligence</a></li><li class="sub"><a href="https://www.triowfs.com/platform/ai-approach">AI Approach</a></li></ul>
+<ul><li class="top"><a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a></li><li class="top"><a href="https://www.triowfs.com/resources">Resources</a></li><li class="top"><a href="https://www.triowfs.com/about">About Us</a></li></ul>
+<ul><li class="top"><a href="https://www.triowfs.com/contact-us">Contact Us</a></li><li><a class="login" href="https://trio.triovms.com/">Trio MSP Login</a></li></ul>
+</nav>
+<div class="soc"><p>Connect With Us</p><a href="https://www.linkedin.com/company/american-health-technology-group" aria-label="Trio on LinkedIn"><svg viewBox="0 0 448 512" role="img" aria-label="LinkedIn icon"><title>LinkedIn icon</title><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a></div>
+</div>
+<div class="bot"><span>&copy; 2026 Trio Workforce Solutions</span><span><a href="https://www.triowfs.com/terms-of-service">Terms of Use</a> | <a href="https://www.triowfs.com/privacy-policy">Privacy Policy</a></span></div>
+</div></footer>
+
+<script>
+(function(){
+  var STAGES = [['all','All workers'],['intake','Requisitions & intake'],['source','Sourcing & submittals'],['onboard','Onboarding & credentialing'],['work','Time & attendance'],['pay','Billing & payroll']];
+  var STATUS = {production:'In production', development:'In development'};
+  var WORKERS = [
+    {id:'timecard-auditor', name:'Timecard Auditor', stages:['work','pay'], status:'production', href:'../timecard-auditor/',
+     icon:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+     job:'Audits every submitted timecard against contract terms, pay rules and shift policy before it reaches an approver.',
+     checks:['Hours vs. schedule','Rate vs. contract','Overtime & differentials','Breaks','Duplicate shifts'],
+     escalates:'variances to the named approver, with the rule and the reason attached.', proof:'Full review in minutes, not days'},
+    {id:'submission-evaluator', name:'Submission Evaluator', stages:['source'], status:'production', href:'../submission-evaluator/',
+     icon:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11l2 2 4-4"/>',
+     job:'Screens every candidate submission against the requisition’s requirements and surfaces findings for a consistent review.',
+     checks:['Licensure','Certifications','Experience','Availability','Rate compliance'],
+     escalates:'gaps and the shortlist decision to the hiring manager.', proof:'Same criteria, every submission'}
+  ];
+  var stageName = {}; STAGES.forEach(function(s){ stageName[s[0]] = s[1]; });
+  var order = {}; STAGES.forEach(function(s, i){ order[s[0]] = i; });
+  var $ = function(id){ return document.getElementById(id); };
+  var esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>';
+
+  var state = {stage:'all', q:'', status:[], checks:[], sort:'stage'};
+  var h = (location.hash || '').slice(1); if (stageName[h]) state.stage = h;
+
+  // Tally
+  $('tLive').textContent = WORKERS.filter(function(w){ return w.status === 'production'; }).length;
+  var cov = {}; WORKERS.forEach(function(w){ w.stages.forEach(function(s){ cov[s] = 1; }); }); $('tStages').textContent = Object.keys(cov).length;
+
+  // Stage strip
+  STAGES.forEach(function(s){
+    var n = s[0] === 'all' ? WORKERS.length : WORKERS.filter(function(w){ return w.stages.indexOf(s[0]) > -1; }).length;
+    var b = document.createElement('button'); b.type = 'button'; b.dataset.stage = s[0];
+    b.innerHTML = esc(s[1]) + ' <span class="n">' + n + '</span>';
+    b.addEventListener('click', function(){ state.stage = s[0]; history.replaceState(null, '', s[0] === 'all' ? location.pathname : '#' + s[0]); render(); });
+    $('strip').appendChild(b);
+  });
+
+  // Rail filters
+  function box(group, val, label, count){
+    return '<label><input type="checkbox" name="' + group + '" value="' + esc(val) + '">' + esc(label) + '<span class="c">' + count + '</span></label>';
+  }
+  $('fStatus').innerHTML = Object.keys(STATUS).filter(function(k){ return WORKERS.some(function(w){ return w.status === k; }); }).map(function(k){ return box('status', k, STATUS[k], WORKERS.filter(function(w){ return w.status === k; }).length); }).join('');
+  var allChecks = []; WORKERS.forEach(function(w){ w.checks.forEach(function(c){ if (allChecks.indexOf(c) < 0) allChecks.push(c); }); });
+  $('fChecks').innerHTML = allChecks.map(function(c){ return box('checks', c, c, WORKERS.filter(function(w){ return w.checks.indexOf(c) > -1; }).length); }).join('');
+  $('filters').addEventListener('change', function(){
+    state.status = [].map.call(document.querySelectorAll('input[name=status]:checked'), function(i){ return i.value; });
+    state.checks = [].map.call(document.querySelectorAll('input[name=checks]:checked'), function(i){ return i.value; });
+    render();
+  });
+  $('clear').addEventListener('click', function(){ $('filters').reset(); state.status = []; state.checks = []; state.q = ''; $('q').value = ''; state.stage = 'all'; history.replaceState(null, '', location.pathname); render(); });
+  $('q').addEventListener('input', function(){ state.q = this.value.trim().toLowerCase(); render(); });
+  $('sort').addEventListener('change', function(){ state.sort = this.value; render(); });
+  $('ftoggle').addEventListener('click', function(){ var o = $('rail').classList.toggle('open'); this.setAttribute('aria-expanded', o); });
+
+  function card(w){
+    var stages = w.stages.map(function(s){ return stageName[s]; }).join(' · ');
+    var hit = state.checks;
+    return '<article class="wk" data-id="' + w.id + '">' +
+      '<div class="id"><div class="meta"><span class="stg">' + esc(stages) + '</span><span class="pill ' + (w.status === 'production' ? 'prod' : 'dev') + '">' + STATUS[w.status] + '</span></div>' +
+      '<div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24">' + w.icon + '</svg></span><h3>' + esc(w.name) + '</h3></div>' +
+      '<p class="job">' + esc(w.job) + '</p>' +
+      '<p class="proof">' + check + esc(w.proof) + '</p>' +
+      '<div class="go"><a class="tlink" href="' + w.href + '">See the worker' + arrow + '<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">: ' + esc(w.name) + '</span></a></div></div>' +
+      '<div class="run"><div><h4>Checks every item for</h4><ul class="checks">' +
+        w.checks.map(function(c){ return '<li' + (hit.indexOf(c) > -1 ? ' class="hit"' : '') + '>' + check + esc(c) + '</li>'; }).join('') +
+      '</ul></div>' +
+      '<div class="esc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span><b>Escalates:</b> ' + esc(w.escalates) + '</span></div></div>' +
+    '</article>';
+  }
+
+  function render(){
+    [].forEach.call(document.querySelectorAll('#strip button'), function(b){ b.setAttribute('aria-pressed', b.dataset.stage === state.stage); });
+    var rows = WORKERS.filter(function(w){
+      if (state.stage !== 'all' && w.stages.indexOf(state.stage) < 0) return false;
+      if (state.status.length && state.status.indexOf(w.status) < 0) return false;
+      if (state.checks.length && !state.checks.every(function(c){ return w.checks.indexOf(c) > -1; })) return false;
+      if (state.q) { var hay = (w.name + ' ' + w.job + ' ' + w.checks.join(' ') + ' ' + w.escalates).toLowerCase(); if (hay.indexOf(state.q) < 0) return false; }
+      return true;
+    });
+    rows.sort(state.sort === 'name' ? function(a, b){ return a.name.localeCompare(b.name); } : function(a, b){ return order[a.stages[0]] - order[b.stages[0]]; });
+    $('list').innerHTML = rows.map(card).join('');
+    $('empty').hidden = rows.length > 0;
+    var where = state.stage === 'all' ? '' : ' in ' + stageName[state.stage].toLowerCase();
+    $('count').innerHTML = '<b>' + rows.length + ' ' + (rows.length === 1 ? 'worker' : 'workers') + '</b>' + esc(where);
+    $('clear').hidden = !(state.status.length || state.checks.length || state.q || state.stage !== 'all');
+  }
+  render();
+  window.addEventListener('hashchange', function(){ var h = location.hash.slice(1); if (stageName[h]) { state.stage = h; render(); } });
+
+  // Request modal
+  var modal = $('modal'), last = null;
+  $('mStage').innerHTML = '<option value="">Choose a stage</option>' + STAGES.slice(1).map(function(s){ return '<option value="' + s[0] + '">' + esc(s[1]) + '</option>'; }).join('') + '<option value="other">Somewhere else</option>';
+  function open(){ last = document.activeElement; modal.hidden = false; modal.classList.remove('done'); if (state.stage !== 'all') $('mStage').value = state.stage; document.body.style.overflow = 'hidden'; $('mStage').focus(); }
+  function close(){ modal.hidden = true; document.body.style.overflow = ''; if (last) last.focus(); }
+  document.addEventListener('click', function(e){ if (e.target.closest('[data-req]')) open(); });
+  $('mClose').addEventListener('click', close); $('mDone').addEventListener('click', close);
+  modal.addEventListener('click', function(e){ if (e.target === modal) close(); });
+  document.addEventListener('keydown', function(e){
+    if (modal.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'Tab') { var f = [].filter.call(modal.querySelectorAll('button,select,textarea,input'), function(x){ return x.offsetParent !== null; }); var a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } }
+  });
+  $('mForm').addEventListener('submit', function(e){ e.preventDefault(); modal.classList.add('done'); $('mDone').focus(); this.reset(); });
+
+  // Reveal
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rvs = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !rm) { var io = new IntersectionObserver(function(es){ es.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }); }, {threshold:.12}); rvs.forEach(function(el){ io.observe(el); }); }
+  else rvs.forEach(function(el){ el.classList.add('in'); });
+})();
+</script>
+<script src="https://ij-script.pages.dev/atarim.js" data-siteid="U3NGMU5CeVhsOHFjcUlGSWNoZ2RxUT09" defer type="module"></script>
+</body>
+</html>

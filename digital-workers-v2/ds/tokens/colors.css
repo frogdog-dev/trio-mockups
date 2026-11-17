@@ -1,0 +1,92 @@
+/* Trio Workforce Solutions — Color tokens
+ * Source of truth: "trio ws logo guidelines.pdf" (PMS / CMYK / RGB specs)
+ * + the Trio VMS and Trio Market Intelligence product UIs.
+ *
+ * The brand is "trio" — three interlocking hexagons in GREEN, BLUE, ORANGE,
+ * anchored by a SLATE wordmark. Those four are the entire brand palette.
+ */
+
+:root {
+  /* ----- Brand core (exact PDF spec) ----- */
+  --trio-green:        #79BB43; /* PMS 376  R121 G187 B67 */
+  --trio-green-light:  #A6CE42; /* PMS 361  R166 G206 B66 */
+  --trio-blue:         #0081BB; /* Process Blue  R0 G129 B187 */
+  --trio-blue-light:   #00AAE5; /* PMS 2995  R0 G170 B229 */
+  --trio-orange:       #F58220; /* PMS 151  R245 G130 B32 */
+  --trio-orange-deep:  #F05523; /* PMS 021  R240 G85 B35 */
+  --trio-slate:        #455560; /* PMS 431  R69 G85 B96  — the wordmark color */
+  --trio-mist:         #E6E7E8; /* PMS 427  R230 G231 B232 */
+
+  /* ----- Neutral / slate scale (derived from --trio-slate) ----- */
+  --slate-950: #1b232a; /* Market Intelligence dark canvas */
+  --slate-900: #232d35;
+  --slate-800: #2f3a43;
+  --slate-700: #3b4954;
+  --slate-600: #455560; /* = brand slate */
+  --slate-500: #5e6e78;
+  --slate-400: #7d8b94;
+  --slate-300: #a7b1b8;
+  --slate-200: #cdd3d7;
+  --slate-150: #dfe3e6;
+  --slate-100: #e6e7e8; /* = brand mist */
+  --slate-75:  #eef1f2;
+  --slate-50:  #f5f7f8;
+  --white:     #ffffff;
+
+  /* ----- Semantic roles ----- */
+  /* Primary action = Process Blue, the dominant interactive color in Trio VMS */
+  --color-primary:        var(--trio-blue);
+  --color-primary-hover:  #006a9b;
+  --color-primary-active:  #00567e;
+  --color-primary-subtle: #e5f3fa;   /* tinted fills, active nav, selected rows */
+  --color-primary-border: #b6dcee;
+
+  /* Accent = orange, used for highlights, "attention", progress, CTAs in marketing */
+  --color-accent:         var(--trio-orange);
+  --color-accent-hover:   #db6f12;
+  --color-accent-subtle:  #fdeede;
+
+  /* Status */
+  --color-success:        var(--trio-green);
+  --color-success-text:   #4e8a1f;
+  --color-success-subtle: #eef6e3;
+  --color-warning:        var(--trio-orange);
+  --color-warning-text:   #b65e10;
+  --color-warning-subtle: #fdf0e1;
+  --color-danger:         #d64550;
+  --color-danger-text:    #b2343e;
+  --color-danger-subtle:  #fce9ea;
+  --color-info:           var(--trio-blue-light);
+  --color-info-subtle:    #e2f6fd;
+
+  /* ----- Text ----- */
+  --text-strong:   #232d35;            /* headings, table headers, key figures */
+  --text-body:     var(--trio-slate);  /* default body copy */
+  --text-muted:    #6b7a84;            /* secondary labels, captions */
+  --text-faint:    #9aa6ad;            /* placeholders, disabled */
+  --text-inverse:  #ffffff;
+  --text-link:     var(--color-primary);
+
+  /* ----- Surfaces ----- */
+  --surface-page:    #f4f6f7;  /* app background behind cards */
+  --surface-card:    #ffffff;
+  --surface-sunken:  #eef1f2;  /* wells, table zebra, inactive fields */
+  --surface-hover:   #f5f7f8;  /* row / item hover */
+  --surface-brand:   var(--trio-slate);  /* the slate top app bar */
+  --surface-brand-2: #3b4954;            /* slate bar gradient bottom */
+  --surface-dark:    var(--slate-950);   /* dark dashboards (Market Intelligence) */
+  --surface-overlay: rgba(27, 35, 42, 0.55); /* modal scrim */
+
+  /* ----- Borders ----- */
+  --border-subtle:  #eceef0;
+  --border-default: #dfe3e6;
+  --border-strong:  #c4ccd1;
+  --border-focus:   var(--trio-blue-light);
+
+  /* Dark-surface (Market Intelligence) tokens */
+  --dark-panel:   #232d35;
+  --dark-border:  #38444e;
+  --dark-text:    #e7ecef;
+  --dark-muted:   #97a3ab;
+  --dark-accent:  #7fe3a0;  /* the mint-green KPI figures */
+}
