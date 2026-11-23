@@ -263,10 +263,24 @@ body{margin:0;background:#fff;color:var(--text-body)}
  .dw .band h2{font-size:30px}
 }
 </style>
+<style>
+/* ---- Round 4: Courtney's 11/20 Atarim edits ---- */
+.c-hero{background:linear-gradient(115deg,#0077AF 0%,#1C7EA8 38%,#44842B 78%,#4C8424 100%)}
+.c-hero::before,.c-hero::after{display:none}
+.c-hero .search input:focus{outline-color:#fff}
+.strip[hidden],.rail[hidden],.ftoggle[hidden],.res .bar label[hidden]{display:none!important}
+.c-grid{grid-template-columns:minmax(0,1fr)}
+.dw .band .box::after{display:none}
+.wk .run.shot{padding:22px;justify-content:center}
+.wk .slot{flex:1;min-height:260px;border:2px dashed #b9cfda;border-radius:12px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:24px;color:var(--text-muted)}
+.wk .slot svg{width:34px;height:34px;color:var(--color-primary)}
+.wk .slot b{font-size:15px;color:var(--text-strong)}
+.wk .slot span{font-size:13px;line-height:1.5;max-width:260px}
+</style>
 </head>
 <body>
 <div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a href="../digital-workers-v2/">Digital Workers</a><a class="on" href="../digital-worker-catalog/">DW Catalog</a><a href="../submission-evaluator/">Submission Evaluator</a><a href="../staffing-agencies/">Staffing Agencies</a><a href="../brand/">Brand guide</a></div>
-<div class="concept-note">Digital Worker Catalog: Frogdog design pass on Courtney's 11/17 mockup &bull; worker data and copy are hers &bull; request form is a front-end demo (not wired to HubSpot yet) &bull; site header/footer are placeholders for HubSpot's</div>
+<div class="concept-note">Digital Worker Catalog: Frogdog design pass on Courtney's 11/17 mockup &bull; worker data and copy are hers &bull; screenshot slots wait on Trio product screenshots &bull; request form is a front-end demo (not wired to HubSpot yet) &bull; site header/footer are placeholders for HubSpot's</div>
 <header class="sx-gh" data-preview-chrome><div class="in">
 <a class="logo" href="https://www.triowfs.com/"><img src="img/trio-logo-primary.png" alt="Trio Workforce Solutions"></a>
 <nav><a class="on" href="https://www.triowfs.com/platform" aria-current="page">Platform</a><a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a><a href="https://www.triowfs.com/resources">Resources</a><a href="https://www.triowfs.com/about">About Us</a></nav>
@@ -282,7 +296,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
       <div>
         <p class="eyebrow">The Catalog</p>
         <h1><span class="ln">Every Digital Worker,</span> <span class="ln">by the Job It Does.</span></h1>
-        <p class="sub">Each worker has one job in your program, runs to your policies inside Trio VMS, and hands exceptions to a named person. Filter by where the work sits in the lifecycle.</p>
+        <p class="sub">Each worker has one job in your program, runs to your policies inside Trio VMS, and hands exceptions to a named person.</p>
       </div>
     </div>
     <div class="search" role="search">
@@ -293,11 +307,12 @@ body{margin:0;background:#fff;color:var(--text-body)}
   </div>
 </section>
 
-<div class="strip" aria-label="Filter by program stage"><div class="wrap" id="strip"></div></div>
+<!-- Stage strip, filters and sort parked 11/20 per Courtney until the catalog has more workers -->
+<div class="strip" aria-label="Filter by program stage" hidden><div class="wrap" id="strip"></div></div>
 
 <section class="c-body">
   <div class="wrap c-grid">
-    <aside class="rail" id="rail" aria-label="Filters">
+    <aside class="rail" id="rail" aria-label="Filters" hidden>
       <form id="filters">
         <fieldset id="fsStatus"><legend><h2>Status</h2></legend><div id="fStatus"></div></fieldset>
         <fieldset><legend><h2>Checks for</h2></legend><div id="fChecks"></div></fieldset>
@@ -309,8 +324,8 @@ body{margin:0;background:#fff;color:var(--text-body)}
       <div class="bar">
         <p id="count" aria-live="polite"></p>
         <div style="display:flex;gap:12px;align-items:center">
-          <button class="ftoggle" type="button" id="ftoggle" aria-controls="rail" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filters</button>
-          <label>Sort <select id="sort"><option value="stage">By program stage</option><option value="name">A to Z</option><option value="zname">Z to A</option></select></label>
+          <button class="ftoggle" type="button" id="ftoggle" hidden aria-controls="rail" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filters</button>
+          <label hidden>Sort <select id="sort"><option value="stage">By program stage</option><option value="name">A to Z</option><option value="zname">Z to A</option></select></label>
         </div>
       </div>
       <div class="list" id="list"></div>
@@ -433,10 +448,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
       '<p class="job">' + esc(w.job) + '</p>' +
       '<p class="proof">' + check + esc(w.proof) + '</p>' +
       '<div class="go"><a class="tlink" href="' + w.href + '">See the worker' + arrow + '<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">: ' + esc(w.name) + '</span></a></div></div>' +
-      '<div class="run"><div><h4>Checks every item for</h4><ul class="checks">' +
-        w.checks.map(function(c){ return '<li' + (hit.indexOf(c) > -1 ? ' class="hit"' : '') + '>' + check + esc(c) + '</li>'; }).join('') +
-      '</ul></div>' +
-      '<div class="esc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span><b>Escalates:</b> ' + esc(w.escalates) + '</span></div></div>' +
+      '<div class="run shot"><div class="slot" role="img" aria-label="' + esc(w.name) + ' product screenshot, coming from Trio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg><b>Product screenshot</b><span>' + esc(w.name) + ' in Trio VMS. Screenshot coming from Trio.</span></div></div>' +
     '</article>';
   }
 

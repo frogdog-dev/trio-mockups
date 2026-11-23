@@ -426,10 +426,148 @@ body{margin:0;background:#fff;color:var(--text-body)}
  .card .row{grid-template-columns:minmax(0,1fr);gap:6px}
 }
 </style>
+<style>
+/* ---- Round 4: Courtney's 11/20 Atarim edits ---- */
+/* Hero: two-line headline, copy left, animated anatomy right */
+.p-hero .grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.p-hero h1{font-size:60px;white-space:normal;margin:16px 0 24px}
+.p-hero .crumb{margin-bottom:22px}
+.anat-hero .src2{gap:10px}
+.anat-hero .src2 .lb{gap:8px}
+.anat-hero .lv{width:8px;height:8px;border-radius:50%;background:var(--trio-green,#79BB43);box-shadow:0 0 0 0 rgba(121,187,67,.5);animation:lvp 2s infinite}
+@keyframes lvp{0%{box-shadow:0 0 0 0 rgba(121,187,67,.5)}70%{box-shadow:0 0 0 7px rgba(121,187,67,0)}100%{box-shadow:0 0 0 0 rgba(121,187,67,0)}}
+.anat-hero .now{font-size:12.5px;font-weight:700;color:var(--color-primary);font-variant-numeric:tabular-nums;opacity:0;transform:translateY(4px);transition:opacity .35s,transform .35s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.anat-hero .now.in{opacity:1;transform:none}
+.anat-hero .pp{margin-left:auto;display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:8px;border:1px solid var(--slate-200);background:#fff;font:inherit;font-size:12.5px;font-weight:700;color:var(--text-strong);cursor:pointer;flex:none}
+.anat-hero .pp svg{width:12px;height:12px}
+.anat-hero .pp:hover{border-color:var(--color-primary);color:var(--color-primary)}
+.anat-hero .card .row{padding-right:20px}
+.anat-hero .card .rec{padding-right:20px;min-height:52px}
+.anat-hero #aJob{transition:opacity .3s}
+.anat-hero .pol{position:relative;transition:background .25s,border-color .25s,color .25s,opacity .3s}
+.anat-hero .pol.on{border-color:var(--color-primary);background:var(--color-primary-subtle);color:var(--color-primary)}
+.anat-hero .pol.ok{border-color:#a9d48a;background:var(--color-success-subtle);color:var(--color-success-text)}
+.anat-hero .pol.ok::before{content:"\2713\00a0"}
+.anat-hero .pol.miss{border-color:#f7b57c;background:var(--color-warning-subtle);color:var(--color-warning-text)}
+.anat-hero .pol.miss::before{content:"!\00a0";font-weight:800}
+.anat-hero .dec span{transition:opacity .3s,box-shadow .3s,transform .3s}
+.anat-hero .dec.live span{opacity:.4}
+.anat-hero .dec.live span.hit{opacity:1;transform:translateY(-1px)}
+.anat-hero .dec .c.hit{box-shadow:0 0 0 2px #79BB43}
+.anat-hero .dec .e.hit{box-shadow:0 0 0 2px #F58220}
+.anat-hero #aRec{transition:opacity .3s}
+.anat-hero #aRec .id{color:var(--color-primary);font-weight:700;font-variant-numeric:tabular-nums}
+/* Statement band: light blue, 10% of brand blue */
+.p-state{background:#e6f2f8;border-color:#cfe6f1}
+/* What is: four points of copy only */
+.notes4{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.notes4 li{border-top:3px solid var(--color-primary);padding-top:18px}
+.notes4 h3{font-size:19px;margin:0 0 8px}
+.notes4 p{margin:0;font-size:15px;line-height:1.6}
+/* Video: white section, full-width true 16:9 frame */
+.p-vid{background:#fff;color:var(--text-body)}
+.p-vid::before{display:none}
+.p-vid h2{color:var(--text-strong)}
+.p-vid .top p:not(.eyebrow){color:var(--text-body)}
+.p-vid .stage{grid-template-columns:minmax(0,1fr)}
+.p-vid .frame{aspect-ratio:16/9;background:#0a0a0a;border:1px solid var(--slate-150);box-shadow:0 30px 60px rgba(35,45,53,.16)}
+.p-vid .frame iframe{right:auto;bottom:auto}
+.p-vid .ctl2{display:flex}
+.p-vid .ctl2 button{border-color:var(--slate-200);color:var(--text-strong);background:#fff}
+.p-vid .ctl2 button:hover{background:var(--surface-page);border-color:var(--color-primary);color:var(--color-primary)}
+/* Boundaries: larger type */
+.bnd{max-width:1120px}
+.bnd .cols span{font-size:32px}
+.bnd .cols svg{width:30px;height:30px}
+.bnd .r{padding:22px 0}
+.bnd .r b{font-size:21px}
+.bnd .r span{font-size:16.5px}
+.bnd .r .m em{font-size:12.5px;padding:6px 13px}
+.bnd .cols,.bnd .r{grid-template-columns:minmax(0,1fr) 150px minmax(0,1fr)}
+/* Governed for trust: own white section, hexagon photo, brand-color hexagons */
+.p-gov{background:#fff}
+.p-gov .gov{margin-top:0;padding-top:0;border-top:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center}
+.p-gov .gov .lede{color:var(--text-body)}
+.p-gov .gov .pr p{color:var(--text-body)}
+.p-gov .gov .tlink{color:var(--color-primary)}.p-gov .gov .tlink:hover{color:var(--color-primary-hover)}
+.p-gov .ph{border-radius:0;overflow:visible;max-width:500px;margin:0 auto;width:100%}
+.p-gov .hexph{clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);aspect-ratio:1/1.1547}
+.p-gov .hexph img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:50% 30%}
+.p-gov .ph .q{position:relative;left:auto;right:auto;bottom:auto;margin:-64px auto 0;max-width:400px;box-shadow:var(--shadow-lg);border:1px solid var(--slate-150)}
+.p-gov .pr{gap:26px}
+.p-gov .pr>div{display:grid;grid-template-columns:52px minmax(0,1fr);gap:18px;align-items:center}
+.p-gov .pr .hx{width:52px;height:58px}
+.p-gov .pr .hx svg{width:24px;height:24px}
+.p-gov .pr h3{margin:0 0 4px}
+.p-gov .pr>div>div{display:block}
+.dw .hx.b,.dw .hx.gr,.dw .hx.or{color:#fff}
+.dw .hx.b::before{background:#0081BB}.dw .hx.gr::before{background:#79BB43}.dw .hx.or::before{background:#F58220}
+/* Lifecycle: all blue hexagons, no line, nothing clickable */
+.life::before{display:none}
+.life .stg .hx{filter:none;color:#fff}
+.life .stg .hx::before{background:var(--color-primary)}
+.life .stg{grid-row:span 3}
+.life{grid-template-rows:auto auto 1fr}
+/* CTA: no hexagon */
+.dw .band .box::after{display:none}
+.dw .band button.btn{font-family:inherit}
+/* Demo scheduler modal (front-end demo, same flow as the displacement page) */
+.dm{position:fixed;inset:0;z-index:100;background:rgba(14,22,28,.6);display:grid;place-items:center;padding:20px;font-family:var(--font-sans)}
+.dm[hidden]{display:none}
+.dm .box{position:relative;width:100%;max-width:820px;max-height:calc(100vh - 40px);overflow:auto;background:#fff;border-radius:18px;box-shadow:0 40px 90px rgba(0,0,0,.35);padding:34px 36px}
+.dm .x{position:absolute;right:14px;top:14px;width:44px;height:44px;border:0;background:none;cursor:pointer;color:var(--text-muted);display:grid;place-items:center}
+.dm .x svg{width:20px;height:20px}
+.dm .kick{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--color-primary);margin:0 0 10px}
+.dm h3{font-size:26px;line-height:1.25;margin:0 0 8px;color:var(--text-strong)}
+.dm .lead{margin:0 0 22px;font-size:15px;line-height:1.65;color:var(--text-muted)}
+.dm .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dm label{display:block;font-size:12.5px;font-weight:600;color:var(--text-body)}
+.dm input{display:block;width:100%;margin-top:7px;padding:12px 14px;border:1px solid #dfe3e6;border-radius:6px;font:inherit;font-size:15px;color:var(--text-strong);background:#fff}
+.dm input:focus{outline:2px solid var(--color-primary);outline-offset:1px;border-color:var(--color-primary)}
+.dm .fine{margin:16px 0 0;font-size:12.5px;color:#9aa6ad}
+.dm .acts{margin-top:24px;display:flex;justify-content:flex-end;align-items:center;gap:20px}
+.dm .acts .sum{margin-right:auto;font-size:13.5px;font-weight:600;color:var(--text-muted)}
+.dm .go{padding:16px 30px;border:0;border-radius:999px;background:#F58220;color:#fff;font:inherit;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(245,130,32,.28)}
+.dm .go:disabled{background:#c8d0d5;box-shadow:none;cursor:default}
+.dm .back{border:0;background:none;font:inherit;font-size:14px;font-weight:700;color:var(--text-muted);cursor:pointer;padding:12px 0}
+.dm .back:hover{color:var(--color-primary)}
+.dm .cal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:32px;align-items:start}
+.dm .who{padding:18px 20px;border:1px solid #eceef0;border-radius:12px;background:#fbfcfc}
+.dm .who small{display:block;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.dm .who b{display:block;font-size:16px;color:var(--text-strong)}
+.dm .who span{display:block;margin-top:4px;font-size:14px;color:var(--text-muted)}
+.dm .pick{border:1px solid #e4e8ea;border-radius:14px;box-shadow:0 8px 26px rgba(27,35,42,.06);padding:20px 22px}
+.dm .pick .mt{padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid #eceef0}
+.dm .pick .mt b{display:block;font-size:15px;color:var(--text-strong)}
+.dm .pick .mt span{font-size:13px;color:#8b979f}
+.dm .mo{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;font-weight:700;color:var(--text-strong);font-size:15px}
+.dm .mo button{width:32px;height:32px;border:1px solid #e4e8ea;border-radius:999px;background:#fff;cursor:pointer;font:700 16px/1 inherit;color:#455560}
+.dm .mo button:disabled{color:#c8d0d5;cursor:default}
+.dm .days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.dm .days .dh{text-align:center;font-size:11px;font-weight:700;color:#9aa6ad;padding:6px 0}
+.dm .days button{height:38px;border:0;border-radius:999px;background:transparent;font:inherit;font-size:14px;font-weight:600;color:var(--text-strong);cursor:pointer}
+.dm .days button:disabled{color:#c8d0d5;cursor:default}
+.dm .days button.sel{background:#79BB43;color:#fff}
+.dm .days button:not(:disabled):not(.sel):hover{background:var(--color-primary-subtle)}
+.dm .times{margin-top:16px;padding-top:14px;border-top:1px solid #eceef0}
+.dm .times p{margin:0 0 10px;font-size:12.5px;font-weight:600;color:var(--text-body)}
+.dm .times .g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dm .times button{padding:11px 0;border:1px solid #dde2e5;border-radius:8px;background:#fff;font:inherit;font-size:13.5px;font-weight:600;color:#455560;cursor:pointer}
+.dm .times button.sel{border-color:var(--color-primary);background:#e5f3fa;color:var(--color-primary)}
+.dm .ok{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.dm .ok i{flex:none;display:grid;place-items:center;width:44px;height:49px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#79BB43;color:#fff;font-style:normal;font-weight:800;font-size:19px}
+.dm .ok span{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#4c8a2a}
+.dm .booked{display:inline-flex;margin:4px 0 6px;padding:14px 20px;background:#f1f8ec;border:1px solid #d4e9c2;border-radius:10px;font-weight:700;color:var(--text-strong)}
+@media (max-width:1080px){.notes4{grid-template-columns:repeat(2,minmax(0,1fr))}.p-gov .gov{grid-template-columns:minmax(0,1fr);gap:40px}}
+@media (max-width:960px){.p-hero .grid{grid-template-columns:minmax(0,1fr);gap:40px}.p-hero h1{font-size:46px}.dm .cal{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){.notes4{grid-template-columns:minmax(0,1fr)}.p-hero h1{font-size:38px}.bnd .cols span{font-size:24px}.bnd .r b{font-size:18px}.bnd .r span{font-size:15px}.dm .box{padding:28px 20px}.dm .fields{grid-template-columns:minmax(0,1fr)}.anat-hero .now{display:none}}
+@media (max-width:760px){.bnd .cols{grid-template-columns:1fr 1fr}.bnd .cols>span:nth-child(2){display:none}.bnd .cols .a{justify-content:flex-start}.bnd .r{grid-template-columns:minmax(0,1fr);gap:8px}.bnd .r .a{text-align:left}.bnd .r .m{justify-content:flex-start;order:-1}.bnd .r .m::before{display:none}}
+@media (prefers-reduced-motion:reduce){.anat-hero .lv{animation:none}}
+</style>
 </head>
 <body>
 <div class="reviewnav"><span class="lbl">Trio concepts</span><a href="../home/">Homepage</a><a class="on" href="../digital-workers-v2/">Digital Workers</a><a href="../digital-worker-catalog/">DW Catalog</a><a href="../submission-evaluator/">Submission Evaluator</a><a href="../staffing-agencies/">Staffing Agencies</a><a href="../brand/">Brand guide</a></div>
-<div class="concept-note">Digital Workers parent page: Frogdog design pass on Courtney's 11/17 mockup &bull; copy is hers &bull; overview video is her animation, unchanged &bull; hero work-stream items are illustrative &bull; site header/footer are placeholders for HubSpot's</div>
+<div class="concept-note">Digital Workers parent page: Frogdog design pass on Courtney's 11/17 mockup &bull; copy is hers &bull; overview video is her animation, unchanged &bull; hero worker example items are illustrative &bull; demo scheduler is front-end only (not wired to HubSpot yet) &bull; site header/footer are placeholders for HubSpot's</div>
 <header class="sx-gh" data-preview-chrome><div class="in">
 <a class="logo" href="https://www.triowfs.com/"><img src="img/trio-logo-primary.png" alt="Trio Workforce Solutions"></a>
 <nav><a class="on" href="https://www.triowfs.com/platform" aria-current="page">Platform</a><a href="https://www.triowfs.com/staffing-agencies">For Staffing Agencies</a><a href="https://www.triowfs.com/resources">Resources</a><a href="https://www.triowfs.com/about">About Us</a></nav>
@@ -440,27 +578,25 @@ body{margin:0;background:#fff;color:var(--text-body)}
 
 <!-- HERO -->
 <section class="p-hero" id="top">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="https://www.triowfs.com/platform">Platform</a><i>/</i><span aria-current="page">Digital Workers</span></nav>
-    <p class="eyebrow">Trio Digital Workers</p>
-    <h1>Meet Your Digital Workforce.</h1>
-  </div>
   <div class="wrap grid">
     <div>
+      <nav class="crumb" aria-label="Breadcrumb"><a href="https://www.triowfs.com/platform">Platform</a><i>/</i><span aria-current="page">Digital Workers</span></nav>
+      <p class="eyebrow">Trio Digital Workers</p>
+      <h1>Meet Your<br>Digital Workforce.</h1>
       <p class="sub">Your team opens every timecard, submission and credential by hand, and most have nothing wrong. Digital workers clear the routine ones to your policies inside Trio VMS and send only the judgment calls to your people.</p>
       <a class="btn" href="../digital-worker-catalog/">Browse the Catalog <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       <p class="proof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>2&times; Everest Group VMS Star Performer</b> &middot; Purpose-built for U.S. healthcare staffing</span></p>
     </div>
-
-    <div class="flow" id="flow">
-      <div class="top"><span class="t">Work arrives in Trio VMS</span><button class="pp" type="button" id="flowPP" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><span>Pause</span></button></div>
-      <div class="body" aria-hidden="true">
-        <div class="col"><h4>Incoming</h4><div class="queue" id="queue"></div></div>
-        <div class="col"><h4>Digital worker</h4><div class="wk2"><div class="who"><span class="hx"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span><span><b id="wName">Timecard Auditor</b><small id="wItem">#TC-88214</small></span></div><ul id="wChecks"></ul><p class="why" id="wWhy"></p></div></div>
-        <div class="col"><h4>Decision</h4><div class="outs"><div class="tile c" id="tileC"><span class="h">Cleared <span class="n" id="nC">41</span></span><p>Meets every policy. Moves forward automatically.</p></div><div class="tile e" id="tileE"><span class="h">Escalated <span class="n" id="nE">3</span></span><p>Needs judgment. Routed to a named reviewer with the rule attached.</p></div></div></div>
+    <div class="anat-hero" id="anim">
+      <div class="src2"><span class="lb"><span class="lv" aria-hidden="true"></span>Work arrives in Trio VMS</span><span class="now" id="aNow" aria-hidden="true"></span><button class="pp" type="button" id="aPP" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><span>Pause</span></button></div>
+      <div class="card" aria-label="Anatomy of a digital worker">
+        <div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24" id="aIcon"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span><span class="t"><small>Anatomy of a digital worker</small><b>Every worker. Same build.</b></span><span class="pill prod">Governed</span></div>
+        <div class="row"><span class="k">Job</span><span class="v"><b>One defined task, every time</b><small id="aJob">e.g. audit a timecard, screen a submission, verify a credential</small></span></div>
+        <div class="row"><span class="k">Policies</span><span class="v"><b>Your program's rules, set by your team</b><span class="pols" id="aPols"><span class="pol">Confirmation letter terms</span><span class="pol">Pay rules</span><span class="pol">Credential requirements</span></span></span></div>
+        <div class="row" style="border-bottom:0"><span class="k">Decision</span><span class="v"><span class="dec"><span class="c" id="aC"><b>Cleared</b>Meets every policy. Moves forward automatically.</span><span class="e" id="aE"><b>Escalated</b>Needs judgment. Routed to a named reviewer with the rule attached.</span></span></span></div>
+        <div class="rec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="m9 15 2 2 4-4"/></svg><span id="aRec"><b>Decision record</b>: the policy applied, the reasoning, the timestamp. Kept for every item.</span></div>
       </div>
-      <div class="rec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="m9 15 2 2 4-4"/></svg><span id="flowRec"><b>Decision record</b> <span class="id">#TC-88214</span>: cleared. Pay rules applied per confirmation letter.</span></div>
-      <p class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Illustration: timecards and candidate submissions arrive in Trio VMS. A digital worker checks each against your policies, clears the routine ones and escalates the rest to a named reviewer, with a decision record for every item.</p>
+      <p class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Illustration: the anatomy of a digital worker. Each one has one job, applies your program's policies, clears or escalates every item and keeps a decision record.</p>
     </div>
   </div>
 </section>
@@ -474,7 +610,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
 </section>
 
 <!-- SEE IT WORK (video) -->
-<section class="p-vid on-dark" id="see-it-work">
+<section class="p-vid" id="see-it-work">
   <div class="wrap">
     <div class="top">
       <div><p class="eyebrow">See it work</p><h2>Watch what changes with a digital worker</h2></div>
@@ -485,16 +621,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
         <div class="frame" id="vidFrame"><div class="poster">Loading the overview&hellip;</div></div>
         <div class="ctl2"><button type="button" id="vPlay" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><span>Pause</span></button><button type="button" id="vRestart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Restart</button></div>
       </div>
-      <ol class="ch" id="chapters" aria-label="What the overview covers">
-        <li class="hd">In this overview</li>
-        <li data-t="0"><span class="tm">0:00</span><b>Every task, by hand</b><span class="d">Shifts, timecards and submissions, all opened by a person</span></li>
-        <li data-t="5.5"><span class="tm">0:05</span><b>The queue grows</b><span class="d">Items pile up and go past due</span></li>
-        <li data-t="13.75"><span class="tm">0:13</span><b>The cost</b><span class="d">A program manager's day fills with busywork</span></li>
-        <li data-t="23.1"><span class="tm">0:23</span><b>A different way</b><span class="d">What if the busywork ran itself?</span></li>
-        <li data-t="27.5"><span class="tm">0:27</span><b>Meet the workers</b><span class="d">Digital workers take the routine queue</span></li>
-        <li data-t="41.25"><span class="tm">0:41</span><b>The outcome</b><span class="d">The workday shifts back toward patient care</span></li>
-        <li data-t="49.5"><span class="tm">0:49</span><b>Where to start</b><span class="d">Pick the work that costs your team the most</span></li>
-      </ol>
+      
     </div>
   </div>
 </section>
@@ -507,45 +634,19 @@ body{margin:0;background:#fff;color:var(--text-body)}
       <h2>Not a chatbot. A worker with one job.</h2>
       <p class="lede">A digital worker doesn't answer questions. It completes a task: scoped to one responsibility, configured to your program and accountable for every outcome. Every worker in the catalog is built the same way, so each one you add is as predictable as the last.</p>
     </div>
-    <div class="anat">
-      <div><div class="src2"><span class="lb">Work arrives in Trio VMS</span><span class="mk" aria-hidden="true">4</span></div>
-      <div class="card" aria-label="Anatomy of a digital worker">
-        <div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span><span class="t"><small>Anatomy of a digital worker</small><b>Every worker. Same build.</b></span><span class="pill prod">Governed</span></div>
-        <div class="row"><span class="k">Job</span><span class="v"><b>One defined task, every time</b><small>e.g. audit a timecard, screen a submission, verify a credential</small></span><span class="mk" aria-hidden="true">1</span></div>
-        <div class="row"><span class="k">Policies</span><span class="v"><b>Your program's rules, set by your team</b><span class="pols"><span class="pol">Confirmation letter terms</span><span class="pol">Pay rules</span><span class="pol">Credential requirements</span></span></span><span class="mk" aria-hidden="true">2</span></div>
-        <div class="row" style="border-bottom:0"><span class="k">Decision</span><span class="v"><span class="dec"><span class="c"><b>Cleared</b>Meets every policy. Moves forward automatically.</span><span class="e"><b>Escalated</b>Needs judgment. Routed to a named reviewer with the rule attached.</span></span></span></div>
-        <div class="rec" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="m9 15 2 2 4-4"/></svg><span><b>Decision record</b>: the policy applied, the reasoning, the timestamp. Kept for every item.</span><span class="mk" aria-hidden="true" style="top:10px">3</span></div>
-      </div></div>
-      <ol class="notes">
-        <li><span class="n" aria-hidden="true">1</span><div><h3>One defined job</h3><p>Each worker owns a single task, like auditing timecards or screening submissions, and does it the same way every time. No drift between reviewers.</p></div></li>
-        <li><span class="n" aria-hidden="true">2</span><div><h3>Your policies, applied</h3><p>Configured to your confirmation letters, pay rules and credential requirements. Not generic defaults.</p></div></li>
-        <li><span class="n" aria-hidden="true">3</span><div><h3>Shows its work</h3><p>Every decision carries the rule it applied and why. Disputes get an answer, not a search.</p></div></li>
-        <li><span class="n" aria-hidden="true">4</span><div><h3>Native to Trio VMS</h3><p>Runs inside the platform that already manages your program. No bolt-on, no new login, no data leaving the system.</p></div></li>
+    <ol class="notes4">
+        <li><h3>One defined job</h3><p>Each worker owns a single task, like auditing timecards or screening submissions, and does it the same way every time. No drift between reviewers.</p></li>
+        <li><h3>Your policies, applied</h3><p>Configured to your confirmation letters, pay rules and credential requirements. Not generic defaults.</p></li>
+        <li><h3>Shows its work</h3><p>Every decision carries the rule it applied and why. Disputes get an answer, not a search.</p></li>
+        <li><h3>Native to Trio VMS</h3><p>Runs inside the platform that already manages your program. No bolt-on, no new login, no data leaving the system.</p></li>
       </ol>
-    </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS: a fork -->
-<section class="p-how">
-  <div class="wrap">
-    <p class="eyebrow">How every digital worker works</p>
-    <h2>Four steps. Every job.</h2>
-    <div class="fork" id="fork">
-      <div class="st" data-i="0"><div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg></span><h3>Intake</h3></div><p>Picks up new work the moment it lands in Trio VMS. No queue, no handoff.</p><span class="ex">Timecard #TC-88214 received</span></div>
-      <div class="lnk" aria-hidden="true"><i></i></div>
-      <div class="st" data-i="1"><div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11l2 2 4-4"/></svg></span><h3>Evaluate</h3></div><p>Checks every item against your program's policies. Nothing is sampled or skimmed.</p><span class="ex">3 of 3 policies checked</span></div>
-      <div class="split" aria-hidden="true"><svg viewBox="0 0 92 300" preserveAspectRatio="none"><path id="pA" d="M0 150 C46 150 46 70 92 70"/><path id="pE" d="M0 150 C46 150 46 230 92 230"/></svg><em class="a">Passes</em><em class="b">Needs judgment</em></div>
-      <div class="outs2">
-        <div class="st" data-i="2"><div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><h3>Act</h3></div><p>Moves clean work forward right away, so pay and starts aren't held up behind review.</p><span class="ex">#TC-88214 cleared and sent to payroll</span></div>
-        <div class="st" data-i="3"><div class="hd"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><h3>Escalate</h3></div><p>Routes anything that needs judgment to a named reviewer, with the rule that triggered it.</p><span class="ex">#TC-88216 bill rate variance to T. Okafor</span></div>
-      </div>
-    </div>
-    <div class="how-ctl"><button type="button" id="howReplay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Replay the steps</button></div>
-  </div>
-</section>
 
-<!-- CONTROL -->
+
+<!-- CONTROL: removed 11/20 per Courtney, kept for later -->
+<template id="backpocket-control">
 <section class="p-ctl">
   <div class="wrap">
     <div class="head"><p class="eyebrow">Working with a digital worker</p><h2>Your team stays in control</h2><p class="lede">Less manual review doesn't mean less oversight. Every digital worker ships with the same three controls.</p></div>
@@ -579,6 +680,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
     </div>
   </div>
 </section>
+</template>
 
 <!-- TRUST: boundaries + governed -->
 <section class="p-trust on-dark">
@@ -592,17 +694,23 @@ body{margin:0;background:#fff;color:var(--text-body)}
       <div class="r"><div class="a"><b>Stays in its lane</b><span>on one defined job, across every supplier and facility.</span></div><div class="m"><em>Scope</em></div><div class="n"><b>Wanders off-task</b><span>A timecard worker never touches a submission.</span></div></div>
       <div class="r"><div class="a"><b>Works inside Trio VMS</b><span>where your data already lives.</span></div><div class="m"><em>Data</em></div><div class="n"><b>Moves your data</b><span>Nothing leaves the system it's in.</span></div></div>
     </div>
+  </div>
+</section>
+
+<!-- GOVERNED: own white section -->
+<section class="p-gov">
+  <div class="wrap">
     <div class="gov">
-      <div class="ph"><img src="img/clinicians-tablet.jpg" alt="Two clinicians reviewing patient information on a tablet and a laptop" loading="lazy" width="1200" height="960">
+      <div class="ph"><div class="hexph"><img src="img/clinicians-tablet.jpg" alt="Two clinicians reviewing patient information on a tablet and a laptop" loading="lazy" width="1200" height="960"></div>
         <div class="q"><span class="hx g" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span><b>You set the autonomy.</b> A worker acts on its own only where your program has approved it. The rest goes to a named reviewer.</span></div></div>
       <div>
         <p class="eyebrow">Governed for trust</p>
         <h2>Built on Trio's Applied AI principles</h2>
-        <p class="lede gov-l" style="color:#fff">Every digital worker, today's and the next, answers to the same three principles.</p>
+        <p class="lede gov-l">Every digital worker, today's and the next, answers to the same three principles.</p>
         <div class="pr">
-          <div><span class="hx w" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h3>Governance</h3><p>Every decision is logged with its reasoning and policy. Fully auditable, always traceable.</p></div></div>
-          <div><span class="hx w" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><h3>Human oversight</h3><p>Clean work moves forward. Anything that needs judgment goes to your team with the reasoning attached.</p></div></div>
-          <div><span class="hx w" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></span><div><h3>Healthcare expertise</h3><p>Credentialing, privileging, differentials, float pools: encoded the way clinical staffing actually works.</p></div></div>
+          <div><span class="hx b" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h3>Governance</h3><p>Every decision is logged with its reasoning and policy. Fully auditable, always traceable.</p></div></div>
+          <div><span class="hx gr" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><h3>Human oversight</h3><p>Clean work moves forward. Anything that needs judgment goes to your team with the reasoning attached.</p></div></div>
+          <div><span class="hx or" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></span><div><h3>Healthcare expertise</h3><p>Credentialing, privileging, differentials, float pools: encoded the way clinical staffing actually works.</p></div></div>
         </div>
         <a class="tlink" href="https://www.triowfs.com/platform/ai-approach">Learn about our Applied AI approach <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       </div>
@@ -615,16 +723,11 @@ body{margin:0;background:#fff;color:var(--text-body)}
   <div class="wrap">
     <div class="head"><p class="eyebrow">Anywhere in your program</p><h2>Wherever the work is repetitive, a digital worker can take it</h2><p>Each worker is deployed on its own. Start where manual review costs your team the most.</p></div>
     <div class="life">
-      <a class="stg" href="../digital-worker-catalog/#intake"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><h3>Requisitions &amp; intake</h3><p>Requisition intake, rate checks, approval routing.</p><span class="w"></span></a>
-      <a class="stg live" href="../digital-worker-catalog/#source"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><h3>Sourcing &amp; submittals</h3><p>Submission screening, specialty match, rate compliance.</p><span class="w"><span>Submission Evaluator</span></span></a>
-      <a class="stg" href="../digital-worker-catalog/#onboard"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Onboarding &amp; credentialing</h3><p>Credential verification, document checks, privileging packets.</p><span class="w"></span></a>
-      <a class="stg live" href="../digital-worker-catalog/#work"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Time &amp; attendance</h3><p>Timecard audits, shift compliance, differential pay.</p><span class="w"><span>Timecard Auditor</span></span></a>
-      <a class="stg live" href="../digital-worker-catalog/#pay"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><h3>Billing &amp; payroll</h3><p>Supplier billing checks, payroll variances, dispute prep.</p><span class="w"><span>Timecard Auditor</span></span></a>
-    </div>
-    <div class="cat">
-      <div class="lead"><h3>The Digital Worker Catalog</h3><p>Every worker in production and in development: what it does, where it fits and how to turn it on for your program.</p><a class="btn white" href="../digital-worker-catalog/">Browse the Catalog <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
-      <a class="wk" href="../timecard-auditor/"><span class="t"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="pill prod">In production</span></span><h3>Timecard Auditor</h3><p>Audits every submitted timecard against contract terms, pay rules and shift policy before it reaches an approver.</p><span class="tlink">See the worker <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a>
-      <a class="wk" href="../submission-evaluator/"><span class="t"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><span class="pill prod">In production</span></span><h3>Submission Evaluator</h3><p>Screens every candidate submission against the requisition's requirements and surfaces findings for a consistent review.</p><span class="tlink">See the worker <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+      <div class="stg"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><h3>Requisitions &amp; intake</h3><p>Requisition intake, rate checks, approval routing.</p></div>
+      <div class="stg"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><h3>Sourcing &amp; submittals</h3><p>Submission screening, specialty match, rate compliance.</p></div>
+      <div class="stg"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Onboarding &amp; credentialing</h3><p>Credential verification, document checks, privileging packets.</p></div>
+      <div class="stg"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Time &amp; attendance</h3><p>Timecard audits, shift compliance, differential pay.</p></div>
+      <div class="stg"><span class="hx" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><h3>Billing &amp; payroll</h3><p>Supplier billing checks, payroll variances, dispute prep.</p></div>
     </div>
   </div>
 </section>
@@ -635,7 +738,7 @@ body{margin:0;background:#fff;color:var(--text-body)}
     <p class="eyebrow">Get started</p>
     <h2>Ready to put a digital worker to work?</h2>
     <p>Stop spending review hours on work that was fine. Find the right worker for your program, or see one run on your own data.</p>
-    <a class="btn white" href="../digital-worker-catalog/">Browse the Catalog <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    <button class="btn white" type="button" data-demo>Request a Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
   </div></div>
 </section>
 
@@ -657,6 +760,50 @@ body{margin:0;background:#fff;color:var(--text-body)}
 <div class="bot"><span>&copy; 2026 Trio Workforce Solutions</span><span><a href="https://www.triowfs.com/terms-of-service">Terms of Use</a> | <a href="https://www.triowfs.com/privacy-policy">Privacy Policy</a></span></div>
 </div></footer>
 
+<div class="dm" id="demo" hidden role="dialog" aria-modal="true" aria-labelledby="dmT">
+  <div class="box">
+    <button class="x" type="button" id="dmX" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <form id="dm1">
+      <p class="kick">Request a demo</p>
+      <h3 id="dmT">See a digital worker run on your program</h3>
+      <p class="lead">Enter your details and you'll go straight to the calendar to choose a time.</p>
+      <div class="fields">
+        <label>First name<input id="dmF" name="firstname" required autocomplete="given-name" placeholder="Jordan"></label>
+        <label>Last name<input id="dmL" name="lastname" required autocomplete="family-name" placeholder="Reyes"></label>
+        <label>Work email<input id="dmE" name="email" type="email" required autocomplete="email" placeholder="you@healthsystem.org"></label>
+        <label>Health system / organization<input id="dmO" name="company" required autocomplete="organization" placeholder="Health system name"></label>
+      </div>
+      <p class="fine">We use this information to set up your demo. We won't share it outside of Trio.</p>
+      <div class="acts"><button class="go" type="submit">Continue to booking</button></div>
+    </form>
+    <div id="dm2" hidden>
+      <p class="kick">Step 2 of 2 &middot; Pick a time</p>
+      <div class="cal">
+        <div>
+          <h3>Book your demo.</h3>
+          <p class="lead">Pick a day and time that work for you. It goes straight onto a Trio specialist's calendar when you confirm, so there's no callback to wait for.</p>
+          <div class="who"><small>Booking for</small><b id="dmWho"></b><span id="dmOrg"></span></div>
+        </div>
+        <div class="pick">
+          <div class="mt"><b>Digital worker demo &middot; 30 minutes</b><span>Video meeting &middot; Central Time (GMT&minus;6)</span></div>
+          <div class="mo"><button type="button" id="dmPrev" aria-label="Previous month">&lsaquo;</button><span id="dmMo"></span><button type="button" id="dmNext" aria-label="Next month">&rsaquo;</button></div>
+          <div class="days" id="dmDays"></div>
+          <div class="times" id="dmTimes"><p style="color:#9aa6ad;font-weight:400;margin:0">Select an available day to see open times.</p></div>
+        </div>
+      </div>
+      <div class="acts"><button class="back" type="button" id="dmBack">&larr; Back</button><span class="sum" id="dmSum"></span><button class="go" type="button" id="dmGo" disabled>Confirm demo</button></div>
+    </div>
+    <div id="dm3" hidden>
+      <div class="ok"><i aria-hidden="true">&#10003;</i><span>Your demo is booked</span></div>
+      <h3>We look forward to meeting with you.</h3>
+      <p class="lead">Your time is locked in and a calendar invite is on its way. A Trio specialist will walk you through a digital worker running on real program items.</p>
+      <div class="booked" id="dmBooked"></div>
+      <div class="acts"><button class="go" type="button" id="dmDone">Done</button></div>
+    </div>
+  </div>
+</div>
+
+
 <script>
 (function(){
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -665,66 +812,54 @@ body{margin:0;background:#fff;color:var(--text-body)}
   var playSvg = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5z"/></svg>';
   function setPP(btn, paused){ btn.setAttribute('aria-pressed', paused); btn.innerHTML = (paused ? playSvg : pauseSvg) + '<span>' + (paused ? 'Play' : 'Pause') + '</span>'; }
 
-  // ---- Hero: work stream (illustrative items) ----
-  var CHECKS = {
-    tc: {w:'Timecard Auditor', ty:'Timecard', c:['Hours vs. schedule','Rate vs. contract','Overtime & differentials']},
-    sb: {w:'Submission Evaluator', ty:'Submission', c:['Licensure','Certifications','Rate compliance']}
+  // ---- Hero: the anatomy card, animated (illustrative items) ----
+  var AN = {
+    tc: {ty:'Timecard', icon:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', job:'Audit timecard', pols:['Confirmation letter terms','Pay rules','Shift policy']},
+    sb: {ty:'Submission', icon:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>', job:'Screen submission', pols:['Requisition requirements','Credential requirements','Rate limits']}
   };
-  var ITEMS = [
-    {k:'tc', id:'#TC-88214', s:'R. Alvarez · 36.0 hrs', ok:'cleared. Pay rules applied per confirmation letter.'},
-    {k:'sb', id:'#SB-20931', s:'ICU RN · Req 4471', ok:'cleared. Meets every requisition requirement.'},
-    {k:'sb', id:'#SB-20933', s:'ICU RN · Req 4471', miss:1, why:'ACLS certification not on file', to:'the hiring manager'},
-    {k:'tc', id:'#TC-88215', s:'M. Chen · 41.0 hrs', ok:'cleared. Overtime applied per confirmation letter.'},
-    {k:'tc', id:'#TC-88216', s:'T. Banks · 38.5 hrs', miss:1, why:'Bill rate above confirmation letter', to:'T. Okafor'},
-    {k:'sb', id:'#SB-20932', s:'Med-Surg · Req 4480', ok:'cleared. Meets every requisition requirement.'}
+  var AITEMS = [
+    {k:'tc', id:'#TC-88214', s:'R. Alvarez, 36.0 hrs', ok:'cleared. Night differential applied per confirmation letter.'},
+    {k:'sb', id:'#SB-20931', s:'ICU RN, Req 4471', ok:'cleared. Meets every requisition requirement.'},
+    {k:'sb', id:'#SB-20933', s:'ICU RN, Req 4471', miss:1, why:'ACLS certification not on file', to:'the hiring manager'},
+    {k:'tc', id:'#TC-88215', s:'M. Chen, 41.0 hrs', ok:'cleared. Overtime applied per confirmation letter.'},
+    {k:'tc', id:'#TC-88216', s:'T. Banks, 38.5 hrs', miss:2, why:'shift outside the approved schedule', to:'T. Okafor'},
+    {k:'sb', id:'#SB-20932', s:'Med-Surg RN, Req 4480', ok:'cleared. Meets every requisition requirement.'}
   ];
-  var q = $('queue'), ul = $('wChecks'), nC = $('nC'), nE = $('nE'), tC = $('tileC'), tE = $('tileE');
-  var c = 41, e = 3, nxt = 0, timers = [], heroTimer = null, paused = false, inView = false, cycles = 0, MAXC = ITEMS.length * 2, STEP = 82;
-  var ICON = {tc:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', sb:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'};
-  function take(){ var it = ITEMS[nxt % ITEMS.length]; nxt++; return it; }
-  function card(it){ var d = document.createElement('div'); d.className = 'qi'; d.it = it; d.innerHTML = '<span class="ty">' + CHECKS[it.k].ty + '</span><b>' + it.id + '</b><span>' + it.s + '</span>'; return d; }
-  function vis(){ return Math.max(1, Math.floor((q.clientHeight + 6) / STEP)); }
-  function layout(){ var n = vis(); [].forEach.call(q.children, function(el, i){ el.style.transform = 'translateY(' + i * STEP + 'px)'; el.style.opacity = i < n ? 1 : 0; }); }
-  function showWorker(it, done){
-    var C = CHECKS[it.k];
-    document.querySelector('.wk2 .who .hx svg').innerHTML = ICON[it.k];
-    $('wName').textContent = C.w; $('wItem').textContent = it.id + ' \u00b7 ' + C.ty.toLowerCase();
-    ul.innerHTML = C.c.map(function(x){ return '<li><i></i>' + x + '</li>'; }).join('');
-    $('wWhy').innerHTML = '';
-    if (done) { [].forEach.call(ul.children, function(li, i){ li.className = it.miss === i ? 'miss' : 'ok'; }); why(it); }
+  var aNow = $('aNow'), aJob = $('aJob'), aPols = $('aPols'), aC = $('aC'), aE = $('aE'), aRec = $('aRec'), aIcon = $('aIcon'), dec = aC.parentNode;
+  var an = 0, aT = [], aTimer = null, aPaused = false, aIn = false, aCycles = 0, AMAX = AITEMS.length * 2, aGo = false;
+  function aLater(fn, ms){ aT.push(setTimeout(fn, ms)); }
+  function aCycle(){
+    var it = AITEMS[an % AITEMS.length], A = AN[it.k]; an++; aCycles++;
+    aNow.classList.remove('in');
+    aLater(function(){ aNow.textContent = A.ty + ' ' + it.id; aNow.classList.add('in'); }, 120);
+    aIcon.innerHTML = A.icon;
+    aJob.style.opacity = 0;
+    aLater(function(){ aJob.textContent = A.job + ' ' + it.id + ' · ' + it.s; aJob.style.opacity = 1; }, 250);
+    aPols.innerHTML = A.pols.map(function(x){ return '<span class="pol">' + x + '</span>'; }).join('');
+    dec.classList.add('live'); aC.classList.remove('hit'); aE.classList.remove('hit');
+    aRec.style.opacity = .35;
+    [].forEach.call(aPols.children, function(el, i){
+      aLater(function(){ el.className = 'pol on'; }, 600 + i * 520);
+      aLater(function(){ el.className = 'pol ' + (it.miss === i ? 'miss' : 'ok'); }, 900 + i * 520);
+    });
+    aLater(function(){
+      var esc = it.miss != null;
+      (esc ? aE : aC).classList.add('hit');
+      aRec.innerHTML = '<b>Decision record</b> <span class="id">' + it.id + '</span>: ' + (esc ? 'escalated to ' + it.to + '. ' + it.why.charAt(0).toUpperCase() + it.why.slice(1) + '.' : it.ok);
+      aRec.style.opacity = 1;
+    }, 900 + 3 * 520 + 200);
+    if (aCycles >= AMAX) aStop(true);
   }
-  function why(it){ $('wWhy').innerHTML = it.miss != null ? '<b>Escalated to ' + it.to + ':</b> ' + it.why + '.' : '<b>Cleared.</b> All three checks pass.'; }
-  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
-  function cycle(){
-    var first = q.firstElementChild, it = first.it; cycles++;
-    first.style.transform = 'translateX(60px)'; first.style.opacity = 0;
-    later(function(){ first.remove(); q.appendChild(card(take())); layout(); }, 450);
-    tC.classList.remove('hit'); tE.classList.remove('hit');
-    showWorker(it);
-    [].forEach.call(ul.children, function(li, i){ later(function(){ li.className = it.miss === i ? 'miss' : 'ok'; }, 500 + i * 380); });
-    later(function(){
-      why(it);
-      if (it.miss != null) { e++; nE.textContent = e; tE.classList.add('hit'); $('flowRec').innerHTML = '<b>Decision record</b> <span class="id">' + it.id + '</span>: escalated to ' + it.to + '. ' + it.why + '.'; }
-      else { c++; nC.textContent = c; tC.classList.add('hit'); $('flowRec').innerHTML = '<b>Decision record</b> <span class="id">' + it.id + '</span>: ' + it.ok; }
-    }, 500 + 3 * 380 + 150);
-    if (cycles >= MAXC) stopHero(true);
-  }
-  var userGo = false;
-  function startHero(){ if (heroTimer || paused || (rm && !userGo)) return; cycle(); heroTimer = setInterval(cycle, 3800); }
-  function stopHero(final){ clearInterval(heroTimer); heroTimer = null; if (final) { paused = true; setPP($('flowPP'), true); } }
-  // initial state: a finished frame
-  var first0 = take(); for (var i = 0; i < 4; i++) q.appendChild(card(take())); layout();
-  showWorker(first0, true); tC.classList.add('hit');
-  window.addEventListener('resize', layout);
-  if (rm) { paused = true; setPP($('flowPP'), true); }
-  $('flowPP').addEventListener('click', function(){ paused = !paused; setPP(this, paused); if (paused) stopHero(); else { cycles = 0; userGo = true; startHero(); } });
-  var flow = $('flow');
-  flow.addEventListener('mouseenter', function(){ stopHero(); }); flow.addEventListener('mouseleave', function(){ if (inView) startHero(); });
-  flow.addEventListener('focusin', function(){ stopHero(); });
-  if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ es.forEach(function(en){ inView = en.isIntersecting; inView ? later(startHero, 1200) : stopHero(); }); }, {threshold:.35}).observe(flow);
+  function aStart(){ if (aTimer || aPaused || (rm && !aGo)) return; aCycle(); aTimer = setInterval(aCycle, 4400); }
+  function aStop(final){ clearInterval(aTimer); aTimer = null; if (final) { aPaused = true; setPP($('aPP'), true); } }
+  if (rm) { aPaused = true; setPP($('aPP'), true); }
+  $('aPP').addEventListener('click', function(){ aPaused = !aPaused; setPP(this, aPaused); if (aPaused) aStop(); else { aCycles = 0; aGo = true; aStart(); } });
+  var anim = $('anim');
+  anim.addEventListener('mouseenter', function(){ aStop(); }); anim.addEventListener('mouseleave', function(){ if (aIn) aStart(); });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ es.forEach(function(en){ aIn = en.isIntersecting; aIn ? aLater(aStart, 900) : aStop(); }); }, {threshold:.35}).observe(anim);
 
   // ---- Video: her animation, our controls + chapter tracking ----
-  var lastT = -1, vEnd = false, frame = $('vidFrame'), loaded = false, chs = document.querySelectorAll('#chapters li[data-t]'), clk = null, f = null;
+  var lastT = -1, vEnd = false, frame = $('vidFrame'), loaded = false, clk = null, f = null;
   function vdoc(){ try { return f && f.contentDocument; } catch (x) { return null; } }
   function vbtn(label){ var d = vdoc(); return d && d.querySelector('button[aria-label^="' + label + '"],button[title^="' + label + '"]'); }
   function loadVid(){
@@ -732,10 +867,10 @@ body{margin:0;background:#fff;color:var(--text-body)}
     f = document.createElement('iframe');
     f.src = 'video/Digital%20Workers%20Overview.dc.html'; f.title = 'Trio Digital Workers overview video'; f.allow = 'autoplay; fullscreen';
     frame.innerHTML = ''; frame.appendChild(f);
-    f.addEventListener('load', function(){ var d = vdoc(); if (d) { var s = d.createElement('style'); s.textContent = 'button[aria-label^="Export"],button[title^="Export"]{display:none!important}'; d.head.appendChild(s); } });
-    // Her player has a fixed-size control bar; below 720px render it at 720 and scale it down to fit.
-    function fit(){ frame.style.aspectRatio = 'auto'; var w = frame.clientWidth, B = Math.max(w, 720), s = w / B, h = Math.round(B * 9 / 16 + 88);
-      f.style.width = B + 'px'; f.style.height = h + 'px'; f.style.transformOrigin = '0 0'; f.style.transform = s < 1 ? 'scale(' + s + ')' : ''; frame.style.height = Math.round(h * s) + 'px'; }
+    f.addEventListener('load', function(){ var d = vdoc(); if (d) { var s = d.createElement('style'); s.textContent = 'button[aria-label^="Export"],button[title^="Export"]{display:none!important}[data-omelette-chrome]{display:none!important}'; d.head.appendChild(s); } });
+    // Render her player at its native 1920x1080 and scale the whole thing to the frame, so the picture is always a true 16:9.
+    // Her playback bar is hidden (our Play/Restart buttons drive it); the 22px offset removes the letterbox her layout adds for that bar.
+    function fit(){ var s = frame.clientWidth / 1920; f.style.width = '1920px'; f.style.height = '1124px'; f.style.transformOrigin = '0 0'; f.style.transform = 'translateY(' + (-22 * s) + 'px) scale(' + s + ')'; }
     fit(); window.addEventListener('resize', fit);
     setInterval(function(){
       var el = clk, t, on = 0, d;
@@ -743,25 +878,11 @@ body{margin:0;background:#fff;color:var(--text-body)}
       if (!el) return;
       var m = el.textContent.trim().split(':'); t = +m[0] * 60 + parseFloat(m[1]);
       var moving = t !== lastT; lastT = t; vEnd = t >= 57; var vb = $('vPlay'); if ((vb.getAttribute('aria-pressed') === 'true') === moving) setPP(vb, !moving);
-      chs.forEach(function(li, i){ if (t >= parseFloat(li.getAttribute('data-t'))) on = i; });
-      chs.forEach(function(li, i){ li.classList.toggle('on', i === on); });
     }, 400);
   }
   $('vPlay').addEventListener('click', function(){ if (vEnd) { var r0 = vbtn('Return to start'); if (r0) r0.click(); } var b = vbtn('Play/pause'); if (b) { b.click(); setPP(this, this.getAttribute('aria-pressed') !== 'true'); } });
   $('vRestart').addEventListener('click', function(){ var b = vbtn('Return to start'); if (b) b.click(); });
   if ('IntersectionObserver' in window) new IntersectionObserver(function(es, o){ if (es.some(function(x){ return x.isIntersecting; })) { loadVid(); o.disconnect(); } }, {threshold:.35}).observe(frame); else loadVid();
-
-  // ---- How it works: one pass through the fork, then stop ----
-  var sts = document.querySelectorAll('#fork .st'), lnk = document.querySelector('#fork .lnk'), pA = $('pA'), pE = $('pE'), forkT = [], picked = false;
-  function setStep(i){
-    sts.forEach(function(s, j){ var on = j === i; s.classList.toggle('on', on); s.classList.toggle('done', j < i && !(i === 3 && j === 2)); on ? s.setAttribute('aria-current', 'step') : s.removeAttribute('aria-current'); });
-    if (lnk) lnk.classList.toggle('on', i >= 1);
-    pA.classList.toggle('on', i === 2); pE.classList.toggle('on', i === 3);
-  }
-  function play(){ forkT.forEach(clearTimeout); forkT = []; [0,1,2,3].forEach(function(i){ forkT.push(setTimeout(function(){ setStep(i); }, i * 1800)); }); }
-  $('howReplay').addEventListener('click', function(){ picked = false; rm ? setStep(3) : play(); });
-  setStep(rm ? 3 : 0);
-  if (!rm && 'IntersectionObserver' in window) new IntersectionObserver(function(es, o){ if (es[0].isIntersecting && !picked) { play(); o.disconnect(); } }, {threshold:.5}).observe($('fork'));
 
   // ---- Control tabs ----
   var tabs = [].slice.call(document.querySelectorAll('.ctl .tab'));
@@ -775,6 +896,49 @@ body{margin:0;background:#fff;color:var(--text-body)}
       if (ev.key === 'Home') n = tabs[0]; if (ev.key === 'End') n = tabs[tabs.length - 1];
       if (n) { ev.preventDefault(); pick(n); n.focus(); }
     });
+  });
+
+  // ---- Request a Demo: self-serve scheduler (front-end demo, same flow as the displacement page) ----
+  var dm = $('demo'), dmLast = null, dmMonth = 0, dmDate = '', dmTime = '';
+  var TIMES = ['8:00 AM', '9:00 AM', '10:30 AM', '1:00 PM', '2:30 PM', '4:00 PM'];
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function dmStep(n){ ['dm1','dm2','dm3'].forEach(function(id, i){ $(id).hidden = i !== n - 1; }); }
+  function dmDay(){ if (!dmDate) return ''; var p = dmDate.split('-'); return new Date(+p[0], p[1] - 1, +p[2]).toLocaleString('en-US', {weekday:'long', month:'long', day:'numeric'}); }
+  function dmDraw(){
+    var now = new Date(), base = new Date(now.getFullYear(), now.getMonth() + dmMonth, 1), y = base.getFullYear(), m = base.getMonth();
+    var t0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    $('dmMo').textContent = base.toLocaleString('en-US', {month:'long', year:'numeric'});
+    $('dmPrev').disabled = dmMonth === 0;
+    var h = 'SMTWTFS'.split('').map(function(d){ return '<span class="dh" aria-hidden="true">' + d + '</span>'; }).join('');
+    for (var i = 0; i < base.getDay(); i++) h += '<span></span>';
+    var dim = new Date(y, m + 1, 0).getDate();
+    for (var d = 1; d <= dim; d++) {
+      var dt = new Date(y, m, d), ok = dt.getDay() >= 1 && dt.getDay() <= 5 && dt >= t0, key = y + '-' + pad(m + 1) + '-' + pad(d);
+      h += '<button type="button" data-d="' + key + '"' + (ok ? '' : ' disabled') + (key === dmDate ? ' class="sel" aria-pressed="true"' : '') + ' aria-label="' + dt.toLocaleString('en-US', {weekday:'long', month:'long', day:'numeric'}) + '">' + d + '</button>';
+    }
+    $('dmDays').innerHTML = h;
+    $('dmTimes').innerHTML = dmDate ? '<p>' + dmDay() + '</p><div class="g">' + TIMES.map(function(t){ return '<button type="button" data-t="' + t + '"' + (t === dmTime ? ' class="sel" aria-pressed="true"' : '') + '>' + t + '</button>'; }).join('') + '</div>' : '<p style="color:#9aa6ad;font-weight:400;margin:0">Select an available day to see open times.</p>';
+    var ready = !!(dmDate && dmTime);
+    $('dmGo').disabled = !ready;
+    $('dmSum').textContent = ready ? dmDay() + ' · ' + dmTime + ' CT' : '';
+  }
+  function dmOpen(){ dmLast = document.activeElement; dmStep(1); dm.hidden = false; document.body.style.overflow = 'hidden'; $('dmF').focus(); }
+  function dmClose(){ dm.hidden = true; document.body.style.overflow = ''; if (dmLast) dmLast.focus(); }
+  document.addEventListener('click', function(e){ if (e.target.closest('[data-demo]')) dmOpen(); });
+  $('dm1').addEventListener('submit', function(e){ e.preventDefault(); $('dmWho').textContent = $('dmF').value + ' ' + $('dmL').value; $('dmOrg').textContent = $('dmO').value + ' · ' + $('dmE').value; dmMonth = 0; dmDate = ''; dmTime = ''; dmDraw(); dmStep(2); $('dmNext').focus(); });
+  $('dmDays').addEventListener('click', function(e){ var b = e.target.closest('button[data-d]'); if (b && !b.disabled) { dmDate = b.getAttribute('data-d'); dmTime = ''; dmDraw(); } });
+  $('dmTimes').addEventListener('click', function(e){ var b = e.target.closest('button[data-t]'); if (b) { dmTime = b.getAttribute('data-t'); dmDraw(); } });
+  $('dmPrev').addEventListener('click', function(){ if (dmMonth > 0) { dmMonth--; dmDraw(); } });
+  $('dmNext').addEventListener('click', function(){ if (dmMonth < 3) { dmMonth++; dmDraw(); } });
+  $('dmBack').addEventListener('click', function(){ dmStep(1); });
+  $('dmGo').addEventListener('click', function(){ $('dmBooked').textContent = dmDay() + ' · ' + dmTime + ' Central Time'; dmStep(3); $('dmDone').focus(); });
+  $('dmX').addEventListener('click', dmClose); $('dmDone').addEventListener('click', function(){ $('dm1').reset(); dmClose(); });
+  dm.addEventListener('click', function(e){ if (e.target === dm) dmClose(); });
+  document.addEventListener('keydown', function(e){
+    if (dm.hidden) return;
+    if (e.key === 'Escape') dmClose();
+    if (e.key === 'Tab') { var f = [].filter.call(dm.querySelectorAll('button,input'), function(x){ return !x.disabled && x.offsetParent !== null; }); var a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } }
   });
 })();
 </script>
